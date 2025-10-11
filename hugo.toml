@@ -1,6 +1,9 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+# hugo.toml
+
+baseURL = 'http://example.org/'
+languageCode = 'zh-cn'
+title = '我的技术博客'
+theme = 'PaperMod'  # <--- 确认这一行存在且主题名正确！
 
 
 [params]
