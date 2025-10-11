@@ -1,0 +1,50 @@
+# .github/workflows/deploy-gh-pages.yml
+
+name: Deploy to GitHub Pages
+
+# 触发条件：当 push 到 main 分支时运行
+on:
+  push:
+    branches:
+      - master
+
+# 任务
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # 使用最新的 Ubuntu 运行环境
+    steps:
+      # 步骤1: 拉取源码，包括子模块（我们的主题）
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # 拉取 Git Submodule
+          fetch-depth: 0    # 拉取所有 history, hugo git info 需要
+
+      # 步骤2: 设置 Hugo 环境
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest' # 或者指定你的版本，如 '0.120.4'
+          extended: true # 安装 extended 版本
+
+      # 步骤3: 构建 Hugo 网站
+      # 注意：baseURL 必须是你的 GitHub Pages 地址
+      - name: Build
+        run: hugo --minify --baseURL "https://gawainx.github.io/"
+
+      # 步骤4: 部署到 GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # 这个 token 是 GitHub Actions 自动生成的，有权限推送到当前仓库
+          # 但我们要推送到另一个仓库，所以需要 personal_access_token 或 deploy_key
+          # 这里我们使用更安全、更推荐的 Deploy Key
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          # 目标仓库，即你刚刚创建的 your-username.github.io
+          external_repository: gawainx/gawainx.github.io
+          # 部署到的分支，GitHub Pages 用户主页通常使用 main 或 master
+          publish_branch: main
+          # 要发布的内容目录，即 Hugo 构建后生成的 public 目录
+          publish_dir: ./public
+          # 提交信息
+          commit_message: ${{ github.event.head_commit.message }}
