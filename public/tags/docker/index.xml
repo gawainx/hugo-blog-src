@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 我的技术博客</title><link>http://example.org/tags/docker/</link><description>Recent content in Docker on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 27 Jun 2018 16:42:27 +0000</lastBuildDate><atom:link href="http://example.org/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>gxd-cli is gawainx' docker client</title><link>http://example.org/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://example.org/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Antarx Blog</title><link>http://antarxly.com/tags/docker/</link><description>Recent content in Docker on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 27 Jun 2018 16:42:27 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>gxd-cli is gawainx' docker client</title><link>http://antarxly.com/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://antarxly.com/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
 &lt;/h1&gt;&lt;p&gt;通过 &lt;code&gt;docker run&lt;/code&gt; 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，&lt;code&gt;gxd-cli&lt;/code&gt;将这些麻烦的工作简化成修改配置文件&lt;code&gt;TOML&lt;/code&gt;达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。&lt;/p&gt;
 &lt;h2 id="功能列表"&gt;功能列表
 &lt;/h2&gt;&lt;ul&gt;
@@ -22,7 +22,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完毕后在命令行通过&lt;code&gt;gxd-cli&lt;/code&gt;调用。&lt;/p&gt;
 &lt;h2 id="项目地址"&gt;项目地址
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
-&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://example.org/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://example.org/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
+&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://antarxly.com/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
 &lt;/h1&gt;&lt;h2 id="端口绑定"&gt;端口绑定
 &lt;/h2&gt;&lt;p&gt;将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的&lt;code&gt;-p 8080:80&lt;/code&gt;解决问题。但在 golang client 中，问题却变得复杂起来。&lt;/p&gt;
 &lt;p&gt;首先来看创建容器的函数签名&lt;code&gt;func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)&lt;/code&gt;,client 把运行配置拆分成了&lt;code&gt;container.Config&lt;/code&gt; 和 &lt;code&gt;container.HostConfig&lt;/code&gt; ，也就是容器内部设置和宿主机设置两项。&lt;/p&gt;
@@ -58,7 +58,7 @@ alt="类型不匹配错误"
 &gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
 &gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>go docker client 使用教程（一）</title><link>http://example.org/posts/go-docker-01/</link><pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate><guid>http://example.org/posts/go-docker-01/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程一"&gt;Docker client for golang 使用教程（一）
+&lt;/ul&gt;</description></item><item><title>go docker client 使用教程（一）</title><link>http://antarxly.com/posts/go-docker-01/</link><pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-01/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程一"&gt;Docker client for golang 使用教程（一）
 &lt;/h1&gt;&lt;p&gt;Docker 官方提供了适用于 golang 的 &lt;a class="link" href="https://github.com/moby/moby/tree/master/client" target="_blank" rel="noopener"
 &gt;client&lt;/a&gt;，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
 &gt;gxd-cli&lt;/a&gt;的过程中，需要大量使用到这个 SDK，所以便有了这个系列。&lt;/p&gt;
@@ -123,7 +123,7 @@ alt="类型不匹配错误"
 &lt;/h2&gt;&lt;p&gt;将自己代码放入容器中运行时最基本的操作，在命令行中通过&lt;code&gt;-v {host vol}:{container vol}&lt;/code&gt;实现，在 golang sdk 中，开发者却没有提供这部分的重要说明。通过查阅&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/155" target="_blank" rel="noopener"
 &gt;issue155&lt;/a&gt;以及&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/132" target="_blank" rel="noopener"
 &gt;issue1&lt;/a&gt;，得到的解决方案如下。&lt;/p&gt;
-&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description></item><item><title>TensorFlow For Docker 初体验</title><link>http://example.org/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://example.org/posts/dockertf/</guid><description>&lt;hr&gt;
+&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description></item><item><title>TensorFlow For Docker 初体验</title><link>http://antarxly.com/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/posts/dockertf/</guid><description>&lt;hr&gt;
 &lt;p&gt;TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。&lt;/p&gt;
 &lt;p&gt;下面分享配置过程。&lt;/p&gt;
 &lt;p&gt;测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00&lt;/p&gt;
@@ -178,7 +178,7 @@ alt="类型不匹配错误"
 loading="lazy"
 alt="多重感知机训练手写数字识别模型"
 &gt;&lt;/p&gt;
-&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>macOS下使用 docker 进行 CSharp 开发（一）</title><link>http://example.org/posts/dotnetdocker/</link><pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate><guid>http://example.org/posts/dotnetdocker/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>macOS下使用 docker 进行 CSharp 开发（一）</title><link>http://antarxly.com/posts/dotnetdocker/</link><pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate><guid>http://antarxly.com/posts/dotnetdocker/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。&lt;/p&gt;
 &lt;p&gt;这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。&lt;/p&gt;
 &lt;h1 id="安装-docker-环境"&gt;安装 Docker 环境

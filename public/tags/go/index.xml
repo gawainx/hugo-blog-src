@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on 我的技术博客</title><link>http://example.org/tags/go/</link><description>Recent content in Go on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 03 Sep 2018 15:25:44 +0000</lastBuildDate><atom:link href="http://example.org/tags/go/index.xml" rel="self" type="application/rss+xml"/><item><title>go模块入门</title><link>http://example.org/posts/gomod/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://example.org/posts/gomod/</guid><description>&lt;h1 id="go-模块入门"&gt;Go 模块入门
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Antarx Blog</title><link>http://antarxly.com/tags/go/</link><description>Recent content in Go on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 03 Sep 2018 15:25:44 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/go/index.xml" rel="self" type="application/rss+xml"/><item><title>go模块入门</title><link>http://antarxly.com/posts/gomod/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://antarxly.com/posts/gomod/</guid><description>&lt;h1 id="go-模块入门"&gt;Go 模块入门
 &lt;/h1&gt;&lt;p&gt;Go1.11 的一个重要特性就是 &lt;code&gt;go modules&lt;/code&gt;，作为 Go 一直以来版本管理顽疾的官方解决方案，自然是非常值得重视的。最近看到一篇文章对它阐述的非常好，所以就翻译过来。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a class="link" href="https://roberto.selbach.ca/intro-to-go-modules/" target="_blank" rel="noopener"
 &gt;Introduction to Go Modules – Roberto Selbach&lt;/a&gt;&lt;/p&gt;
@@ -190,7 +190,7 @@
 &lt;p&gt;需要再次强调的是，Go 模块已经彻底抛弃了 vendoring 思想，转而使用 Go 模块代理，因为很多人不想直接依赖上游版本控制服务。&lt;/p&gt;
 &lt;h2 id="结论"&gt;结论
 &lt;/h2&gt;&lt;p&gt;这篇东西多多少少看起来有点劝退的意味，不过我尝试在一篇文章里解释多个概念，事实上 Go 模块是非常透明的，我们只需要像往常一样在代码中导入需要使用的代码然后&lt;code&gt;go&lt;/code&gt;命令会帮我们做完剩下的所有事情。&lt;/p&gt;
-&lt;p&gt;当我们构建应用的时候，会自动拉取依赖关系。Go 模块同样削弱了&lt;code&gt;$GOPATH&lt;/code&gt;的必要性，这玩意是新入门的 Go 开发者的一大绊脚石，他们往往无法理解问什么所有东西都要放到同一个目录中。&lt;/p&gt;</description></item><item><title>gxd-cli is gawainx' docker client</title><link>http://example.org/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://example.org/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
+&lt;p&gt;当我们构建应用的时候，会自动拉取依赖关系。Go 模块同样削弱了&lt;code&gt;$GOPATH&lt;/code&gt;的必要性，这玩意是新入门的 Go 开发者的一大绊脚石，他们往往无法理解问什么所有东西都要放到同一个目录中。&lt;/p&gt;</description></item><item><title>gxd-cli is gawainx' docker client</title><link>http://antarxly.com/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://antarxly.com/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
 &lt;/h1&gt;&lt;p&gt;通过 &lt;code&gt;docker run&lt;/code&gt; 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，&lt;code&gt;gxd-cli&lt;/code&gt;将这些麻烦的工作简化成修改配置文件&lt;code&gt;TOML&lt;/code&gt;达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。&lt;/p&gt;
 &lt;h2 id="功能列表"&gt;功能列表
 &lt;/h2&gt;&lt;ul&gt;
@@ -214,7 +214,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完毕后在命令行通过&lt;code&gt;gxd-cli&lt;/code&gt;调用。&lt;/p&gt;
 &lt;h2 id="项目地址"&gt;项目地址
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
-&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>golang/dep 包管理（一）原理</title><link>http://example.org/posts/dep/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://example.org/posts/dep/</guid><description>&lt;h1 id="golang-包依赖管理工具"&gt;Golang 包依赖管理工具
+&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>golang/dep 包管理（一）原理</title><link>http://antarxly.com/posts/dep/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://antarxly.com/posts/dep/</guid><description>&lt;h1 id="golang-包依赖管理工具"&gt;Golang 包依赖管理工具
 &lt;/h1&gt;&lt;p&gt;golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了&lt;code&gt;vendor&lt;/code&gt;机制，1.8之后终于有了官方的包管理工具，&lt;code&gt;golang/dep&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://golang.github.io/dep/docs/assets/four-states.png"
 loading="lazy"
@@ -226,7 +226,7 @@ alt="四元组架构"
 &lt;a class="link" href="https://golang.github.io/dep/docs/ensure-mechanics.html" target="_blank" rel="noopener"
 &gt;Models and Mechanisms · dep&lt;/a&gt;
 &lt;a class="link" href="https://github.com/golang/dep" target="_blank" rel="noopener"
-&gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://example.org/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://example.org/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
+&gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://antarxly.com/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
 &lt;/h1&gt;&lt;h2 id="端口绑定"&gt;端口绑定
 &lt;/h2&gt;&lt;p&gt;将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的&lt;code&gt;-p 8080:80&lt;/code&gt;解决问题。但在 golang client 中，问题却变得复杂起来。&lt;/p&gt;
 &lt;p&gt;首先来看创建容器的函数签名&lt;code&gt;func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)&lt;/code&gt;,client 把运行配置拆分成了&lt;code&gt;container.Config&lt;/code&gt; 和 &lt;code&gt;container.HostConfig&lt;/code&gt; ，也就是容器内部设置和宿主机设置两项。&lt;/p&gt;
@@ -262,7 +262,7 @@ alt="类型不匹配错误"
 &gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
 &gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>gorequest中文文档(非官方)</title><link>http://example.org/posts/gorequest-doc/</link><pubDate>Sat, 05 May 2018 19:19:43 +0000</pubDate><guid>http://example.org/posts/gorequest-doc/</guid><description>&lt;h1 id="gorequest指南"&gt;Gorequest指南
+&lt;/ul&gt;</description></item><item><title>gorequest中文文档(非官方)</title><link>http://antarxly.com/posts/gorequest-doc/</link><pubDate>Sat, 05 May 2018 19:19:43 +0000</pubDate><guid>http://antarxly.com/posts/gorequest-doc/</guid><description>&lt;h1 id="gorequest指南"&gt;Gorequest指南
 &lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/parnurzeal/gorequest" target="_blank" rel="noopener"
 &gt;gorequest&lt;/a&gt;为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg"
@@ -426,7 +426,7 @@ alt="GopherGoRequest"
 &gt;Wisi Mongkhonsrisawat&lt;/a&gt; for providing an awesome GoRequest&amp;rsquo;s Gopher image :)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="license"&gt;License
-&lt;/h2&gt;&lt;p&gt;GoRequest is MIT License.&lt;/p&gt;</description></item><item><title>go 语言中 JSON 数据的处理</title><link>http://example.org/posts/gojson/</link><pubDate>Fri, 30 Mar 2018 15:20:31 +0000</pubDate><guid>http://example.org/posts/gojson/</guid><description>&lt;p&gt;Golang 中处理 JSON 格式数据主要依赖&lt;code&gt;encoding/json&lt;/code&gt;这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;GoRequest is MIT License.&lt;/p&gt;</description></item><item><title>go 语言中 JSON 数据的处理</title><link>http://antarxly.com/posts/gojson/</link><pubDate>Fri, 30 Mar 2018 15:20:31 +0000</pubDate><guid>http://antarxly.com/posts/gojson/</guid><description>&lt;p&gt;Golang 中处理 JSON 格式数据主要依赖&lt;code&gt;encoding/json&lt;/code&gt;这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。&lt;/p&gt;
 &lt;h2 id="what"&gt;What
 &lt;/h2&gt;&lt;p&gt;说了这么多，其实并不神秘，就是来自 gin 框架源码中的一句关键定义&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// H is a shortcup for map[string]interface{}&lt;/span&gt;

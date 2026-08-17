@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LeetCode on 我的技术博客</title><link>http://example.org/tags/leetcode/</link><description>Recent content in LeetCode on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 17:22:35 +0000</lastBuildDate><atom:link href="http://example.org/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode股神大激斗</title><link>http://example.org/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://example.org/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LeetCode on Antarx Blog</title><link>http://antarxly.com/tags/leetcode/</link><description>Recent content in LeetCode on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 17:22:35 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode股神大激斗</title><link>http://antarxly.com/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
 &lt;h2 id="no121-买卖股票的最佳时机"&gt;No.121 买卖股票的最佳时机
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个数组 &lt;code&gt;prices&lt;/code&gt; ，它的第 &lt;code&gt;i&lt;/code&gt; 个元素 &lt;code&gt;prices[i]&lt;/code&gt; 表示一支给定股票第 &lt;code&gt;i&lt;/code&gt; 天的价格。&lt;/p&gt;
@@ -129,7 +129,7 @@ S.next(85) 被调用并返回 6。
 99/99 cases passed (340 ms)
 Your runtime beats 40.35 % of python3 submissions
 Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://example.org/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://example.org/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://antarxly.com/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
 &lt;h2 id="55-跳跃游戏"&gt;55 跳跃游戏
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。&lt;/p&gt;
@@ -198,7 +198,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max_pos
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Leetcode 435：无重叠区间</title><link>http://example.org/posts/lt435/</link><pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate><guid>http://example.org/posts/lt435/</guid><description>&lt;h2 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Leetcode 435：无重叠区间</title><link>http://antarxly.com/posts/lt435/</link><pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate><guid>http://antarxly.com/posts/lt435/</guid><description>&lt;h2 id="题目描述"&gt;题目描述
 &lt;/h2&gt;&lt;p&gt;给定一个区间的集合 &lt;code&gt;intervals&lt;/code&gt; ，其中 &lt;code&gt;intervals[i] = [start_i, end_i]&lt;/code&gt; 。返回 需要移除区间的最小数量，使剩余区间互不重叠 。&lt;/p&gt;
 &lt;p&gt;示例 1:&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;输入: intervals = [[1,2],[2,3],[3,4],[1,3]]
@@ -256,7 +256,7 @@ alt="两种情况的示意图"
 58/58 cases passed (224 ms)
 Your runtime beats 59.21 % of python3 submissions
 Your memory usage beats 34.24 % of python3 submissions (39.2 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://example.org/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://example.org/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://antarxly.com/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
 &lt;h2 id="题目描述"&gt;题目描述
 &lt;/h2&gt;&lt;p&gt;给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。&lt;/p&gt;
 &lt;p&gt;在 S 上反复执行重复项删除操作，直到无法继续删除。&lt;/p&gt;

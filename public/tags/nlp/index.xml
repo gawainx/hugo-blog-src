@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NLP on 我的技术博客</title><link>http://example.org/tags/nlp/</link><description>Recent content in NLP on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Aug 2021 19:07:49 +0000</lastBuildDate><atom:link href="http://example.org/tags/nlp/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么Scale-Dot Attention的分母是根号d</title><link>http://example.org/posts/scaledotdk/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://example.org/posts/scaledotdk/</guid><description>&lt;p&gt;今天跟朋友讨论的一道有趣的面试问题：为什么Transformer中Scale-dot attention计算 $Attn = \text{Softmax}(\frac{QK^T}{\sqrt{d_k}})V$，缩放因子一定是$\sqrt{d_k}$ 而不是d_k或者其他形式？&lt;/p&gt;</description></item><item><title>【论文阅读】Generalized Relation Learning with Semantic Correlation Awareness for Link Prediction</title><link>http://example.org/posts/grl/</link><pubDate>Mon, 01 Mar 2021 14:31:38 +0000</pubDate><guid>http://example.org/posts/grl/</guid><description>&lt;p&gt;本文发表于AAAI 2021，关注了知识图谱补全任务的少样本场景问题。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NLP on Antarx Blog</title><link>http://antarxly.com/tags/nlp/</link><description>Recent content in NLP on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Aug 2021 19:07:49 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/nlp/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么Scale-Dot Attention的分母是根号d</title><link>http://antarxly.com/posts/scaledotdk/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://antarxly.com/posts/scaledotdk/</guid><description>&lt;p&gt;今天跟朋友讨论的一道有趣的面试问题：为什么Transformer中Scale-dot attention计算 $Attn = \text{Softmax}(\frac{QK^T}{\sqrt{d_k}})V$，缩放因子一定是$\sqrt{d_k}$ 而不是d_k或者其他形式？&lt;/p&gt;</description></item><item><title>【论文阅读】Generalized Relation Learning with Semantic Correlation Awareness for Link Prediction</title><link>http://antarxly.com/posts/grl/</link><pubDate>Mon, 01 Mar 2021 14:31:38 +0000</pubDate><guid>http://antarxly.com/posts/grl/</guid><description>&lt;p&gt;本文发表于AAAI 2021，关注了知识图谱补全任务的少样本场景问题。&lt;/p&gt;
 &lt;h2 id="核心问题"&gt;核心问题
 &lt;/h2&gt;&lt;p&gt;目前大规模知识图谱普遍存在不完整的问题，需要使用链接预测技术对知识图谱进行补全。而现有的链接预测模型普遍存在两个问题：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;难以应对关系的不平衡性。所谓不平衡，是指不同关系的训练样本数据量级差别&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究-(0)-概览</title><link>http://example.org/posts/mpseg0/</link><pubDate>Mon, 27 Nov 2017 21:48:13 +0000</pubDate><guid>http://example.org/posts/mpseg0/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究-(0)-概览</title><link>http://antarxly.com/posts/mpseg0/</link><pubDate>Mon, 27 Nov 2017 21:48:13 +0000</pubDate><guid>http://antarxly.com/posts/mpseg0/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
 &lt;p&gt;在这篇给出这系列文章的导航帖汇总。&lt;/p&gt;
 &lt;p&gt;至于代码嘛，等交完实验报告再说嗯。。&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg1/" target="_blank" rel="noopener"
@@ -13,7 +13,7 @@
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg3/" target="_blank" rel="noopener"
 &gt;最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg4/" target="_blank" rel="noopener"
-&gt;最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</title><link>http://example.org/posts/mpseg4/</link><pubDate>Sat, 25 Nov 2017 18:04:43 +0000</pubDate><guid>http://example.org/posts/mpseg4/</guid><description>&lt;p&gt;本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。&lt;/p&gt;
+&gt;最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</title><link>http://antarxly.com/posts/mpseg4/</link><pubDate>Sat, 25 Nov 2017 18:04:43 +0000</pubDate><guid>http://antarxly.com/posts/mpseg4/</guid><description>&lt;p&gt;本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。&lt;/p&gt;
 &lt;h1 id="fmm"&gt;FMM
 &lt;/h1&gt;&lt;p&gt;FMM，可以理解成前向（Forward）最长词，就是对一个句子，每次切分找词的时候，都是从前往后“切出”最长的词和剩下的子句，例如：&lt;/p&gt;
 &lt;p&gt;“&lt;strong&gt;有意见分歧&lt;/strong&gt;”这句话，用 FMM 进行切分找第一个词的时候就会切分成：&lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;p&gt;其中，“分歧”是寻找到的“第一个词”，“有意见”是待切分的子句。&lt;/p&gt;
 &lt;p&gt;用 BMM 分词的时候，对每次切分后的子句都反复寻找最长后缀词，直到句子为空。&lt;/p&gt;
 &lt;h1 id="fmm-与-bmm-组合分词"&gt;FMM 与 BMM 组合分词
-&lt;/h1&gt;&lt;p&gt;只用 FMM 或 BMM 进行分词的话，由于算法本身“贪心”的属性，往往得不到最理想的切分结果。所以在进行汉语切分的时候，可以将两个算法结合使用，用于发现歧义（因为对于没有歧义的句子，FMM 和 BMM 得到的切分结果一定是一致的），也可以将两个算法得到的序列计算整句话的概率（利用 BiGram 模型），选取概率较大者作为最终的切分结果。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://example.org/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://example.org/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;只用 FMM 或 BMM 进行分词的话，由于算法本身“贪心”的属性，往往得不到最理想的切分结果。所以在进行汉语切分的时候，可以将两个算法结合使用，用于发现歧义（因为对于没有歧义的句子，FMM 和 BMM 得到的切分结果一定是一致的），也可以将两个算法得到的序列计算整句话的概率（利用 BiGram 模型），选取概率较大者作为最终的切分结果。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://antarxly.com/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://antarxly.com/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
 &lt;h1 id="dag"&gt;DAG
 &lt;/h1&gt;&lt;p&gt;DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为&lt;code&gt;S&lt;/code&gt;，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg"
@@ -88,7 +88,7 @@ alt="有向无环图例子"
 &lt;li&gt;&lt;a class="link" href="http://www.voidcn.com/article/p-gnpklsla-sp.html" target="_blank" rel="noopener"
 &gt;jieba中文分词源码分析（三）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;王小捷老师计算语言学课程相关课件资料&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究（二）BiGram语言模型</title><link>http://example.org/posts/mpseg2/</link><pubDate>Sat, 25 Nov 2017 16:51:06 +0000</pubDate><guid>http://example.org/posts/mpseg2/</guid><description>&lt;p&gt;BiGram 语言模型，也就是二元语法模型，起源于 NGram，属于 N = 2的情况。基本思想是当前词依赖于仅前一个词的出现概率。&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究（二）BiGram语言模型</title><link>http://antarxly.com/posts/mpseg2/</link><pubDate>Sat, 25 Nov 2017 16:51:06 +0000</pubDate><guid>http://antarxly.com/posts/mpseg2/</guid><description>&lt;p&gt;BiGram 语言模型，也就是二元语法模型，起源于 NGram，属于 N = 2的情况。基本思想是当前词依赖于仅前一个词的出现概率。&lt;/p&gt;
 &lt;h1 id="模型简介"&gt;模型简介
 &lt;/h1&gt;&lt;p&gt;N 元语法模型属于概率模型的一种。在 Ngram 语言模型的概念里，我们假设当前词出现的概率依赖于前面&lt;code&gt;N-1&lt;/code&gt;个单词。&lt;/p&gt;
 &lt;h2 id="概率推导"&gt;概率推导
@@ -116,7 +116,7 @@ alt="有向无环图例子"
 &lt;p&gt;而在这个模型表示中，只储存了所有出现过的“双词”搭配，将对未出现的搭配“赋值为1”的过程放在了概率计算部分，加快了模型的加载速度。&lt;/p&gt;
 &lt;h1 id="参考资料"&gt;参考资料
 &lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://book.douban.com/subject/1390499/" target="_blank" rel="noopener"
-&gt;JMBook-自然语言处理综论&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://example.org/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://example.org/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&gt;JMBook-自然语言处理综论&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://antarxly.com/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://antarxly.com/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
 &lt;h1 id="问题"&gt;问题
 &lt;/h1&gt;&lt;p&gt;基于最大概率的汉语切分工具的开发，是要利用计算语言学课上学到的知识，选用合适的模型开发一个汉语分词的工具并且进行代码测试与评估。&lt;/p&gt;
 &lt;h1 id="阶段划分"&gt;阶段划分

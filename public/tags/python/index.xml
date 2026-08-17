@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 我的技术博客</title><link>http://example.org/tags/python/</link><description>Recent content in Python on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 17:22:35 +0000</lastBuildDate><atom:link href="http://example.org/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode股神大激斗</title><link>http://example.org/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://example.org/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Antarx Blog</title><link>http://antarxly.com/tags/python/</link><description>Recent content in Python on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 17:22:35 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode股神大激斗</title><link>http://antarxly.com/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
 &lt;h2 id="no121-买卖股票的最佳时机"&gt;No.121 买卖股票的最佳时机
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个数组 &lt;code&gt;prices&lt;/code&gt; ，它的第 &lt;code&gt;i&lt;/code&gt; 个元素 &lt;code&gt;prices[i]&lt;/code&gt; 表示一支给定股票第 &lt;code&gt;i&lt;/code&gt; 天的价格。&lt;/p&gt;
@@ -129,7 +129,7 @@ S.next(85) 被调用并返回 6。
 99/99 cases passed (340 ms)
 Your runtime beats 40.35 % of python3 submissions
 Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://example.org/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://example.org/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://antarxly.com/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
 &lt;h2 id="55-跳跃游戏"&gt;55 跳跃游戏
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。&lt;/p&gt;
@@ -198,7 +198,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max_pos
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>计算字符串的最短编辑距离（Python版本）</title><link>http://example.org/posts/stredit-python/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://example.org/posts/stredit-python/</guid><description>&lt;h2 id="问题描述"&gt;问题描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>计算字符串的最短编辑距离（Python版本）</title><link>http://antarxly.com/posts/stredit-python/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://antarxly.com/posts/stredit-python/</guid><description>&lt;h2 id="问题描述"&gt;问题描述
 &lt;/h2&gt;&lt;p&gt;&lt;em&gt;Levenshtein&lt;/em&gt; 距离，又称编辑距离，指的是两个字符串之间，由一个转换成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。编辑距离的算法是首先由俄国科学家 Levenshtein 提出的，故又叫 Levenshtein Distance 。&lt;/p&gt;
 &lt;p&gt;例如：
 字符串A: &lt;code&gt;abcdefg&lt;/code&gt;
@@ -233,7 +233,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; rep_dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[i][j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(ins_dist, del_dist, rep_dist)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(table[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://example.org/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://example.org/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://antarxly.com/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
 &lt;h2 id="题目描述"&gt;题目描述
 &lt;/h2&gt;&lt;p&gt;给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。&lt;/p&gt;
 &lt;p&gt;在 S 上反复执行重复项删除操作，直到无法继续删除。&lt;/p&gt;
@@ -319,7 +319,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 106/106 cases passed (68 ms)
 Your runtime beats 77.08 % of python3 submissions
 Your memory usage beats 79.87 % of python3 submissions (15.9 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Write your first command line app using Python</title><link>http://example.org/posts/d3da32/</link><pubDate>Sun, 05 Jul 2020 17:03:34 +0000</pubDate><guid>http://example.org/posts/d3da32/</guid><description>&lt;p&gt;There’re many articles about how to build a python lib, but fewer articles discuss about how to build a command line app using python. This article is to solve the problem.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Write your first command line app using Python</title><link>http://antarxly.com/posts/d3da32/</link><pubDate>Sun, 05 Jul 2020 17:03:34 +0000</pubDate><guid>http://antarxly.com/posts/d3da32/</guid><description>&lt;p&gt;There’re many articles about how to build a python lib, but fewer articles discuss about how to build a command line app using python. This article is to solve the problem.&lt;/p&gt;
 &lt;h2 id="prepare"&gt;Prepare
 &lt;/h2&gt;&lt;p&gt;First, we need some knowledge to help us build a command line tool fluently: &lt;strong&gt;How app like &lt;code&gt;pip&lt;/code&gt; execute when we tap &lt;code&gt;pip&lt;/code&gt; in terminal?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Executable file like &lt;code&gt;pip&lt;/code&gt; and other command line scripts are locate in &lt;code&gt;/Users/{UserName}/miniconda3/envs/{envName}/bin/pip&lt;/code&gt; (My os is macOS Catalina and I use mini-conda for Python env management, in other os, you can type &lt;code&gt;which pip&lt;/code&gt; for more information)&lt;/p&gt;
@@ -367,7 +367,7 @@ Your memory usage beats 79.87 % of python3 submissions (15.9 MB)
 &lt;/h2&gt;&lt;p&gt;In this article, we discuss the very first two steps to build a command line app using Python.&lt;/p&gt;
 &lt;h2 id="reference"&gt;Reference
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://dzone.com/articles/executable-package-pip-install" target="_blank" rel="noopener"
-&gt; Build Your First pip Package &lt;/a&gt;&lt;/p&gt;</description></item><item><title>探索Python的类型标注支持</title><link>http://example.org/posts/28507f36/</link><pubDate>Fri, 03 Jul 2020 10:08:27 +0000</pubDate><guid>http://example.org/posts/28507f36/</guid><description>&lt;h1 id="code初探python类型标注"&gt;【Code】初探Python类型标注
+&gt; Build Your First pip Package &lt;/a&gt;&lt;/p&gt;</description></item><item><title>探索Python的类型标注支持</title><link>http://antarxly.com/posts/28507f36/</link><pubDate>Fri, 03 Jul 2020 10:08:27 +0000</pubDate><guid>http://antarxly.com/posts/28507f36/</guid><description>&lt;h1 id="code初探python类型标注"&gt;【Code】初探Python类型标注
 &lt;/h1&gt;&lt;p&gt;干点轻松的事情，看了一下Python官方文档里面关于类型标注的知识，怎么说，Python官方对于类型检查这个问题的认识，远远比那些Python吹成熟多了（好像说了一句废话，其实想表达的是按照现在Python的发展程度，过于灵活的类型系统早就成了发展的桎梏，官方的态度也表明了这一点，只是还有很多人没有意识到，还沉浸在不用写类型的快感中而已）。作为一个Python黑，对于Python建立健全的类型检查机制这件事上，我是举双手双脚赞成的。&lt;/p&gt;
 &lt;h2 id="从最基本出发"&gt;从最基本出发
 &lt;/h2&gt;&lt;p&gt;先来看看最基本的类型检查
@@ -442,7 +442,7 @@ return f&amp;quot;{(x+y)=}&amp;quot;
 &lt;/h2&gt;&lt;p&gt;官方文档还有很多很有意思的，比如范型和函数重载等等，改天看完敲完代码再更新。从现在开始我写的每一行&lt;code&gt;Python&lt;/code&gt;代码都会全力使用上面说到的所有新特性。&lt;/p&gt;
 &lt;p&gt;Python曾经困扰过我很长很长一段时间，从大三（2015）就开始学的语言，其实直到去年年初我还觉得我没有入门（可以翻历史记录，去年七月的时候还有对Python的吐槽），当中各种痛苦与挣扎，甚至有那么一瞬间会觉得如果博士不能毕业的话，Python肯定是最大的元凶，因为用它真的太痛苦了。直到后面追上新文档的改变之后才感觉打开新世界的大门，现在越用越顺手，甚至开始把平常常用的代码段整理成库发布到PyPI上面。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;很庆幸当初没有因为厌恶和憎恨而逃避它，而是选择去了解它。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;与此同时也庆幸是Python变成了我想要的样子，而不是我改变自己去适应以前的Python。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://example.org/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://example.org/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&lt;p&gt;与此同时也庆幸是Python变成了我想要的样子，而不是我改变自己去适应以前的Python。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://antarxly.com/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://antarxly.com/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
 &lt;h1 id="问题"&gt;问题
 &lt;/h1&gt;&lt;p&gt;基于最大概率的汉语切分工具的开发，是要利用计算语言学课上学到的知识，选用合适的模型开发一个汉语分词的工具并且进行代码测试与评估。&lt;/p&gt;
 &lt;h1 id="阶段划分"&gt;阶段划分
@@ -483,7 +483,7 @@ return f&amp;quot;{(x+y)=}&amp;quot;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; kk &lt;span style="color:#f92672"&gt;in&lt;/span&gt; TTree:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; foreachTree(TTree[kk],string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;kk,file)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对于树这种递归定义的数据结构，解决问题的最方便的方法自然也是递归，由于汉语词汇挂在“树”上的时候，每个节点都是单个“字”，因此需要一个 String 变量作为函数参数，记录前面的遍历状态。&lt;/p&gt;
-&lt;p&gt;要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。&lt;/p&gt;</description></item><item><title>Cygwin安装独立的pip环境</title><link>http://example.org/posts/cygpy/</link><pubDate>Fri, 25 Dec 2015 18:37:31 +0000</pubDate><guid>http://example.org/posts/cygpy/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。&lt;/p&gt;</description></item><item><title>Cygwin安装独立的pip环境</title><link>http://antarxly.com/posts/cygpy/</link><pubDate>Fri, 25 Dec 2015 18:37:31 +0000</pubDate><guid>http://antarxly.com/posts/cygpy/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过&lt;code&gt;pip install virtualenv&lt;/code&gt;命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。&lt;/p&gt;
 &lt;h1 id="安装步骤"&gt;安装步骤
 &lt;/h1&gt;&lt;ol&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BOJ on 我的技术博客</title><link>http://example.org/tags/boj/</link><description>Recent content in BOJ on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Jan 2018 18:13:08 +0000</lastBuildDate><atom:link href="http://example.org/tags/boj/index.xml" rel="self" type="application/rss+xml"/><item><title>网研机试101</title><link>http://example.org/posts/buptoj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://example.org/posts/buptoj/</guid><description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BOJ on Antarx Blog</title><link>http://antarxly.com/tags/boj/</link><description>Recent content in BOJ on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Jan 2018 18:13:08 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/boj/index.xml" rel="self" type="application/rss+xml"/><item><title>网研机试101</title><link>http://antarxly.com/posts/buptoj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://antarxly.com/posts/buptoj/</guid><description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
 &lt;p&gt;实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。&lt;/p&gt;
 &lt;h1 id="简单介绍"&gt;简单介绍
 &lt;/h1&gt;&lt;p&gt;首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。&lt;/p&gt;
@@ -51,7 +51,7 @@
 &lt;p&gt;安利&lt;a class="link" href="https://item.jd.com/1092950325.html" target="_blank" rel="noopener"
 &gt;Hackers&amp;rsquo; Delight&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="基本的算法设计思想"&gt;基本的算法设计思想
-&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description></item><item><title>2017考研-北邮网研院机试试题 ProblemC</title><link>http://example.org/posts/2017c/</link><pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate><guid>http://example.org/posts/2017c/</guid><description>&lt;h1 id="题目大意"&gt;题目大意
+&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description></item><item><title>2017考研-北邮网研院机试试题 ProblemC</title><link>http://antarxly.com/posts/2017c/</link><pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate><guid>http://antarxly.com/posts/2017c/</guid><description>&lt;h1 id="题目大意"&gt;题目大意
 &lt;/h1&gt;&lt;p&gt;求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.&lt;/p&gt;
 &lt;p&gt;Hint: $(a+b)%p = (a%p) + (b%p)$&lt;/p&gt;
 &lt;h1 id="难点和解题思路"&gt;难点和解题思路
@@ -88,7 +88,7 @@
 &lt;li&gt;&lt;code&gt;long long&lt;/code&gt; 类型最好还是使用&lt;code&gt; cout&lt;/code&gt; 来处理读写, 在本机调试时发现,用 &lt;code&gt;printf(&amp;quot;%lld&amp;quot;)&lt;/code&gt;处理出现了奇奇怪怪的 bug, 用&lt;code&gt; cout&lt;/code&gt; 就没事了.&lt;/li&gt;
 &lt;li&gt;数组预处理放在循环以外进行, 否则很有可能超时.&lt;/li&gt;
 &lt;li&gt;上面的示例代码, 在 BOJ 测试时时间性能是59ms( 上限是1000ms)&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>BOJ 解题报告-268进程管理</title><link>http://example.org/posts/268/</link><pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate><guid>http://example.org/posts/268/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/ol&gt;</description></item><item><title>BOJ 解题报告-268进程管理</title><link>http://antarxly.com/posts/268/</link><pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate><guid>http://antarxly.com/posts/268/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;进行 OJ 练习以来做的最复杂的一个题目,A 完之后趁热打铁写个解题报告.&lt;/p&gt;
 &lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;详情访问&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/268/" target="_blank" rel="noopener"
@@ -195,7 +195,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ解题报告(2)-89-统计时间间隔</title><link>http://example.org/posts/89/</link><pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate><guid>http://example.org/posts/89/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ解题报告(2)-89-统计时间间隔</title><link>http://antarxly.com/posts/89/</link><pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate><guid>http://antarxly.com/posts/89/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;给出两个时间(24小时制)，求第一个时间至少要经过多久才能到达第二个时间。给出的时间一定满足的形式，其中x和y分别代表小时和分钟。0≤x&amp;lt;24,0≤y&amp;lt;60。&lt;/p&gt;
 &lt;h1 id="输入输出处理"&gt;输入输出处理
 &lt;/h1&gt;&lt;p&gt;输入格式&lt;code&gt;hh:mm&lt;/code&gt;,也就是在数字时钟中最常见的24小时表示法, 对于这种输入形式, 可以仿照87题中的技巧通过 &lt;code&gt;scanf(&amp;quot;%d:%d&amp;quot;,&amp;amp;hh,&amp;amp;mm)&lt;/code&gt;的形式将时间和分钟分别复制到两个整形变量当中.&lt;/p&gt;
@@ -217,7 +217,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; printf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;,res);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ 解题报告(1)-87-日期</title><link>http://example.org/posts/87-cpp/</link><pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate><guid>http://example.org/posts/87-cpp/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ 解题报告(1)-87-日期</title><link>http://antarxly.com/posts/87-cpp/</link><pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate><guid>http://antarxly.com/posts/87-cpp/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。&lt;/p&gt;
 &lt;p&gt;计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="noopener"

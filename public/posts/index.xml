@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 我的技术博客</title><link>http://example.org/posts/</link><description>Recent content in Posts on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 Aug 2026 09:17:09 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持</title><link>http://example.org/posts/archer-2.0/</link><pubDate>Mon, 17 Aug 2026 09:17:09 +0800</pubDate><guid>http://example.org/posts/archer-2.0/</guid><description>&lt;h1 id="arxivarcherv20-版本更新--大模型阅读--多数据源支持"&gt;【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Antarx Blog</title><link>http://antarxly.com/posts/</link><description>Recent content in Posts on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 17 Aug 2026 09:17:09 +0800</lastBuildDate><atom:link href="http://antarxly.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持</title><link>http://antarxly.com/posts/archer-2.0/</link><pubDate>Mon, 17 Aug 2026 09:17:09 +0800</pubDate><guid>http://antarxly.com/posts/archer-2.0/</guid><description>&lt;h1 id="arxivarcherv20-版本更新--大模型阅读--多数据源支持"&gt;【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持
 &lt;/h1&gt;&lt;p&gt;很久不见。距离上一次的版本发布，转眼竟是已经四个月时间。这四个月里，个人的生活节奏也发生了好多变化，导致这个软件来到了疑似荒废的程度。&lt;/p&gt;
 &lt;p&gt;顺带一提，短短四个月时间，GPT 从5.2一口气到了5.6，我的主力开发工具也从claude code转换到了codex，消费方式也从最开始的PoE API Key到中转站，再到 gpt plus ，再到现在的 Pro Lite。&lt;/p&gt;
 &lt;p&gt;arXivArcher 的上一个发布版本我并不满意，因为它就是一个未完成作品，在消失的四个月里，还是陆陆续续在为它添加新的功能，让它能够更好的满足我的需求。&lt;/p&gt;
@@ -32,7 +32,7 @@
 &lt;/ol&gt;
 &lt;h2 id="beyond---迈向周更"&gt;Beyond - 迈向周更
 &lt;/h2&gt;&lt;p&gt;archer 突然阔别四个月和突然开始更新的原因是同一个 - 因为工作。上一份工作的主力开发系统是Windows，而工作又占据了我非常多的时间，导致根本没有足够的时间自己测试和开发。&lt;/p&gt;
-&lt;p&gt;新的工作终于可以重回macOS作为主力开发机（不得不说，agent时代建议尽可能尝试和使用macOS），终于可以在工作的时候有时间重新看论文、follow 最新的研究趋势，既然开始用了，那就肯定会不断发现新的问题，完善 archer，让它成为一个更加趁手的工具。&lt;/p&gt;</description></item><item><title>我花了2亿tokens，写了一款刷论文的应用</title><link>http://example.org/posts/arxiv-reader/</link><pubDate>Wed, 28 Jan 2026 23:19:31 +0800</pubDate><guid>http://example.org/posts/arxiv-reader/</guid><description>&lt;h1 id="我花了-25-亿tokens写了一款刷论文的应用"&gt;我花了 2.5 亿tokens，写了一款刷论文的应用
+&lt;p&gt;新的工作终于可以重回macOS作为主力开发机（不得不说，agent时代建议尽可能尝试和使用macOS），终于可以在工作的时候有时间重新看论文、follow 最新的研究趋势，既然开始用了，那就肯定会不断发现新的问题，完善 archer，让它成为一个更加趁手的工具。&lt;/p&gt;</description></item><item><title>我花了2亿tokens，写了一款刷论文的应用</title><link>http://antarxly.com/posts/arxiv-reader/</link><pubDate>Wed, 28 Jan 2026 23:19:31 +0800</pubDate><guid>http://antarxly.com/posts/arxiv-reader/</guid><description>&lt;h1 id="我花了-25-亿tokens写了一款刷论文的应用"&gt;我花了 2.5 亿tokens，写了一款刷论文的应用
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;有时候还是要标题党一下的&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;读博的时候，我有每天刷 arxiv 论文的习惯，必不可少的一个应用就是 Inoreader ，因为它可以订阅arxiv 的 RSS，每天获得最新的论文推送。但在AI时代，Inoreader 刷起来总是感觉差了点意思。我理想的流程应该是这样的：&lt;/p&gt;
@@ -84,7 +84,7 @@
 &lt;p&gt;这些都属于bonus，我希望首先做一个能用的产品，然后慢慢做成一个每个计算机甚至理工学科的macOS用户都爱用的产品。&lt;/p&gt;
 &lt;p&gt;对了，还有可能有点用的iOS客户端，可惜，在申请Apple开发者计划的时候，我完美踩中所有雷点，于是我被华丽地黑号了，这个只能看后续随缘解决了。&lt;/p&gt;
 &lt;p&gt;至于会不会收费，目前实现的所有功能都不会收费。当然，如果这个软件真的帮到你完成硕博论文、发出顶会顶刊，也欢迎打赏本文，请我喝杯咖啡。&lt;/p&gt;
-&lt;p&gt;希望 ArxivDailyReader 可以成为你每个工作日下午打开的第一个软件（因为arxiv订阅中午1点更新）&lt;/p&gt;</description></item><item><title>Hello World</title><link>http://example.org/posts/hello-world/</link><pubDate>Sat, 11 Oct 2025 21:44:48 +0800</pubDate><guid>http://example.org/posts/hello-world/</guid><description>&lt;p&gt;Try hugo for my blog!&lt;/p&gt;</description></item><item><title>论文阅读：Backpack Language Models</title><link>http://example.org/posts/230628/</link><pubDate>Wed, 28 Jun 2023 11:15:17 +0000</pubDate><guid>http://example.org/posts/230628/</guid><description>&lt;h1 id="backpack-language-models"&gt;Backpack Language Models
+&lt;p&gt;希望 ArxivDailyReader 可以成为你每个工作日下午打开的第一个软件（因为arxiv订阅中午1点更新）&lt;/p&gt;</description></item><item><title>Hello World</title><link>http://antarxly.com/posts/hello-world/</link><pubDate>Sat, 11 Oct 2025 21:44:48 +0800</pubDate><guid>http://antarxly.com/posts/hello-world/</guid><description>&lt;p&gt;Try hugo for my blog!&lt;/p&gt;</description></item><item><title>论文阅读：Backpack Language Models</title><link>http://antarxly.com/posts/230628/</link><pubDate>Wed, 28 Jun 2023 11:15:17 +0000</pubDate><guid>http://antarxly.com/posts/230628/</guid><description>&lt;h1 id="backpack-language-models"&gt;Backpack Language Models
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;🔗：https://arxiv.org/pdf/2305.16765.pdf
 代码：https://backpackmodels.science
@@ -109,13 +109,13 @@ $&lt;/p&gt;
 &lt;p&gt;文章探索了sense的数量对模型表达能力的影响，结果显示，sense的增加会使得pp值显著下降，伴随的代价就是模型的总参数量也会增大。在sense=16时可以取得比较均衡的结果。&lt;/p&gt;
 &lt;p&gt;在其他实验部分，文章对sense进行可视化分析，结果还是挺显著的。&lt;/p&gt;
 &lt;h2 id="应用"&gt;应用
-&lt;/h2&gt;&lt;p&gt;值得一提的是，文章使用一个单独的章节重点提及backpack使用的方法在可控语言模型方面的应用，包括主题控制生成，缓解模型的性别偏见、借助外部知识完成模型输出的编辑等方面的应用。&lt;/p&gt;</description></item><item><title>本周阅读总结 - 2023 Week 10</title><link>http://example.org/posts/book-week10/</link><pubDate>Mon, 13 Mar 2023 08:26:47 +0000</pubDate><guid>http://example.org/posts/book-week10/</guid><description>&lt;p&gt;本周主要看完了一本书 —— 《不可打扰》&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;值得一提的是，文章使用一个单独的章节重点提及backpack使用的方法在可控语言模型方面的应用，包括主题控制生成，缓解模型的性别偏见、借助外部知识完成模型输出的编辑等方面的应用。&lt;/p&gt;</description></item><item><title>本周阅读总结 - 2023 Week 10</title><link>http://antarxly.com/posts/book-week10/</link><pubDate>Mon, 13 Mar 2023 08:26:47 +0000</pubDate><guid>http://antarxly.com/posts/book-week10/</guid><description>&lt;p&gt;本周主要看完了一本书 —— 《不可打扰》&lt;/p&gt;
 &lt;p&gt;在电子产品、手机屏幕充斥着我们世界的场合，如何跟手机共处成了一个热门的话题。在工作、约会、陪伴孩子的时候，我们总是很容易被手机打扰。作者围绕这个问题给出自己的思考、想法和一系列的行动方案。这里说几个印象比较深刻的点。&lt;/p&gt;
 &lt;h2 id="分心的本质是逃避痛苦"&gt;分心的本质是逃避痛苦
 &lt;/h2&gt;&lt;p&gt;人类是一种善于逃避痛苦的动物。作者认为很多事情都有其本质原因和表面原因。表面上你以为是高端手机、iPhone、电子设备剥夺了你的注意力，实际上有一些更本质的因素在作祟，这个更本质的因素是现实生活中你在面临的痛苦和生活中的难题。为了证明这个观点，作者举了一个TED演讲者的例子，该演讲者的talk中分享自己被计步器的激励机制 ruin 自己生活的故事。可是，在talk背后，演讲者没有透露过的是，自己的生活当时处于糟糕的状态，婚姻摇摇欲坠，找不到心仪的教职工作，才会这样去进入计步器设立的虚拟世界中。&lt;/p&gt;
 &lt;p&gt;一个设计得好的应用程式可以提供很多即时有效的反馈，这些反馈替代了现实中往往很长的反馈链，于是成功剥夺了人的注意力，导致分心的结果&lt;/p&gt;
 &lt;h2 id="作者是如何应对分心的"&gt;作者是如何应对分心的
-&lt;/h2&gt;&lt;p&gt;结合自己的生活，有几个场景让人印象深刻。&lt;/p&gt;</description></item><item><title>2022年任务驱动对话（Task-Oriented Dialogue System）研究进展</title><link>http://example.org/posts/tods2022/</link><pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate><guid>http://example.org/posts/tods2022/</guid><description>&lt;p&gt;本文总结2022年任务驱动对话的研究进展。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;结合自己的生活，有几个场景让人印象深刻。&lt;/p&gt;</description></item><item><title>2022年任务驱动对话（Task-Oriented Dialogue System）研究进展</title><link>http://antarxly.com/posts/tods2022/</link><pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate><guid>http://antarxly.com/posts/tods2022/</guid><description>&lt;p&gt;本文总结2022年任务驱动对话的研究进展。&lt;/p&gt;
 &lt;h2 id="caspi-causal-aware-safe-policy-improvement-for-task-oriented-dialogue"&gt;[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue
 &lt;/h2&gt;&lt;p&gt;来源：ACL 2022 Long Paper&lt;/p&gt;
 &lt;p&gt;使用强化学习策略解决任务驱动对话中的问题：任务驱动对话中的策略学习。&lt;strong&gt;文章认为，任务驱动对话是从离线数据中学习，另一方面强化学习在离线数据训练的时候会导致误差和泛化问题，人类反应的随机性又加剧了这种误差的产生和传播过程&lt;/strong&gt;。这篇文章提出了CASPI这个模型，使用批量化强化学习的方法，从人类反应的意图中学习细粒度的奖励信息。&lt;/p&gt;
@@ -146,7 +146,7 @@ alt="Pipeline of CINS"
 &lt;p&gt;&lt;img src="https://antarx.cn/images/global_woz.png"
 loading="lazy"
 alt="多语言对话系统示例"
-&gt;&lt;/p&gt;</description></item><item><title>2022 年对话情绪识别的研究进展</title><link>http://example.org/posts/dialogue-em-aai/</link><pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate><guid>http://example.org/posts/dialogue-em-aai/</guid><description>&lt;p&gt;这篇文章总结一下对话情绪识别的进展情况，有两篇文章。&lt;/p&gt;
+&gt;&lt;/p&gt;</description></item><item><title>2022 年对话情绪识别的研究进展</title><link>http://antarxly.com/posts/dialogue-em-aai/</link><pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate><guid>http://antarxly.com/posts/dialogue-em-aai/</guid><description>&lt;p&gt;这篇文章总结一下对话情绪识别的进展情况，有两篇文章。&lt;/p&gt;
 &lt;h2 id="is-discourse-role-important-for-emotion-recognition-in-conversation"&gt;Is Discourse Role Important for Emotion Recognition in Conversation?
 &lt;/h2&gt;&lt;p&gt;来源：AAAI 2022&lt;/p&gt;
 &lt;p&gt;这篇文章关注在对话情绪识别中，已有的模型没有利用“Discourse Role Information” 对话角色信息这个东西。对话角色/话语角色这是语言学上的一个概念：&lt;/p&gt;
@@ -159,7 +159,7 @@ alt="多语言对话系统示例"
 &lt;ol&gt;
 &lt;li&gt;监督对比学习：用于更好区分不同的语义信息&lt;/li&gt;
 &lt;li&gt;生成辅助任务：生成任务指的是让模型自己去生成下一段对话的内容，这样做的目的是更能捕捉富文本信息&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>git-lfs 基础使用指南</title><link>http://example.org/posts/git-lfs/</link><pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate><guid>http://example.org/posts/git-lfs/</guid><description>&lt;p&gt;最近用&lt;code&gt;🤗Transformers&lt;/code&gt;的时候发现它们模型已经转移到glfs（git large file system）上，刚好自己想上传数据集的时候也需要用到。顺手了解了一下&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>git-lfs 基础使用指南</title><link>http://antarxly.com/posts/git-lfs/</link><pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate><guid>http://antarxly.com/posts/git-lfs/</guid><description>&lt;p&gt;最近用&lt;code&gt;🤗Transformers&lt;/code&gt;的时候发现它们模型已经转移到glfs（git large file system）上，刚好自己想上传数据集的时候也需要用到。顺手了解了一下&lt;/p&gt;
 &lt;h2 id="配置"&gt;配置
 &lt;/h2&gt;&lt;p&gt;LFS不属于git，而是GitHub开发出来的一套东西，在&lt;code&gt;command line&lt;/code&gt;上使用的话需要安装&lt;a class="link" href="https://git-lfs.github.com" target="_blank" rel="noopener"
 &gt;lsf插件&lt;/a&gt;&lt;/p&gt;
@@ -186,7 +186,7 @@ alt="多语言对话系统示例"
 &gt;Git Large File Storage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="https://git-lfs.github.com/" target="_blank" rel="noopener"
 &gt;Git Large File Storage | Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>论文阅读 BERT for Joint Intent Classification and Slot Filling</title><link>http://example.org/posts/jointbert/</link><pubDate>Thu, 27 Oct 2022 10:31:31 +0000</pubDate><guid>http://example.org/posts/jointbert/</guid><description>&lt;p&gt;发表于2019年的对话意图识别任务的baseline&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>论文阅读 BERT for Joint Intent Classification and Slot Filling</title><link>http://antarxly.com/posts/jointbert/</link><pubDate>Thu, 27 Oct 2022 10:31:31 +0000</pubDate><guid>http://antarxly.com/posts/jointbert/</guid><description>&lt;p&gt;发表于2019年的对话意图识别任务的baseline&lt;/p&gt;
 &lt;p&gt;本文发表时间算比较早了，模型结构比较简单，大体就是以BERT作为encoder编码器部分，对输入序列进行编码获得token的词向量表示&lt;/p&gt;
 &lt;p&gt;意图识别本质就是分类任务，这篇文章使用BERT最后一级的[CLS] 作为句子分类的向量表示。槽填充部分使用分类标注的形式。因为槽填充其实就是在进行命名实体识别，这篇文章也做了CRF作为输出级的实验，从实验结果来看，两个数据集上结果有好有坏。联想到之前做少样本NER的时候，发现其实BERT+MLP+Softmax已经可以获得足够好的性能。CRF是不是真的很好用？现在做NER的看到有很多基于Span分类的方法了。&lt;/p&gt;
 &lt;p&gt;整体模型结构从现在来看是非常简单的，但在一些任务中已经足够好用（实际工程上，同时这个模型代码也比较好看懂和好改，输入输出格式也简单易懂。）&lt;/p&gt;
@@ -194,7 +194,7 @@ alt="多语言对话系统示例"
 &lt;ul&gt;
 &lt;li&gt;[CLS] 单纯做句子分类任务的缺陷在后面的文章已经提到了，有类似Sentence- BERT等更好的句子分类方法&lt;/li&gt;
 &lt;li&gt;虽然可以应用到对话意图识别任务中，但从源代码中可以看到，其实并没有利用对话层面的信息，将对话句子处理成纯文本的形式丢给BERT看的。对话其他关联研究（情绪分类等）支持对对话者信息、对话互动进行建模可以更有效进行表示，不知道放在意图识别这里有没有研究过类似的问题？&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>LeetCode股神大激斗</title><link>http://example.org/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://example.org/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>LeetCode股神大激斗</title><link>http://antarxly.com/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
 &lt;h2 id="no121-买卖股票的最佳时机"&gt;No.121 买卖股票的最佳时机
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个数组 &lt;code&gt;prices&lt;/code&gt; ，它的第 &lt;code&gt;i&lt;/code&gt; 个元素 &lt;code&gt;prices[i]&lt;/code&gt; 表示一支给定股票第 &lt;code&gt;i&lt;/code&gt; 天的价格。&lt;/p&gt;
@@ -325,7 +325,7 @@ S.next(85) 被调用并返回 6。
 99/99 cases passed (340 ms)
 Your runtime beats 40.35 % of python3 submissions
 Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://example.org/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://example.org/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://antarxly.com/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
 &lt;h2 id="55-跳跃游戏"&gt;55 跳跃游戏
 &lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
 &lt;/h3&gt;&lt;p&gt;给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。&lt;/p&gt;
@@ -394,7 +394,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max_pos
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>计算字符串的最短编辑距离（Python版本）</title><link>http://example.org/posts/stredit-python/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://example.org/posts/stredit-python/</guid><description>&lt;h2 id="问题描述"&gt;问题描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>计算字符串的最短编辑距离（Python版本）</title><link>http://antarxly.com/posts/stredit-python/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://antarxly.com/posts/stredit-python/</guid><description>&lt;h2 id="问题描述"&gt;问题描述
 &lt;/h2&gt;&lt;p&gt;&lt;em&gt;Levenshtein&lt;/em&gt; 距离，又称编辑距离，指的是两个字符串之间，由一个转换成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。编辑距离的算法是首先由俄国科学家 Levenshtein 提出的，故又叫 Levenshtein Distance 。&lt;/p&gt;
 &lt;p&gt;例如：
 字符串A: &lt;code&gt;abcdefg&lt;/code&gt;
@@ -429,7 +429,7 @@ Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; rep_dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[i][j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(ins_dist, del_dist, rep_dist)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(table[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Leetcode 435：无重叠区间</title><link>http://example.org/posts/lt435/</link><pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate><guid>http://example.org/posts/lt435/</guid><description>&lt;h2 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Leetcode 435：无重叠区间</title><link>http://antarxly.com/posts/lt435/</link><pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate><guid>http://antarxly.com/posts/lt435/</guid><description>&lt;h2 id="题目描述"&gt;题目描述
 &lt;/h2&gt;&lt;p&gt;给定一个区间的集合 &lt;code&gt;intervals&lt;/code&gt; ，其中 &lt;code&gt;intervals[i] = [start_i, end_i]&lt;/code&gt; 。返回 需要移除区间的最小数量，使剩余区间互不重叠 。&lt;/p&gt;
 &lt;p&gt;示例 1:&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;输入: intervals = [[1,2],[2,3],[3,4],[1,3]]
@@ -487,7 +487,7 @@ alt="两种情况的示意图"
 58/58 cases passed (224 ms)
 Your runtime beats 59.21 % of python3 submissions
 Your memory usage beats 34.24 % of python3 submissions (39.2 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>解决DGL库AttributeError deferred_dtype 错误</title><link>http://example.org/posts/dgl-error-4107/</link><pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate><guid>http://example.org/posts/dgl-error-4107/</guid><description>&lt;p&gt;DGL 库升级到最新版本&lt;code&gt;0.9.0+&lt;/code&gt;的测试版之后，运行老版本的代码会遇到错误&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>解决DGL库AttributeError deferred_dtype 错误</title><link>http://antarxly.com/posts/dgl-error-4107/</link><pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate><guid>http://antarxly.com/posts/dgl-error-4107/</guid><description>&lt;p&gt;DGL 库升级到最新版本&lt;code&gt;0.9.0+&lt;/code&gt;的测试版之后，运行老版本的代码会遇到错误&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;AttributeError: 'Column' object has no attribute deferred_dtype&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在官方GitHub页面可以看到相关的讨论：&lt;a class="link" href="https://github.com/dmlc/dgl/issues/4107" target="_blank" rel="noopener"
 &gt;GitHub issue 4107&lt;/a&gt;&lt;/p&gt;
@@ -499,7 +499,7 @@ Your memory usage beats 34.24 % of python3 submissions (39.2 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if you use cuda 10.2&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip uninstall dgl-cu102
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install dgl-cu102&lt;span style="color:#f92672"&gt;==&lt;/span&gt;0.8.1 dglgo -f https://data.dgl.ai/wheels/repo.html
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://example.org/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://example.org/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://antarxly.com/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://antarxly.com/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
 &lt;h2 id="题目描述"&gt;题目描述
 &lt;/h2&gt;&lt;p&gt;给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。&lt;/p&gt;
 &lt;p&gt;在 S 上反复执行重复项删除操作，直到无法继续删除。&lt;/p&gt;
@@ -585,7 +585,7 @@ Your memory usage beats 34.24 % of python3 submissions (39.2 MB)
 106/106 cases passed (68 ms)
 Your runtime beats 77.08 % of python3 submissions
 Your memory usage beats 79.87 % of python3 submissions (15.9 MB)
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>【DEVONthink】复制item的Markdown样式脚本</title><link>http://example.org/posts/dt-to-md/</link><pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate><guid>http://example.org/posts/dt-to-md/</guid><description>&lt;p&gt;DEVONthink 是苹果系统下一款很好用的知识管理工具，然而，由于DEVONthink本身更侧重于档案管理，所以通常会和其他markdown类笔记软件打组合拳。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>【DEVONthink】复制item的Markdown样式脚本</title><link>http://antarxly.com/posts/dt-to-md/</link><pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate><guid>http://antarxly.com/posts/dt-to-md/</guid><description>&lt;p&gt;DEVONthink 是苹果系统下一款很好用的知识管理工具，然而，由于DEVONthink本身更侧重于档案管理，所以通常会和其他markdown类笔记软件打组合拳。&lt;/p&gt;
 &lt;p&gt;今天分享一款直接复制DEVONthink的item link为markdown链接样式的脚本：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-AppleScript" data-lang="AppleScript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;tell&lt;/span&gt; application &lt;span style="color:#a6e22e"&gt;id&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;DNtp&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;set&lt;/span&gt; theMarkdownLinks &lt;span style="color:#66d9ef"&gt;to&lt;/span&gt; {}
@@ -597,7 +597,7 @@ Your memory usage beats 79.87 % of python3 submissions (15.9 MB)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; set the clipboard to (theMarkdownLinks &lt;span style="color:#66d9ef"&gt;as &lt;/span&gt;&lt;span style="color:#a6e22e"&gt;string&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;end&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;tell&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>四元数 (Quaternion) 基础知识</title><link>http://example.org/posts/quad/</link><pubDate>Mon, 18 Apr 2022 15:17:29 +0000</pubDate><guid>http://example.org/posts/quad/</guid><description>&lt;p&gt;最近读到一系列KG的文章都使用了四元数（Quaternion）用于Embedding或者扩展GNN。四元数是一种区别于实数和复数的数学工具，在这里整理一些关于这个数学工具的基础知识。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>四元数 (Quaternion) 基础知识</title><link>http://antarxly.com/posts/quad/</link><pubDate>Mon, 18 Apr 2022 15:17:29 +0000</pubDate><guid>http://antarxly.com/posts/quad/</guid><description>&lt;p&gt;最近读到一系列KG的文章都使用了四元数（Quaternion）用于Embedding或者扩展GNN。四元数是一种区别于实数和复数的数学工具，在这里整理一些关于这个数学工具的基础知识。&lt;/p&gt;
 &lt;h2 id="四元数是什么"&gt;四元数是什么
 &lt;/h2&gt;&lt;h2 id="四元数的基本运算"&gt;四元数的基本运算
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;加法&lt;/strong&gt;：两个四元数$q$ and $p$ 的加法运算可以表示为：&lt;/p&gt;
@@ -638,7 +638,7 @@ $$
 &lt;li&gt;以关系为中心的有向图：着重捕捉关系之间的共现关系和关联关系&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;打分函数部分使用了QuatE的打分函数。&lt;/p&gt;
-&lt;p&gt;这篇文章的不足在于：提出的这个图结构设计没有使用RGCN之类的实数图神经网络方法做对比实验，那么就无法论证为什么要使用四元数而不是已有的GNN来解决问题，会有一种为了用四元数而用四元数的感觉。&lt;/p&gt;</description></item><item><title>为什么Scale-Dot Attention的分母是根号d</title><link>http://example.org/posts/scaledotdk/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://example.org/posts/scaledotdk/</guid><description>&lt;p&gt;今天跟朋友讨论的一道有趣的面试问题：为什么Transformer中Scale-dot attention计算 $Attn = \text{Softmax}(\frac{QK^T}{\sqrt{d_k}})V$，缩放因子一定是$\sqrt{d_k}$ 而不是d_k或者其他形式？&lt;/p&gt;</description></item><item><title>知识图谱补全模型与超参数整理</title><link>http://example.org/posts/kgehyperparame/</link><pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate><guid>http://example.org/posts/kgehyperparame/</guid><description>&lt;p&gt;本篇整理几种常见的知识图谱补全模型的原理以及对应的超参数。&lt;/p&gt;
+&lt;p&gt;这篇文章的不足在于：提出的这个图结构设计没有使用RGCN之类的实数图神经网络方法做对比实验，那么就无法论证为什么要使用四元数而不是已有的GNN来解决问题，会有一种为了用四元数而用四元数的感觉。&lt;/p&gt;</description></item><item><title>为什么Scale-Dot Attention的分母是根号d</title><link>http://antarxly.com/posts/scaledotdk/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://antarxly.com/posts/scaledotdk/</guid><description>&lt;p&gt;今天跟朋友讨论的一道有趣的面试问题：为什么Transformer中Scale-dot attention计算 $Attn = \text{Softmax}(\frac{QK^T}{\sqrt{d_k}})V$，缩放因子一定是$\sqrt{d_k}$ 而不是d_k或者其他形式？&lt;/p&gt;</description></item><item><title>知识图谱补全模型与超参数整理</title><link>http://antarxly.com/posts/kgehyperparame/</link><pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate><guid>http://antarxly.com/posts/kgehyperparame/</guid><description>&lt;p&gt;本篇整理几种常见的知识图谱补全模型的原理以及对应的超参数。&lt;/p&gt;
 &lt;h2 id="rescal"&gt;RESCAL
 &lt;/h2&gt;&lt;p&gt;论文出处：A three-way model for collective learning on multi- relational data, ICML 2011&lt;/p&gt;
 &lt;p&gt;这是一种基于张量分解方法的嵌入模型。发表的年份非常早。原文中并没有提及学习率等超参数。&lt;/p&gt;
@@ -700,7 +700,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Batch Size: ${512, 1024, 2048}$&lt;/li&gt;
 &lt;li&gt;self-adversarial sampling temperature $\alpha \in {0.5, 1.0}$&lt;/li&gt;
 &lt;li&gt;margin $\gamma \in {3, 6, 9, 12, 18, 24, 30}$&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>时序知识图谱补全论文整理：Ⅰ</title><link>http://example.org/posts/tkbc01/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://example.org/posts/tkbc01/</guid><description>&lt;p&gt;整理最近阅读的时序知识图谱（Temporal Knowledge Graph）补全领域的文献。&lt;/p&gt;
+&lt;/ul&gt;</description></item><item><title>时序知识图谱补全论文整理：Ⅰ</title><link>http://antarxly.com/posts/tkbc01/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://antarxly.com/posts/tkbc01/</guid><description>&lt;p&gt;整理最近阅读的时序知识图谱（Temporal Knowledge Graph）补全领域的文献。&lt;/p&gt;
 &lt;h2 id="基本概念"&gt;基本概念
 &lt;/h2&gt;&lt;p&gt;首先，明确基本概念。现有的知识图谱表示为$\mathcal{G}={(h, r, t)}$ 的三元组集合，这是一种静态的图谱，目前针对这种形式的知识图谱补全任务，也就是预测三元组$(h, r, ?)$ 已经有大量的相关研究，包括Translation-based方法、Bilinear Model和KGAT等图神经网络的尝试。&lt;/p&gt;
 &lt;p&gt;在现实应用中，静态图谱存在一个隐蔽但关键的缺陷：知识图谱用于反映事实，而很多事实是会随着时间不断变化的。比如，奥运会每四年举办一次，每次举办的地点不一样。每年的美国总统有可能会变化。因此，一个符合直觉的思路就是在三元组的基础上，加上时间戳因子，表示这个fact在特定时间是有效的。&lt;/p&gt;
@@ -745,7 +745,7 @@ loading="lazy"
 alt="Model Framework"
 &gt;&lt;/p&gt;
 &lt;p&gt;对TKGC的问题定义：这篇文章关注了更具挑战性的场景——预测未来。在给出$t$时刻以及$t$时刻之前的$m$个时间窗口的KG，预测$t+1$时刻所发生的事件。&lt;/p&gt;
-&lt;p&gt;模型：模型包含两部分，第一部分是应用R-GCN学习每个时间戳的实体表示，第二部分是将不同时间戳的KG建模为序列，更新时间related的表示&lt;/p&gt;</description></item><item><title>click——Python 命令行开发工具包</title><link>http://example.org/posts/click01/</link><pubDate>Sun, 15 Aug 2021 17:18:45 +0000</pubDate><guid>http://example.org/posts/click01/</guid><description>&lt;p&gt;这是一个官方宣称比Argparser更好用的Python命令行开发工具包。&lt;/p&gt;
+&lt;p&gt;模型：模型包含两部分，第一部分是应用R-GCN学习每个时间戳的实体表示，第二部分是将不同时间戳的KG建模为序列，更新时间related的表示&lt;/p&gt;</description></item><item><title>click——Python 命令行开发工具包</title><link>http://antarxly.com/posts/click01/</link><pubDate>Sun, 15 Aug 2021 17:18:45 +0000</pubDate><guid>http://antarxly.com/posts/click01/</guid><description>&lt;p&gt;这是一个官方宣称比Argparser更好用的Python命令行开发工具包。&lt;/p&gt;
 &lt;h2 id="基本功能"&gt;基本功能
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;嵌套命令&lt;/li&gt;
@@ -816,7 +816,7 @@ alt="Model Framework"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这部分，&lt;code&gt;console_scripts&lt;/code&gt; 字段每一行是一个控制台命令，等号左边是命令的名字也就是要在终端输入的部分，等号右边分两段，冒号左边的是文件的名字，右边是&lt;code&gt;cli&lt;/code&gt; 函数的名字&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="https://click.palletsprojects.com/en/8.0.x/setuptools/#setuptools-integration" target="_blank" rel="noopener"
-&gt;文档原文&lt;/a&gt;&lt;/p&gt;</description></item><item><title>知识图谱补全任务中的Loss函数</title><link>http://example.org/posts/kgc-loss/</link><pubDate>Wed, 11 Aug 2021 16:39:43 +0000</pubDate><guid>http://example.org/posts/kgc-loss/</guid><description>&lt;p&gt;本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。&lt;/p&gt;
+&gt;文档原文&lt;/a&gt;&lt;/p&gt;</description></item><item><title>知识图谱补全任务中的Loss函数</title><link>http://antarxly.com/posts/kgc-loss/</link><pubDate>Wed, 11 Aug 2021 16:39:43 +0000</pubDate><guid>http://antarxly.com/posts/kgc-loss/</guid><description>&lt;p&gt;本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。&lt;/p&gt;
 &lt;h2 id="margin-based-loss"&gt;Margin-based Loss
 &lt;/h2&gt;&lt;p&gt;最早由TransE模型提出，之后绝大部分链接预测模型都采用这种损失函数。&lt;/p&gt;
 &lt;p&gt;基本形式&lt;/p&gt;
@@ -857,7 +857,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当中一个容易出bug的地方就是，scores的符号问题。ConvKB在计算score的时候，线性层输出前面加了负号作为最终输出。&lt;/p&gt;
 &lt;h2 id="bce--crossentropy-loss"&gt;BCE / CrossEntropy Loss
 &lt;/h2&gt;&lt;p&gt;这种loss将链接预测问题建模为二分类问题，并且通常使用softmax实现稳定训练。&lt;/p&gt;
-&lt;p&gt;在ConvE和KG-BERT中有使用。&lt;/p&gt;</description></item><item><title>Question Answering Over Temporal Knowledge Graphs</title><link>http://example.org/posts/cronkgqa/</link><pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate><guid>http://example.org/posts/cronkgqa/</guid><description>&lt;p&gt;来源：ACL 2021
+&lt;p&gt;在ConvE和KG-BERT中有使用。&lt;/p&gt;</description></item><item><title>Question Answering Over Temporal Knowledge Graphs</title><link>http://antarxly.com/posts/cronkgqa/</link><pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate><guid>http://antarxly.com/posts/cronkgqa/</guid><description>&lt;p&gt;来源：ACL 2021
 领域：KGQA
 核心模型：TComplEx / TNTComplEx，BERT
 🔗论文链接：&lt;a class="link" href="https://arxiv.org/abs/2106.01515" target="_blank" rel="noopener"
@@ -888,7 +888,7 @@ alt="CRONKGQA Model Architecture"
 &lt;ol&gt;
 &lt;li&gt;把KGE的Model从ComplEx更换为TComplEx实现对时间戳信息的嵌入表示&lt;/li&gt;
 &lt;li&gt;使用BERT对question进行编码过程，EmbedKGQA只生成了实体表示，CRONKGQA生成了问题的实体编码和时间编码（因为答案可能是时间段），concatenate之后经过Softmax得到最后的答案（评分）。&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings</title><link>http://example.org/posts/embedkgqa/</link><pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate><guid>http://example.org/posts/embedkgqa/</guid><description>&lt;p&gt;来源：ACL 2020
+&lt;/ol&gt;</description></item><item><title>论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings</title><link>http://antarxly.com/posts/embedkgqa/</link><pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate><guid>http://antarxly.com/posts/embedkgqa/</guid><description>&lt;p&gt;来源：ACL 2020
 领域：KGQA
 模型：EmbedKGQA
 核心模型：ComplEx；BERT/RoBERTa
@@ -917,7 +917,7 @@ $$&lt;/p&gt;
 &lt;p&gt;最终分数$e_{ans} = \text{argmax}(\phi (e_h, e_q, e_{a&amp;rsquo;})) + \gamma * \text{RelScore}_{a&amp;rsquo;}$&lt;/p&gt;
 &lt;h2 id="延伸"&gt;延伸
 &lt;/h2&gt;&lt;p&gt;写作的时候遇到行内数学公式渲染错误的问题，Follow了&lt;a class="link" href="https://m3df.xyz/2021/06/25/b63b2b2d/" target="_blank" rel="noopener"
-&gt;这个Post&lt;/a&gt;的解决方案。&lt;/p&gt;</description></item><item><title>论文阅读：One-shot Learning for Temporal Knowledge Graphs</title><link>http://example.org/posts/tokgc/</link><pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate><guid>http://example.org/posts/tokgc/</guid><description>&lt;p&gt;关注问题：现有的少样本知识图谱补全技术主要针对静态知识图谱，事实上KG中的Fact会根据时间而变化，时序图谱数据面临更严重的数据稀疏问题。本文针对这个问题提出One-Shot场景提出模型。
+&gt;这个Post&lt;/a&gt;的解决方案。&lt;/p&gt;</description></item><item><title>论文阅读：One-shot Learning for Temporal Knowledge Graphs</title><link>http://antarxly.com/posts/tokgc/</link><pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate><guid>http://antarxly.com/posts/tokgc/</guid><description>&lt;p&gt;关注问题：现有的少样本知识图谱补全技术主要针对静态知识图谱，事实上KG中的Fact会根据时间而变化，时序图谱数据面临更严重的数据稀疏问题。本文针对这个问题提出One-Shot场景提出模型。
 来源：AAAI 2021&lt;/p&gt;
 &lt;h2 id="问题定义"&gt;问题定义
 &lt;/h2&gt;&lt;p&gt;本文针对One-Shot的时序动态知识图谱补全任务。所谓One-Shot是指，对一个关系只能看到一个标注数据（支持集）。因为本文关注时序的知识图谱补全，引起作者引入了时间信息的限制，体现在以下方面：&lt;/p&gt;
@@ -942,7 +942,7 @@ x^{(2)}=\sigma (W^{(2)}x^{(1)}+b^{(2)}) \
 \mathcal{M}(x)=x^{(2)}+x
 $$&lt;/p&gt;
 &lt;h3 id="打分"&gt;打分
-&lt;/h3&gt;&lt;p&gt;打分函数简单到难以置信，把支持集的表示和查询实体对的表示进行点积得到最后的分数。在实验中，作者对比了dot product和GMatching使用的LSTM网络，发现直接dp已经可以获得足够好的效果。&lt;/p&gt;</description></item><item><title>论文阅读：Generative Adversarial Zero-Shot Relational Learning for Knowledge Graphs</title><link>http://example.org/posts/zskgc/</link><pubDate>Mon, 02 Aug 2021 16:32:02 +0000</pubDate><guid>http://example.org/posts/zskgc/</guid><description>&lt;p&gt;来源：AAAI 2020
+&lt;/h3&gt;&lt;p&gt;打分函数简单到难以置信，把支持集的表示和查询实体对的表示进行点积得到最后的分数。在实验中，作者对比了dot product和GMatching使用的LSTM网络，发现直接dp已经可以获得足够好的效果。&lt;/p&gt;</description></item><item><title>论文阅读：Generative Adversarial Zero-Shot Relational Learning for Knowledge Graphs</title><link>http://antarxly.com/posts/zskgc/</link><pubDate>Mon, 02 Aug 2021 16:32:02 +0000</pubDate><guid>http://antarxly.com/posts/zskgc/</guid><description>&lt;p&gt;来源：AAAI 2020
 代码：&lt;a class="link" href="https://github.com/Panda0406/Zero-shot-knowledge-graph-relational-learning" target="_blank" rel="noopener"
 &gt;GitHub&lt;/a&gt;
 关注问题：零样本关系的知识图谱补全&lt;/p&gt;
@@ -956,7 +956,7 @@ $$&lt;/p&gt;
 &lt;/h2&gt;&lt;p&gt;生成器训练：生成器的Loss分三部分，第一部分是Wasserstein Loss，第二部分为分类Loss，因为前面质心作为真实的关系表示，那么就可以用margin ranking loss来训练表示过程。除此之外，还包括visual pivot regularization，目标是提供足够的跨class判别能力。&lt;/p&gt;
 &lt;p&gt;判别器训练：判别器的目标是区分生成的关系向量和真实的关系向量，Loss组成包括Wasserstein Loss、分类器Loss和对输入进行二分类（用于判别是否为真实数据）的Loss以及Gradient Penalty Loss。&lt;/p&gt;
 &lt;h2 id="实验"&gt;实验
-&lt;/h2&gt;&lt;p&gt;针对这个问题提出了两个数据集ZS-NELL和ZS-Wiki，并在此基础上开展实验。所提出的方法是和已有的一些embedding方法兼容的（在Model一开始提到有预训练阶段获取实体的表示，应用主流的embedding方法获取）。一个值得注意的实验结果是，作者把word2vec替换为BERT，反而出现的性能下降的情况。&lt;/p&gt;</description></item><item><title>论文阅读：Rethinking Positional Encoding In Language Pre-Training</title><link>http://example.org/posts/tupe/</link><pubDate>Mon, 26 Jul 2021 22:24:58 +0000</pubDate><guid>http://example.org/posts/tupe/</guid><description>&lt;p&gt;出处：ICLR 2021
+&lt;/h2&gt;&lt;p&gt;针对这个问题提出了两个数据集ZS-NELL和ZS-Wiki，并在此基础上开展实验。所提出的方法是和已有的一些embedding方法兼容的（在Model一开始提到有预训练阶段获取实体的表示，应用主流的embedding方法获取）。一个值得注意的实验结果是，作者把word2vec替换为BERT，反而出现的性能下降的情况。&lt;/p&gt;</description></item><item><title>论文阅读：Rethinking Positional Encoding In Language Pre-Training</title><link>http://antarxly.com/posts/tupe/</link><pubDate>Mon, 26 Jul 2021 22:24:58 +0000</pubDate><guid>http://antarxly.com/posts/tupe/</guid><description>&lt;p&gt;出处：ICLR 2021
 代码链接：https://github.com/guolinke/TUPE&lt;/p&gt;
 &lt;p&gt;本文讨论了Transformer结构的位置编码（Position Encoding）问题。&lt;/p&gt;
 &lt;h2 id="动机"&gt;动机
@@ -984,7 +984,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;abs_pos_bias[:, :, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; other_2_cls&lt;span style="color:#f92672"&gt;.&lt;/span&gt;view(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;abs_pos_bias[:, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, :] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cls_2_other&lt;span style="color:#f92672"&gt;.&lt;/span&gt;view(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;首先是位置编码在取的时候去了&lt;code&gt;L + 1&lt;/code&gt;长度，在乘法出来之后变成 $L+1 \times L+1$ 的矩阵&lt;code&gt;abs_pos_bias&lt;/code&gt;，刚好比常规的$L \times L$多了四个元素，&lt;code&gt;[0][0]&lt;/code&gt;和&lt;code&gt;[1][1]&lt;/code&gt;分别用来表示[CLS] to others 和others to [CLS]。&lt;/p&gt;
-&lt;p&gt;把原来的矩阵切割掉第一行第一列然后填充回去。&lt;/p&gt;</description></item><item><title>【李宏毅机器学习课程笔记】Transformer Decoder</title><link>http://example.org/posts/decoder/</link><pubDate>Thu, 15 Apr 2021 15:34:45 +0000</pubDate><guid>http://example.org/posts/decoder/</guid><description>&lt;p&gt;最近要用Transformer相关的模型，刚好李宏毅的机器学习课更新了相关内容，就看了一下，整理一下笔记草稿。&lt;/p&gt;
+&lt;p&gt;把原来的矩阵切割掉第一行第一列然后填充回去。&lt;/p&gt;</description></item><item><title>【李宏毅机器学习课程笔记】Transformer Decoder</title><link>http://antarxly.com/posts/decoder/</link><pubDate>Thu, 15 Apr 2021 15:34:45 +0000</pubDate><guid>http://antarxly.com/posts/decoder/</guid><description>&lt;p&gt;最近要用Transformer相关的模型，刚好李宏毅的机器学习课更新了相关内容，就看了一下，整理一下笔记草稿。&lt;/p&gt;
 &lt;h2 id="encoder-decoder-结构"&gt;Encoder Decoder 结构
 &lt;/h2&gt;&lt;p&gt;首先是Encoder-Decoder结构。Encoder结构将输入数据编码得到向量表示，具体结构在对应的上一节课已经有说了，大体来说就是Self-Attention + 多头。输出可以是和输入相同shape的向量表示或者是一个向量表示，取决于任务场景。&lt;/p&gt;
 &lt;h2 id="decoder"&gt;Decoder
@@ -996,12 +996,12 @@ $$&lt;/p&gt;
 &lt;h3 id="when-stop"&gt;WHEN STOP
 &lt;/h3&gt;&lt;p&gt;因为生成的内容长度不是固定的，所以机器需要知道什么时候才能停止。引入特殊符号&lt;code&gt;&amp;lt;EOS&amp;gt;&lt;/code&gt; end of sentence 作为句子的结束。如果句子碰到这个符号，那就不要在继续生成新的内容了。&lt;/p&gt;
 &lt;h2 id="teacher-force-decoder"&gt;Teacher Force Decoder
-&lt;/h2&gt;</description></item><item><title>【论文阅读】Generalized Relation Learning with Semantic Correlation Awareness for Link Prediction</title><link>http://example.org/posts/grl/</link><pubDate>Mon, 01 Mar 2021 14:31:38 +0000</pubDate><guid>http://example.org/posts/grl/</guid><description>&lt;p&gt;本文发表于AAAI 2021，关注了知识图谱补全任务的少样本场景问题。&lt;/p&gt;
+&lt;/h2&gt;</description></item><item><title>【论文阅读】Generalized Relation Learning with Semantic Correlation Awareness for Link Prediction</title><link>http://antarxly.com/posts/grl/</link><pubDate>Mon, 01 Mar 2021 14:31:38 +0000</pubDate><guid>http://antarxly.com/posts/grl/</guid><description>&lt;p&gt;本文发表于AAAI 2021，关注了知识图谱补全任务的少样本场景问题。&lt;/p&gt;
 &lt;h2 id="核心问题"&gt;核心问题
 &lt;/h2&gt;&lt;p&gt;目前大规模知识图谱普遍存在不完整的问题，需要使用链接预测技术对知识图谱进行补全。而现有的链接预测模型普遍存在两个问题：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;难以应对关系的不平衡性。所谓不平衡，是指不同关系的训练样本数据量级差别&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>week02_2021</title><link>http://example.org/posts/week02-2021/</link><pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate><guid>http://example.org/posts/week02-2021/</guid><description>&lt;p&gt;本周恢复读论文。带来两篇关于知识图谱嵌入和多跳推理的论文。&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>week02_2021</title><link>http://antarxly.com/posts/week02-2021/</link><pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate><guid>http://antarxly.com/posts/week02-2021/</guid><description>&lt;p&gt;本周恢复读论文。带来两篇关于知识图谱嵌入和多跳推理的论文。&lt;/p&gt;
 &lt;h2 id="coke-contextualized-knowledge-graph-embedding"&gt;CoKE: Contextualized Knowledge Graph Embedding
 &lt;/h2&gt;&lt;p&gt;这篇是关于知识图谱动态嵌入的研究。作者认为之前的知识图谱嵌入方法都是学习静态的知识，就算是图卷积方法也是在做静态嵌入的事情，没有真正学习到上下文知识。所以作者提出了使用Transformer来编码知识图谱的动态嵌入。&lt;/p&gt;
 &lt;p&gt;Transformer是对序列进行表示学习，所以很自然就引申出一个问题：序列从哪里来？&lt;/p&gt;
@@ -1013,7 +1013,7 @@ $$&lt;/p&gt;
 &lt;p&gt;如何训练？&lt;/p&gt;
 &lt;p&gt;为了模拟链接预测任务和Query任务，在输入的时候将序列最后一个元素设定为&lt;code&gt;MASK&lt;/code&gt;，迫使Transformer学会对该元素进行预测。&lt;/p&gt;
 &lt;h2 id="gmh-a-general-multi-hop-reasoning-model-for-kg-completion"&gt;GMH: A General Multi-hop Reasoning Model for KG Completion
-&lt;/h2&gt;</description></item><item><title>Week 52 论文阅读</title><link>http://example.org/posts/week52-2020/</link><pubDate>Sat, 26 Dec 2020 16:50:04 +0000</pubDate><guid>http://example.org/posts/week52-2020/</guid><description>&lt;p&gt;本周读进去的论文有点少，哭。&lt;/p&gt;
+&lt;/h2&gt;</description></item><item><title>Week 52 论文阅读</title><link>http://antarxly.com/posts/week52-2020/</link><pubDate>Sat, 26 Dec 2020 16:50:04 +0000</pubDate><guid>http://antarxly.com/posts/week52-2020/</guid><description>&lt;p&gt;本周读进去的论文有点少，哭。&lt;/p&gt;
 &lt;h2 id="interacte-improving-convolution-based-knowledge-graph-embeddings-by-increasing-feature-interactions"&gt;InteractE: Improving Convolution-based Knowledge Graph Embeddings by Increasing Feature Interactions
 &lt;/h2&gt;&lt;h3 id="关注问题"&gt;关注问题
 &lt;/h3&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/TimDettmers/ConvE" target="_blank" rel="noopener"
@@ -1043,7 +1043,7 @@ alt="BERT In KGLP"
 &lt;img src="https://antarx.cn/2020/12/26/cleanshot-20201226-at-1712062x.jpg"
 loading="lazy"
 alt="Model Structure"
-&gt;&lt;/p&gt;</description></item><item><title>Week 51, 2020 论文阅读总结</title><link>http://example.org/posts/paper-wk52-2020/</link><pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate><guid>http://example.org/posts/paper-wk52-2020/</guid><description>&lt;p&gt;总结一周阅读的论文。&lt;/p&gt;
+&gt;&lt;/p&gt;</description></item><item><title>Week 51, 2020 论文阅读总结</title><link>http://antarxly.com/posts/paper-wk52-2020/</link><pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate><guid>http://antarxly.com/posts/paper-wk52-2020/</guid><description>&lt;p&gt;总结一周阅读的论文。&lt;/p&gt;
 &lt;h2 id="complex-relation-extraction-challenges-and-opportunities"&gt;Complex Relation Extraction: Challenges and Opportunities
 &lt;/h2&gt;&lt;p&gt;关系抽取领域的一篇短综述，只有六页，讲述目前关系抽取的进展和挑战。
 文中首先定义了什么是简单关系和复杂关系。简单关系抽取，Binary Relation Extraction，最简单的关系抽取的范式，一句话中包含两个实体以及两个实体之间的关系。
@@ -1088,7 +1088,7 @@ alt="模型结构"
 &gt;One-Shot Learning for Temporal Knowledge Graphs&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="https://arxiv.org/abs/2012.04821" target="_blank" rel="noopener"
 &gt;Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Write your first command line app using Python</title><link>http://example.org/posts/d3da32/</link><pubDate>Sun, 05 Jul 2020 17:03:34 +0000</pubDate><guid>http://example.org/posts/d3da32/</guid><description>&lt;p&gt;There’re many articles about how to build a python lib, but fewer articles discuss about how to build a command line app using python. This article is to solve the problem.&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>Write your first command line app using Python</title><link>http://antarxly.com/posts/d3da32/</link><pubDate>Sun, 05 Jul 2020 17:03:34 +0000</pubDate><guid>http://antarxly.com/posts/d3da32/</guid><description>&lt;p&gt;There’re many articles about how to build a python lib, but fewer articles discuss about how to build a command line app using python. This article is to solve the problem.&lt;/p&gt;
 &lt;h2 id="prepare"&gt;Prepare
 &lt;/h2&gt;&lt;p&gt;First, we need some knowledge to help us build a command line tool fluently: &lt;strong&gt;How app like &lt;code&gt;pip&lt;/code&gt; execute when we tap &lt;code&gt;pip&lt;/code&gt; in terminal?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Executable file like &lt;code&gt;pip&lt;/code&gt; and other command line scripts are locate in &lt;code&gt;/Users/{UserName}/miniconda3/envs/{envName}/bin/pip&lt;/code&gt; (My os is macOS Catalina and I use mini-conda for Python env management, in other os, you can type &lt;code&gt;which pip&lt;/code&gt; for more information)&lt;/p&gt;
@@ -1136,7 +1136,7 @@ alt="模型结构"
 &lt;/h2&gt;&lt;p&gt;In this article, we discuss the very first two steps to build a command line app using Python.&lt;/p&gt;
 &lt;h2 id="reference"&gt;Reference
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://dzone.com/articles/executable-package-pip-install" target="_blank" rel="noopener"
-&gt; Build Your First pip Package &lt;/a&gt;&lt;/p&gt;</description></item><item><title>探索Python的类型标注支持</title><link>http://example.org/posts/28507f36/</link><pubDate>Fri, 03 Jul 2020 10:08:27 +0000</pubDate><guid>http://example.org/posts/28507f36/</guid><description>&lt;h1 id="code初探python类型标注"&gt;【Code】初探Python类型标注
+&gt; Build Your First pip Package &lt;/a&gt;&lt;/p&gt;</description></item><item><title>探索Python的类型标注支持</title><link>http://antarxly.com/posts/28507f36/</link><pubDate>Fri, 03 Jul 2020 10:08:27 +0000</pubDate><guid>http://antarxly.com/posts/28507f36/</guid><description>&lt;h1 id="code初探python类型标注"&gt;【Code】初探Python类型标注
 &lt;/h1&gt;&lt;p&gt;干点轻松的事情，看了一下Python官方文档里面关于类型标注的知识，怎么说，Python官方对于类型检查这个问题的认识，远远比那些Python吹成熟多了（好像说了一句废话，其实想表达的是按照现在Python的发展程度，过于灵活的类型系统早就成了发展的桎梏，官方的态度也表明了这一点，只是还有很多人没有意识到，还沉浸在不用写类型的快感中而已）。作为一个Python黑，对于Python建立健全的类型检查机制这件事上，我是举双手双脚赞成的。&lt;/p&gt;
 &lt;h2 id="从最基本出发"&gt;从最基本出发
 &lt;/h2&gt;&lt;p&gt;先来看看最基本的类型检查
@@ -1211,7 +1211,7 @@ return f&amp;quot;{(x+y)=}&amp;quot;
 &lt;/h2&gt;&lt;p&gt;官方文档还有很多很有意思的，比如范型和函数重载等等，改天看完敲完代码再更新。从现在开始我写的每一行&lt;code&gt;Python&lt;/code&gt;代码都会全力使用上面说到的所有新特性。&lt;/p&gt;
 &lt;p&gt;Python曾经困扰过我很长很长一段时间，从大三（2015）就开始学的语言，其实直到去年年初我还觉得我没有入门（可以翻历史记录，去年七月的时候还有对Python的吐槽），当中各种痛苦与挣扎，甚至有那么一瞬间会觉得如果博士不能毕业的话，Python肯定是最大的元凶，因为用它真的太痛苦了。直到后面追上新文档的改变之后才感觉打开新世界的大门，现在越用越顺手，甚至开始把平常常用的代码段整理成库发布到PyPI上面。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;很庆幸当初没有因为厌恶和憎恨而逃避它，而是选择去了解它。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;与此同时也庆幸是Python变成了我想要的样子，而不是我改变自己去适应以前的Python。&lt;/p&gt;</description></item><item><title>iOS 开发笔记（二）—— 继承类的JSON处理</title><link>http://example.org/posts/swiftjson/</link><pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate><guid>http://example.org/posts/swiftjson/</guid><description>&lt;p&gt;JSON 是非常常用的数据编码格式，在&lt;code&gt;swift4&lt;/code&gt;当中引入了&lt;code&gt;Codable&lt;/code&gt;协议，使得JSON数据的处理变得前所未有的方便。然而当涉及继承的时候，还是踩了不少的雷区。所以想写个文章分享一下。&lt;/p&gt;
+&lt;p&gt;与此同时也庆幸是Python变成了我想要的样子，而不是我改变自己去适应以前的Python。&lt;/p&gt;</description></item><item><title>iOS 开发笔记（二）—— 继承类的JSON处理</title><link>http://antarxly.com/posts/swiftjson/</link><pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate><guid>http://antarxly.com/posts/swiftjson/</guid><description>&lt;p&gt;JSON 是非常常用的数据编码格式，在&lt;code&gt;swift4&lt;/code&gt;当中引入了&lt;code&gt;Codable&lt;/code&gt;协议，使得JSON数据的处理变得前所未有的方便。然而当涉及继承的时候，还是踩了不少的雷区。所以想写个文章分享一下。&lt;/p&gt;
 &lt;h2 id="基本操作"&gt;基本操作
 &lt;/h2&gt;&lt;p&gt;直接将 &lt;code&gt;class&lt;/code&gt; 或者 &lt;code&gt;struct&lt;/code&gt; 转 &lt;code&gt;JSON&lt;/code&gt; 的话只需要继承 &lt;code&gt;Codable&lt;/code&gt; 接口，然而如果想自定义编码之后在 &lt;code&gt;JSON&lt;/code&gt; 中的键的名字的话（比如类成员 &lt;code&gt;name&lt;/code&gt; 我想编码成 &lt;code&gt;Student_Name&lt;/code&gt;），就需要引入 &lt;code&gt;CondingKeys&lt;/code&gt; 这么一个枚举的内嵌类型。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-swift" data-lang="swift"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;enum&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;CodingKeys&lt;/span&gt;: String,CodingKey{
@@ -1255,7 +1255,7 @@ return f&amp;quot;{(x+y)=}&amp;quot;
 &lt;h2 id="解决方案"&gt;解决方案
 &lt;/h2&gt;&lt;h2 id="参考链接"&gt;参考链接
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types" target="_blank" rel="noopener"
-&gt;Encoding and Decoding Custom Types | Apple Developer Documentation&lt;/a&gt;&lt;/p&gt;</description></item><item><title>11月论文阅读总结</title><link>http://example.org/posts/papers-nov/</link><pubDate>Thu, 29 Nov 2018 16:48:39 +0000</pubDate><guid>http://example.org/posts/papers-nov/</guid><description>&lt;p&gt;转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。&lt;/p&gt;
+&gt;Encoding and Decoding Custom Types | Apple Developer Documentation&lt;/a&gt;&lt;/p&gt;</description></item><item><title>11月论文阅读总结</title><link>http://antarxly.com/posts/papers-nov/</link><pubDate>Thu, 29 Nov 2018 16:48:39 +0000</pubDate><guid>http://antarxly.com/posts/papers-nov/</guid><description>&lt;p&gt;转博了之后平时的工作重心从写代码慢慢的转移到科研读论文复现论文等上面来。选研究方向的时候也费了好大一番功夫去纠结，一开始想继续做微服务和SDN的东西，后面却逐渐发现往深入去做的话又兜兜转转回到了通信的轨道上了。后面终于下定决心做知识图谱的东西。整个十一月都在看知识图谱的论文，主要集中在知识表示领域的几种Translation模型上。&lt;/p&gt;
 &lt;h2 id="什么是translation"&gt;什么是Translation？
 &lt;/h2&gt;&lt;p&gt;知识图谱是一种偏向于人类认知的“数据结构”，将实体之间用关系的方式进行链接，比如说“中国的首都是北京“这句话，用知识图谱进行建模的方式就是，“中国”（实体）的首都是（“关系表示”）“北京”（另一个实体）。&lt;/p&gt;
 &lt;p&gt;这样，一条知识就可以用图这个数据结构的一条边（edge）来表示。参考图的关系描述方式，知识图谱中可以使用 $h,r,t$ 三元组来表示一条“知识”，$h$ 是head，头部知识，知识的端点，在上面的例子中，为“中国”，$r$是relation，表示关系的意思，$t$是tail，在上面的例子中，为“北京”。&lt;/p&gt;
@@ -1296,7 +1296,7 @@ return f&amp;quot;{(x+y)=}&amp;quot;
 &lt;li&gt;
 &lt;p&gt;Translating Embeddings for Modeling Multi-relational Data. (2013). Translating Embeddings for Modeling Multi-relational Data, 1–9.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>新款 Mac mini 购买可行性分析</title><link>http://example.org/posts/macmini/</link><pubDate>Fri, 02 Nov 2018 11:20:29 +0000</pubDate><guid>http://example.org/posts/macmini/</guid><description>&lt;h1 id="新款-mac-mini-购买可行性分析持续更新"&gt;新款 Mac mini 购买可行性分析（持续更新）
+&lt;/ol&gt;</description></item><item><title>新款 Mac mini 购买可行性分析</title><link>http://antarxly.com/posts/macmini/</link><pubDate>Fri, 02 Nov 2018 11:20:29 +0000</pubDate><guid>http://antarxly.com/posts/macmini/</guid><description>&lt;h1 id="新款-mac-mini-购买可行性分析持续更新"&gt;新款 Mac mini 购买可行性分析（持续更新）
 &lt;/h1&gt;&lt;p&gt;10 月 30 号苹果的新品发布会，我望眼欲穿的Mac mini 终于在时隔四年之后迎来了“大更新”，正如之前很多 KOL 所“预言”的一样，是一次面向专业人士的一次更新，最高支援了 i7 六核处理器和 64GB 内存和 2TB 固态，还有万兆以太网接口可选。昨天也同步更新了大陆的价格信息。网络上对于这款产品的评价也是褒贬不一，到底这款产品是不是值得购买呢。&lt;/p&gt;
 &lt;h2 id="处理器"&gt;处理器
 &lt;/h2&gt;&lt;p&gt;这里只关注 i5 和 i7 版本。
@@ -1368,7 +1368,7 @@ loading="lazy"
 &lt;li&gt;预算充足的，直接 LG Ultrafine 系列。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="机械键盘"&gt;机械键盘
-&lt;/h3&gt;&lt;p&gt;ikbc G104 和阿米洛的 Mac 系列都是原生 Mac 键位支持。也可以买 Windows 键盘回来自己改键位和键帽，全凭个人喜好了。&lt;/p&gt;</description></item><item><title>go模块入门</title><link>http://example.org/posts/gomod/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://example.org/posts/gomod/</guid><description>&lt;h1 id="go-模块入门"&gt;Go 模块入门
+&lt;/h3&gt;&lt;p&gt;ikbc G104 和阿米洛的 Mac 系列都是原生 Mac 键位支持。也可以买 Windows 键盘回来自己改键位和键帽，全凭个人喜好了。&lt;/p&gt;</description></item><item><title>go模块入门</title><link>http://antarxly.com/posts/gomod/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://antarxly.com/posts/gomod/</guid><description>&lt;h1 id="go-模块入门"&gt;Go 模块入门
 &lt;/h1&gt;&lt;p&gt;Go1.11 的一个重要特性就是 &lt;code&gt;go modules&lt;/code&gt;，作为 Go 一直以来版本管理顽疾的官方解决方案，自然是非常值得重视的。最近看到一篇文章对它阐述的非常好，所以就翻译过来。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a class="link" href="https://roberto.selbach.ca/intro-to-go-modules/" target="_blank" rel="noopener"
 &gt;Introduction to Go Modules – Roberto Selbach&lt;/a&gt;&lt;/p&gt;
@@ -1560,7 +1560,7 @@ loading="lazy"
 &lt;p&gt;需要再次强调的是，Go 模块已经彻底抛弃了 vendoring 思想，转而使用 Go 模块代理，因为很多人不想直接依赖上游版本控制服务。&lt;/p&gt;
 &lt;h2 id="结论"&gt;结论
 &lt;/h2&gt;&lt;p&gt;这篇东西多多少少看起来有点劝退的意味，不过我尝试在一篇文章里解释多个概念，事实上 Go 模块是非常透明的，我们只需要像往常一样在代码中导入需要使用的代码然后&lt;code&gt;go&lt;/code&gt;命令会帮我们做完剩下的所有事情。&lt;/p&gt;
-&lt;p&gt;当我们构建应用的时候，会自动拉取依赖关系。Go 模块同样削弱了&lt;code&gt;$GOPATH&lt;/code&gt;的必要性，这玩意是新入门的 Go 开发者的一大绊脚石，他们往往无法理解问什么所有东西都要放到同一个目录中。&lt;/p&gt;</description></item><item><title>豆瓣电影海报下载-Workflow</title><link>http://example.org/posts/dbmv/</link><pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate><guid>http://example.org/posts/dbmv/</guid><description>&lt;h1 id="preface"&gt;Preface
+&lt;p&gt;当我们构建应用的时候，会自动拉取依赖关系。Go 模块同样削弱了&lt;code&gt;$GOPATH&lt;/code&gt;的必要性，这玩意是新入门的 Go 开发者的一大绊脚石，他们往往无法理解问什么所有东西都要放到同一个目录中。&lt;/p&gt;</description></item><item><title>豆瓣电影海报下载-Workflow</title><link>http://antarxly.com/posts/dbmv/</link><pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate><guid>http://antarxly.com/posts/dbmv/</guid><description>&lt;h1 id="preface"&gt;Preface
 &lt;/h1&gt;&lt;p&gt;最近实验室里买了打印机，手账 er 多年以来的为电影手账贴上海报缩略图的心愿终于有机会打成了。&lt;/p&gt;
 &lt;p&gt;那么问题来了，去哪找电影海报可以更快更方便呢？每次都是打开网页-&amp;gt;搜索-&amp;gt;图片另存为，太麻烦。于是我盯上了 Alfred，于是就有了这个工具。&lt;/p&gt;
 &lt;h2 id="使用"&gt;使用
@@ -1587,7 +1587,7 @@ alt="使用 dbmv"
 &gt;Releases · gawainx/dbmv&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="特别鸣谢"&gt;特别鸣谢
 &lt;/h2&gt;&lt;p&gt;本 Workflow 系基于&lt;a class="link" href="http://stonebythesea.org/posts/douban-search-workflow-for-alfred/" target="_blank" rel="noopener"
-&gt;做了一个豆瓣搜索的 Workflow for Alfred - 海边的石头&lt;/a&gt;作品的改写。&lt;/p&gt;</description></item><item><title>gxd-cli is gawainx' docker client</title><link>http://example.org/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://example.org/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
+&gt;做了一个豆瓣搜索的 Workflow for Alfred - 海边的石头&lt;/a&gt;作品的改写。&lt;/p&gt;</description></item><item><title>gxd-cli is gawainx' docker client</title><link>http://antarxly.com/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://antarxly.com/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
 &lt;/h1&gt;&lt;p&gt;通过 &lt;code&gt;docker run&lt;/code&gt; 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，&lt;code&gt;gxd-cli&lt;/code&gt;将这些麻烦的工作简化成修改配置文件&lt;code&gt;TOML&lt;/code&gt;达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。&lt;/p&gt;
 &lt;h2 id="功能列表"&gt;功能列表
 &lt;/h2&gt;&lt;ul&gt;
@@ -1611,7 +1611,7 @@ alt="使用 dbmv"
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完毕后在命令行通过&lt;code&gt;gxd-cli&lt;/code&gt;调用。&lt;/p&gt;
 &lt;h2 id="项目地址"&gt;项目地址
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
-&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>golang/dep 包管理（一）原理</title><link>http://example.org/posts/dep/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://example.org/posts/dep/</guid><description>&lt;h1 id="golang-包依赖管理工具"&gt;Golang 包依赖管理工具
+&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>golang/dep 包管理（一）原理</title><link>http://antarxly.com/posts/dep/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://antarxly.com/posts/dep/</guid><description>&lt;h1 id="golang-包依赖管理工具"&gt;Golang 包依赖管理工具
 &lt;/h1&gt;&lt;p&gt;golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了&lt;code&gt;vendor&lt;/code&gt;机制，1.8之后终于有了官方的包管理工具，&lt;code&gt;golang/dep&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://golang.github.io/dep/docs/assets/four-states.png"
 loading="lazy"
@@ -1623,7 +1623,7 @@ alt="四元组架构"
 &lt;a class="link" href="https://golang.github.io/dep/docs/ensure-mechanics.html" target="_blank" rel="noopener"
 &gt;Models and Mechanisms · dep&lt;/a&gt;
 &lt;a class="link" href="https://github.com/golang/dep" target="_blank" rel="noopener"
-&gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://example.org/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://example.org/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
+&gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://antarxly.com/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
 &lt;/h1&gt;&lt;h2 id="端口绑定"&gt;端口绑定
 &lt;/h2&gt;&lt;p&gt;将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的&lt;code&gt;-p 8080:80&lt;/code&gt;解决问题。但在 golang client 中，问题却变得复杂起来。&lt;/p&gt;
 &lt;p&gt;首先来看创建容器的函数签名&lt;code&gt;func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)&lt;/code&gt;,client 把运行配置拆分成了&lt;code&gt;container.Config&lt;/code&gt; 和 &lt;code&gt;container.HostConfig&lt;/code&gt; ，也就是容器内部设置和宿主机设置两项。&lt;/p&gt;
@@ -1659,7 +1659,7 @@ alt="类型不匹配错误"
 &gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
 &gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>go docker client 使用教程（一）</title><link>http://example.org/posts/go-docker-01/</link><pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate><guid>http://example.org/posts/go-docker-01/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程一"&gt;Docker client for golang 使用教程（一）
+&lt;/ul&gt;</description></item><item><title>go docker client 使用教程（一）</title><link>http://antarxly.com/posts/go-docker-01/</link><pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-01/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程一"&gt;Docker client for golang 使用教程（一）
 &lt;/h1&gt;&lt;p&gt;Docker 官方提供了适用于 golang 的 &lt;a class="link" href="https://github.com/moby/moby/tree/master/client" target="_blank" rel="noopener"
 &gt;client&lt;/a&gt;，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
 &gt;gxd-cli&lt;/a&gt;的过程中，需要大量使用到这个 SDK，所以便有了这个系列。&lt;/p&gt;
@@ -1724,7 +1724,7 @@ alt="类型不匹配错误"
 &lt;/h2&gt;&lt;p&gt;将自己代码放入容器中运行时最基本的操作，在命令行中通过&lt;code&gt;-v {host vol}:{container vol}&lt;/code&gt;实现，在 golang sdk 中，开发者却没有提供这部分的重要说明。通过查阅&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/155" target="_blank" rel="noopener"
 &gt;issue155&lt;/a&gt;以及&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/132" target="_blank" rel="noopener"
 &gt;issue1&lt;/a&gt;，得到的解决方案如下。&lt;/p&gt;
-&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description></item><item><title>LaTeX排版学术论文工具链</title><link>http://example.org/posts/latex-toolchain/</link><pubDate>Mon, 21 May 2018 10:48:35 +0000</pubDate><guid>http://example.org/posts/latex-toolchain/</guid><description>&lt;h1 id="latex-排版工具链"&gt;LaTeX 排版工具链
+&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description></item><item><title>LaTeX排版学术论文工具链</title><link>http://antarxly.com/posts/latex-toolchain/</link><pubDate>Mon, 21 May 2018 10:48:35 +0000</pubDate><guid>http://antarxly.com/posts/latex-toolchain/</guid><description>&lt;h1 id="latex-排版工具链"&gt;LaTeX 排版工具链
 &lt;/h1&gt;&lt;p&gt;这里整理了 $\LaTeX$ 排版学术论文的工具链。根据自己的实践和大家的留言补充定期更新。&lt;/p&gt;
 &lt;h2 id="操作系统软件等"&gt;操作系统，软件等
 &lt;/h2&gt;&lt;p&gt;$\LaTeX$ 可以在 Windows、Linux 和 macOS 平台上运行。Windows 上可以安装 MikTex，Linux 上有 TeX Live，考虑美观度和排版过程的愉悦度，本人使用的 LaTeX 排版环境大致如下：&lt;/p&gt;
@@ -1761,7 +1761,7 @@ alt="类型不匹配错误"
 &lt;a class="link" href="https://github.com/luongvo209/Begin-Latex-in-minutes" target="_blank" rel="noopener"
 &gt;Begin LaTeX in minutes&lt;/a&gt;
 &lt;a class="link" href="https://book.douban.com/subject/24703731/" target="_blank" rel="noopener"
-&gt;LaTeX 入门&lt;/a&gt;&lt;/p&gt;</description></item><item><title>博客迁移腾讯云小记</title><link>http://example.org/posts/hexossl/</link><pubDate>Fri, 11 May 2018 17:30:58 +0000</pubDate><guid>http://example.org/posts/hexossl/</guid><description>&lt;h1 id="博客迁移腾讯云实战记录"&gt;博客迁移腾讯云实战记录
+&gt;LaTeX 入门&lt;/a&gt;&lt;/p&gt;</description></item><item><title>博客迁移腾讯云小记</title><link>http://antarxly.com/posts/hexossl/</link><pubDate>Fri, 11 May 2018 17:30:58 +0000</pubDate><guid>http://antarxly.com/posts/hexossl/</guid><description>&lt;h1 id="博客迁移腾讯云实战记录"&gt;博客迁移腾讯云实战记录
 &lt;/h1&gt;&lt;p&gt;源于年初的一次突发奇想，将博客站点迁移到了腾讯云，五月份终于完成了备案，然后添加了 HTTPS 支援，并完成容器化。在这里把折腾的过程记录下来。&lt;/p&gt;
 &lt;h2 id="转移腾讯云"&gt;转移腾讯云
 &lt;/h2&gt;&lt;p&gt;原来的博客是放到 github page 上面，访问 &lt;strong&gt;antarx.com&lt;/strong&gt; 是通过 CNAME 文件解析到 gawainx.github.io，只需要在&lt;code&gt;config.yaml&lt;/code&gt;配置好，写完直接&lt;code&gt;hexo d -g&lt;/code&gt;完事。&lt;/p&gt;
@@ -1859,7 +1859,7 @@ alt="Nginx 配置目录"
 &lt;a class="link" href="https://cloud.tencent.com/document/product/400/4143" target="_blank" rel="noopener"
 &gt;证书安装指引&lt;/a&gt;
 &lt;a class="link" href="http://www.ruanyifeng.com/blog/2018/02/nginx-docker.html" target="_blank" rel="noopener"
-&gt;Nginx 容器教程（可能无法访问）&lt;/a&gt;&lt;/p&gt;</description></item><item><title>gorequest中文文档(非官方)</title><link>http://example.org/posts/gorequest-doc/</link><pubDate>Sat, 05 May 2018 19:19:43 +0000</pubDate><guid>http://example.org/posts/gorequest-doc/</guid><description>&lt;h1 id="gorequest指南"&gt;Gorequest指南
+&gt;Nginx 容器教程（可能无法访问）&lt;/a&gt;&lt;/p&gt;</description></item><item><title>gorequest中文文档(非官方)</title><link>http://antarxly.com/posts/gorequest-doc/</link><pubDate>Sat, 05 May 2018 19:19:43 +0000</pubDate><guid>http://antarxly.com/posts/gorequest-doc/</guid><description>&lt;h1 id="gorequest指南"&gt;Gorequest指南
 &lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/parnurzeal/gorequest" target="_blank" rel="noopener"
 &gt;gorequest&lt;/a&gt;为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg"
@@ -2023,7 +2023,7 @@ alt="GopherGoRequest"
 &gt;Wisi Mongkhonsrisawat&lt;/a&gt; for providing an awesome GoRequest&amp;rsquo;s Gopher image :)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="license"&gt;License
-&lt;/h2&gt;&lt;p&gt;GoRequest is MIT License.&lt;/p&gt;</description></item><item><title>使用mage实现交叉编译</title><link>http://example.org/posts/mage2/</link><pubDate>Mon, 23 Apr 2018 11:17:36 +0000</pubDate><guid>http://example.org/posts/mage2/</guid><description>&lt;p&gt;golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 &lt;a class="link" href="https://github.com/mitchellh/gox" target="_blank" rel="noopener"
+&lt;/h2&gt;&lt;p&gt;GoRequest is MIT License.&lt;/p&gt;</description></item><item><title>使用mage实现交叉编译</title><link>http://antarxly.com/posts/mage2/</link><pubDate>Mon, 23 Apr 2018 11:17:36 +0000</pubDate><guid>http://antarxly.com/posts/mage2/</guid><description>&lt;p&gt;golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 &lt;a class="link" href="https://github.com/mitchellh/gox" target="_blank" rel="noopener"
 &gt;gox&lt;/a&gt; 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是&lt;a class="link" href="https://magefile.org" target="_blank" rel="noopener"
 &gt;mage&lt;/a&gt;
 关于 mage 的基本安装和使用详见&lt;a class="link" href="" &gt;mage 使用教程(一)&lt;/a&gt;&lt;/p&gt;
@@ -2058,7 +2058,7 @@ alt="GopherGoRequest"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Sucessfully Built.Output File: %s\n&amp;#34;&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;path&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在magefile所在文件夹输入 &lt;code&gt;mage linux&lt;/code&gt; 即可编译生成适用于 Linux 的运行文件。&lt;/p&gt;</description></item><item><title>mage 使用教程(一)</title><link>http://example.org/posts/mage1/</link><pubDate>Mon, 23 Apr 2018 10:24:36 +0000</pubDate><guid>http://example.org/posts/mage1/</guid><description>&lt;p&gt;Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在magefile所在文件夹输入 &lt;code&gt;mage linux&lt;/code&gt; 即可编译生成适用于 Linux 的运行文件。&lt;/p&gt;</description></item><item><title>mage 使用教程(一)</title><link>http://antarxly.com/posts/mage1/</link><pubDate>Mon, 23 Apr 2018 10:24:36 +0000</pubDate><guid>http://antarxly.com/posts/mage1/</guid><description>&lt;p&gt;Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。&lt;/p&gt;
 &lt;h2 id="安装"&gt;安装
 &lt;/h2&gt;&lt;p&gt;安装 mage 之前首先要安装 golang1.7或以上版本。安装好之后，执行以下代码&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go get -u -d github.com/magefile/mage
@@ -2091,9 +2091,9 @@ alt="GopherGoRequest"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Installing...&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="预备构建"&gt;预备，构建
-&lt;/h2&gt;&lt;p&gt;构建只需要一行代码&lt;code&gt;mage build&lt;/code&gt;，程序就会自动执行 &lt;code&gt;Build&lt;/code&gt; 函数，完成整个构建过程。&lt;/p&gt;</description></item><item><title>golang 处理 yaml 格式数据</title><link>http://example.org/posts/goyaml/</link><pubDate>Wed, 11 Apr 2018 17:18:58 +0000</pubDate><guid>http://example.org/posts/goyaml/</guid><description>&lt;p&gt;YAML 格式的数据常用来作为配置文件使用, 因此相对来说字段比较固定, 在 golang 中进行解析时跟上一篇提到的解析 json 数据有所区别&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;构建只需要一行代码&lt;code&gt;mage build&lt;/code&gt;，程序就会自动执行 &lt;code&gt;Build&lt;/code&gt; 函数，完成整个构建过程。&lt;/p&gt;</description></item><item><title>golang 处理 yaml 格式数据</title><link>http://antarxly.com/posts/goyaml/</link><pubDate>Wed, 11 Apr 2018 17:18:58 +0000</pubDate><guid>http://antarxly.com/posts/goyaml/</guid><description>&lt;p&gt;YAML 格式的数据常用来作为配置文件使用, 因此相对来说字段比较固定, 在 golang 中进行解析时跟上一篇提到的解析 json 数据有所区别&lt;/p&gt;
 &lt;h2 id=""&gt;
-&lt;/h2&gt;</description></item><item><title>go 语言中 JSON 数据的处理</title><link>http://example.org/posts/gojson/</link><pubDate>Fri, 30 Mar 2018 15:20:31 +0000</pubDate><guid>http://example.org/posts/gojson/</guid><description>&lt;p&gt;Golang 中处理 JSON 格式数据主要依赖&lt;code&gt;encoding/json&lt;/code&gt;这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。&lt;/p&gt;
+&lt;/h2&gt;</description></item><item><title>go 语言中 JSON 数据的处理</title><link>http://antarxly.com/posts/gojson/</link><pubDate>Fri, 30 Mar 2018 15:20:31 +0000</pubDate><guid>http://antarxly.com/posts/gojson/</guid><description>&lt;p&gt;Golang 中处理 JSON 格式数据主要依赖&lt;code&gt;encoding/json&lt;/code&gt;这个库，很多教程（包括 Go 语言圣经）讲 JSON 数据处理时都会定义一个结构体对应于 JSON 数据的各个字段，这种处理方法在 JSON 中字段相对固定时非常实用。但对于字段可能不断变化或者只有一两个字段是固定的时候，如何处理这个问题往往令很多人感到困惑。最近研究 gin 这个库的时候发现一个思路非常值得学习借鉴。&lt;/p&gt;
 &lt;h2 id="what"&gt;What
 &lt;/h2&gt;&lt;p&gt;说了这么多，其实并不神秘，就是来自 gin 框架源码中的一句关键定义&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// H is a shortcup for map[string]interface{}&lt;/span&gt;
@@ -2124,7 +2124,7 @@ alt="GopherGoRequest"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;cs,ok := result[&amp;quot;containers&amp;quot;].([]interface{})&lt;/code&gt;这一句就是解决问题的关键所在，也就是称为运行时类型断言的机制。&lt;code&gt;a.(Type) &lt;/code&gt;是尝试对a进行类型转换的操作，如果转换成功则返回一个转换成 Type 类型的变量和&lt;code&gt;true&lt;/code&gt;指示转换成功，失败则返回&lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;值得一提的是，断言失败不会导致编译失败（要是会导致编译失败也就不能解决上面这个问题了），所以为了代码健壮性需要对转换结果进行判断比较好。&lt;/p&gt;</description></item><item><title>redis的杂七杂八</title><link>http://example.org/posts/redis/</link><pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate><guid>http://example.org/posts/redis/</guid><description>&lt;p&gt;Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧&lt;/p&gt;
+&lt;p&gt;值得一提的是，断言失败不会导致编译失败（要是会导致编译失败也就不能解决上面这个问题了），所以为了代码健壮性需要对转换结果进行判断比较好。&lt;/p&gt;</description></item><item><title>redis的杂七杂八</title><link>http://antarxly.com/posts/redis/</link><pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate><guid>http://antarxly.com/posts/redis/</guid><description>&lt;p&gt;Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧&lt;/p&gt;
 &lt;h2 id="基本概念"&gt;基本概念
 &lt;/h2&gt;&lt;p&gt;Redis 是一种基于内存的数据库，这意味着在使用过程中的所有数据都是存放在内存当中的，省去硬盘读写的过程使得对数据库的操作会非常的快，很适合并发。&lt;/p&gt;
 &lt;p&gt;Redis 的基本储存单位是&lt;code&gt;key-value&lt;/code&gt;，比 mongodb 中的“文档”的概念有着更细的粒度。&lt;code&gt;key&lt;/code&gt;部分一般是字符串类型，&lt;code&gt;value&lt;/code&gt;部分可以有以下五种类型：&lt;/p&gt;
@@ -2207,7 +2207,7 @@ alt="GopherGoRequest"
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;rClient&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;redisPool&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行操作&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;rClient&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Do&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;LPUSH&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;key&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;value&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。&lt;/p&gt;</description></item><item><title>Keras 手写数字识别</title><link>http://example.org/posts/aml/</link><pubDate>Tue, 23 Jan 2018 18:42:42 +0000</pubDate><guid>http://example.org/posts/aml/</guid><description>&lt;hr&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。&lt;/p&gt;</description></item><item><title>Keras 手写数字识别</title><link>http://antarxly.com/posts/aml/</link><pubDate>Tue, 23 Jan 2018 18:42:42 +0000</pubDate><guid>http://antarxly.com/posts/aml/</guid><description>&lt;hr&gt;
 &lt;p&gt;之前机器学习课程布置的大作业是用尽可能多的模型来探索经典的手写数字识别问题。这里分享一下Keras的基本使用&lt;/p&gt;
 &lt;h1 id="keras简介"&gt;Keras简介
 &lt;/h1&gt;&lt;p&gt;Keras 是由纯 Python 写成的，调用 TensorFlow 或者 Theano（最新版本还支持 CNTK）进行运算的类库。相比于 TensorFlow，Keras 使用起来更加简洁方便，便于调参，非常适合初学者进行机器学习探索。&lt;/p&gt;
@@ -2268,7 +2268,7 @@ alt="GopherGoRequest"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;model&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add(Dense(&lt;span style="color:#ae81ff"&gt;128&lt;/span&gt;, activation&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;model&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add(Dropout(&lt;span style="color:#ae81ff"&gt;0.5&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;model&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add(Dense(num_classes, activation&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;卷积神经网络中主角变成了 Conv2D （卷积层）和 Pooling 层（池化）。&lt;/p&gt;</description></item><item><title>网研机试101</title><link>http://example.org/posts/buptoj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://example.org/posts/buptoj/</guid><description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;卷积神经网络中主角变成了 Conv2D （卷积层）和 Pooling 层（池化）。&lt;/p&gt;</description></item><item><title>网研机试101</title><link>http://antarxly.com/posts/buptoj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://antarxly.com/posts/buptoj/</guid><description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
 &lt;p&gt;实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。&lt;/p&gt;
 &lt;h1 id="简单介绍"&gt;简单介绍
 &lt;/h1&gt;&lt;p&gt;首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。&lt;/p&gt;
@@ -2321,7 +2321,7 @@ alt="GopherGoRequest"
 &lt;p&gt;安利&lt;a class="link" href="https://item.jd.com/1092950325.html" target="_blank" rel="noopener"
 &gt;Hackers&amp;rsquo; Delight&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="基本的算法设计思想"&gt;基本的算法设计思想
-&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description></item><item><title>linuxnv</title><link>http://example.org/posts/linuxnv/</link><pubDate>Wed, 06 Dec 2017 21:30:36 +0000</pubDate><guid>http://example.org/posts/linuxnv/</guid><description/></item><item><title>TensorFlow For Docker 初体验</title><link>http://example.org/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://example.org/posts/dockertf/</guid><description>&lt;hr&gt;
+&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description></item><item><title>linuxnv</title><link>http://antarxly.com/posts/linuxnv/</link><pubDate>Wed, 06 Dec 2017 21:30:36 +0000</pubDate><guid>http://antarxly.com/posts/linuxnv/</guid><description/></item><item><title>TensorFlow For Docker 初体验</title><link>http://antarxly.com/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/posts/dockertf/</guid><description>&lt;hr&gt;
 &lt;p&gt;TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。&lt;/p&gt;
 &lt;p&gt;下面分享配置过程。&lt;/p&gt;
 &lt;p&gt;测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00&lt;/p&gt;
@@ -2376,7 +2376,7 @@ alt="GopherGoRequest"
 loading="lazy"
 alt="多重感知机训练手写数字识别模型"
 &gt;&lt;/p&gt;
-&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究-(0)-概览</title><link>http://example.org/posts/mpseg0/</link><pubDate>Mon, 27 Nov 2017 21:48:13 +0000</pubDate><guid>http://example.org/posts/mpseg0/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究-(0)-概览</title><link>http://antarxly.com/posts/mpseg0/</link><pubDate>Mon, 27 Nov 2017 21:48:13 +0000</pubDate><guid>http://antarxly.com/posts/mpseg0/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多五光十色奇形怪状让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
 &lt;p&gt;在这篇给出这系列文章的导航帖汇总。&lt;/p&gt;
 &lt;p&gt;至于代码嘛，等交完实验报告再说嗯。。&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg1/" target="_blank" rel="noopener"
@@ -2386,7 +2386,7 @@ alt="多重感知机训练手写数字识别模型"
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg3/" target="_blank" rel="noopener"
 &gt;最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://antarx.com/2017/11/25/mpseg4/" target="_blank" rel="noopener"
-&gt;最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</title><link>http://example.org/posts/mpseg4/</link><pubDate>Sat, 25 Nov 2017 18:04:43 +0000</pubDate><guid>http://example.org/posts/mpseg4/</guid><description>&lt;p&gt;本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。&lt;/p&gt;
+&gt;最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究(四）FMM 与 BMM 在分词中的应用</title><link>http://antarxly.com/posts/mpseg4/</link><pubDate>Sat, 25 Nov 2017 18:04:43 +0000</pubDate><guid>http://antarxly.com/posts/mpseg4/</guid><description>&lt;p&gt;本篇继续讨论对输入句子的处理问题。FMM 和 BMM 是指对输入句子分别找前向最长词和后向最长词，某种程度上来说属于贪心算法的一种，比较惊喜的地方是两者结合常常能获得比较不错的分词效果。&lt;/p&gt;
 &lt;h1 id="fmm"&gt;FMM
 &lt;/h1&gt;&lt;p&gt;FMM，可以理解成前向（Forward）最长词，就是对一个句子，每次切分找词的时候，都是从前往后“切出”最长的词和剩下的子句，例如：&lt;/p&gt;
 &lt;p&gt;“&lt;strong&gt;有意见分歧&lt;/strong&gt;”这句话，用 FMM 进行切分找第一个词的时候就会切分成：&lt;/p&gt;
@@ -2399,7 +2399,7 @@ alt="多重感知机训练手写数字识别模型"
 &lt;p&gt;其中，“分歧”是寻找到的“第一个词”，“有意见”是待切分的子句。&lt;/p&gt;
 &lt;p&gt;用 BMM 分词的时候，对每次切分后的子句都反复寻找最长后缀词，直到句子为空。&lt;/p&gt;
 &lt;h1 id="fmm-与-bmm-组合分词"&gt;FMM 与 BMM 组合分词
-&lt;/h1&gt;&lt;p&gt;只用 FMM 或 BMM 进行分词的话，由于算法本身“贪心”的属性，往往得不到最理想的切分结果。所以在进行汉语切分的时候，可以将两个算法结合使用，用于发现歧义（因为对于没有歧义的句子，FMM 和 BMM 得到的切分结果一定是一致的），也可以将两个算法得到的序列计算整句话的概率（利用 BiGram 模型），选取概率较大者作为最终的切分结果。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://example.org/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://example.org/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;只用 FMM 或 BMM 进行分词的话，由于算法本身“贪心”的属性，往往得不到最理想的切分结果。所以在进行汉语切分的时候，可以将两个算法结合使用，用于发现歧义（因为对于没有歧义的句子，FMM 和 BMM 得到的切分结果一定是一致的），也可以将两个算法得到的序列计算整句话的概率（利用 BiGram 模型），选取概率较大者作为最终的切分结果。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://antarxly.com/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://antarxly.com/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
 &lt;h1 id="dag"&gt;DAG
 &lt;/h1&gt;&lt;p&gt;DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为&lt;code&gt;S&lt;/code&gt;，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg"
@@ -2461,7 +2461,7 @@ alt="有向无环图例子"
 &lt;li&gt;&lt;a class="link" href="http://www.voidcn.com/article/p-gnpklsla-sp.html" target="_blank" rel="noopener"
 &gt;jieba中文分词源码分析（三）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;王小捷老师计算语言学课程相关课件资料&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究（二）BiGram语言模型</title><link>http://example.org/posts/mpseg2/</link><pubDate>Sat, 25 Nov 2017 16:51:06 +0000</pubDate><guid>http://example.org/posts/mpseg2/</guid><description>&lt;p&gt;BiGram 语言模型，也就是二元语法模型，起源于 NGram，属于 N = 2的情况。基本思想是当前词依赖于仅前一个词的出现概率。&lt;/p&gt;
+&lt;/ol&gt;</description></item><item><title>最大概率汉语切分算法研究（二）BiGram语言模型</title><link>http://antarxly.com/posts/mpseg2/</link><pubDate>Sat, 25 Nov 2017 16:51:06 +0000</pubDate><guid>http://antarxly.com/posts/mpseg2/</guid><description>&lt;p&gt;BiGram 语言模型，也就是二元语法模型，起源于 NGram，属于 N = 2的情况。基本思想是当前词依赖于仅前一个词的出现概率。&lt;/p&gt;
 &lt;h1 id="模型简介"&gt;模型简介
 &lt;/h1&gt;&lt;p&gt;N 元语法模型属于概率模型的一种。在 Ngram 语言模型的概念里，我们假设当前词出现的概率依赖于前面&lt;code&gt;N-1&lt;/code&gt;个单词。&lt;/p&gt;
 &lt;h2 id="概率推导"&gt;概率推导
@@ -2489,7 +2489,7 @@ alt="有向无环图例子"
 &lt;p&gt;而在这个模型表示中，只储存了所有出现过的“双词”搭配，将对未出现的搭配“赋值为1”的过程放在了概率计算部分，加快了模型的加载速度。&lt;/p&gt;
 &lt;h1 id="参考资料"&gt;参考资料
 &lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://book.douban.com/subject/1390499/" target="_blank" rel="noopener"
-&gt;JMBook-自然语言处理综论&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://example.org/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://example.org/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&gt;JMBook-自然语言处理综论&lt;/a&gt;&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://antarxly.com/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://antarxly.com/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
 &lt;h1 id="问题"&gt;问题
 &lt;/h1&gt;&lt;p&gt;基于最大概率的汉语切分工具的开发，是要利用计算语言学课上学到的知识，选用合适的模型开发一个汉语分词的工具并且进行代码测试与评估。&lt;/p&gt;
 &lt;h1 id="阶段划分"&gt;阶段划分
@@ -2530,7 +2530,7 @@ alt="有向无环图例子"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; kk &lt;span style="color:#f92672"&gt;in&lt;/span&gt; TTree:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; foreachTree(TTree[kk],string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;kk,file)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对于树这种递归定义的数据结构，解决问题的最方便的方法自然也是递归，由于汉语词汇挂在“树”上的时候，每个节点都是单个“字”，因此需要一个 String 变量作为函数参数，记录前面的遍历状态。&lt;/p&gt;
-&lt;p&gt;要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。&lt;/p&gt;</description></item><item><title>macOS 配置 libsvm for Python</title><link>http://example.org/posts/macsvm/</link><pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate><guid>http://example.org/posts/macsvm/</guid><description>&lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;</description></item><item><title>Javalin框架使用指南(2)</title><link>http://example.org/posts/javalin2/</link><pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate><guid>http://example.org/posts/javalin2/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。&lt;/p&gt;</description></item><item><title>macOS 配置 libsvm for Python</title><link>http://antarxly.com/posts/macsvm/</link><pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate><guid>http://antarxly.com/posts/macsvm/</guid><description>&lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;</description></item><item><title>Javalin框架使用指南(2)</title><link>http://antarxly.com/posts/javalin2/</link><pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate><guid>http://antarxly.com/posts/javalin2/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;最近在项目中需要开发响应 WebSocket 的服务器程序来实现向客户端推送视频流的功能，刚好 Javalin 在最新版本中已经添加了对 WebSocket 的基本支持，于是有了这篇文章。&lt;/p&gt;
@@ -2578,7 +2578,7 @@ alt="有向无环图例子"
 &lt;/ul&gt;
 &lt;h1 id="其他"&gt;其他
 &lt;/h1&gt;&lt;p&gt;Javalin 当中对于 WebSocket 的实现，主要是建基于 jetty 对 WebSocket 的支持的基础上进行了二次封装，所以，Javalin目前不支持的一些方法、操作等都可以单独引用 jetty 提供的方法进行实现，只是这时候更加要注意依赖关系等问题了。&lt;/p&gt;
-&lt;p&gt;除了绑定 lamada 表达式之外，&lt;code&gt;app.ws()&lt;/code&gt;方法也可以将特定路径和实现了 WebSocket 响应的具体的类进行绑定，不过这个我还没有尝试过，理论上来说用起来会更加灵活，以后如果用到了也会写后续文章跟大家分享使用经验。&lt;/p&gt;</description></item><item><title>Javalin 框架使用指南（一）</title><link>http://example.org/posts/javalin1/</link><pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate><guid>http://example.org/posts/javalin1/</guid><description>&lt;p&gt;&lt;a class="link" href="https://javalin.io/" target="_blank" rel="noopener"
+&lt;p&gt;除了绑定 lamada 表达式之外，&lt;code&gt;app.ws()&lt;/code&gt;方法也可以将特定路径和实现了 WebSocket 响应的具体的类进行绑定，不过这个我还没有尝试过，理论上来说用起来会更加灵活，以后如果用到了也会写后续文章跟大家分享使用经验。&lt;/p&gt;</description></item><item><title>Javalin 框架使用指南（一）</title><link>http://antarxly.com/posts/javalin1/</link><pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate><guid>http://antarxly.com/posts/javalin1/</guid><description>&lt;p&gt;&lt;a class="link" href="https://javalin.io/" target="_blank" rel="noopener"
 &gt;Javalin&lt;/a&gt;是一款建基于 jetty 的轻量级 RESTful 框架，支援 Java 和 Kotlin 编程语言，非常适合用来部署REST 风格的微服务程序，因为里面对 lamada 表达式的应用可以说是到了出神入化的地步，所以一直都是我最喜欢用的框架。这系列的文章主要是介绍如何在微服务开发中应用这套框架来进行开发。&lt;/p&gt;
 &lt;h1 id="安装"&gt;安装
 &lt;/h1&gt;&lt;p&gt;Javalin 支持几乎所有常见的项目管理工具，出于一般性，文章中以 Maven 为例进行说明。&lt;/p&gt;
@@ -2637,7 +2637,7 @@ alt="有向无环图例子"
 &lt;p&gt;此外，&lt;code&gt;ctx&lt;/code&gt;参数指代的是连接上下文，调用&lt;code&gt;result()&lt;/code&gt;方法可以将字符串塞进响应体中进行返回。&lt;/p&gt;
 &lt;h1 id="more"&gt;MORE
 &lt;/h1&gt;&lt;p&gt;Javalin 框架的安装和第一个服务器程序都可以非常简便的就完成了，但这只是一个开始，通过 Javalin 框架可以完成非常复杂的响应逻辑，而且最近的更新版本中还加入了对 WebSocket 服务器的支持。接下来的文章将会介绍如何进行进一步的开发和遇到的常见问题等。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1024&lt;/strong&gt;节日快乐:halloween:&lt;/p&gt;</description></item><item><title>vscode配置 c++ 开发环境(二):调试和头文件设置</title><link>http://example.org/posts/vscode2/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://example.org/posts/vscode2/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;&lt;strong&gt;1024&lt;/strong&gt;节日快乐:halloween:&lt;/p&gt;</description></item><item><title>vscode配置 c++ 开发环境(二):调试和头文件设置</title><link>http://antarxly.com/posts/vscode2/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://antarxly.com/posts/vscode2/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;上次在&lt;a class="link" href="http://antarx.com/2017/02/18/vscode/" target="_blank" rel="noopener"
 &gt;vscode配置 c++ 开发环境(一):智能提示&lt;/a&gt;文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置&lt;code&gt;includePath&lt;/code&gt;来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。&lt;/p&gt;
 &lt;h1 id="头文件目录配置"&gt;头文件目录配置
@@ -2731,7 +2731,7 @@ alt="调试Josephus.cpp"
 &gt;&lt;/p&gt;
 &lt;h1 id="参考网站"&gt;参考网站
 &lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="http://www.jianshu.com/p/d0350f51e87a" target="_blank" rel="noopener"
-&gt;如何在VSCode内编译运行C++&lt;/a&gt;&lt;/p&gt;</description></item><item><title>macOS下使用 docker 进行 CSharp 开发（一）</title><link>http://example.org/posts/dotnetdocker/</link><pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate><guid>http://example.org/posts/dotnetdocker/</guid><description>&lt;h1 id="前言"&gt;前言
+&gt;如何在VSCode内编译运行C++&lt;/a&gt;&lt;/p&gt;</description></item><item><title>macOS下使用 docker 进行 CSharp 开发（一）</title><link>http://antarxly.com/posts/dotnetdocker/</link><pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate><guid>http://antarxly.com/posts/dotnetdocker/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。&lt;/p&gt;
 &lt;p&gt;这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。&lt;/p&gt;
 &lt;h1 id="安装-docker-环境"&gt;安装 Docker 环境
@@ -2762,7 +2762,7 @@ alt="运行结果"
 &gt;&lt;/p&gt;
 &lt;p&gt;//忽略第一次那个白痴错误（汗&lt;/p&gt;
 &lt;h1 id="后记"&gt;后记
-&lt;/h1&gt;&lt;p&gt;到此为止，在 macOS 下用 Docker 运行.net 程序的第一次尝试就完成了。要补充的内容还有很多，比如配置 vscode 开发环境等等工作，也只能等到回校有畅快的开发环境再慢慢补完了。&lt;/p&gt;</description></item><item><title>Java Mongodb 使用指南（一）增删查改</title><link>http://example.org/posts/mongodbj/</link><pubDate>Thu, 20 Jul 2017 16:22:24 +0000</pubDate><guid>http://example.org/posts/mongodbj/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/h1&gt;&lt;p&gt;到此为止，在 macOS 下用 Docker 运行.net 程序的第一次尝试就完成了。要补充的内容还有很多，比如配置 vscode 开发环境等等工作，也只能等到回校有畅快的开发环境再慢慢补完了。&lt;/p&gt;</description></item><item><title>Java Mongodb 使用指南（一）增删查改</title><link>http://antarxly.com/posts/mongodbj/</link><pubDate>Thu, 20 Jul 2017 16:22:24 +0000</pubDate><guid>http://antarxly.com/posts/mongodbj/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。&lt;/p&gt;
 &lt;h1 id="基本概念"&gt;基本概念
 &lt;/h1&gt;&lt;p&gt;先讲清楚两个后面用到的最重要的两个类：&lt;code&gt;BSON&lt;/code&gt;和&lt;code&gt;Document&lt;/code&gt;。&lt;/p&gt;
@@ -2796,7 +2796,7 @@ alt="运行结果"
 &lt;p&gt;这个方法执行起来可能会让人很无语，因为按照直觉，我们调用的时候可能更想做的是查找满足条件的文档，然后将里面的其他一些字段用 bson2替换掉。要实现这个功能也不是不可能的，不过要搞个嵌套 BasicDBObject，要用到&lt;code&gt;$set&lt;/code&gt;操作算子。示例代码段如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;BasicDBObject opr &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; BasicDBObject(&lt;span style="color:#e6db74"&gt;&amp;#34;$set&amp;#34;&lt;/span&gt;,&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; BasicDBObject(&lt;span style="color:#e6db74"&gt;&amp;#34;status&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;on&amp;#34;&lt;/span&gt;));
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mongoCollection.&lt;span style="color:#a6e22e"&gt;updateOne&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; BasicDBObject(&lt;span style="color:#e6db74"&gt;&amp;#34;id&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;0005&amp;#34;&lt;/span&gt;),opr);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码执行的结果是查找 id 是0005的文档，然后把这个文档中的 status 字段设为 on。&lt;/p&gt;</description></item><item><title>一年战争默示录</title><link>http://example.org/posts/uc2017/</link><pubDate>Mon, 27 Mar 2017 21:08:12 +0000</pubDate><guid>http://example.org/posts/uc2017/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码执行的结果是查找 id 是0005的文档，然后把这个文档中的 status 字段设为 on。&lt;/p&gt;</description></item><item><title>一年战争默示录</title><link>http://antarxly.com/posts/uc2017/</link><pubDate>Mon, 27 Mar 2017 21:08:12 +0000</pubDate><guid>http://antarxly.com/posts/uc2017/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;2016年3月初, 正式确立考研的想法并且选择了跨考计算机科学与技术, 到2017年3月底刘老师的一句“已录取”一锤定音, 过去的整整一年, 就像是一场漫长的战争, 中间有很多事情需要被记录和回忆, 所以就有了这篇. 套用了 Gundam UC 时代番外篇作为标题, 不仅仅是因为时间的巧合, 还是因为考研这件事和UC0079的一年战争一样, 损耗了极大量的时间,精力, 金钱等等等等.&lt;/p&gt;
 &lt;h1 id="抉择"&gt;抉择
 &lt;/h1&gt;&lt;p&gt;在2016年年初,对考研这件事上还是抱着极端反对的态度, 因为这意味着会有大半年的时间放弃很多事情, 只能困在自习室里, 反复的刷题, 看书, 背诵, 更何况通信原理还是我不甚喜欢的科目, 而那个时候看803计算机学科综合, 还是四门极难的天书.&lt;/p&gt;
@@ -2920,7 +2920,7 @@ alt="运行结果"
 &lt;p&gt;陪伴我刷题的钢笔们：三文堂 ECO，580RB，写乐1031，百乐74，永生698，Lamy Vista，等等等等。&lt;/p&gt;
 &lt;p&gt;墨水们：自由极乐，飞虎队，呆米家族，RK 铁胆&lt;/p&gt;
 &lt;p&gt;一半以上时间都用来种树的 oneplus3。&lt;/p&gt;
-&lt;p&gt;以及一时间可能想不起来的更多人和事。&lt;/p&gt;</description></item><item><title>2017考研-北邮网研院机试试题 ProblemC</title><link>http://example.org/posts/2017c/</link><pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate><guid>http://example.org/posts/2017c/</guid><description>&lt;h1 id="题目大意"&gt;题目大意
+&lt;p&gt;以及一时间可能想不起来的更多人和事。&lt;/p&gt;</description></item><item><title>2017考研-北邮网研院机试试题 ProblemC</title><link>http://antarxly.com/posts/2017c/</link><pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate><guid>http://antarxly.com/posts/2017c/</guid><description>&lt;h1 id="题目大意"&gt;题目大意
 &lt;/h1&gt;&lt;p&gt;求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.&lt;/p&gt;
 &lt;p&gt;Hint: $(a+b)%p = (a%p) + (b%p)$&lt;/p&gt;
 &lt;h1 id="难点和解题思路"&gt;难点和解题思路
@@ -2957,7 +2957,7 @@ alt="运行结果"
 &lt;li&gt;&lt;code&gt;long long&lt;/code&gt; 类型最好还是使用&lt;code&gt; cout&lt;/code&gt; 来处理读写, 在本机调试时发现,用 &lt;code&gt;printf(&amp;quot;%lld&amp;quot;)&lt;/code&gt;处理出现了奇奇怪怪的 bug, 用&lt;code&gt; cout&lt;/code&gt; 就没事了.&lt;/li&gt;
 &lt;li&gt;数组预处理放在循环以外进行, 否则很有可能超时.&lt;/li&gt;
 &lt;li&gt;上面的示例代码, 在 BOJ 测试时时间性能是59ms( 上限是1000ms)&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>BOJ 解题报告-268进程管理</title><link>http://example.org/posts/268/</link><pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate><guid>http://example.org/posts/268/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/ol&gt;</description></item><item><title>BOJ 解题报告-268进程管理</title><link>http://antarxly.com/posts/268/</link><pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate><guid>http://antarxly.com/posts/268/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;进行 OJ 练习以来做的最复杂的一个题目,A 完之后趁热打铁写个解题报告.&lt;/p&gt;
 &lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;详情访问&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/268/" target="_blank" rel="noopener"
@@ -3064,7 +3064,7 @@ alt="运行结果"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ解题报告(2)-89-统计时间间隔</title><link>http://example.org/posts/89/</link><pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate><guid>http://example.org/posts/89/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ解题报告(2)-89-统计时间间隔</title><link>http://antarxly.com/posts/89/</link><pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate><guid>http://antarxly.com/posts/89/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;给出两个时间(24小时制)，求第一个时间至少要经过多久才能到达第二个时间。给出的时间一定满足的形式，其中x和y分别代表小时和分钟。0≤x&amp;lt;24,0≤y&amp;lt;60。&lt;/p&gt;
 &lt;h1 id="输入输出处理"&gt;输入输出处理
 &lt;/h1&gt;&lt;p&gt;输入格式&lt;code&gt;hh:mm&lt;/code&gt;,也就是在数字时钟中最常见的24小时表示法, 对于这种输入形式, 可以仿照87题中的技巧通过 &lt;code&gt;scanf(&amp;quot;%d:%d&amp;quot;,&amp;amp;hh,&amp;amp;mm)&lt;/code&gt;的形式将时间和分钟分别复制到两个整形变量当中.&lt;/p&gt;
@@ -3086,7 +3086,7 @@ alt="运行结果"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; printf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;,res);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ 解题报告(1)-87-日期</title><link>http://example.org/posts/87-cpp/</link><pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate><guid>http://example.org/posts/87-cpp/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ 解题报告(1)-87-日期</title><link>http://antarxly.com/posts/87-cpp/</link><pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate><guid>http://antarxly.com/posts/87-cpp/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。&lt;/p&gt;
 &lt;p&gt;计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="noopener"
@@ -3139,7 +3139,7 @@ alt="运行结果"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; printf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;,days);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>vscode配置 c++ 开发环境(一):智能提示</title><link>http://example.org/posts/vscode/</link><pubDate>Sat, 18 Feb 2017 18:48:20 +0000</pubDate><guid>http://example.org/posts/vscode/</guid><description>&lt;p&gt;#前言
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>vscode配置 c++ 开发环境(一):智能提示</title><link>http://antarxly.com/posts/vscode/</link><pubDate>Sat, 18 Feb 2017 18:48:20 +0000</pubDate><guid>http://antarxly.com/posts/vscode/</guid><description>&lt;p&gt;#前言
 &lt;a class="link" href="https://code.visualstudio.com" target="_blank" rel="noopener"
 &gt;vscode&lt;/a&gt;是微软推出的跨平台的编辑器, 开发者可以通过丰富的插件把它定制成最适合自己使用的开发环境. 对于我来说,它最吸引的地方之一就是可以为 Mac 还有 Linux 平台提供了与 Visual Studio 类似的智能提示功能.&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
@@ -3162,7 +3162,7 @@ alt="运行结果"
 4. 重启应用程序,即可享受 vscode 带来的智能提示功能了.效果图如下.
 &lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg"
 loading="lazy"
-&gt;&lt;/p&gt;</description></item><item><title>通信的基础——大学这三年到底学了啥（主线课程篇）</title><link>http://example.org/posts/communication/</link><pubDate>Tue, 08 Mar 2016 22:33:57 +0000</pubDate><guid>http://example.org/posts/communication/</guid><description>&lt;h1 id="前言"&gt;前言
+&gt;&lt;/p&gt;</description></item><item><title>通信的基础——大学这三年到底学了啥（主线课程篇）</title><link>http://antarxly.com/posts/communication/</link><pubDate>Tue, 08 Mar 2016 22:33:57 +0000</pubDate><guid>http://antarxly.com/posts/communication/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;每次跟其他专业的同学聊天的时候往往会被问到，“你们通信工程这个专业到底是学些啥的”，之前回答这个问题的时候一直都是支支吾吾，实在惭愧。到了这个学期，在几乎所有的专业基础课都学完的时候，总算可以稍稍整理一下这个问题了。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
 &lt;/h1&gt;&lt;p&gt;整理的第一件事，就是明确通信的概念。通信，就是说白了就是实现两点之间的信息传输。所以就字面上看，着眼点并不多，主要在于怎么表示信息和怎么传的问题。&lt;/p&gt;
@@ -3193,7 +3193,7 @@ loading="lazy"
 &lt;p&gt;之后，就是在本学期学到通原2中学到的关于信息编码处理和信道编码等内容，由于刚开始学习，所以暂且不表。&lt;/p&gt;
 &lt;h1 id="end"&gt;END
 &lt;/h1&gt;&lt;p&gt;原本以为可以简要介绍，但不知不觉就来了废话一堆，能够把一个专业的核心问题说清楚真的不是什么轻而易举的事情，能够整理下来发现大学两年多也并非一无所获。等有时间了继续把其他光怪陆离的课程整理一下，也是对本科四年的一个交代罢了。&lt;/p&gt;
-&lt;p&gt;纰漏之处，还希望留言指正:-)&lt;/p&gt;</description></item><item><title>“软狗”的2015学习总结</title><link>http://example.org/posts/2015/</link><pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate><guid>http://example.org/posts/2015/</guid><description>&lt;h1 id="背景"&gt;背景
+&lt;p&gt;纰漏之处，还希望留言指正:-)&lt;/p&gt;</description></item><item><title>“软狗”的2015学习总结</title><link>http://antarxly.com/posts/2015/</link><pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate><guid>http://antarxly.com/posts/2015/</guid><description>&lt;h1 id="背景"&gt;背景
 &lt;/h1&gt;&lt;p&gt;2015年转眼间来到了最后一周。大四考研的周末，在宿舍阅读了知乎上一些关于编程学习的文章，深觉自己也应该写下这一年来自己学习上碰到的坑和经验教训，也列举自己看过的一些书，供以后回顾时参考。&lt;/p&gt;
 &lt;h1 id="絮絮叨叨的一些"&gt;絮絮叨叨的一些
 &lt;/h1&gt;&lt;p&gt;一言蔽之，2015年是我自己在各方面都大胆探索尝试的一年。年初受知乎上萧大&lt;a class="link" href="http://zhuanlan.zhihu.com/xiao-jing-mo/19959253" target="_blank" rel="noopener"
@@ -3289,7 +3289,7 @@ loading="lazy"
 &gt;《数学之美》&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;吴军老师结合自己在项目研发上的实际经验撰写的一本讲述了目前最火的几个领域上用到的数学知识原理。言简意赅，毫不沉闷。&lt;/p&gt;
 &lt;h1 id="最后的最后"&gt;最后的最后
-&lt;/h1&gt;&lt;p&gt;写在最后的也不算是对未来的展望了。2016年希望不要摔在同样的坑上。还有就是能成为正式MSP继续传教233333333&lt;/p&gt;</description></item><item><title>Cygwin安装独立的pip环境</title><link>http://example.org/posts/cygpy/</link><pubDate>Fri, 25 Dec 2015 18:37:31 +0000</pubDate><guid>http://example.org/posts/cygpy/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/h1&gt;&lt;p&gt;写在最后的也不算是对未来的展望了。2016年希望不要摔在同样的坑上。还有就是能成为正式MSP继续传教233333333&lt;/p&gt;</description></item><item><title>Cygwin安装独立的pip环境</title><link>http://antarxly.com/posts/cygpy/</link><pubDate>Fri, 25 Dec 2015 18:37:31 +0000</pubDate><guid>http://antarxly.com/posts/cygpy/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过&lt;code&gt;pip install virtualenv&lt;/code&gt;命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。&lt;/p&gt;
 &lt;h1 id="安装步骤"&gt;安装步骤
 &lt;/h1&gt;&lt;ol&gt;
@@ -3306,7 +3306,7 @@ loading="lazy"
 &lt;li&gt;命令行输入&lt;code&gt;which pip&lt;/code&gt;返回的结果为&amp;rsquo;/usr/bin/pip'&lt;/li&gt;
 &lt;li&gt;命令行输入&lt;code&gt;pip -V&lt;/code&gt;返回的结果为&lt;code&gt;pip 1.5.6 from /usr/lib/python2.7/site-packages (python 2.7)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;至此，Cygwin下独立的pip环境已经配置完毕，之后就可以安装Linux下配置Flask，Pyramid或者Django环境的办法愉快的玩耍了。&lt;/p&gt;</description></item><item><title>numpy学习笔记（1）--ndarray类型常用属性</title><link>http://example.org/posts/numpy/</link><pubDate>Wed, 23 Dec 2015 22:39:36 +0000</pubDate><guid>http://example.org/posts/numpy/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;至此，Cygwin下独立的pip环境已经配置完毕，之后就可以安装Linux下配置Flask，Pyramid或者Django环境的办法愉快的玩耍了。&lt;/p&gt;</description></item><item><title>numpy学习笔记（1）--ndarray类型常用属性</title><link>http://antarxly.com/posts/numpy/</link><pubDate>Wed, 23 Dec 2015 22:39:36 +0000</pubDate><guid>http://antarxly.com/posts/numpy/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;NumPy是python中用于机器学习和科学计算的常用库。opencv for python中&lt;code&gt;cv2.imread('image.jpg')&lt;/code&gt;命令读取图像返回的数据类型也是ndarray。今天将&lt;code&gt;ndarray&lt;/code&gt;的一些常用属性记录下来，以便以后学习时进行参考。&lt;/p&gt;
 &lt;h1 id="ndarray常用属性"&gt;ndarray常用属性
 &lt;/h1&gt;&lt;ol&gt;
@@ -3320,7 +3320,7 @@ alt="example"
 &lt;li&gt;&lt;strong&gt;ndim&lt;/strong&gt;: 表示这个ndarray的维度。也可以理解为&lt;strong&gt;shape&lt;/strong&gt;属性返回的元组的数量。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;T&lt;/strong&gt;:表示ndarray矩阵的转置。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;今天使用opencv做简单的图像处理时接触到的ndarray的相关属性主要就是以上5个。以后再学习过程中遇到的更多有用的属性时会及时做补充。&lt;/p&gt;</description></item><item><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link>http://example.org/posts/dp/</link><pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate><guid>http://example.org/posts/dp/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;今天使用opencv做简单的图像处理时接触到的ndarray的相关属性主要就是以上5个。以后再学习过程中遇到的更多有用的属性时会及时做补充。&lt;/p&gt;</description></item><item><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link>http://antarxly.com/posts/dp/</link><pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate><guid>http://antarxly.com/posts/dp/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;上次提到会在后续通过实际例子更加深入的谈谈对解释四种&lt;a class="link" href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank" rel="noopener"
 &gt;四种基本算法设计模式&lt;/a&gt;的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
@@ -3388,7 +3388,7 @@ loading="lazy"
 &gt;&lt;/p&gt;
 &lt;h1 id="后记"&gt;后记
 &lt;/h1&gt;&lt;p&gt;求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，&lt;strong&gt;不会再回溯子状态的时候改变该状态的解&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description></item><item><title>用diskpart打造Win 10安装U盘</title><link>http://example.org/posts/win-10/</link><pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate><guid>http://example.org/posts/win-10/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description></item><item><title>用diskpart打造Win 10安装U盘</title><link>http://antarxly.com/posts/win-10/</link><pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate><guid>http://antarxly.com/posts/win-10/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;本文主要介绍通过diskpart命令行的方式制作Windows10引导U盘，制作完毕后，该U盘可以用于安装（包括全新安装和升级安装）Windows10操作系统，也可以在系统无法启动的时候使用该U盘进行修复操作。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
 &lt;/h1&gt;&lt;h2 id="需要的材料"&gt;需要的材料
@@ -3415,7 +3415,7 @@ loading="lazy"
 &lt;li&gt;至此，一个可以在目前绝大部分新的笔记本电脑上启动的Windows10启动U盘已经制作完毕。在BIOS中选择用U盘启动即可进入亲切的Windows10安装界面了。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id="后记"&gt;后记
-&lt;/h1&gt;&lt;p&gt;虽然目前有很多工具可以制作启动U盘，但本文介绍的方式具有独特的优势，在你想更换别的版本的系统比如制作ubuntu启动盘（逃 的时候，只需要把U盘里面的内容全选删除，并且把ubuntu安装镜像的内容完整复制过去就可以了，不用借助任何其他工具再次制作。&lt;/p&gt;</description></item><item><title>四种基本的算法设计模式</title><link>http://example.org/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://example.org/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/h1&gt;&lt;p&gt;虽然目前有很多工具可以制作启动U盘，但本文介绍的方式具有独特的优势，在你想更换别的版本的系统比如制作ubuntu启动盘（逃 的时候，只需要把U盘里面的内容全选删除，并且把ubuntu安装镜像的内容完整复制过去就可以了，不用借助任何其他工具再次制作。&lt;/p&gt;</description></item><item><title>四种基本的算法设计模式</title><link>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;最近在阅读一本有趣的算法书，书中作者列举了四种基本的算法设计模式，我总结摘录得到本文。今天先给出文字总结。随着阅读的深入，以后会给出四种设计模式的典型案例。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
 &lt;/h1&gt;&lt;h2 id="贪婪法"&gt;贪婪法
@@ -3459,7 +3459,7 @@ loading="lazy"
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id="后记"&gt;后记
 &lt;/h1&gt;&lt;p&gt;四种基本的设计模式并不是相互对立的。有时一个问题可以用一种或多种的设计模式去解决，而且，附加的条件不同时，应用的设计方法也不同。一个典型例子就是背包问题（&lt;strong&gt;多件体积不同，价值不同的物品放入体积一定的背包，求解价值最大的方案&lt;/strong&gt;），既可以通过穷举所有情况解决，也可以引入价值密度的概念，用贪婪法设计解决(每次都放入价值密度最高的物品），还可以用动态规划解决（还没透彻理解QAQ）。
-上面的内容很多都是自己整理书中内容加上自己的一点想法写成的，感觉还是太抽象了，也难免有各种疏漏和错误，欢迎大家留意指正，多多交流。以后补充实际问题结合代码更加深入的分析每一个方法的奥妙。&lt;/p&gt;</description></item><item><title>.NET学习笔记（一）</title><link>http://example.org/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link><pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate><guid>http://example.org/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid><description>&lt;ul&gt;
+上面的内容很多都是自己整理书中内容加上自己的一点想法写成的，感觉还是太抽象了，也难免有各种疏漏和错误，欢迎大家留意指正，多多交流。以后补充实际问题结合代码更加深入的分析每一个方法的奥妙。&lt;/p&gt;</description></item><item><title>.NET学习笔记（一）</title><link>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link><pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate><guid>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid><description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基础类型相关
 .NET中所有内建类型都继承自System.Object,若同时继承自System.ValueType类则为值类型，否则为引用类型。&lt;/p&gt;
@@ -3482,7 +3482,7 @@ loading="lazy"
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原文链接&lt;a class="link" href="http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;amp;mid=222183396&amp;amp;idx=1&amp;amp;sn=c57968ca0f153ddf7940c841f46b9ab5&amp;amp;scene=23&amp;amp;srcid=1021B6INnSSOjObgVfcahXwA#rd" target="_blank" rel="noopener"
-&gt;.NET基础拾遗(1)类型语法基础和内存管理基础&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hello World</title><link>http://example.org/posts/hexo-hello-world/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://example.org/posts/hexo-hello-world/</guid><description>&lt;p&gt;Welcome to &lt;a class="link" href="https://hexo.io/" target="_blank" rel="noopener"
+&gt;.NET基础拾遗(1)类型语法基础和内存管理基础&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hello World</title><link>http://antarxly.com/posts/hexo-hello-world/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://antarxly.com/posts/hexo-hello-world/</guid><description>&lt;p&gt;Welcome to &lt;a class="link" href="https://hexo.io/" target="_blank" rel="noopener"
 &gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a class="link" href="https://hexo.io/docs/" target="_blank" rel="noopener"
 &gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a class="link" href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener"
 &gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a class="link" href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener"

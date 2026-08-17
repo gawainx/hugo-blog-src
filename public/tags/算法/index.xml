@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>算法 on 我的技术博客</title><link>http://example.org/tags/%E7%AE%97%E6%B3%95/</link><description>Recent content in 算法 on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 25 Nov 2017 16:51:09 +0000</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://example.org/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://example.org/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>算法 on Antarx Blog</title><link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link><description>Recent content in 算法 on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 25 Nov 2017 16:51:09 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://antarxly.com/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://antarxly.com/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
 &lt;h1 id="dag"&gt;DAG
 &lt;/h1&gt;&lt;p&gt;DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为&lt;code&gt;S&lt;/code&gt;，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg"
@@ -60,7 +60,7 @@ alt="有向无环图例子"
 &lt;li&gt;&lt;a class="link" href="http://www.voidcn.com/article/p-gnpklsla-sp.html" target="_blank" rel="noopener"
 &gt;jieba中文分词源码分析（三）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;王小捷老师计算语言学课程相关课件资料&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link>http://example.org/posts/dp/</link><pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate><guid>http://example.org/posts/dp/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/ol&gt;</description></item><item><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link>http://antarxly.com/posts/dp/</link><pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate><guid>http://antarxly.com/posts/dp/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;上次提到会在后续通过实际例子更加深入的谈谈对解释四种&lt;a class="link" href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank" rel="noopener"
 &gt;四种基本算法设计模式&lt;/a&gt;的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
@@ -128,7 +128,7 @@ loading="lazy"
 &gt;&lt;/p&gt;
 &lt;h1 id="后记"&gt;后记
 &lt;/h1&gt;&lt;p&gt;求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，&lt;strong&gt;不会再回溯子状态的时候改变该状态的解&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description></item><item><title>四种基本的算法设计模式</title><link>http://example.org/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://example.org/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description></item><item><title>四种基本的算法设计模式</title><link>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid><description>&lt;h1 id="前言"&gt;前言
 &lt;/h1&gt;&lt;p&gt;最近在阅读一本有趣的算法书，书中作者列举了四种基本的算法设计模式，我总结摘录得到本文。今天先给出文字总结。随着阅读的深入，以后会给出四种设计模式的典型案例。&lt;/p&gt;
 &lt;h1 id="正文"&gt;正文
 &lt;/h1&gt;&lt;h2 id="贪婪法"&gt;贪婪法

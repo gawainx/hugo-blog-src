@@ -1,10 +1,10 @@
 # hugo.toml
 
-baseURL = 'http://example.org/'
+baseURL = 'http://antarxly.com/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'zh-cn'
 hasCJKLanguage = true
-title = '我的技术博客'
+title = 'Antarx Blog'
 theme = 'Stack'
 
 [permalinks]
@@ -19,7 +19,7 @@ name = "gawainx"
 
 [params.sidebar]
 emoji = "💻"
-subtitle = "记录技术与想法"
+subtitle = "AI Infra | Vibe Coding | SwiftUI"
 
 [params.sidebar.avatar]
 enabled = false
