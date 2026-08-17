@@ -1,0 +1,1 @@
+- (e5a8821) : 2026.08.17 更新站点基础 metadata：将正式站点地址设为 antarxly.com，标题调整为 Antarx Blog，并将侧栏简介改为 AI Infra、Vibe Coding 与 SwiftUI。静态页面随配置重新生成，保证规范链接、站点地图、RSS 与 Open Graph 元数据都指向正式域名；仅处理站点配置与构建产物，不纳入本地未跟踪的工具与缓存文件。
