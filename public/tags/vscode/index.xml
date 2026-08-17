@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vscode on 我的技术博客</title><link>http://example.org/tags/vscode/</link><description>Recent content in Vscode on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Oct 2017 14:28:45 +0000</lastBuildDate><atom:link href="http://example.org/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode配置 c++ 开发环境(二):调试和头文件设置</title><link>http://example.org/posts/vscode2/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://example.org/posts/vscode2/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/h1&gt;&lt;p&gt;上次在&lt;a class="link" href="http://antarx.com/2017/02/18/vscode/" target="_blank" rel="noopener"
+&gt;vscode配置 c++ 开发环境(一):智能提示&lt;/a&gt;文章中介绍了如何在 vscode 中配置 c++语言的智能提示，时间又过了很久，vscode 用的也越来越得心应手，今天终于有机会更新这个系列的第二篇文章，讲讲如何配置&lt;code&gt;includePath&lt;/code&gt;来避免不愉快的波浪线和怎么用 vscode 对 cpp 程序进行调试。&lt;/p&gt;
+&lt;h1 id="头文件目录配置"&gt;头文件目录配置
+&lt;/h1&gt;&lt;p&gt;在默认情况下，就算是已经将 cpp 开发相关的插件装好，用 VScode 打开一个 cpp 文件的时候，通常还会看到令人不悦的波浪线，就像下面这样：
+&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018165327_gOFgYN_Screenshot.jpeg"
+loading="lazy"
+alt="软件找不到头文件时会有波浪线提示"
+&gt;&lt;/p&gt;
+&lt;p&gt;刚开始的时候我也非常的头疼这个问题，后来在&lt;a class="link" href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener"
+&gt;vscode 官方博客&lt;/a&gt;的文章中找到了解决方案。&lt;/p&gt;
+&lt;p&gt;首先，在使用习惯上，要用 vscode 打开源代码所在的文件夹而不是打开单个文件，比如所，我有个&lt;code&gt;Josephus.cpp&lt;/code&gt;源文件在&lt;code&gt;cppcode&lt;/code&gt;文件夹下，那么就要在终端上输入&lt;code&gt;code cppcode&lt;/code&gt; 用 vscode 打开这个文件夹，再对那个源代码文件进行编辑和处理，而避免直接&lt;code&gt;code Josephus.cpp&lt;/code&gt;打开单个文件。（下面的相关配置都是基于这个使用习惯的基础之上的）&lt;/p&gt;
+&lt;p&gt;然后，在文件夹下新建&lt;code&gt;.vscode&lt;/code&gt;目录（如果该目录已经存在，则可以略过这一步）。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;.vscode&lt;/code&gt;文件夹下，新建&lt;code&gt;c_cpp_properties.json&lt;/code&gt;json 配置文件，在文件中粘贴以下代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;configurations&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;Mac&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;includePath&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/include&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/local/include&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/include/c++/4.2.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;browse&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;limitSymbolsToIncludedHeaders&amp;#34;&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;databaseFilename&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/include&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/local/include&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;${workspaceRoot}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;intelliSenseMode&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;clang-x64&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;macFrameworkPath&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/System/Library/Frameworks&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/Library/Frameworks&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;version&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在这个配置文件中，&lt;code&gt;includePath&lt;/code&gt;字段是指定 VScode 搜索头文件的目录，如果目录中不存在源代码里引用的头文件，则会有波浪线提示。&lt;/p&gt;
+&lt;p&gt;所以，将用到的头文件所在的位置都添加到该字段中，就可以解决“波浪线”问题了。&lt;/p&gt;
+&lt;h1 id="调试设置"&gt;调试设置
+&lt;/h1&gt;&lt;p&gt;在 Windows 上面用 VS 进行 C++开发的时候，最吸引人的一个功能是完善的调试功能，类似的功能在 VScode 上也可以实现。&lt;/p&gt;
+&lt;p&gt;首先，在&lt;code&gt;.vscode&lt;/code&gt;文件夹下新建 &lt;code&gt;launch.json&lt;/code&gt;和&lt;code&gt;tasks.json&lt;/code&gt;两个配置文件，其中，&lt;code&gt;launch.json&lt;/code&gt;文件是配置调试信息，&lt;code&gt;tasks.json&lt;/code&gt;是用于配置编译信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tasks.json&lt;/code&gt;文件下，粘贴以下代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;version&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;0.1.0&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;command&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;clang++&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;args&amp;#34;&lt;/span&gt;: [&lt;span style="color:#e6db74"&gt;&amp;#34;-g&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;${file}&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;-o&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;${file}.out&amp;#34;&lt;/span&gt;], &lt;span style="color:#75715e"&gt;// 编译命令参数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;problemMatcher&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;owner&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;cpp&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;fileLocation&amp;#34;&lt;/span&gt;: [&lt;span style="color:#e6db74"&gt;&amp;#34;relative&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;${workspaceRoot}&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;pattern&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;regexp&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;file&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;line&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;column&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;severity&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;message&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述代码中，&lt;code&gt;command&lt;/code&gt;字段是编译程序（编译命令），根据个人喜好可以填g++或 clang++（编译 C++），如果想编译 c，也可以填 gcc 或 clang。
+&lt;code&gt;args&lt;/code&gt;字段是编译时添加的指令，&lt;code&gt;${file}.out&lt;/code&gt;中&lt;code&gt;${file}&lt;/code&gt;指的是当前编辑文件的文件名。（如果是在 Windows 下面配置，需要写成&lt;code&gt;${file}.exe&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;launch.json&lt;/code&gt;文件下，粘贴以下代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;version&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;0.2.0&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;configurations&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;(lldb) Launch&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;cppdbg&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;request&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;launch&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;program&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;${file}.out&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;args&amp;#34;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;stopAtEntry&amp;#34;&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;cwd&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;${workspaceRoot}&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;environment&amp;#34;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;externalConsole&amp;#34;&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;MIMode&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;lldb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;&amp;quot;program&amp;quot;: &amp;quot;${file}.out&amp;quot;&lt;/code&gt;字段表示调试的目标程序。&lt;/p&gt;
+&lt;p&gt;两个文件都配置好之后，打开要调试的 cpp 文件，首先选择“任务”-&amp;gt;“运行任务…”,弹出的窗口中选择&lt;code&gt;clang++&lt;/code&gt;,这一步是编译程序生成.out 文件的过程。&lt;/p&gt;
+&lt;p&gt;运行完毕后，选择“调试”-&amp;gt;”启动调试“或按 F5快捷键，启动调试。如果看到下面这样的界面，表示配置没有问题，进入调试过程。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171018171618_OX5c5q_Screenshot.jpeg"
+loading="lazy"
+alt="调试Josephus.cpp"
+&gt;&lt;/p&gt;
+&lt;h1 id="参考网站"&gt;参考网站
+&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="http://www.jianshu.com/p/d0350f51e87a" target="_blank" rel="noopener"
+&gt;如何在VSCode内编译运行C++&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

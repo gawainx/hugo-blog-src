@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 我的技术博客</title><link>http://example.org/tags/python/</link><description>Recent content in Python on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 02 Aug 2022 17:22:35 +0000</lastBuildDate><atom:link href="http://example.org/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode股神大激斗</title><link>http://example.org/posts/leetcode-stock/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://example.org/posts/leetcode-stock/</guid><description>&lt;p&gt;这次来分析一下LeetCode中几道炒股题目&lt;/p&gt;
+&lt;h2 id="no121-买卖股票的最佳时机"&gt;No.121 买卖股票的最佳时机
+&lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
+&lt;/h3&gt;&lt;p&gt;给定一个数组 &lt;code&gt;prices&lt;/code&gt; ，它的第 &lt;code&gt;i&lt;/code&gt; 个元素 &lt;code&gt;prices[i]&lt;/code&gt; 表示一支给定股票第 &lt;code&gt;i&lt;/code&gt; 天的价格。&lt;/p&gt;
+&lt;p&gt;你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。&lt;/p&gt;
+&lt;p&gt;返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：[7,1,5,3,6,4]
+输出：5
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例 2：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：prices = [7,6,4,3,1]
+输出：0
+解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="踩坑思路"&gt;踩坑思路
+&lt;/h3&gt;&lt;p&gt;一开始想对每个元素，往前找最大值，可是这个题目的数据范围非常大，超时了。&lt;/p&gt;
+&lt;p&gt;基于这个想法，马上想到，超时是因为重复计算，比如找到一个最大值之后，我就不用每次都找最大值了，想到第二种思路，就是找到最大值之后，在子区间找最小值，然后从最大值的下一个位置开始继续找。这时候又面临另外的情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数组是单调递减的时候，反复找依然很浪费时间&lt;/li&gt;
+&lt;li&gt;摆动数组：还是浪费时间。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;于是这个版本的代码也超时了。&lt;/p&gt;
+&lt;p&gt;最后看答案找到第三种解法——滚动法。因为题目限制了只买卖一次，那我就假设，一开始是第一天买入的，从前往后遍历：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;遍历到位置i的时候就假设是那天卖出去，看能捞多少钱，如果比已知最大利润更大那就更新最大利润。&lt;/li&gt;
+&lt;li&gt;如果遍历找到一个更小的价格，那就按照那个价格买入。这时候注意，因为是从前往后遍历，所以不会存在找到最小值之后倒车卖出（最大值出现在最小值之前）的可能性，只是滚动更新买入价格而已。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这次终于不超时了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;maxProfit&lt;/span&gt;(self, prices: List[int]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; int:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; buyin &lt;span style="color:#f92672"&gt;=&lt;/span&gt; prices[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; price &lt;span style="color:#f92672"&gt;in&lt;/span&gt; prices:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; price &lt;span style="color:#f92672"&gt;-&lt;/span&gt; buyin &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; res:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; price &lt;span style="color:#f92672"&gt;-&lt;/span&gt; buyin
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; price &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; buyin:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; buyin &lt;span style="color:#f92672"&gt;=&lt;/span&gt; price
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行结果：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Accepted
+211/211 cases passed (96 ms)
+Your runtime beats 98.87 % of python3 submissions
+Your memory usage beats 85.42 % of python3 submissions (23.3 MB)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="no122-买卖股票的最佳时机-ii"&gt;No.122 买卖股票的最佳时机 II
+&lt;/h2&gt;&lt;h3 id="题目描述-1"&gt;题目描述
+&lt;/h3&gt;&lt;p&gt;给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。&lt;/p&gt;
+&lt;p&gt;在每一天，你可以决定是否购买和/或出售股票。你在任何时候 &lt;strong&gt;最多&lt;/strong&gt; 只能持有 一股 股票。你也可以先购买，然后在 &lt;strong&gt;同一天&lt;/strong&gt; 出售。&lt;/p&gt;
+&lt;p&gt;返回 你能获得的 &lt;strong&gt;最大&lt;/strong&gt; 利润 。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：prices = [7,1,5,3,6,4]
+输出：7
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
+总利润为 4 + 3 = 7 。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例 2：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：prices = [1,2,3,4,5]
+输出：4
+解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+总利润为 4 。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例 3：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：prices = [7,6,4,3,1]
+输出：0
+解释：在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0 。
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="解题思路"&gt;解题思路
+&lt;/h3&gt;&lt;p&gt;这个反而感觉比121还要简单一些，比121多了多次交易这个条件。我的实现思路是不断找单调递增子序列。子序列的起点为买入时间，子序列的终点是卖出时间。这里有个边界条件是，在序列遍历结束之后，如果买入日期不是-1，那就意味从买入日期开始到最后构成一个单调递增子序列，需要在最后一天卖出，赚最后一手钱。&lt;/p&gt;
+&lt;h3 id="实现代码"&gt;实现代码
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;maxProfit&lt;/span&gt;(self, prices: List[int]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; int:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prev &lt;span style="color:#f92672"&gt;=&lt;/span&gt; prices[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; start &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; idx, price &lt;span style="color:#f92672"&gt;in&lt;/span&gt; enumerate(prices):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; price &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; prev &lt;span style="color:#f92672"&gt;and&lt;/span&gt; start &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; start &lt;span style="color:#f92672"&gt;=&lt;/span&gt; idx &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; price &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; prev &lt;span style="color:#f92672"&gt;and&lt;/span&gt; start &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; idx &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; (prices[end] &lt;span style="color:#f92672"&gt;-&lt;/span&gt; prices[start])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; start &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prev &lt;span style="color:#f92672"&gt;=&lt;/span&gt; price
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; start &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 说明到最后一天还没卖出，那就在最后一天卖出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; (prices[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;-&lt;/span&gt; prices[start])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="901-股票价格跨度"&gt;901 股票价格跨度
+&lt;/h2&gt;&lt;p&gt;编写一个 &lt;code&gt;StockSpanner&lt;/code&gt; 类，它收集某些股票的每日报价，并返回该股票当日价格的跨度。&lt;/p&gt;
+&lt;p&gt;今天股票价格的跨度被定义为股票价格小于或等于今天价格的最大连续日数（从今天开始往回数，包括今天）。&lt;/p&gt;
+&lt;p&gt;例如，如果未来7天股票的价格是 &lt;code&gt;[100, 80, 60, 70, 60, 75, 85]&lt;/code&gt;，那么股票跨度将是 &lt;code&gt;[1, 1, 1, 2, 1, 4, 6]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：[&amp;#34;StockSpanner&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;,&amp;#34;next&amp;#34;], [[],[100],[80],[60],[70],[60],[75],[85]]
+输出：[null,1,1,1,2,1,4,6]
+解释：
+首先，初始化 S = StockSpanner()，然后：
+S.next(100) 被调用并返回 1，
+S.next(80) 被调用并返回 1，
+S.next(60) 被调用并返回 1，
+S.next(70) 被调用并返回 2，
+S.next(60) 被调用并返回 1，
+S.next(75) 被调用并返回 4，
+S.next(85) 被调用并返回 6。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意 (例如) S.next(75) 返回 4，因为截至今天的最后 4 个价格
+(包括今天的价格 75) 小于或等于今天的价格。&lt;/p&gt;
+&lt;p&gt;这道题又一次死在了单调栈。&lt;/p&gt;
+&lt;h3 id="思路分析"&gt;思路分析
+&lt;/h3&gt;&lt;p&gt;一开始看错题目，以为要找数组中比这个价格小的，gg&lt;/p&gt;
+&lt;p&gt;看清楚题目之后，用暴力解法，超时。超时原因在于对每个入栈元素都往前判断，题目对时间限制很严格。&lt;/p&gt;
+&lt;p&gt;最后看答案才解决问题。有一个很关键的突破口被我忽视了：对进来的每天股票的价格，如果这个价格比以前的价格低，那么以前的这些价格都不会参与到后续的计算了（因为不可能再构成单调减序列）。&lt;/p&gt;
+&lt;p&gt;因此，维护一个单调栈，栈顶元素就是到前一天的价格，不过进栈有讲究：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果比前一天的小，那就进栈，天数&lt;code&gt;+1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果比前一天的大，那就将栈里元素出栈，直到栈里元素都比当前元素大，把当前元素进栈。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;还有个讲究就是，进栈的不仅仅是元素，还有当天的答案。每次出栈的时候，把天数给加起来。为当前元素获得的答案。&lt;/p&gt;
+&lt;h3 id="代码实现"&gt;代码实现
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;StockSpanner&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;stack &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;next&lt;/span&gt;(self, price: int) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; int:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;stack &lt;span style="color:#f92672"&gt;and&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;stack[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; price:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;stack&lt;span style="color:#f92672"&gt;.&lt;/span&gt;pop()[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;stack&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append((price, res))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行结果&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Accepted
+99/99 cases passed (340 ms)
+Your runtime beats 40.35 % of python3 submissions
+Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>leetcode 45 and 55 两个跳跃游戏</title><link>http://example.org/posts/leetcode-45-55/</link><pubDate>Thu, 28 Jul 2022 17:19:28 +0000</pubDate><guid>http://example.org/posts/leetcode-45-55/</guid><description>&lt;p&gt;两道关联题目，跳跃游戏，两道都没顺利做出来，好好记录一下。&lt;/p&gt;
+&lt;h2 id="55-跳跃游戏"&gt;55 跳跃游戏
+&lt;/h2&gt;&lt;h3 id="题目描述"&gt;题目描述
+&lt;/h3&gt;&lt;p&gt;给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。&lt;/p&gt;
+&lt;p&gt;数组中的每个元素代表你在该位置可以跳跃的最大长度。&lt;/p&gt;
+&lt;p&gt;判断你是否能够到达最后一个下标。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：nums = [2,3,1,1,4]
+输出：true
+解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例 2：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入：nums = [3,2,1,0,4]
+输出：false
+解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="解题思路"&gt;解题思路
+&lt;/h3&gt;&lt;p&gt;这道题的核心是判断能否的到达最后的位置。一开始我的想法是每次跳的时候找到达范围内能够跳最远的，可是我混淆了一个条件，就是数组的每个元素表示的是从当前位置出发能够去的步数，需要加上这个位置的下标才是到达的最远步数，所以一开始死活都过不了，一个最经典的测试用例就是&lt;code&gt;[4, 2, 0, 0, 1, 1, 4, 4, 0, 1]&lt;/code&gt;，前面半段&lt;code&gt;[4, 2, 0, 0, 1]&lt;/code&gt; 的时候代码错误选了&lt;code&gt;2&lt;/code&gt;就以为没发到达最后位置。&lt;/p&gt;
+&lt;p&gt;代码如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;canJump&lt;/span&gt;(self, nums: List[int]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; bool:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lns &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(nums)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; lns &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_length &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; i &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; lns:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; i &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; max_length:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 寻找最远的位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_length &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max(max_length, i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; nums[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; max_length &lt;span style="color:#f92672"&gt;&amp;gt;=&lt;/span&gt; lns &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="45-跳跃游戏-ii"&gt;45 跳跃游戏 ii
+&lt;/h2&gt;&lt;p&gt;这个换了一种思路，假设一定能去到，就看要最短多少步。&lt;/p&gt;
+&lt;h3 id="题目描述-1"&gt;题目描述
+&lt;/h3&gt;&lt;p&gt;给你一个非负整数数组 nums ，你最初位于数组的第一个位置。&lt;/p&gt;
+&lt;p&gt;数组中的每个元素代表你在该位置可以跳跃的最大长度。&lt;/p&gt;
+&lt;p&gt;你的目标是使用最少的跳跃次数到达数组的最后一个位置。&lt;/p&gt;
+&lt;p&gt;假设你总是可以到达数组的最后一个位置。&lt;/p&gt;
+&lt;p&gt;示例 1:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入: nums = [2,3,1,1,4]
+输出: 2
+解释: 跳到最后一个位置的最小跳跃数是 2。
+从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例 2:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;输入: nums = [2,3,0,1,4]
+输出: 2
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="解题思路-1"&gt;解题思路
+&lt;/h3&gt;&lt;p&gt;还是和55一样，寻找最远的位置，不同的地方在于维护一个边界，在遍历过程中，更新最远可以到达的位置，到达边界的时候，更新边界为最远可以到达的位置，并且更新边界为新的最远可以到达的位置。&lt;/p&gt;
+&lt;p&gt;有个地方需要注意的是：并不是真的让你跳，而是把数组元素挨个遍历一遍就OK&lt;/p&gt;
+&lt;p&gt;另外就是：只需要遍历到倒数第二个元素就可以了，因为题目已经保证肯定能到，遍历到最后一个元素的话会造成无效跳跃，多了一次。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;jump&lt;/span&gt;(self, nums: List[int]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; int:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lns &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(nums)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; lns &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# max_pos 为可以到达的最远位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_pos, end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(lns &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; max_pos &lt;span style="color:#f92672"&gt;&amp;gt;=&lt;/span&gt; i:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 当前的数据点在最远位置距离内&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_pos &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max(max_pos, i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; nums[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 到达边界更新边界为最远可以到达的位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; i &lt;span style="color:#f92672"&gt;==&lt;/span&gt; end:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max_pos
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; res
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>计算字符串的最短编辑距离（Python版本）</title><link>http://example.org/posts/stredit-python/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://example.org/posts/stredit-python/</guid><description>&lt;h2 id="问题描述"&gt;问题描述
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Levenshtein&lt;/em&gt; 距离，又称编辑距离，指的是两个字符串之间，由一个转换成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。编辑距离的算法是首先由俄国科学家 Levenshtein 提出的，故又叫 Levenshtein Distance 。&lt;/p&gt;
+&lt;p&gt;例如：
+字符串A: &lt;code&gt;abcdefg&lt;/code&gt;
+字符串B: &lt;code&gt;abcdef&lt;/code&gt;
+通过增加或是删掉字符 ”g” 的方式达到目的。这两种方案都需要一次操作。把这个操作所需要的次数定义为两个字符串的距离。
+要求：
+给定任意两个字符串，写出一个算法计算它们的编辑距离。&lt;/p&gt;
+&lt;h2 id="代码"&gt;代码
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; __name__ &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; src &lt;span style="color:#f92672"&gt;=&lt;/span&gt; input()&lt;span style="color:#f92672"&gt;.&lt;/span&gt;strip()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; target &lt;span style="color:#f92672"&gt;=&lt;/span&gt; input()&lt;span style="color:#f92672"&gt;.&lt;/span&gt;strip()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 注意下标，因为字符串长度是len(src)，因此下标要+1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lns, lnt &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(src) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, len(target) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 初始化动态规划表格&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; _ &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(lnt)] &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; _ &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(lns)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# target为空串的时候，编辑距离为i次删除操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(lns):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[i][&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; i
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# source为空串的时候，那么从source到target的编辑距离为j次插入操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(lnt):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;][j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; j
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 因为0已经做了，所以从1开始&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, lns):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, lnt):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; src[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;==&lt;/span&gt; target[j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[i][j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# 通过插入获得target的距离，插入为一次操作，递归回来到长度i到长度j-1需要的操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ins_dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i][j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; del_dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][j] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# why ?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; rep_dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; table[i &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][j &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; table[i][j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(ins_dist, del_dist, rep_dist)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(table[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>LeetCode 1047：删除字符串中的所有相邻重复项</title><link>http://example.org/posts/leetcode-1047/</link><pubDate>Fri, 27 May 2022 12:27:49 +0000</pubDate><guid>http://example.org/posts/leetcode-1047/</guid><description>&lt;p&gt;教训记录。&lt;/p&gt;
+&lt;h2 id="题目描述"&gt;题目描述
+&lt;/h2&gt;&lt;p&gt;给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。&lt;/p&gt;
+&lt;p&gt;在 S 上反复执行重复项删除操作，直到无法继续删除。&lt;/p&gt;
+&lt;p&gt;在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;p&gt;输入：&lt;code&gt;&amp;quot;abbaca&amp;quot;&lt;/code&gt;
+输出：&lt;code&gt;&amp;quot;ca&amp;quot;&lt;/code&gt;
+解释：
+例如，在 &lt;code&gt;&amp;quot;abbaca&amp;quot;&lt;/code&gt; 中，我们可以删除 &lt;code&gt;&amp;quot;bb&amp;quot;&lt;/code&gt; 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 &lt;code&gt;&amp;quot;aaca&amp;quot;&lt;/code&gt;，其中又只有 &lt;code&gt;&amp;quot;aa&amp;quot;&lt;/code&gt; 可以执行重复项删除操作，所以最后的字符串为 &lt;code&gt;&amp;quot;ca&amp;quot;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;提示：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;= S.length &amp;lt;= 20000&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;S 仅由小写英文字母组成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="一种错误解法"&gt;一种错误解法
+&lt;/h2&gt;&lt;p&gt;自己思维的问题，看到这种题目，感觉题意很显而易见，啪的一声就想用暴力求解&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;字符串转数组&lt;/li&gt;
+&lt;li&gt;标记指针&lt;code&gt;i&lt;/code&gt;，从0开始遍历，遇到俩相邻的字符就转为空，然后回头重新开始&lt;/li&gt;
+&lt;li&gt;如果i的下一个是空，就往后走找第一个不是空的字符，判断是否相等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;代码写好了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;removeDuplicates&lt;/span&gt;(self, s: str) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; len(s) &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; s
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lt &lt;span style="color:#f92672"&gt;=&lt;/span&gt; list(s)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ln &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(lt)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; i &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; ln &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; lt[i]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# not an empty char&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; j &lt;span style="color:#f92672"&gt;=&lt;/span&gt; i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; j &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; ln &lt;span style="color:#f92672"&gt;and&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; lt[j]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; j &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; j &lt;span style="color:#f92672"&gt;==&lt;/span&gt; ln:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; lt[i] &lt;span style="color:#f92672"&gt;==&lt;/span&gt; lt[j]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lt[i] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lt[j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; j &lt;span style="color:#f92672"&gt;==&lt;/span&gt; ln &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#f92672"&gt;and&lt;/span&gt; lt[i] &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; lt[j]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;.&lt;/span&gt;join(lt)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;写得非常丑陋，分类讨论了多种边界情况，测试通过。一提交，超时了。&lt;/p&gt;
+&lt;p&gt;超时原因也不难理解，每次替换一次就回头重新开始遍历，效率低到没朋友。&lt;/p&gt;
+&lt;p&gt;忍无可忍看参考答案，解题思路就一个字：栈。&lt;/p&gt;
+&lt;p&gt;茅塞顿开，五分钟得到第二版方案&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;removeDuplicates&lt;/span&gt;(self, s: str) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stk &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; c &lt;span style="color:#f92672"&gt;in&lt;/span&gt; s:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; stk:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tp &lt;span style="color:#f92672"&gt;=&lt;/span&gt; stk[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; c &lt;span style="color:#f92672"&gt;==&lt;/span&gt; tp:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stk&lt;span style="color:#f92672"&gt;.&lt;/span&gt;pop()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stk&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(c)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stk&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(c)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;.&lt;/span&gt;join(stk)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行时间非常快，因为只需要过一遍字符串就可以了。思想就是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个字符，比较该字符与栈顶元素
+&lt;ol&gt;
+&lt;li&gt;如果相等，把栈顶元素干掉，往后走&lt;/li&gt;
+&lt;li&gt;不相等，元素入栈，继续往后走&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;把最后留在栈中的元素concat然后输出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="运行结果"&gt;运行结果
+&lt;/h3&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;Accepted
+106/106 cases passed (68 ms)
+Your runtime beats 77.08 % of python3 submissions
+Your memory usage beats 79.87 % of python3 submissions (15.9 MB)
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Write your first command line app using Python</title><link>http://example.org/posts/d3da32/</link><pubDate>Sun, 05 Jul 2020 17:03:34 +0000</pubDate><guid>http://example.org/posts/d3da32/</guid><description>&lt;p&gt;There’re many articles about how to build a python lib, but fewer articles discuss about how to build a command line app using python. This article is to solve the problem.&lt;/p&gt;
+&lt;h2 id="prepare"&gt;Prepare
+&lt;/h2&gt;&lt;p&gt;First, we need some knowledge to help us build a command line tool fluently: &lt;strong&gt;How app like &lt;code&gt;pip&lt;/code&gt; execute when we tap &lt;code&gt;pip&lt;/code&gt; in terminal?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Executable file like &lt;code&gt;pip&lt;/code&gt; and other command line scripts are locate in &lt;code&gt;/Users/{UserName}/miniconda3/envs/{envName}/bin/pip&lt;/code&gt; (My os is macOS Catalina and I use mini-conda for Python env management, in other os, you can type &lt;code&gt;which pip&lt;/code&gt; for more information)&lt;/p&gt;
+&lt;p&gt;When we tap &lt;code&gt;pip install {an exec package}&lt;/code&gt;, &lt;code&gt;pip&lt;/code&gt; will copy scripts assigned in &lt;code&gt;setup.py&lt;/code&gt; to the &lt;code&gt;bin&lt;/code&gt; dir in your PATH like &lt;code&gt;/Users/{UserName}/miniconda3/envs/{envName}/bin&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;After that, every time you tap&lt;code&gt;{an exec package}&lt;/code&gt;, system will execute script above.&lt;/p&gt;
+&lt;p&gt;So, the core problems are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What we need to put in the script file in &lt;code&gt;bin&lt;/code&gt; directory?&lt;/li&gt;
+&lt;li&gt;How can we tell the &lt;code&gt;pip&lt;/code&gt; to put our executable scripts to &lt;code&gt;bin&lt;/code&gt; folder correctly ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="what-we-need-to-put-in-the-script-file-in-bin-directory"&gt;What we need to put in the script file in &lt;code&gt;bin&lt;/code&gt; directory?
+&lt;/h2&gt;&lt;p&gt;The answer is very simple, we just need to open a script like &lt;code&gt;pip&lt;/code&gt; in the &lt;code&gt;conda/env/{env}/bin&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We can see code like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!/Users/{userName}/miniconda3/envs/py38/bin/python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; re
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; pip._internal.cli.main &lt;span style="color:#f92672"&gt;import&lt;/span&gt; main
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; __name__ &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;argv[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; re&lt;span style="color:#f92672"&gt;.&lt;/span&gt;sub(&lt;span style="color:#e6db74"&gt;r&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;(-script\.pyw?|\.exe)?$&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;, sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;argv[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;exit(main())
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The first line is expand dynamically when install the package, which we will discuss next. Line &lt;code&gt;from pip._internal.cli.main import main&lt;/code&gt; is to import function from your &lt;em&gt;Real&lt;/em&gt; package (Code in &lt;code&gt;{ProjectName}/&lt;/code&gt;), it just like a bridge between your script and lib code in &lt;code&gt;{pkg}/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;About &lt;code&gt;sys.exit(main())&lt;/code&gt;, you can see &lt;a class="link" href="https://stackoverflow.com/questions/5280203/what-does-this-mean-exit-main" target="_blank" rel="noopener"
+&gt;StackOverflow Post&lt;/a&gt; for more detail.&lt;/p&gt;
+&lt;p&gt;So, the script file we need to put is like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; re
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# import your code functions and main functions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; __name__ &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;argv[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; re&lt;span style="color:#f92672"&gt;.&lt;/span&gt;sub(&lt;span style="color:#e6db74"&gt;r&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;(-script\.pyw?|\.exe)?$&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;, sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;argv[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sys&lt;span style="color:#f92672"&gt;.&lt;/span&gt;exit(main()) &lt;span style="color:#75715e"&gt;# or other function name, anyway&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Notice:&lt;/strong&gt; The first line is changed to &lt;code&gt;#!python&lt;/code&gt; because when installing, &lt;code&gt;pip&lt;/code&gt; will dynamically change to the right &lt;code&gt;python&lt;/code&gt; location according to the &lt;code&gt;env&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="how-can-we-tell-the-pip-to-put-our-executable-scripts-to-bin-folder-correctly-"&gt;How can we tell the &lt;code&gt;pip&lt;/code&gt; to put our executable scripts to &lt;code&gt;bin&lt;/code&gt; folder correctly ?
+&lt;/h2&gt;&lt;p&gt;In &lt;code&gt;setup.py&lt;/code&gt;, there is a keyword argument &lt;code&gt;scripts=['bin/{scripts name}']&lt;/code&gt;, the value is a list type value, we can to put any scripts to the array.&lt;/p&gt;
+&lt;p&gt;Simply, we just need to put scripts below in the &lt;code&gt;bin&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The project file tree is like&lt;/p&gt;
+&lt;p&gt;Of course, you can rename you script folder to any name you want, as long as you write the right name in &lt;code&gt;scripts=['bin/{scripts name}']&lt;/code&gt; in &lt;code&gt;setup.py&lt;/code&gt;.The screenshot is to help understand the whole project file structure.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;In this article, we discuss the very first two steps to build a command line app using Python.&lt;/p&gt;
+&lt;h2 id="reference"&gt;Reference
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://dzone.com/articles/executable-package-pip-install" target="_blank" rel="noopener"
+&gt; Build Your First pip Package &lt;/a&gt;&lt;/p&gt;</description></item><item><title>探索Python的类型标注支持</title><link>http://example.org/posts/28507f36/</link><pubDate>Fri, 03 Jul 2020 10:08:27 +0000</pubDate><guid>http://example.org/posts/28507f36/</guid><description>&lt;h1 id="code初探python类型标注"&gt;【Code】初探Python类型标注
+&lt;/h1&gt;&lt;p&gt;干点轻松的事情，看了一下Python官方文档里面关于类型标注的知识，怎么说，Python官方对于类型检查这个问题的认识，远远比那些Python吹成熟多了（好像说了一句废话，其实想表达的是按照现在Python的发展程度，过于灵活的类型系统早就成了发展的桎梏，官方的态度也表明了这一点，只是还有很多人没有意识到，还沉浸在不用写类型的快感中而已）。作为一个Python黑，对于Python建立健全的类型检查机制这件事上，我是举双手双脚赞成的。&lt;/p&gt;
+&lt;h2 id="从最基本出发"&gt;从最基本出发
+&lt;/h2&gt;&lt;p&gt;先来看看最基本的类型检查
+def foo(x: int, y: int) -&amp;gt; str:
+return f&amp;quot;{(x+y)=}&amp;quot;
+限定了&lt;code&gt;foo&lt;/code&gt;的参数类型必须为&lt;code&gt;int&lt;/code&gt;，返回值为字符串类型。&lt;/p&gt;
+&lt;p&gt;在实际运行中，如果非要传入&lt;code&gt;float&lt;/code&gt;或者其他实现了加法运算的类型，代码是可以正常运行的。只不过在PyCharm中，代码编写过程会提示参数错误的Warning。Mypy里面也会有提示，但我没有测试。&lt;/p&gt;
+&lt;p&gt;也就是说，类型检查目前（Python3.8版本）也只是起到了道德约束的作用。&lt;/p&gt;
+&lt;h2 id="tuple"&gt;Tuple
+&lt;/h2&gt;&lt;p&gt;这时候很容易会想到，如果我函数返回多个值，能不能用类型检查呢？&lt;/p&gt;
+&lt;p&gt;当然可以，只需要引入&lt;code&gt;Tuple&lt;/code&gt;类型&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Tuple
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;foo&lt;/span&gt;(x: int, y: int) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; Tuple[int, int]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;x, &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Tuple[int, int]&lt;/code&gt;表示返回值是长度为&lt;code&gt;2&lt;/code&gt;的元组类型，第一个元素和第二个元素都是&lt;code&gt;int&lt;/code&gt;类型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;返回同类型多值&lt;/strong&gt;的时候，比如&lt;code&gt;Tuple[int, int, int]&lt;/code&gt;可以简写成&lt;code&gt;Tuple[int, ...]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果返回值类型不同&lt;/strong&gt;，只需要写成&lt;code&gt;Tuple[str, int, dict, float]&lt;/code&gt;这样，表示返回四个参数，类型分别是字符串，整数，字典和浮点数。&lt;/p&gt;
+&lt;h2 id="union"&gt;Union
+&lt;/h2&gt;&lt;p&gt;这时候问题又来了，“有些时候我真的不确定能返回啥的嘛”&lt;/p&gt;
+&lt;p&gt;可能返回两种类型的时候（比如做JSON解析，最外层可以是&lt;code&gt;dict&lt;/code&gt;或者&lt;code&gt;Array&lt;/code&gt;），需要引入&lt;code&gt;Union&lt;/code&gt;关键字&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Union
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;foo&lt;/span&gt;(filename: str) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; Union[dict, list]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; json&lt;span style="color:#f92672"&gt;.&lt;/span&gt;load(open(filename))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Union[dict, list]&lt;/code&gt;即表示返回类型是字典或者列表类型（只能二选一）。&lt;/p&gt;
+&lt;h2 id="optional"&gt;Optional
+&lt;/h2&gt;&lt;p&gt;这时候又有钢筋拍案而起了，“我特么就喜欢给你返回None，空数据我就给你None，传入可以None，返回可以None，就看你咋整”&lt;/p&gt;
+&lt;p&gt;当然可以整，只需要引入&lt;code&gt;Optional&lt;/code&gt;关键字&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Optional
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;foo&lt;/span&gt;(x: Optional[int]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; Optional[str]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; x &lt;span style="color:#f92672"&gt;is&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;x&lt;span style="color:#e6db74"&gt;=}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Optional[str]&lt;/code&gt;等价于&lt;code&gt;Union[str, None]&lt;/code&gt;，表示返回值为&lt;code&gt;str&lt;/code&gt;类型&lt;strong&gt;或者&lt;/strong&gt;&lt;code&gt;None&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="literal不能枚举之痛"&gt;Literal：不能枚举之痛
+&lt;/h2&gt;&lt;p&gt;Python的枚举类型，用起来是很麻烦的，每次写Python的时候我都很怀念&lt;code&gt;Swift&lt;/code&gt;的&lt;code&gt;view.setColor(.red)&lt;/code&gt;之类的写法，省去了很多麻烦。&lt;/p&gt;
+&lt;p&gt;在Python里面很多喜欢用字符串来表示特定一些范围的东西，比如训练时候选用优化器，有把&lt;code&gt;&amp;quot;Adam&amp;quot;&lt;/code&gt;或者&lt;code&gt;&amp;quot;SGD&amp;quot;&lt;/code&gt;直接传入函数的操作。&lt;/p&gt;
+&lt;p&gt;问题就来了，字符串灵活性太高了，不开着官方文档根本不知道有哪些可以传入，有时候一个&lt;code&gt;typo&lt;/code&gt;就会导致debug半天。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Literal&lt;/code&gt;就是为解决这个问题而来的&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;validate_simple&lt;/span&gt;(data: Any) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; Literal[&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;]: &lt;span style="color:#75715e"&gt;# always returns True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MODE &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Literal[&lt;span style="color:#e6db74"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;open_helper&lt;/span&gt;(file: str, mode: MODE) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open_helper(&lt;span style="color:#e6db74"&gt;&amp;#39;/some/path&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;) &lt;span style="color:#75715e"&gt;# Passes type check&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open_helper(&lt;span style="color:#e6db74"&gt;&amp;#39;/other/path&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;typo&amp;#39;&lt;/span&gt;) &lt;span style="color:#75715e"&gt;# Error in type checker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;它限定了参数只能是特定的范围中选择。完美解决上面的痛苦&lt;/p&gt;
+&lt;p&gt;啊不它根本不完美，我还是更喜欢&lt;code&gt;Swift&lt;/code&gt;的枚举推断。&lt;/p&gt;
+&lt;h2 id="more-fun"&gt;More Fun
+&lt;/h2&gt;&lt;p&gt;仔细挖掘还可以看到有趣的东西。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数名类型&lt;/strong&gt;：&lt;code&gt;Callable[[int], str]&lt;/code&gt;表示&lt;code&gt;(int)-&amp;gt;str&lt;/code&gt;的函数。第一个位置为传入参数的类型和数值，第二个位置表示返回值类型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不可变常量&lt;/strong&gt;：Python也可以有&lt;code&gt;Final&lt;/code&gt;。（Python3.8+）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MAX_SIZE: Final &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;9000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MAX_SIZE &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Error reported by type checker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Connection&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; TIMEOUT: Final[int] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;FastConnector&lt;/span&gt;(Connection):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; TIMEOUT &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Error reported by type checker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;类变量&lt;/strong&gt;：静态语言中&lt;code&gt;static&lt;/code&gt;干的事情，也被搬到了&lt;code&gt;Python&lt;/code&gt;上面&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Starship&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stats: ClassVar[Dict[str, int]] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {} &lt;span style="color:#75715e"&gt;# class variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; damage: int &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#75715e"&gt;# instance variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;调用的时候只能使用&lt;code&gt;Starship.stats&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="beyond"&gt;Beyond
+&lt;/h2&gt;&lt;p&gt;官方文档还有很多很有意思的，比如范型和函数重载等等，改天看完敲完代码再更新。从现在开始我写的每一行&lt;code&gt;Python&lt;/code&gt;代码都会全力使用上面说到的所有新特性。&lt;/p&gt;
+&lt;p&gt;Python曾经困扰过我很长很长一段时间，从大三（2015）就开始学的语言，其实直到去年年初我还觉得我没有入门（可以翻历史记录，去年七月的时候还有对Python的吐槽），当中各种痛苦与挣扎，甚至有那么一瞬间会觉得如果博士不能毕业的话，Python肯定是最大的元凶，因为用它真的太痛苦了。直到后面追上新文档的改变之后才感觉打开新世界的大门，现在越用越顺手，甚至开始把平常常用的代码段整理成库发布到PyPI上面。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;很庆幸当初没有因为厌恶和憎恨而逃避它，而是选择去了解它。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;与此同时也庆幸是Python变成了我想要的样子，而不是我改变自己去适应以前的Python。&lt;/p&gt;</description></item><item><title>最大概率汉语切分算法研究（一）词典构建</title><link>http://example.org/posts/mpseg1/</link><pubDate>Sat, 25 Nov 2017 16:51:02 +0000</pubDate><guid>http://example.org/posts/mpseg1/</guid><description>&lt;p&gt;最近忙活了将近一个多月总算把计算语言学布置的最大概率汉语切分作业写完了，虽然中途一波三折，还发生了很多让人难忘的事情，所幸最后还是比较完整的写了出来，也学到了不少的知识。因此便有了这个系列的文章。&lt;/p&gt;
+&lt;h1 id="问题"&gt;问题
+&lt;/h1&gt;&lt;p&gt;基于最大概率的汉语切分工具的开发，是要利用计算语言学课上学到的知识，选用合适的模型开发一个汉语分词的工具并且进行代码测试与评估。&lt;/p&gt;
+&lt;h1 id="阶段划分"&gt;阶段划分
+&lt;/h1&gt;&lt;p&gt;一个完整的分词工具的开发包括以下几个步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选择合适的语料库&lt;/li&gt;
+&lt;li&gt;根据语料库构建词典&lt;/li&gt;
+&lt;li&gt;选择合适的分词模型和平滑技术&lt;/li&gt;
+&lt;li&gt;语料库切分：训练集和测试集&lt;/li&gt;
+&lt;li&gt;模型训练&lt;/li&gt;
+&lt;li&gt;模型测试，包括分词技术调整等，增强代码健壮性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在本项目中选用的语料库是人民日报199801的语料库，分词模型选择2-gram 模型，平滑技术选用了最简单易行的加一平滑，分词技术包括了左近邻词，FMM 和 BMM 等，具体在接下来涉及到了再具体谈。&lt;/p&gt;
+&lt;p&gt;本文主要讨论的是从语料库构建词典的问题。&lt;/p&gt;
+&lt;h1 id="trietree与词典"&gt;TrieTree与词典
+&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://baike.baidu.com/item/Trie/140945?fr=aladdin" target="_blank" rel="noopener"
+&gt;TrieTree&lt;/a&gt;，又名前缀词典树，是一个专门用于构建词典的数据结构，在这个数据结构上实现词语的添加和查找都可以获得非常高的效率。&lt;/p&gt;
+&lt;h2 id="trietree-的-python-实现"&gt;TrieTree 的 python 实现
+&lt;/h2&gt;&lt;p&gt;在&lt;a class="link" href="https://www.zhihu.com/question/21610353" target="_blank" rel="noopener"
+&gt;知乎的一个回答&lt;/a&gt;有非常简短的代码可以实现 TrieTree 的添加和查找功能，不过在这里要用 Trie 树构建词典的话还需要小小的修改，将该回答中叶子节点的&amp;rsquo;Exist&amp;rsquo;字段替换成&amp;rsquo;count&amp;rsquo;，用于统计每个词在语料库中出现的次数，每次添加一个词的时候，为后面的概率计算作铺垫。&lt;/p&gt;
+&lt;h2 id="语料库分析"&gt;语料库分析
+&lt;/h2&gt;&lt;p&gt;人民日报199801的语料库中，对于每一个词都是像&lt;code&gt;泽民/nr&lt;/code&gt;这种形式，以&lt;code&gt;/&lt;/code&gt;分割，前半部分为词，后半部分为该词的词性，词之间用两个空格进行分割。构建词典的时候，便可以读取语料库文件的每一行，用&lt;code&gt;split()&lt;/code&gt;方法分割得到词列表，在每个词中再次执行分割获取每个词，添加到 Trie 树中，每次添加的时候首先进行判断，如果该词已经在树上，那么将该词的&amp;rsquo; count&amp;rsquo;字段计数加一，否则，将词加入到词典树中，并将计数字段设为1。&lt;/p&gt;
+&lt;h2 id="词典写入到文件"&gt;词典写入到文件
+&lt;/h2&gt;&lt;p&gt;将词典写入到文件，其实就是遍历 Trie 树，每个包含‘count’键的节点对应于一个词，将这些词写入到文件中的过程。具体代码参考如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;foreachTree&lt;/span&gt;(TTree,string,file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;freq&amp;#39;&lt;/span&gt; &lt;span style="color:#f92672"&gt;in&lt;/span&gt; TTree :
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; len(TTree) &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;+&lt;/span&gt;str(TTree[&lt;span style="color:#e6db74"&gt;&amp;#39;freq&amp;#39;&lt;/span&gt;]),file&lt;span style="color:#f92672"&gt;=&lt;/span&gt;file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;+&lt;/span&gt;str(TTree[&lt;span style="color:#e6db74"&gt;&amp;#39;freq&amp;#39;&lt;/span&gt;]),file&lt;span style="color:#f92672"&gt;=&lt;/span&gt;file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; kk &lt;span style="color:#f92672"&gt;in&lt;/span&gt; TTree:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; kk &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;freq&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; foreachTree(TTree[kk],string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;kk,file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; kk &lt;span style="color:#f92672"&gt;in&lt;/span&gt; TTree:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; foreachTree(TTree[kk],string&lt;span style="color:#f92672"&gt;+&lt;/span&gt;kk,file)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对于树这种递归定义的数据结构，解决问题的最方便的方法自然也是递归，由于汉语词汇挂在“树”上的时候，每个节点都是单个“字”，因此需要一个 String 变量作为函数参数，记录前面的遍历状态。&lt;/p&gt;
+&lt;p&gt;要注意的地方是判断是否是完整词语的条件是‘count’或者‘freq’是否在该节点对应的字典中，而不是是否为‘叶子节点’。&lt;/p&gt;</description></item><item><title>Cygwin安装独立的pip环境</title><link>http://example.org/posts/cygpy/</link><pubDate>Fri, 25 Dec 2015 18:37:31 +0000</pubDate><guid>http://example.org/posts/cygpy/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/h1&gt;&lt;p&gt;在Windows下配置python的虚拟环境时常常会遇到各种各样的问题。所幸Windows平台下有Cygwin这个虚拟Linux的环境。在cygwin下安装了独立的Python环境后，再安装pip，即可通过&lt;code&gt;pip install virtualenv&lt;/code&gt;命令安装Python虚拟环境，之后通过虚拟环境安装Flask，Django等网络开发环境就可以一气呵成了。&lt;/p&gt;
+&lt;h1 id="安装步骤"&gt;安装步骤
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;首先，安装Cygwin并在软件包选择页面选择安装Python软件包。&lt;/li&gt;
+&lt;li&gt;前往&lt;a class="link" href="https://pip.pypa.io/en/latest/installing.html" target="_blank" rel="noopener"
+&gt;Get Pip&lt;/a&gt;下载get-pip.py文件到cygwin的home目录.&lt;/li&gt;
+&lt;li&gt;在Cygwin命令行环境下进行pip的安装。执行&lt;code&gt;python get-pip.py&lt;/code&gt;命令即可。&lt;/li&gt;
+&lt;li&gt;安装完毕之后，关闭Cygwin交互环境再打开，就可以进行虚拟环境的安装了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="pip安装成功的标志"&gt;pip安装成功的标志
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;: 直接输入pip命令没有提示&lt;code&gt;command not found&lt;/code&gt;并不能说明pip被成功安装在cygwin的python运行环境下。如果Windows下也存在Python和pip的话，在Cygwin命令行输入pip会直接调用Windows平台下的&lt;code&gt;pip&lt;/code&gt;命令。&lt;/p&gt;
+&lt;p&gt;可行的判断方法如下：（以下命令均在Cygwin交互环境下输入）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;命令行输入&lt;code&gt;which pip&lt;/code&gt;返回的结果为&amp;rsquo;/usr/bin/pip'&lt;/li&gt;
+&lt;li&gt;命令行输入&lt;code&gt;pip -V&lt;/code&gt;返回的结果为&lt;code&gt;pip 1.5.6 from /usr/lib/python2.7/site-packages (python 2.7)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;至此，Cygwin下独立的pip环境已经配置完毕，之后就可以安装Linux下配置Flask，Pyramid或者Django环境的办法愉快的玩耍了。&lt;/p&gt;</description></item></channel></rss>

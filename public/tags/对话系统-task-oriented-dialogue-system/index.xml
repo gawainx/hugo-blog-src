@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>对话系统, Task-Oriented Dialogue System on 我的技术博客</title><link>http://example.org/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</link><description>Recent content in 对话系统, Task-Oriented Dialogue System on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 06 Dec 2022 09:41:05 +0000</lastBuildDate><atom:link href="http://example.org/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/index.xml" rel="self" type="application/rss+xml"/><item><title>2022年任务驱动对话（Task-Oriented Dialogue System）研究进展</title><link>http://example.org/posts/tods2022/</link><pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate><guid>http://example.org/posts/tods2022/</guid><description>&lt;p&gt;本文总结2022年任务驱动对话的研究进展。&lt;/p&gt;
+&lt;h2 id="caspi-causal-aware-safe-policy-improvement-for-task-oriented-dialogue"&gt;[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue
+&lt;/h2&gt;&lt;p&gt;来源：ACL 2022 Long Paper&lt;/p&gt;
+&lt;p&gt;使用强化学习策略解决任务驱动对话中的问题：任务驱动对话中的策略学习。&lt;strong&gt;文章认为，任务驱动对话是从离线数据中学习，另一方面强化学习在离线数据训练的时候会导致误差和泛化问题，人类反应的随机性又加剧了这种误差的产生和传播过程&lt;/strong&gt;。这篇文章提出了CASPI这个模型，使用批量化强化学习的方法，从人类反应的意图中学习细粒度的奖励信息。&lt;/p&gt;
+&lt;h2 id="cins-comprehensive-instruction-for-few-shot-learning-in-task-oriented-dialog-systems"&gt;CINS: Comprehensive Instruction for Few-Shot Learning in Task-Oriented Dialog Systems
+&lt;/h2&gt;&lt;p&gt;来源：AAAI 2022&lt;/p&gt;
+&lt;p&gt;文章提到任务驱动对话的标注过程是费时费力的。文章使用预训练语言模型结合Prompt Learning的方式用于任务驱动对话的三个下游任务——意图识别、对话状态追踪和自然语言生成任务中。文章提出了基于T5模型的一个统一训练框架来达成这个目标
+模型的输入：input+定义+约束+Prompt这样的方式 &lt;code&gt;(definition, constraint, prompt)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;definition：提供任务的定义&lt;/li&gt;
+&lt;li&gt;Constraint：提供细粒度的任务约束&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;比如对于意图识别任务，
+definition为：“Predict the intent of the input query. Intent is the main topic or purpose of a query.”
+对应的constraint 为 “Model needs to select the most suitable intent from: { candidate labels + label descriptions }”
+Prompt为“What is the intent of the given query?”
+&lt;img src="https://antarx.cn/images/CINS_Model.png"
+loading="lazy"
+alt="Pipeline of CINS"
+&gt;&lt;/p&gt;
+&lt;h2 id="fusing-task-oriented-and-open-domain-dialogues-in-conversational-agents"&gt;Fusing Task-Oriented and Open-Domain Dialogues in Conversational Agents
+&lt;/h2&gt;&lt;p&gt;来源：AAAI 2022&lt;/p&gt;
+&lt;p&gt;这篇文章在多轮对话中试图将任务驱动对话任务和开放domain的对话任务融合在一起，并提出了一个新的数据集 FusedChat
+这个任务的挑战在于，model需要确定明确的对话模式以及根据对话上下文和具体模式生成一个合理的回复。比如说如果确定对话模式为开放域对话，则关注生成更加友善的回复内容；如果判断为任务驱动对话则为解决问题导向&lt;/p&gt;
+&lt;h2 id="globalwoz-globalizing-multiwoz-to-develop-multilingual-task-oriented-dialogue-systems"&gt;GlobalWoZ: Globalizing MultiWoZ to Develop Multilingual Task-Oriented Dialogue Systems
+&lt;/h2&gt;&lt;p&gt;来源：ACL 2022&lt;/p&gt;
+&lt;p&gt;这篇文章关注多语言的任务驱动对话数据集问题。文章认为已有的多语言任务驱动对话数据集语言的覆盖范围非常有限，同时对话实体往往是只存在于哪些说这个语言的国家的
+因此文章提出了一个大规模、多语言的数据集；基于翻译对话模版和填入实体的方式构建&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://antarx.cn/images/global_woz.png"
+loading="lazy"
+alt="多语言对话系统示例"
+&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,53 @@
+---
+title: 论文阅读：One-shot Learning for Temporal Knowledge Graphs
+mathjax: true
+tags:
+- Knowledge Graph Completion
+- Graph Network
+- Few-Shot Learning
+date: '2021-08-07 11:25:50'
+slug: tokgc
+draft: false
+---
+
+关注问题：现有的少样本知识图谱补全技术主要针对静态知识图谱，事实上KG中的Fact会根据时间而变化，时序图谱数据面临更严重的数据稀疏问题。本文针对这个问题提出One-Shot场景提出模型。
+来源：AAAI 2021
+<!--more-->
+
+## 问题定义
+
+本文针对One-Shot的时序动态知识图谱补全任务。所谓One-Shot是指，对一个关系只能看到一个标注数据（支持集）。因为本文关注时序的知识图谱补全，引起作者引入了时间信息的限制，体现在以下方面：
+
+- 支持集（Support Set）与查询集（Query Set）的划分：查询集的时间窗口与支持集的时间窗口是不交叉的，查询集的四元组`(h, r, t, time)` 对应的时间戳都在支持集的时间戳之后。
+- 训练、测试与验证集划分：时间顺序一次为 训练集<验证集<测试集
+
+## 模型
+
+模型分为两部分：实体编码器（Entity Encoder）和打分网络。实体编码器的目的是学习时间相关的（time-aware）的实体表示，这是模型的最核心部分。相比之下，打分网络与已有的少样本静态图谱的补全模型相比有点平平无奇。
+
+### 实体编码器
+
+实体编码器分为两部分，第一部分，对某个时间戳（time snapshot）的静态图结构的编码。对特定时间戳的图结构，将实体的邻居的关系与尾实体表示向量concatenate之后，经过单层全连接网络之后求和得到：
+$$f(N_r(e)) = \sigma (\frac{1}{C_{e_r}}\sum_{r} \sum_{e_j}(W^T[v_r;v_{e_j}]+b))$$
+
+将邻居信息与当前表示cancat作为节点表示$x_r^e = [f(N_r(e));v_e]$。
+
+第二部分，是时间相关的聚合网络。本篇工作使用Transformer对多个时间戳的表示进行聚合表示。首先将多个时间戳的表示建模为序列$x=\{x^e_{t-l},\dots, x^e_{t-1}\}$，Transformer输出表示$z=Att(x, Heads, Layers)$
+
+将最后一层的各个时间戳状态$z_{t}$ concatenate 之后经过FCN得到最终时间相关的表示
+
+$$h_e = \sigma ([z_{t-l}, \dots, z_{t-1}]W^{*})$$
+
+### 实体对表示
+
+对实体对$(h, t)$，使用静态表示和entity encoder学习得到的表示concat在一起$s=[h_{s_0}, v_{s_0}, h_{o_0}, v_{o_0}]$，经过两层全连接网络和残差连接得到实体对表示。
+
+$$
+x^{(1)}=\sigma (W^{(1)}x+b^{(1)}) \\
+x^{(2)}=\sigma (W^{(2)}x^{(1)}+b^{(2)}) \\
+\mathcal{M}(x)=x^{(2)}+x
+$$
+
+### 打分
+
+打分函数简单到难以置信，把支持集的表示和查询实体对的表示进行点积得到最后的分数。在实验中，作者对比了dot product和GMatching使用的LSTM网络，发现直接dp已经可以获得足够好的效果。

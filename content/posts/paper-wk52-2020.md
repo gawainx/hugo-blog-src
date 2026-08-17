@@ -1,0 +1,58 @@
+---
+title: Week 51, 2020 论文阅读总结
+date: '2020-12-19 14:51:30'
+tags:
+- KGC, RelationExtraction
+mathjax: true
+slug: paper-wk52-2020
+draft: false
+---
+
+总结一周阅读的论文。
+<!--more-->
+
+## Complex Relation Extraction: Challenges and Opportunities
+关系抽取领域的一篇短综述，只有六页，讲述目前关系抽取的进展和挑战。
+文中首先定义了什么是简单关系和复杂关系。简单关系抽取，Binary Relation Extraction，最简单的关系抽取的范式，一句话中包含两个实体以及两个实体之间的关系。
+复杂关系抽取，就是超出了这个定义的一些情况，包括：文档关系抽取，小样本关系抽取，跨语言关系抽取，跨模态关系抽取，N-ary（N元/N实体）关系抽取，多粒度关系抽取，条件关系抽取和嵌入关系抽取。
+针对每个scenario，分析了问题定义和挑战。
+
+## Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion
+发表于AAAI 2020的一篇文章。关注知识图谱补全与链接预测领域。
+提出了结构化注意力机制来增强链接预测的性能。
+所谓结构化，针对$(h, r, ?)$尾实体包含多个实体的时候，可以把原始的图转化为树状结构，把关系作为中间节点。
+在转化之后的图结构，首先学习关系权重，头实体和关系连接，学习注意力权重。
+之后学习同一个关系的所有尾部实体的权重表示。
+![模型结构](https://antarx.cn/2020/12/19/cleanshot-20201219-at-1543042x.jpg)
+
+**信息融合**：学习的邻居节点信息和节点自身的表示进行融合，文中提出了三种融合的手段，包括Multiplicative Combination, Bi-interaction combination and simple additive combination. 同时为了更好的融合，使用多头注意力机制。
+**Predict**：打分预测阶段，使用ConvE的打分函数。
+$$f(h,r,t)=\text{ReLU}(\text{vec}(\text{ReLU}([h;t]*\omega))Q)t$$
+
+## One-Shot Learning for Temporal Knowledge Graphs
+时序知识图谱链接预测的一篇文章，被AAAI 2021收录。
+时序图预测最近有点火，但之前还没有接触过这个领域，看得比较粗。
+印象最深刻的就是根据时间跨度去构建support和query。选取过去某个时刻的三元组作为one-shot支持集，然后从那个时刻开始未来的$limit$时间跨度内的数据作为查询集。
+第一次接触这个类型的数据范式，想找代码看一看，无奈代码没开放，给的链接点进去并没有内容。
+标注为Follow。
+
+## Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)
+AAAI 2021 收录的一篇poster，关注知识图谱补全问题。
+
+![模型结构](https://antarx.cn/2020/12/19/cleanshot-20201219-at-1544252x.jpg)
+
+
+动机：以往的知识图谱补全模型虽然有考虑实体或者关系的上下文信息，但没有同时考虑，因此在本文中进行了尝试。
+
+实体上下文就是以该实体为头节点或者尾节点的三元组
+
+关系上下文就是该关系的头实体和尾部实体。
+
+打分函数使用DistMult同款$$s_{i,j}=e_i^T diag\{r\} e_j$$
+
+## Reference
+
+1. [Complex Relation Extraction: Challenges and Opportunities](https://arxiv.org/abs/2012.04821)
+2. [Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion](https://ojs.aaai.org/index.php/AAAI/article/download/6508/6364)
+3. [One-Shot Learning for Temporal Knowledge Graphs](https://arxiv.org/pdf/2010.12144.pdf)
+4. [Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)](https://arxiv.org/abs/2012.04821)

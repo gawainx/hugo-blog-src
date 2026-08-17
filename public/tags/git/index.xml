@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on 我的技术博客</title><link>http://example.org/tags/git/</link><description>Recent content in Git on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 17 Nov 2022 20:44:01 +0000</lastBuildDate><atom:link href="http://example.org/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>git-lfs 基础使用指南</title><link>http://example.org/posts/git-lfs/</link><pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate><guid>http://example.org/posts/git-lfs/</guid><description>&lt;p&gt;最近用&lt;code&gt;🤗Transformers&lt;/code&gt;的时候发现它们模型已经转移到glfs（git large file system）上，刚好自己想上传数据集的时候也需要用到。顺手了解了一下&lt;/p&gt;
+&lt;h2 id="配置"&gt;配置
+&lt;/h2&gt;&lt;p&gt;LFS不属于git，而是GitHub开发出来的一套东西，在&lt;code&gt;command line&lt;/code&gt;上使用的话需要安装&lt;a class="link" href="https://git-lfs.github.com" target="_blank" rel="noopener"
+&gt;lsf插件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;压缩包下载下来之后，解压然后运行安装&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$cd ~/Downloads
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$tar -xf &lt;span style="color:#f92672"&gt;{&lt;/span&gt;your *.gz&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# install here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$chmod &lt;span style="color:#ae81ff"&gt;755&lt;/span&gt; install.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$sudo ./install.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="使用"&gt;使用
+&lt;/h2&gt;&lt;p&gt;LFS提供的是一个钩子（hook）。因此，对每个使用LFS的repo都要hook一下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git lfs install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装之后，使用步骤如下&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;git lfs track &amp;quot;*.m&amp;quot;&lt;/code&gt; 来追踪想要放到大文件系统上的内容。&lt;/p&gt;
+&lt;p&gt;这条命令会在文件夹中创建属性文件，要注意使用git追踪这个文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git add .gitattributes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后续就是重复普通的add and commit 就ok&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git add ubattery_dep.m
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git commit -am &lt;span style="color:#e6db74"&gt;&amp;#34;Add isotopic composition after depletion&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="source"&gt;Source
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://arfc.github.io/manual/guides/git-lfs" target="_blank" rel="noopener"
+&gt;Git Large File Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://git-lfs.github.com/" target="_blank" rel="noopener"
+&gt;Git Large File Storage | Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

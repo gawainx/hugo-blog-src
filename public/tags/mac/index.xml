@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mac on 我的技术博客</title><link>http://example.org/tags/mac/</link><description>Recent content in Mac on 我的技术博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 17 Jul 2018 21:03:53 +0000</lastBuildDate><atom:link href="http://example.org/tags/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>豆瓣电影海报下载-Workflow</title><link>http://example.org/posts/dbmv/</link><pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate><guid>http://example.org/posts/dbmv/</guid><description>&lt;h1 id="preface"&gt;Preface
+&lt;/h1&gt;&lt;p&gt;最近实验室里买了打印机，手账 er 多年以来的为电影手账贴上海报缩略图的心愿终于有机会打成了。&lt;/p&gt;
+&lt;p&gt;那么问题来了，去哪找电影海报可以更快更方便呢？每次都是打开网页-&amp;gt;搜索-&amp;gt;图片另存为，太麻烦。于是我盯上了 Alfred，于是就有了这个工具。&lt;/p&gt;
+&lt;h2 id="使用"&gt;使用
+&lt;/h2&gt;&lt;p&gt;首先配置好文件储存的路径，如下图
+&lt;img src="https://antarx.cn/20180717215527_QpCKV5_Screenshot.jpeg"
+loading="lazy"
+alt="配置文件"
+&gt;&lt;/p&gt;
+&lt;p&gt;在 Alfred 中输入 &lt;code&gt;dbmv&lt;/code&gt;，选择 setting，在配置文件中的&lt;code&gt;img_path&lt;/code&gt;输入想要保存图片的目录。&lt;/p&gt;
+&lt;p&gt;然后就可以愉快的使用了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;⌘ + Space 唤醒 Alfred 窗口，输入 &lt;code&gt;dbmv&lt;/code&gt; 启动 Workflow。&lt;/li&gt;
+&lt;li&gt;选择 Movie&lt;/li&gt;
+&lt;li&gt;输入想要搜索的电影名字&lt;/li&gt;
+&lt;li&gt;在搜索结果中选择要下载的电影海报，&lt;/li&gt;
+&lt;li&gt;回车确认，然后在目标路径就会看到下载好的海报了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://antarx.cn/20180717214323_XEYh8z_dbmv.gif"
+loading="lazy"
+alt="使用 dbmv"
+&gt;&lt;/p&gt;
+&lt;h2 id="下载地址"&gt;下载地址
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/gawainx/dbmv/releases" target="_blank" rel="noopener"
+&gt;Releases · gawainx/dbmv&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="特别鸣谢"&gt;特别鸣谢
+&lt;/h2&gt;&lt;p&gt;本 Workflow 系基于&lt;a class="link" href="http://stonebythesea.org/posts/douban-search-workflow-for-alfred/" target="_blank" rel="noopener"
+&gt;做了一个豆瓣搜索的 Workflow for Alfred - 海边的石头&lt;/a&gt;作品的改写。&lt;/p&gt;</description></item></channel></rss>

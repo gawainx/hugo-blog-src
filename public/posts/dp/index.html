@@ -1,0 +1,62 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="前言 上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。\n"><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link rel=canonical href=http://example.org/posts/dp/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="使用动态规划求解字符串编辑距离问题(C#实现）"><meta property='og:description' content="前言 上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。\n"><meta property='og:url' content='http://example.org/posts/dp/'><meta property='og:site_name' content='我的技术博客'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='算法'><meta property='article:published_time' content='2015-12-07T22:41:52+00:00'><meta property='article:modified_time' content='2015-12-07T22:41:52+00:00'><meta name=twitter:title content="使用动态规划求解字符串编辑距离问题(C#实现）"><meta name=twitter:description content="前言 上次提到会在后续通过实际例子更加深入的谈谈对解释四种四种基本算法设计模式的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。\n"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><div class=site-meta><h1 class=site-name><a href=/>我的技术博客</a></h1><h2 class=site-description>记录技术与想法</h2></div></header><ol class=menu id=main-menu><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友情链接</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#问题背景>问题背景</a></li><li><a href=#问题分析>问题分析</a></li><li><a href=#具体代码>具体代码</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%AE%97%E6%B3%95/>算法</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/dp/>使用动态规划求解字符串编辑距离问题(C#实现）</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Dec 07, 2015</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><h1 id=前言>前言</h1><p>上次提到会在后续通过实际例子更加深入的谈谈对解释四种<a class=link href=http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ target=_blank rel=noopener>四种基本算法设计模式</a>的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。</p><h1 id=正文>正文</h1><h2 id=问题背景>问题背景</h2><blockquote><p>我们将两个字符串的相似度定义为：将一个字符串转换为另一个字符串时需要付出的代价。转换方法包括插入，删除和替换三种编辑方式。使用对字符串的编辑次数定义为转换的代价。最小的字符串编辑次数就是字符串的编辑距离。 &ndash;《算法的乐趣》</p></blockquote><h2 id=问题分析>问题分析</h2><p>要使用动态规划思想解决这个问题，首先我们需要对问题进行阶段划分，确定边界条件，定义无后效性的几个子状态并且确定状态之间的转移关系，才能在每个子状态中寻找最优解最后得到原问题的解。</p><p>寻找子问题：在本问题中，假设原字符串为<code>source</code>，长度为m，目的字符串为<code>target</code>，长度为n。则问题可以描述为求解<code>source[1..m]</code>转换为<code>target[1..n]</code>所需要的最小编辑次数。注意到，当<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离确定之后，不会在后续求解中发生改变，因此此问题的子问题即可定义为求解<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离。</p><p>边界条件的确定：当source字符串长度为0时，编辑长度为target的字符串长度n（插入n个字符串）。当target的字符串长度为0时，编辑长度为source的字符串长度（删去m个字符串）。</p><p>关于“备忘录”：动态规划问题的一个特点是使用类似”备忘录“的”表“记录每个状态的相关信息。本问题中用<code>d[i,j]</code>定义为<code>source</code>的前i个字符和<code>target</code>的前j个字符之间的编辑距离，作为每个状态的标志。</p><p>状态之间的转换：以<code>d[i-1,j]+1</code>为删除字符时转移的状态,<code>d[i,j-1]+1</code>为插入字符时转移额状态，<code>d[i-1,j-1]+1</code>为替换字符串时转移的状态。</p><p>子问题的最优解：字符串之间的转换方式并不是唯一的，通过操作若干次添加字符，删除字符，替换字符操作都可以实现字符串转换，每次转换状态时，将三种操作方式中的距离的最小值作为<code>d[i,j]</code>，可以保证每个子问题的解都是最优的，从而保证整个问题的解是最优解。</p><h2 id=具体代码>具体代码</h2><p>使用C#语言实现。</p><pre><code>using System;
+
+namespace EditDistance
+{
+	class Program
+	{
+    	public static int MAX_STR_LEN = 100;//initialize the max length of string
+    	static void Main(string[] args)
+    	{
+			//test code
+        	Console.WriteLine(&quot;Please input Source string:&quot;);
+        	String src = Console.ReadLine();
+        	Console.WriteLine(&quot;Please input Target string:&quot;);
+        	String dist = Console.ReadLine();
+        	Console.WriteLine(EditDistance(src, dist));
+    	}
+    	private static int EditDistance(string src, string dist)
+    	{
+        	int i, j;
+        	int[,] d = new int[MAX_STR_LEN,MAX_STR_LEN];
+			//initialize the margin condition
+        	for (i = 0; i &lt;= src.Length; i++)
+        	    d[i, 0] = i;
+        	for (j = 0; j &lt;= dist.Length; j++)
+            	d[0, j] = j;
+        	for(i = 1;i&lt;=src.Length;i++)
+        	{
+            	for(j=1;j&lt;=dist.Length;j++)
+            	{
+                	if(src[i-1]==dist[j-1])
+                	{
+                    	d[i, j] = d[i - 1, j - 1];
+                	}
+                	else
+                	{
+                    	int edIns = d[i, j - 1] + 1;
+                    	int edDel = d[i - 1, j] + 1;
+                    	int edRep = d[i - 1, j - 1] + 1;
+                    
+                    	d[i,j]=Math.Min(Math.Min(edIns,edDel),edRep);
+                	}
+            	}
+        	}
+        	return d[src.Length, dist.Length];
+    	}
+	}
+}
+</code></pre><p>运行结果：</p><p><img src=http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg loading=lazy></p><h1 id=后记>后记</h1><p>求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，<strong>不会再回溯子状态的时候改变该状态的解</strong>。</p><p>另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对<code>d[i,0]</code>和<code>d[0,j]</code>需要初始化为i和j），将得不到正确的解。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/%E7%AE%97%E6%B3%95/>算法</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/><div class=article-details><h2 class=article-title>四种基本的算法设计模式</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2026 我的技术博客</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

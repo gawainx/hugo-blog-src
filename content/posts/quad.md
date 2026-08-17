@@ -1,0 +1,79 @@
+---
+title: 四元数 (Quaternion) 基础知识
+mathjax: true
+tags:
+- MATH
+date: '2022-04-18 15:17:29'
+slug: quad
+draft: false
+---
+
+最近读到一系列KG的文章都使用了四元数（Quaternion）用于Embedding或者扩展GNN。四元数是一种区别于实数和复数的数学工具，在这里整理一些关于这个数学工具的基础知识。
+
+## 四元数是什么
+
+
+## 四元数的基本运算
+
+**加法**：两个四元数$q$ and $p$ 的加法运算可以表示为：
+
+$$
+q + p = (q_r + p_r) + (q_i + p_i)\textbf{i} + (q_j + p_j)\textbf{j} + (q_k + p_k)\textbf{k}
+$$
+
+**范数（Norm）** 四元数$q$ 的范数可以表示为$\Vert q \Vert = \sqrt{q_r^2 + q_i^2 + q_j^2 + q_k^2}$
+
+在范数的基础上，**单位量**可以定义为 $q^{\triangleleft}=\frac{q}{\Vert q \Vert}$
+
+**哈密顿积（Hamilton Product）** 四元数的乘法定义为哈密顿积，一般使用符号$\otimes$ 表示，我们有：
+$$
+\begin{split}
+q \otimes p &= (q_rp_r-q_ip_i-q_jp_j-q_kp_k) + (p_rq_i+q_rp_i-q_kp_j+q_jp_k)\textbf{i}+ \\&(q_jp_r+q_kp_i+q_rp_j-q_ip_k)\textbf{j}+ (q_kp_r-q_jp_i+q_ip_j+q_rp_k)\textbf{k} 
+\end{split}
+$$
+哈密顿积（Hamilton Product）不满足乘法交换律，也就是说$q \otimes p \ne p \otimes q$
+
+## 四元数+知识图谱
+
+这章推荐几篇关于四元数与知识图谱结合的论文。
+
+### Quaternion Graph Neural Networks (QGNN)
+
+这篇文章首次将四元数引入到图神经网络（GNN）中，目的是增强图神经网络的表达能力。文章使用QGNN作为encoder， 然后根据图分类、node分类和链接预测任务设计不同的decoder函数。
+
+这篇文章中，QGNN对比传统GNN最大的差异在于：在aggregation function中，使用哈密顿积取代实数的乘积运算用来更新层的节点表示。
+
+从文章中将QGNN应用于节点分类任务或者链接预测任务时，实体的表示是将四元数的四部分concatenate作为表示向量。因此这里让我困惑的地方在于四元数和distengle表示学习有什么区别和联系？
+
+### Quaternion Knowledge Graph Embeddings (QutatE)
+
+将四元数应用于知识图谱嵌入+链接预测任务的一篇文章。该文章发表于NIPS 2019.
+
+文章在摘要部分开门见山提出了使用四元数用于知识图谱嵌入表示的优势
+
+1. 哈密顿积可以用于捕捉隐含依赖关系
+2. 四元数空间的旋转操作具有更大的灵活性
+3. QutatE与ComplEx（一种流行的以复数作为实体、关系表示的知识图谱嵌入框架）是兼容的，因此，可以处理对称、犯对称以及反向关系
+
+本模型将实体和关系都表示成四元数的形式，然后将关系表示为旋转操作。在计算分数的过程中，将头实体与关系的模长向量计算哈密顿积，得到新的四元数（视为旋转）然后与尾实体计算dot product，作为最后的分数。
+
+训练过程的loss参考了ComplEx文章的形式。
+
+### QuatRE: Relation-Aware Quaternions for Knowledge Graph Embeddings
+
+这篇文章可以视为对QuatE的一个扩展。这篇文章认为已有的知识图谱嵌入模型无法有效表示头尾实体之间的关联关系。因此，本文将关系表示为两个面向的四元数，然后使用了一个更复杂的打分函数（详情参见原文的2.2章节）。感觉和TransR的思想有异曲同工之妙。
+
+### Two-view Graph Neural Networks for Knowledge Graph Completion
+
+
+这篇文章也是将四元数应用于知识图谱表示学习任务的一个尝试。我觉得这篇文章最novel的地方反而在于图构造部分。不同于以前的基于图神经网络的知识图谱链接预测模型，这篇文章将图划分成两部分
+
+1. 以实体为中心的无向图：着重捕捉实体之间的共现关系
+2. 以关系为中心的有向图：着重捕捉关系之间的共现关系和关联关系
+
+打分函数部分使用了QuatE的打分函数。
+
+这篇文章的不足在于：提出的这个图结构设计没有使用RGCN之类的实数图神经网络方法做对比实验，那么就无法论证为什么要使用四元数而不是已有的GNN来解决问题，会有一种为了用四元数而用四元数的感觉。
+
+
+
