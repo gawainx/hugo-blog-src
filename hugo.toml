@@ -15,6 +15,7 @@ ShowPostNavLinks = true
 
 # 使用 Hugo 新版的作者配置入口，避免 PaperMod 回退到已移除的 site.Author。
 [params.author]
+name = "gawainx"
 
 [menu]
   [[menu.main]]
