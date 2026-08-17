@@ -1,7 +1,7 @@
 +++
 date = '2026-08-17T09:17:09+08:00'
 draft = false
-title = 'Archer 2.0'
+title = '【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持'
 +++
 
 # 【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源支持
