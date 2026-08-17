@@ -1,32 +1,48 @@
 # hugo.toml
 
 baseURL = 'http://example.org/'
-locale = 'zh-CN'
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
 title = '我的技术博客'
-theme = 'PaperMod'  # <--- 确认这一行存在且主题名正确！
+theme = 'Stack'
 
+[permalinks]
+page = '/:slug/'
 
 [params]
-author = "gawainx"
-# 这是 PaperMod 主题的一些自定义参数，你可以根据主题文档修改
-defaultTheme = "auto" # auto, dark, light
-ShowShareButtons = true
-ShowReadingTime = true
-ShowPostNavLinks = true
+mainSections = ["posts"]
+rssFullContent = true
 
-[menu]
-  [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 10
-  [[menu.main]]
-    identifier = "search"
-    name = "搜索"
-    url = "/search/"
-    weight = 20
-  [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 30
+[params.author]
+name = "gawainx"
+
+[params.sidebar]
+emoji = "💻"
+subtitle = "记录技术与想法"
+
+[params.sidebar.avatar]
+enabled = false
+
+[params.article]
+toc = true
+readingTime = true
+
+[params.article.license]
+enabled = false
+
+[params.comments]
+enabled = false
+
+[params.colorScheme]
+toggle = true
+default = "auto"
+
+[params.widgets]
+homepage = [
+  { type = "search" },
+  { type = "archives", params = { limit = 5 } },
+  { type = "categories", params = { limit = 10 } },
+  { type = "tag-cloud", params = { limit = 10 } },
+]
+page = [{ type = "toc" }]
