@@ -1,0 +1,12 @@
+/* Manchester City sky-blue accent palette. */
+:root {
+    --accent-color: #6cabdd;
+    --accent-color-darker: #3d8fbd;
+    --accent-color-text: #001a2b;
+}
+
+:root[data-scheme="dark"] {
+    --accent-color: #6cabdd;
+    --accent-color-darker: #9adaf6;
+    --accent-color-text: #001a2b;
+}
