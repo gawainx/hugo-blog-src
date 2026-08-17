@@ -1,7 +1,7 @@
 # hugo.toml
 
 baseURL = 'http://example.org/'
-languageCode = 'zh-cn'
+locale = 'zh-CN'
 title = '我的技术博客'
 theme = 'PaperMod'  # <--- 确认这一行存在且主题名正确！
 
@@ -12,6 +12,9 @@ defaultTheme = "auto" # auto, dark, light
 ShowShareButtons = true
 ShowReadingTime = true
 ShowPostNavLinks = true
+
+# 使用 Hugo 新版的作者配置入口，避免 PaperMod 回退到已移除的 site.Author。
+[params.author]
 
 [menu]
   [[menu.main]]
