@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="zh-CN" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 gox 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是mage 关于 mage 的基本安装和使用详见mage 使用教程(一)\n">
 <title>使用mage实现交叉编译</title>

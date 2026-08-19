@@ -5,7 +5,7 @@
         <link>http://antarxly.com/tags/rest/</link>
         <description>Recent content in REST on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>zh-CN</language>
         <lastBuildDate>Tue, 24 Oct 2017 14:28:20 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/rest/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Javalin 框架使用指南（一）</title>
         <link>http://antarxly.com/posts/javalin1/</link>

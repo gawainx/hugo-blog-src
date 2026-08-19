@@ -5,7 +5,7 @@
         <link>http://antarxly.com/tags/ml/</link>
         <description>Recent content in ML on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>zh-CN</language>
         <lastBuildDate>Wed, 06 Dec 2017 21:30:22 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/ml/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>TensorFlow For Docker 初体验</title>
         <link>http://antarxly.com/posts/dockertf/</link>

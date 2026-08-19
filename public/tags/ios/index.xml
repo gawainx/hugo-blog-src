@@ -5,7 +5,7 @@
         <link>http://antarxly.com/tags/ios/</link>
         <description>Recent content in IOS on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>zh-CN</language>
         <lastBuildDate>Mon, 18 Feb 2019 19:29:49 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/ios/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>iOS 开发笔记（二）—— 继承类的JSON处理</title>
         <link>http://antarxly.com/posts/swiftjson/</link>

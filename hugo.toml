@@ -1,8 +1,8 @@
 # hugo.toml
 
 baseURL = 'http://antarxly.com/'
-languageCode = 'zh-cn'
 defaultContentLanguage = 'zh-cn'
+locale = 'zh-CN'
 hasCJKLanguage = true
 title = 'Antarx Blog'
 theme = 'Stack'

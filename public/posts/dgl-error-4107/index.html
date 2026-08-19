@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="zh-CN" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="DGL 库升级到最新版本0.9.0+的测试版之后，运行老版本的代码会遇到错误\nAttributeError: 'Column' object has no attribute deferred_dtype\n在官方GitHub页面可以看到相关的讨论：GitHub issue 4107\n个人推测是因为DGL版本升级对底层代码进行了重构，我的代码中，使用老版本的DGL构建了图实例，并且使用dill持久化为二进制文件，在新环境加载这个代码的时候，就会遇到一些新添加进去的属性没有的情况，也就是AttributeError。\n">
 <title>解决DGL库AttributeError deferred_dtype 错误</title>

@@ -5,7 +5,7 @@
         <link>http://antarxly.com/tags/microsoft/</link>
         <description>Recent content in Microsoft on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>zh-CN</language>
         <lastBuildDate>Wed, 18 Oct 2017 14:28:45 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>vscode配置 c&#43;&#43; 开发环境(二):调试和头文件设置</title>
         <link>http://antarxly.com/posts/vscode2/</link>

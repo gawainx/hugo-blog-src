@@ -5,7 +5,7 @@
         <link>http://antarxly.com/tags/go/</link>
         <description>Recent content in Go on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>zh-CN</language>
         <lastBuildDate>Mon, 03 Sep 2018 15:25:44 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>go模块入门</title>
         <link>http://antarxly.com/posts/gomod/</link>
