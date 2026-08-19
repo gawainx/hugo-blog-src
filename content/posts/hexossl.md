@@ -104,8 +104,7 @@ deploy:
 Linux 配置软件向来复杂，所以毫不犹豫选用 docker 容器进行 Nginx 部署。
 输入`docker pull nginx`拉取 Nginx 镜像。
 
-首先基于镜像运行一个 nginx 容器，然后将容器里面的`/etc/nginx/`目录拷贝出来。可以看到文件内容如下图
-![Nginx 配置目录](https://antarx.cn/20180514104132_CkMTT5_Screenshot.jpeg)。
+首先基于镜像运行一个 nginx 容器，然后将容器里面的`/etc/nginx/`目录拷贝出来。
 这里顺带一提 Nginx 的两个配置文件，`nginx.conf`和`deafult.conf`，一般而言修改`nginx.conf`然后把`deafult`里面的内容注释掉会比较妥当。
 
 ### 添加 SSL 证书

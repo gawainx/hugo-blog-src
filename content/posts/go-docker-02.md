@@ -44,7 +44,7 @@ ports[port] = pb
 }
 ```
 
-至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的![类型不匹配错误](https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg)
+至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的类型不匹配错误。
 
 参考[go操作docker \- 简书](https://www.jianshu.com/p/283f32fc045a)的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行`go get github.com/docker/go-connections/nat` ，问题解决。
 

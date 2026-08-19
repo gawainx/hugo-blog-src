@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="整理最近阅读的时序知识图谱（Temporal Knowledge Graph）补全领域的文献。\n基本概念 首先，明确基本概念。现有的知识图谱表示为$\\mathcal{G}={(h, r, t)}$ 的三元组集合，这是一种静态的图谱，目前针对这种形式的知识图谱补全任务，也就是预测三元组$(h, r, ?)$ 已经有大量的相关研究，包括Translation-based方法、Bilinear Model和KGAT等图神经网络的尝试。\n">
 <title>时序知识图谱补全论文整理：Ⅰ</title>
 
 
-<link rel="canonical" href="http://localhost:1313/posts/tkbc01/">
+<link rel="canonical" href="http://antarxly.com/posts/tkbc01/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="时序知识图谱补全论文整理：Ⅰ">
 <meta property='og:description' content="整理最近阅读的时序知识图谱（Temporal Knowledge Graph）补全领域的文献。\n基本概念 首先，明确基本概念。现有的知识图谱表示为$\\mathcal{G}={(h, r, t)}$ 的三元组集合，这是一种静态的图谱，目前针对这种形式的知识图谱补全任务，也就是预测三元组$(h, r, ?)$ 已经有大量的相关研究，包括Translation-based方法、Bilinear Model和KGAT等图神经网络的尝试。\n">
-<meta property='og:url' content='http://localhost:1313/posts/tkbc01/'>
+<meta property='og:url' content='http://antarxly.com/posts/tkbc01/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Temporal Knowledge Graph' /><meta property='article:tag' content='TKG' /><meta property='article:tag' content='KGC' /><meta property='article:tag' content='TKGC' /><meta property='article:published_time' content='2021-08-22T11:31:32&#43;00:00'/><meta property='article:modified_time' content='2021-08-22T11:31:32&#43;00:00'/>
 <meta name="twitter:title" content="时序知识图谱补全论文整理：Ⅰ">
@@ -301,8 +301,7 @@ $$<p>其中，$T$ 表示当前的时序图谱一共有$T$个snapshot的KG组成�
 </ol>
 <h2 id="paper">Paper
 </h2><h3 id="rtfe-a-recursive-temporal-fact-embedding-framework-for-temporal-knowledge-graph-completion">RTFE: A Recursive Temporal Fact Embedding Framework for Temporal Knowledge Graph Completion
-</h3><p><img alt="RTFE Algorithm" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/CleanShot%202021-08-22%20at%2011.06.07@2x.jpg"></p>
-<p>来源：NAACL 2021</p>
+</h3><p>来源：NAACL 2021</p>
 <p>问题定义：对时序知识图谱补全任务的定义使用了第二种定义，也就是假设训练集和测试集的时间戳是一致的，预测missing entity</p>
 <p>贡献：本文关注了静态KGE Model与TKGE设定之间的差异，提出了一个演进式的模型，把时间戳之间的转换建模为一个马尔可夫过程，递归的学习不同时间戳的实体表示；并且由于马尔可夫转移概率矩阵的引入，赋予了模型一定的对新时间戳三元组的预测能力。</p>
 <p>模型：模型分为两部分，第一部分unite了所有时间戳的四元组训练一个静态KG表示，一次作为初始化状态，再每个时间戳采样四元组训练转移模型以及更新KG表示。这个训练设定有让我迷惑的地方，在训练静态KG的时候已经看到了所有时间的数据，那么在训练转移模型的时候会不会受到这个数据泄漏的影响？</p>
@@ -317,7 +316,6 @@ $$<p>其中，$T$ 表示当前的时序图谱一共有$T$个snapshot的KG组成�
 <h2 id="temporal-knowledge-graph-reasoning-based-on-evolutional-representation-learning">Temporal Knowledge Graph Reasoning Based on Evolutional Representation Learning
 </h2><p>来源：SIGIR 2021
 Model： RE-GCN</p>
-<p><img alt="Model Framework" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/CleanShot%202021-08-22%20at%2011.08.11@2x.jpg"></p>
 <p>对TKGC的问题定义：这篇文章关注了更具挑战性的场景——预测未来。在给出$t$时刻以及$t$时刻之前的$m$个时间窗口的KG，预测$t+1$时刻所发生的事件。</p>
 <p>模型：模型包含两部分，第一部分是应用R-GCN学习每个时间戳的实体表示，第二部分是将不同时间戳的KG建模为序列，更新时间related的表示</p>
 
@@ -407,7 +405,7 @@ Model： RE-GCN</p>
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 
 
     </body>

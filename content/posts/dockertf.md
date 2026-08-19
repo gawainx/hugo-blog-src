@@ -93,8 +93,4 @@ docker run --runtime=nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python
 
 上面的`—runtime=nvidia`为调用 nvidia-docker 工具包（运行时）而不是标准运行时来运行镜像，只有加了这个选项才能调用 GPU。
 
-最后跑一下多重感知机训练手写数字识别，效果图
-
-![多重感知机训练手写数字识别模型](http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg)
-
-输出显示调用 GPU:0进行计算，说明配置一路顺风了。
+最后跑一下多重感知机训练手写数字识别。输出显示调用 GPU:0进行计算，说明配置一路顺风了。

@@ -45,7 +45,6 @@ draft: false
 命令的基本含义是以控制台为模板新建一个名为`hwapp`的项目。
 在本机，用 vscode 打开工作目录下的 Program.cs 源文件，编辑代码，本次以输出“hello docker‘为例。
 编辑完代码，保存之后，在容器的终端中运行`dotnet run`运行项目。
-![运行结果](http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg)
 
 //忽略第一次那个白痴错误（汗
 

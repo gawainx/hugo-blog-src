@@ -17,8 +17,7 @@ draft: false
 
 ## 使用
 
-首先配置好文件储存的路径，如下图
-![配置文件](https://antarx.cn/20180717215527_QpCKV5_Screenshot.jpeg)
+首先配置好文件储存的路径。
 
 在 Alfred 中输入 `dbmv`，选择 setting，在配置文件中的`img_path`输入想要保存图片的目录。
 
@@ -29,8 +28,6 @@ draft: false
 3. 输入想要搜索的电影名字
 4. 在搜索结果中选择要下载的电影海报，
 5. 回车确认，然后在目标路径就会看到下载好的海报了。
-
-![使用 dbmv](https://antarx.cn/20180717214323_XEYh8z_dbmv.gif)
 
 ## 下载地址
 

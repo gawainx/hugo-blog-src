@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Antarx Blog</title>
-        <link>http://localhost:1313/categories/</link>
+        <link>http://antarxly.com/categories/</link>
         <description>Recent content in Categories on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://antarxly.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>工具</title>
-            <link>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</link>
+            <link>http://antarxly.com/categories/%E5%B7%A5%E5%85%B7/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</guid>
+            <guid>http://antarxly.com/categories/%E5%B7%A5%E5%85%B7/</guid>
             <description></description>
         </item><item>
             <title>Markdown</title>
-            <link>http://localhost:1313/categories/markdown/</link>
+            <link>http://antarxly.com/categories/markdown/</link>
             <pubDate>Mon, 01 Mar 2021 14:31:38 +0000</pubDate>
-            <guid>http://localhost:1313/categories/markdown/</guid>
+            <guid>http://antarxly.com/categories/markdown/</guid>
             <description></description>
         </item><item>
             <title>算法</title>
-            <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</link>
+            <link>http://antarxly.com/categories/%E7%AE%97%E6%B3%95/</link>
             <pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate>
-            <guid>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</guid>
+            <guid>http://antarxly.com/categories/%E7%AE%97%E6%B3%95/</guid>
             <description></description>
         </item><item>
             <title>Windows</title>
-            <link>http://localhost:1313/categories/windows/</link>
+            <link>http://antarxly.com/categories/windows/</link>
             <pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate>
-            <guid>http://localhost:1313/categories/windows/</guid>
+            <guid>http://antarxly.com/categories/windows/</guid>
             <description></description>
         </item><item>
             <title>.NET</title>
-            <link>http://localhost:1313/categories/.net/</link>
+            <link>http://antarxly.com/categories/.net/</link>
             <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
-            <guid>http://localhost:1313/categories/.net/</guid>
+            <guid>http://antarxly.com/categories/.net/</guid>
             <description></description>
         </item></channel>
 </rss>

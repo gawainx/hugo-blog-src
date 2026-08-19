@@ -45,8 +45,6 @@ $$
 
 ### RTFE: A Recursive Temporal Fact Embedding Framework for Temporal Knowledge Graph Completion
 
-![RTFE Algorithm](https://antarx.cn/images/CleanShot%202021-08-22%20at%2011.06.07@2x.jpg)
-
 来源：NAACL 2021
 
 问题定义：对时序知识图谱补全任务的定义使用了第二种定义，也就是假设训练集和测试集的时间戳是一致的，预测missing entity
@@ -54,7 +52,6 @@ $$
 贡献：本文关注了静态KGE Model与TKGE设定之间的差异，提出了一个演进式的模型，把时间戳之间的转换建模为一个马尔可夫过程，递归的学习不同时间戳的实体表示；并且由于马尔可夫转移概率矩阵的引入，赋予了模型一定的对新时间戳三元组的预测能力。
 
 模型：模型分为两部分，第一部分unite了所有时间戳的四元组训练一个静态KG表示，一次作为初始化状态，再每个时间戳采样四元组训练转移模型以及更新KG表示。这个训练设定有让我迷惑的地方，在训练静态KG的时候已经看到了所有时间的数据，那么在训练转移模型的时候会不会受到这个数据泄漏的影响？
-
 
 ## TIE: A Framework for Embedding-based Incremental Temporal Knowledge Graph Completion
 
@@ -73,8 +70,6 @@ $$
 
 来源：SIGIR 2021
 Model： RE-GCN
-
-![Model Framework](https://antarx.cn/images/CleanShot%202021-08-22%20at%2011.08.11@2x.jpg)
 
 对TKGC的问题定义：这篇文章关注了更具挑战性的场景——预测未来。在给出$t$时刻以及$t$时刻之前的$m$个时间窗口的KG，预测$t+1$时刻所发生的事件。
 

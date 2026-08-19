@@ -23,7 +23,6 @@ draft: false
 所谓结构化，针对$(h, r, ?)$尾实体包含多个实体的时候，可以把原始的图转化为树状结构，把关系作为中间节点。
 在转化之后的图结构，首先学习关系权重，头实体和关系连接，学习注意力权重。
 之后学习同一个关系的所有尾部实体的权重表示。
-![模型结构](https://antarx.cn/2020/12/19/cleanshot-20201219-at-1543042x.jpg)
 
 **信息融合**：学习的邻居节点信息和节点自身的表示进行融合，文中提出了三种融合的手段，包括Multiplicative Combination, Bi-interaction combination and simple additive combination. 同时为了更好的融合，使用多头注意力机制。
 **Predict**：打分预测阶段，使用ConvE的打分函数。
@@ -38,9 +37,6 @@ $$f(h,r,t)=\text{ReLU}(\text{vec}(\text{ReLU}([h;t]*\omega))Q)t$$
 
 ## Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)
 AAAI 2021 收录的一篇poster，关注知识图谱补全问题。
-
-![模型结构](https://antarx.cn/2020/12/19/cleanshot-20201219-at-1544252x.jpg)
-
 
 动机：以往的知识图谱补全模型虽然有考虑实体或者关系的上下文信息，但没有同时考虑，因此在本文中进行了尝试。
 

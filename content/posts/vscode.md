@@ -27,5 +27,4 @@ draft: false
 	}
 ```
 要注意到配置文件是 json 格式,所以,如果之前已经有其它的设置,请按照 json 文件的语法格式将大括号里面的内容拷贝进去.
-4. 重启应用程序,即可享受 vscode 带来的智能提示功能了.效果图如下.
-![](http://7xpabg.com1.z0.glb.clouddn.com/20170218191445_ChAaV7_Screenshot.jpeg)
+4. 重启应用程序,即可享受 vscode 带来的智能提示功能了.

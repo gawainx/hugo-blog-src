@@ -21,7 +21,6 @@ draft: false
 多跳KGQA中，KG的不完整性带来独特的挑战。现有解决方案中包括使用文本，但文本不一定存在；KGE可以解决补全问题，但还没有研究将两者结合在一起，本文是这方面的一次尝试。
 
 ## Model
-![EmbedKGQA 模型架构](https://antarx.cn/images/CleanShot%202021-08-09%20at%2016.25.47@2x.jpg)
 
 模型分为三个核心模块：KG Embedding Module，Question Embedding Module，Answer Selection Module。
 

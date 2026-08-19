@@ -13,7 +13,7 @@ NumPy是python中用于机器学习和科学计算的常用库。opencv for pyth
 # ndarray常用属性
 1. **size**: 表示array中拥有的总元素数量。
 2. **shape**: 元组类型。该属性描述了ndarray的“形状”信息。shape[0]为行信息，shape[1]为列信息。
-![example](http://7xpabg.com1.z0.glb.clouddn.com/ndarray-shape.PNG)
+
 3. **strides**: 元组数据类型该属性返回每一个维度上元素的数量。
 4. **ndim**: 表示这个ndarray的维度。也可以理解为**shape**属性返回的元组的数量。
 5. **T**:表示ndarray矩阵的转置。

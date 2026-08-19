@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="题目描述 给定一个区间的集合 intervals ，其中 intervals[i] = [start_i, end_i] 。返回 需要移除区间的最小数量，使剩余区间互不重叠 。\n示例 1:\n1 2 3 输入: intervals = [[1,2],[2,3],[3,4],[1,3]] 输出: 1 解释: 移除 [1,3] 后，剩下的区间没有重叠。 示例 2:\n">
 <title>Leetcode 435：无重叠区间</title>
 
 
-<link rel="canonical" href="http://localhost:1313/posts/lt435/">
+<link rel="canonical" href="http://antarxly.com/posts/lt435/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="Leetcode 435：无重叠区间">
 <meta property='og:description' content="题目描述 给定一个区间的集合 intervals ，其中 intervals[i] = [start_i, end_i] 。返回 需要移除区间的最小数量，使剩余区间互不重叠 。\n示例 1:\n1 2 3 输入: intervals = [[1,2],[2,3],[3,4],[1,3]] 输出: 1 解释: 移除 [1,3] 后，剩下的区间没有重叠。 示例 2:\n">
-<meta property='og:url' content='http://localhost:1313/posts/lt435/'>
+<meta property='og:url' content='http://antarxly.com/posts/lt435/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='LeetCode' /><meta property='article:tag' content='贪心' /><meta property='article:published_time' content='2022-07-27T16:10:35&#43;00:00'/><meta property='article:modified_time' content='2022-07-27T16:10:35&#43;00:00'/>
 <meta name="twitter:title" content="Leetcode 435：无重叠区间">
@@ -324,7 +324,6 @@
 <li>如果$b_1 \le a_2$，那么我们可以知道，第二个区间整体是在第一个区间的右侧，两个区间可以同时存在</li>
 <li>如果$b_1 &gt; a_2$，这时候，第二个区间的起点可能在第一个区间中，或者完全覆盖了第一个区间。无论是哪种情况，都意味着第二个区间比第一个“长”。考虑咱们题目要求，要去掉尽可能少的区间实现区间不重叠，那么很自然要把长的空间去掉。这也是本题“贪心”的来源。</li>
 </ol>
-<p><img alt="两种情况的示意图" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/IMG_801402FD7686-1.jpeg"></p>
 <h2 id="代码">代码
 </h2><p>分析完毕，咱们直接上代码。使用Python实现。</p>
 <div class="highlight"><div class="chroma">
@@ -483,7 +482,7 @@
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 
 
     </body>

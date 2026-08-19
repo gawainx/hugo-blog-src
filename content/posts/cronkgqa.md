@@ -40,8 +40,6 @@ Question的数量：训练集350000，开发集30000，测试集30000
 
 ## 模型
 
-![CRONKGQA Model Architecture](https://antarx.cn/images/CleanShot%202021-08-10%20at%2012.00.09@2x.jpg)
-
 模型是基于EmbedKGQA进行两部分的修改
 
 1. 把KGE的Model从ComplEx更换为TComplEx实现对时间戳信息的嵌入表示

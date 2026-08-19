@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="总结一周阅读的论文。\n">
 <title>Week 51, 2020 论文阅读总结</title>
 
 
-<link rel="canonical" href="http://localhost:1313/posts/paper-wk52-2020/">
+<link rel="canonical" href="http://antarxly.com/posts/paper-wk52-2020/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="Week 51, 2020 论文阅读总结">
 <meta property='og:description' content="总结一周阅读的论文。\n">
-<meta property='og:url' content='http://localhost:1313/posts/paper-wk52-2020/'>
+<meta property='og:url' content='http://antarxly.com/posts/paper-wk52-2020/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='KGC, RelationExtraction' /><meta property='article:published_time' content='2020-12-19T14:51:30&#43;00:00'/><meta property='article:modified_time' content='2020-12-19T14:51:30&#43;00:00'/>
 <meta name="twitter:title" content="Week 51, 2020 论文阅读总结">
@@ -283,8 +283,7 @@
 提出了结构化注意力机制来增强链接预测的性能。
 所谓结构化，针对$(h, r, ?)$尾实体包含多个实体的时候，可以把原始的图转化为树状结构，把关系作为中间节点。
 在转化之后的图结构，首先学习关系权重，头实体和关系连接，学习注意力权重。
-之后学习同一个关系的所有尾部实体的权重表示。
-<img alt="模型结构" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/2020/12/19/cleanshot-20201219-at-1543042x.jpg"></p>
+之后学习同一个关系的所有尾部实体的权重表示。</p>
 <p><strong>信息融合</strong>：学习的邻居节点信息和节点自身的表示进行融合，文中提出了三种融合的手段，包括Multiplicative Combination, Bi-interaction combination and simple additive combination. 同时为了更好的融合，使用多头注意力机制。
 <strong>Predict</strong>：打分预测阶段，使用ConvE的打分函数。
 </p>
@@ -296,7 +295,6 @@ $$f(h,r,t)=\text{ReLU}(\text{vec}(\text{ReLU}([h;t]*\omega))Q)t$$<h2 id="one-sho
 标注为Follow。</p>
 <h2 id="context-enhanced-entity-and-relation-embedding-for-knowledge-graph-completion-student-abstract">Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)
 </h2><p>AAAI 2021 收录的一篇poster，关注知识图谱补全问题。</p>
-<p><img alt="模型结构" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/2020/12/19/cleanshot-20201219-at-1544252x.jpg"></p>
 <p>动机：以往的知识图谱补全模型虽然有考虑实体或者关系的上下文信息，但没有同时考虑，因此在本文中进行了尝试。</p>
 <p>实体上下文就是以该实体为头节点或者尾节点的三元组</p>
 <p>关系上下文就是该关系的头实体和尾部实体。</p>
@@ -392,7 +390,7 @@ $$s_{i,j}=e_i^T diag\{r\} e_j$$<h2 id="reference">Reference
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 
 
     </body>
