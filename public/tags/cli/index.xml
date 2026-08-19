@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CLI on 我的技术博客</title><link>http://example.org/tags/cli/</link><description>Recent content in CLI on 我的技术博客</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成</title><link>http://example.org/posts/grok-build-guide/</link><pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate><guid>http://example.org/posts/grok-build-guide/</guid><description>&lt;p&gt;Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。&lt;/p&gt;
+&lt;p&gt;本文严格基于官方用户指南（&lt;code&gt;~/.grok/docs/user-guide/&lt;/code&gt;）整理，覆盖安装、项目规则迁移、配置、Skills 自定义、Notion/MCP 集成以及自定义命令等核心使用方式。&lt;/p&gt;
+&lt;h2 id="1-安装命令"&gt;1. 安装命令&lt;/h2&gt;
+&lt;h3 id="macos--linux"&gt;macOS / Linux&lt;/h3&gt;
+&lt;p&gt;推荐使用官方安装脚本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://x.ai/cli/install.sh | bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装特定版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://x.ai/cli/install.sh | bash -s 0.1.42
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="windows"&gt;Windows&lt;/h3&gt;
+&lt;p&gt;使用 PowerShell：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;irm https&lt;span style="color:#960050;background-color:#1e0010"&gt;:&lt;/span&gt;//x.ai/cli/install.ps1 | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;指定版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$env:GROK_VERSION=&lt;span style="color:#e6db74"&gt;&amp;#34;0.1.42&amp;#34;&lt;/span&gt;; irm https&lt;span style="color:#960050;background-color:#1e0010"&gt;:&lt;/span&gt;//x.ai/cli/install.ps1 | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装后验证：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grok --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grok update &lt;span style="color:#75715e"&gt;# 随时更新&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="首次启动与认证"&gt;首次启动与认证&lt;/h3&gt;
+&lt;p&gt;直接运行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grok
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;首次会打开浏览器登录 grok.com，凭证存储在 &lt;code&gt;~/.grok/auth.json&lt;/code&gt;，token 有效期 7 天。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CI/CD 或无浏览器环境&lt;/strong&gt; 推荐使用 API Key：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export XAI_API_KEY&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;xai-你的密钥&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grok
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多认证方式（OIDC、Device Code）详见官方 &lt;code&gt;02-authentication.md&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;常用启动参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;grok --cwd ~/projects/my-app&lt;/code&gt; 指定目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grok --yolo&lt;/code&gt; 自动批准所有工具执行（谨慎使用）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grok -p &amp;quot;你的提示&amp;quot;&lt;/code&gt; &lt;strong&gt;无头模式&lt;/strong&gt;（适合脚本/CI）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grok -c&lt;/code&gt; 继续上一次会话&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="付费与使用限额重要现实考量"&gt;付费与使用限额（重要现实考量）&lt;/h2&gt;
+&lt;p&gt;很多用户最关心的问题是：&lt;strong&gt;Grok Build 的使用限额如何查看？&lt;/strong&gt; 是否像 Claude Code 或 Codex 那样，有清晰的“每 5 小时 / 每周”剩余额度面板？&lt;/p&gt;</description></item></channel></rss>
