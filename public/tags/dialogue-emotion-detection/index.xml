@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Dialogue Emotion Detection on Antarx Blog</title>
-        <link>http://antarxly.com/tags/dialogue-emotion-detection/</link>
+        <link>http://localhost:1313/tags/dialogue-emotion-detection/</link>
         <description>Recent content in Dialogue Emotion Detection on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Mon, 05 Dec 2022 21:56:12 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/dialogue-emotion-detection/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 05 Dec 2022 21:56:12 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dialogue-emotion-detection/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>2022 年对话情绪识别的研究进展</title>
-            <link>http://antarxly.com/posts/dialogue-em-aai/</link>
+            <link>http://localhost:1313/posts/dialogue-em-aai/</link>
             <pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate>
-            <guid>http://antarxly.com/posts/dialogue-em-aai/</guid>
+            <guid>http://localhost:1313/posts/dialogue-em-aai/</guid>
             <description>&lt;p&gt;这篇文章总结一下对话情绪识别的进展情况，有两篇文章。&lt;/p&gt;&#xA;&lt;h2 id=&#34;is-discourse-role-important-for-emotion-recognition-in-conversation&#34;&gt;Is Discourse Role Important for Emotion Recognition in Conversation?&#xA;&lt;/h2&gt;&lt;p&gt;来源：AAAI 2022&lt;/p&gt;&#xA;&lt;p&gt;这篇文章关注在对话情绪识别中，已有的模型没有利用“Discourse Role Information” 对话角色信息这个东西。对话角色/话语角色这是语言学上的一个概念：&lt;/p&gt;&#xA;&#xA;    &lt;blockquote&gt;&#xA;        &lt;p&gt;话语角色 是修辞主体 在一定语境中 实施言语行为时 所择取的 社会身份 话语角色不仅包括交际主体的社会职能特征 而且包括文化特征和心理特征 尤其是与其社会角色相应的语言特征 社会角色是话语角色的基础 话语角色是社会角色在言语交际领域的具体表现&lt;/p&gt;&#xA;&#xA;    &lt;/blockquote&gt;&#xA;&lt;p&gt;文章的解决办法是引入一个变分自编码器来对这些信息进行编码。这里有个疑问就是它变分自编码器怎么保证学到的是话语角色信息而不是其他有用的信息？&lt;/p&gt;&#xA;&lt;h2 id=&#34;contrast-and-generation-make-bart-a-good-dialogue-emotion-recognizer&#34;&gt;Contrast and Generation Make BART a Good Dialogue Emotion Recognizer&#xA;&lt;/h2&gt;&lt;p&gt;来源：AAAI 2022&lt;/p&gt;&#xA;&lt;p&gt;这篇文章关注的问题是相似的语义放在不同的上下文里会有不同的信息。为了更好的进行区分，这篇文章做了两部分的贡献&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;监督对比学习：用于更好区分不同的语义信息&lt;/li&gt;&#xA;&lt;li&gt;生成辅助任务：生成任务指的是让模型自己去生成下一段对话的内容，这样做的目的是更能捕捉富文本信息&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;</description>
         </item></channel>
 </rss>

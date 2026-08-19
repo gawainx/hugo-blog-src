@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系 …">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。\n这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。\n">
 <title>macOS下使用 docker 进行 CSharp 开发（一）</title>
 
 
-<link rel="canonical" href="http://antarxly.com/posts/dotnetdocker/">
+<link rel="canonical" href="http://localhost:1313/posts/dotnetdocker/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="macOS下使用 docker 进行 CSharp 开发（一）">
-<meta property='og:description' content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系 …">
-<meta property='og:url' content='http://antarxly.com/posts/dotnetdocker/'>
+<meta property='og:description' content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。\n这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。\n">
+<meta property='og:url' content='http://localhost:1313/posts/dotnetdocker/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='docker' /><meta property='article:published_time' content='2017-08-27T18:46:52&#43;00:00'/><meta property='article:modified_time' content='2017-08-27T18:46:52&#43;00:00'/>
 <meta name="twitter:title" content="macOS下使用 docker 进行 CSharp 开发（一）">
-<meta name="twitter:description" content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系 …">
+<meta name="twitter:description" content="前言 过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。\n这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。\n">
     </head>
     <body class="
     article-page
@@ -342,7 +342,7 @@
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
 
     </body>

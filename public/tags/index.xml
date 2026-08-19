@@ -1,465 +1,465 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Antarx Blog</title>
-        <link>http://antarxly.com/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Recent content in Tags on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://antarxly.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>AI工具</title>
-            <link>http://antarxly.com/tags/ai%E5%B7%A5%E5%85%B7/</link>
+            <link>http://localhost:1313/tags/ai%E5%B7%A5%E5%85%B7/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/ai%E5%B7%A5%E5%85%B7/</guid>
+            <guid>http://localhost:1313/tags/ai%E5%B7%A5%E5%85%B7/</guid>
             <description></description>
         </item><item>
             <title>CLI</title>
-            <link>http://antarxly.com/tags/cli/</link>
+            <link>http://localhost:1313/tags/cli/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/cli/</guid>
+            <guid>http://localhost:1313/tags/cli/</guid>
             <description></description>
         </item><item>
             <title>Grok</title>
-            <link>http://antarxly.com/tags/grok/</link>
+            <link>http://localhost:1313/tags/grok/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/grok/</guid>
+            <guid>http://localhost:1313/tags/grok/</guid>
             <description></description>
         </item><item>
             <title>MCP</title>
-            <link>http://antarxly.com/tags/mcp/</link>
+            <link>http://localhost:1313/tags/mcp/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/mcp/</guid>
+            <guid>http://localhost:1313/tags/mcp/</guid>
             <description></description>
         </item><item>
             <title>XAI</title>
-            <link>http://antarxly.com/tags/xai/</link>
+            <link>http://localhost:1313/tags/xai/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/xai/</guid>
+            <guid>http://localhost:1313/tags/xai/</guid>
             <description></description>
         </item><item>
             <title>生产力</title>
-            <link>http://antarxly.com/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</link>
+            <link>http://localhost:1313/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</link>
             <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
-            <guid>http://antarxly.com/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</guid>
+            <guid>http://localhost:1313/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</guid>
             <description></description>
         </item><item>
             <title>LLM</title>
-            <link>http://antarxly.com/tags/llm/</link>
+            <link>http://localhost:1313/tags/llm/</link>
             <pubDate>Wed, 28 Jun 2023 11:15:17 +0000</pubDate>
-            <guid>http://antarxly.com/tags/llm/</guid>
+            <guid>http://localhost:1313/tags/llm/</guid>
             <description></description>
         </item><item>
             <title>对话系统, Task-Oriented Dialogue System</title>
-            <link>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</link>
+            <link>http://localhost:1313/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</link>
             <pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</guid>
+            <guid>http://localhost:1313/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</guid>
             <description></description>
         </item><item>
             <title>Dialogue Emotion Detection</title>
-            <link>http://antarxly.com/tags/dialogue-emotion-detection/</link>
+            <link>http://localhost:1313/tags/dialogue-emotion-detection/</link>
             <pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate>
-            <guid>http://antarxly.com/tags/dialogue-emotion-detection/</guid>
+            <guid>http://localhost:1313/tags/dialogue-emotion-detection/</guid>
             <description></description>
         </item><item>
             <title>Git</title>
-            <link>http://antarxly.com/tags/git/</link>
+            <link>http://localhost:1313/tags/git/</link>
             <pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate>
-            <guid>http://antarxly.com/tags/git/</guid>
+            <guid>http://localhost:1313/tags/git/</guid>
             <description></description>
         </item><item>
             <title>BERT, Intent CLassification</title>
-            <link>http://antarxly.com/tags/bert-intent-classification/</link>
+            <link>http://localhost:1313/tags/bert-intent-classification/</link>
             <pubDate>Thu, 27 Oct 2022 10:31:31 +0000</pubDate>
-            <guid>http://antarxly.com/tags/bert-intent-classification/</guid>
+            <guid>http://localhost:1313/tags/bert-intent-classification/</guid>
             <description></description>
         </item><item>
-            <title>Leetcode</title>
-            <link>http://antarxly.com/tags/leetcode/</link>
+            <title>LeetCode</title>
+            <link>http://localhost:1313/tags/leetcode/</link>
             <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
-            <guid>http://antarxly.com/tags/leetcode/</guid>
+            <guid>http://localhost:1313/tags/leetcode/</guid>
             <description></description>
         </item><item>
             <title>OJ</title>
-            <link>http://antarxly.com/tags/oj/</link>
+            <link>http://localhost:1313/tags/oj/</link>
             <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
-            <guid>http://antarxly.com/tags/oj/</guid>
+            <guid>http://localhost:1313/tags/oj/</guid>
             <description></description>
         </item><item>
             <title>Python</title>
-            <link>http://antarxly.com/tags/python/</link>
+            <link>http://localhost:1313/tags/python/</link>
             <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
-            <guid>http://antarxly.com/tags/python/</guid>
+            <guid>http://localhost:1313/tags/python/</guid>
             <description></description>
         </item><item>
             <title>动态规划</title>
-            <link>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+            <link>http://localhost:1313/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
             <pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+            <guid>http://localhost:1313/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
             <description></description>
         </item><item>
             <title>贪心</title>
-            <link>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</link>
+            <link>http://localhost:1313/tags/%E8%B4%AA%E5%BF%83/</link>
             <pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</guid>
+            <guid>http://localhost:1313/tags/%E8%B4%AA%E5%BF%83/</guid>
             <description></description>
         </item><item>
             <title>DGL</title>
-            <link>http://antarxly.com/tags/dgl/</link>
+            <link>http://localhost:1313/tags/dgl/</link>
             <pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate>
-            <guid>http://antarxly.com/tags/dgl/</guid>
+            <guid>http://localhost:1313/tags/dgl/</guid>
             <description></description>
         </item><item>
             <title>GNN</title>
-            <link>http://antarxly.com/tags/gnn/</link>
+            <link>http://localhost:1313/tags/gnn/</link>
             <pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate>
-            <guid>http://antarxly.com/tags/gnn/</guid>
+            <guid>http://localhost:1313/tags/gnn/</guid>
             <description></description>
         </item><item>
             <title>DEVONthink</title>
-            <link>http://antarxly.com/tags/devonthink/</link>
+            <link>http://localhost:1313/tags/devonthink/</link>
             <pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate>
-            <guid>http://antarxly.com/tags/devonthink/</guid>
+            <guid>http://localhost:1313/tags/devonthink/</guid>
             <description></description>
         </item><item>
             <title>Markdown</title>
-            <link>http://antarxly.com/tags/markdown/</link>
+            <link>http://localhost:1313/tags/markdown/</link>
             <pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate>
-            <guid>http://antarxly.com/tags/markdown/</guid>
+            <guid>http://localhost:1313/tags/markdown/</guid>
             <description></description>
         </item><item>
             <title>MATH</title>
-            <link>http://antarxly.com/tags/math/</link>
+            <link>http://localhost:1313/tags/math/</link>
             <pubDate>Mon, 18 Apr 2022 15:17:29 +0000</pubDate>
-            <guid>http://antarxly.com/tags/math/</guid>
+            <guid>http://localhost:1313/tags/math/</guid>
             <description></description>
         </item><item>
             <title>NLP</title>
-            <link>http://antarxly.com/tags/nlp/</link>
+            <link>http://localhost:1313/tags/nlp/</link>
             <pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate>
-            <guid>http://antarxly.com/tags/nlp/</guid>
+            <guid>http://localhost:1313/tags/nlp/</guid>
             <description></description>
         </item><item>
             <title>Transformer</title>
-            <link>http://antarxly.com/tags/transformer/</link>
+            <link>http://localhost:1313/tags/transformer/</link>
             <pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate>
-            <guid>http://antarxly.com/tags/transformer/</guid>
+            <guid>http://localhost:1313/tags/transformer/</guid>
             <description></description>
         </item><item>
             <title>Embedding</title>
-            <link>http://antarxly.com/tags/embedding/</link>
+            <link>http://localhost:1313/tags/embedding/</link>
             <pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate>
-            <guid>http://antarxly.com/tags/embedding/</guid>
+            <guid>http://localhost:1313/tags/embedding/</guid>
             <description></description>
         </item><item>
             <title>Knowledge Graph</title>
-            <link>http://antarxly.com/tags/knowledge-graph/</link>
+            <link>http://localhost:1313/tags/knowledge-graph/</link>
             <pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate>
-            <guid>http://antarxly.com/tags/knowledge-graph/</guid>
+            <guid>http://localhost:1313/tags/knowledge-graph/</guid>
             <description></description>
         </item><item>
             <title>KGC</title>
-            <link>http://antarxly.com/tags/kgc/</link>
+            <link>http://localhost:1313/tags/kgc/</link>
             <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kgc/</guid>
+            <guid>http://localhost:1313/tags/kgc/</guid>
             <description></description>
         </item><item>
             <title>Temporal Knowledge Graph</title>
-            <link>http://antarxly.com/tags/temporal-knowledge-graph/</link>
+            <link>http://localhost:1313/tags/temporal-knowledge-graph/</link>
             <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
-            <guid>http://antarxly.com/tags/temporal-knowledge-graph/</guid>
+            <guid>http://localhost:1313/tags/temporal-knowledge-graph/</guid>
             <description></description>
         </item><item>
             <title>TKG</title>
-            <link>http://antarxly.com/tags/tkg/</link>
+            <link>http://localhost:1313/tags/tkg/</link>
             <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
-            <guid>http://antarxly.com/tags/tkg/</guid>
+            <guid>http://localhost:1313/tags/tkg/</guid>
             <description></description>
         </item><item>
             <title>TKGC</title>
-            <link>http://antarxly.com/tags/tkgc/</link>
+            <link>http://localhost:1313/tags/tkgc/</link>
             <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
-            <guid>http://antarxly.com/tags/tkgc/</guid>
+            <guid>http://localhost:1313/tags/tkgc/</guid>
             <description></description>
         </item><item>
             <title>Typora</title>
-            <link>http://antarxly.com/tags/typora/</link>
+            <link>http://localhost:1313/tags/typora/</link>
             <pubDate>Sun, 15 Aug 2021 17:18:45 +0000</pubDate>
-            <guid>http://antarxly.com/tags/typora/</guid>
+            <guid>http://localhost:1313/tags/typora/</guid>
             <description></description>
         </item><item>
             <title>KGQA</title>
-            <link>http://antarxly.com/tags/kgqa/</link>
+            <link>http://localhost:1313/tags/kgqa/</link>
             <pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kgqa/</guid>
+            <guid>http://localhost:1313/tags/kgqa/</guid>
             <description></description>
         </item><item>
             <title>Temporal Knowledge</title>
-            <link>http://antarxly.com/tags/temporal-knowledge/</link>
+            <link>http://localhost:1313/tags/temporal-knowledge/</link>
             <pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate>
-            <guid>http://antarxly.com/tags/temporal-knowledge/</guid>
+            <guid>http://localhost:1313/tags/temporal-knowledge/</guid>
             <description></description>
         </item><item>
             <title>KGE</title>
-            <link>http://antarxly.com/tags/kge/</link>
+            <link>http://localhost:1313/tags/kge/</link>
             <pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kge/</guid>
+            <guid>http://localhost:1313/tags/kge/</guid>
             <description></description>
         </item><item>
             <title>Few-Shot Learning</title>
-            <link>http://antarxly.com/tags/few-shot-learning/</link>
+            <link>http://localhost:1313/tags/few-shot-learning/</link>
             <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
-            <guid>http://antarxly.com/tags/few-shot-learning/</guid>
+            <guid>http://localhost:1313/tags/few-shot-learning/</guid>
             <description></description>
         </item><item>
             <title>Graph Network</title>
-            <link>http://antarxly.com/tags/graph-network/</link>
+            <link>http://localhost:1313/tags/graph-network/</link>
             <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
-            <guid>http://antarxly.com/tags/graph-network/</guid>
+            <guid>http://localhost:1313/tags/graph-network/</guid>
             <description></description>
         </item><item>
             <title>Knowledge Graph Completion</title>
-            <link>http://antarxly.com/tags/knowledge-graph-completion/</link>
+            <link>http://localhost:1313/tags/knowledge-graph-completion/</link>
             <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
-            <guid>http://antarxly.com/tags/knowledge-graph-completion/</guid>
+            <guid>http://localhost:1313/tags/knowledge-graph-completion/</guid>
             <description></description>
         </item><item>
             <title>KG, Transformer</title>
-            <link>http://antarxly.com/tags/kg-transformer/</link>
+            <link>http://localhost:1313/tags/kg-transformer/</link>
             <pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kg-transformer/</guid>
+            <guid>http://localhost:1313/tags/kg-transformer/</guid>
             <description></description>
         </item><item>
             <title>KGC, BERT</title>
-            <link>http://antarxly.com/tags/kgc-bert/</link>
+            <link>http://localhost:1313/tags/kgc-bert/</link>
             <pubDate>Sat, 26 Dec 2020 16:50:04 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kgc-bert/</guid>
+            <guid>http://localhost:1313/tags/kgc-bert/</guid>
             <description></description>
         </item><item>
             <title>KGC, RelationExtraction</title>
-            <link>http://antarxly.com/tags/kgc-relationextraction/</link>
+            <link>http://localhost:1313/tags/kgc-relationextraction/</link>
             <pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate>
-            <guid>http://antarxly.com/tags/kgc-relationextraction/</guid>
+            <guid>http://localhost:1313/tags/kgc-relationextraction/</guid>
             <description></description>
         </item><item>
             <title>IOS</title>
-            <link>http://antarxly.com/tags/ios/</link>
+            <link>http://localhost:1313/tags/ios/</link>
             <pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate>
-            <guid>http://antarxly.com/tags/ios/</guid>
+            <guid>http://localhost:1313/tags/ios/</guid>
             <description></description>
         </item><item>
             <title>Swift</title>
-            <link>http://antarxly.com/tags/swift/</link>
+            <link>http://localhost:1313/tags/swift/</link>
             <pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate>
-            <guid>http://antarxly.com/tags/swift/</guid>
+            <guid>http://localhost:1313/tags/swift/</guid>
             <description></description>
         </item><item>
             <title>科研</title>
-            <link>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</link>
+            <link>http://localhost:1313/tags/%E7%A7%91%E7%A0%94/</link>
             <pubDate>Thu, 29 Nov 2018 16:48:39 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</guid>
+            <guid>http://localhost:1313/tags/%E7%A7%91%E7%A0%94/</guid>
             <description></description>
         </item><item>
             <title>MacOS</title>
-            <link>http://antarxly.com/tags/macos/</link>
+            <link>http://localhost:1313/tags/macos/</link>
             <pubDate>Fri, 02 Nov 2018 11:20:29 +0000</pubDate>
-            <guid>http://antarxly.com/tags/macos/</guid>
+            <guid>http://localhost:1313/tags/macos/</guid>
             <description></description>
         </item><item>
             <title>Go</title>
-            <link>http://antarxly.com/tags/go/</link>
+            <link>http://localhost:1313/tags/go/</link>
             <pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate>
-            <guid>http://antarxly.com/tags/go/</guid>
+            <guid>http://localhost:1313/tags/go/</guid>
             <description></description>
         </item><item>
             <title>文章翻译</title>
-            <link>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</link>
+            <link>http://localhost:1313/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</link>
             <pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</guid>
+            <guid>http://localhost:1313/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</guid>
             <description></description>
         </item><item>
             <title>Alfred</title>
-            <link>http://antarxly.com/tags/alfred/</link>
+            <link>http://localhost:1313/tags/alfred/</link>
             <pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate>
-            <guid>http://antarxly.com/tags/alfred/</guid>
+            <guid>http://localhost:1313/tags/alfred/</guid>
             <description></description>
         </item><item>
             <title>Mac</title>
-            <link>http://antarxly.com/tags/mac/</link>
+            <link>http://localhost:1313/tags/mac/</link>
             <pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate>
-            <guid>http://antarxly.com/tags/mac/</guid>
+            <guid>http://localhost:1313/tags/mac/</guid>
             <description></description>
         </item><item>
             <title>Docker</title>
-            <link>http://antarxly.com/tags/docker/</link>
+            <link>http://localhost:1313/tags/docker/</link>
             <pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate>
-            <guid>http://antarxly.com/tags/docker/</guid>
+            <guid>http://localhost:1313/tags/docker/</guid>
             <description></description>
         </item><item>
             <title>Golang</title>
-            <link>http://antarxly.com/tags/golang/</link>
+            <link>http://localhost:1313/tags/golang/</link>
             <pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate>
-            <guid>http://antarxly.com/tags/golang/</guid>
+            <guid>http://localhost:1313/tags/golang/</guid>
             <description></description>
         </item><item>
             <title>LaTeX</title>
-            <link>http://antarxly.com/tags/latex/</link>
+            <link>http://localhost:1313/tags/latex/</link>
             <pubDate>Mon, 21 May 2018 10:48:35 +0000</pubDate>
-            <guid>http://antarxly.com/tags/latex/</guid>
+            <guid>http://localhost:1313/tags/latex/</guid>
             <description></description>
         </item><item>
             <title>Hexo</title>
-            <link>http://antarxly.com/tags/hexo/</link>
+            <link>http://localhost:1313/tags/hexo/</link>
             <pubDate>Fri, 11 May 2018 17:30:58 +0000</pubDate>
-            <guid>http://antarxly.com/tags/hexo/</guid>
+            <guid>http://localhost:1313/tags/hexo/</guid>
             <description></description>
         </item><item>
             <title>Java</title>
-            <link>http://antarxly.com/tags/java/</link>
+            <link>http://localhost:1313/tags/java/</link>
             <pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate>
-            <guid>http://antarxly.com/tags/java/</guid>
+            <guid>http://localhost:1313/tags/java/</guid>
             <description></description>
         </item><item>
             <title>Redis</title>
-            <link>http://antarxly.com/tags/redis/</link>
+            <link>http://localhost:1313/tags/redis/</link>
             <pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate>
-            <guid>http://antarxly.com/tags/redis/</guid>
+            <guid>http://localhost:1313/tags/redis/</guid>
             <description></description>
         </item><item>
             <title>机器学习</title>
-            <link>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+            <link>http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
             <pubDate>Tue, 23 Jan 2018 18:42:42 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+            <guid>http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
             <description></description>
         </item><item>
             <title>BOJ</title>
-            <link>http://antarxly.com/tags/boj/</link>
+            <link>http://localhost:1313/tags/boj/</link>
             <pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate>
-            <guid>http://antarxly.com/tags/boj/</guid>
+            <guid>http://localhost:1313/tags/boj/</guid>
             <description></description>
         </item><item>
             <title>ML</title>
-            <link>http://antarxly.com/tags/ml/</link>
+            <link>http://localhost:1313/tags/ml/</link>
             <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
-            <guid>http://antarxly.com/tags/ml/</guid>
+            <guid>http://localhost:1313/tags/ml/</guid>
             <description></description>
         </item><item>
             <title>TensorFlow</title>
-            <link>http://antarxly.com/tags/tensorflow/</link>
+            <link>http://localhost:1313/tags/tensorflow/</link>
             <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
-            <guid>http://antarxly.com/tags/tensorflow/</guid>
+            <guid>http://localhost:1313/tags/tensorflow/</guid>
             <description></description>
         </item><item>
             <title>算法</title>
-            <link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link>
+            <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</link>
             <pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</guid>
+            <guid>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</guid>
             <description></description>
         </item><item>
             <title>Libsvm</title>
-            <link>http://antarxly.com/tags/libsvm/</link>
+            <link>http://localhost:1313/tags/libsvm/</link>
             <pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate>
-            <guid>http://antarxly.com/tags/libsvm/</guid>
+            <guid>http://localhost:1313/tags/libsvm/</guid>
             <description></description>
         </item><item>
             <title>Javalin</title>
-            <link>http://antarxly.com/tags/javalin/</link>
+            <link>http://localhost:1313/tags/javalin/</link>
             <pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate>
-            <guid>http://antarxly.com/tags/javalin/</guid>
+            <guid>http://localhost:1313/tags/javalin/</guid>
             <description></description>
         </item><item>
             <title>WebSocket</title>
-            <link>http://antarxly.com/tags/websocket/</link>
+            <link>http://localhost:1313/tags/websocket/</link>
             <pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate>
-            <guid>http://antarxly.com/tags/websocket/</guid>
+            <guid>http://localhost:1313/tags/websocket/</guid>
             <description></description>
         </item><item>
             <title>REST</title>
-            <link>http://antarxly.com/tags/rest/</link>
+            <link>http://localhost:1313/tags/rest/</link>
             <pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate>
-            <guid>http://antarxly.com/tags/rest/</guid>
+            <guid>http://localhost:1313/tags/rest/</guid>
             <description></description>
         </item><item>
             <title>微服务</title>
-            <link>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+            <link>http://localhost:1313/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
             <pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+            <guid>http://localhost:1313/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
             <description></description>
         </item><item>
             <title>C&#43;&#43;</title>
-            <link>http://antarxly.com/tags/c&#43;&#43;/</link>
+            <link>http://localhost:1313/tags/c&#43;&#43;/</link>
             <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
-            <guid>http://antarxly.com/tags/c&#43;&#43;/</guid>
+            <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
             <description></description>
         </item><item>
             <title>IDE</title>
-            <link>http://antarxly.com/tags/ide/</link>
+            <link>http://localhost:1313/tags/ide/</link>
             <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
-            <guid>http://antarxly.com/tags/ide/</guid>
+            <guid>http://localhost:1313/tags/ide/</guid>
             <description></description>
         </item><item>
             <title>Microsoft</title>
-            <link>http://antarxly.com/tags/microsoft/</link>
+            <link>http://localhost:1313/tags/microsoft/</link>
             <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
-            <guid>http://antarxly.com/tags/microsoft/</guid>
+            <guid>http://localhost:1313/tags/microsoft/</guid>
             <description></description>
         </item><item>
             <title>Vscode</title>
-            <link>http://antarxly.com/tags/vscode/</link>
+            <link>http://localhost:1313/tags/vscode/</link>
             <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
-            <guid>http://antarxly.com/tags/vscode/</guid>
+            <guid>http://localhost:1313/tags/vscode/</guid>
             <description></description>
         </item><item>
             <title>随笔</title>
-            <link>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</link>
+            <link>http://localhost:1313/tags/%E9%9A%8F%E7%AC%94/</link>
             <pubDate>Mon, 27 Mar 2017 21:08:12 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</guid>
+            <guid>http://localhost:1313/tags/%E9%9A%8F%E7%AC%94/</guid>
             <description></description>
         </item><item>
             <title>M$</title>
-            <link>http://antarxly.com/tags/m/</link>
+            <link>http://localhost:1313/tags/m/</link>
             <pubDate>Sat, 18 Feb 2017 18:48:20 +0000</pubDate>
-            <guid>http://antarxly.com/tags/m/</guid>
+            <guid>http://localhost:1313/tags/m/</guid>
             <description></description>
         </item><item>
             <title>Communication</title>
-            <link>http://antarxly.com/tags/communication/</link>
+            <link>http://localhost:1313/tags/communication/</link>
             <pubDate>Tue, 08 Mar 2016 22:33:57 +0000</pubDate>
-            <guid>http://antarxly.com/tags/communication/</guid>
+            <guid>http://localhost:1313/tags/communication/</guid>
             <description></description>
         </item><item>
             <title>Life</title>
-            <link>http://antarxly.com/tags/life/</link>
+            <link>http://localhost:1313/tags/life/</link>
             <pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate>
-            <guid>http://antarxly.com/tags/life/</guid>
+            <guid>http://localhost:1313/tags/life/</guid>
             <description></description>
         </item><item>
             <title>编程</title>
-            <link>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</link>
+            <link>http://localhost:1313/tags/%E7%BC%96%E7%A8%8B/</link>
             <pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</guid>
+            <guid>http://localhost:1313/tags/%E7%BC%96%E7%A8%8B/</guid>
             <description></description>
         </item><item>
             <title>Win10</title>
-            <link>http://antarxly.com/tags/win10/</link>
+            <link>http://localhost:1313/tags/win10/</link>
             <pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate>
-            <guid>http://antarxly.com/tags/win10/</guid>
+            <guid>http://localhost:1313/tags/win10/</guid>
             <description></description>
         </item><item>
             <title>读书笔记</title>
-            <link>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+            <link>http://localhost:1313/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
             <pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate>
-            <guid>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+            <guid>http://localhost:1313/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
             <description></description>
         </item><item>
             <title>.NET</title>
-            <link>http://antarxly.com/tags/.net/</link>
+            <link>http://localhost:1313/tags/.net/</link>
             <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
-            <guid>http://antarxly.com/tags/.net/</guid>
+            <guid>http://localhost:1313/tags/.net/</guid>
             <description></description>
         </item><item>
             <title>C#</title>
-            <link>http://antarxly.com/tags/c%23/</link>
+            <link>http://localhost:1313/tags/c%23/</link>
             <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
-            <guid>http://antarxly.com/tags/c%23/</guid>
+            <guid>http://localhost:1313/tags/c%23/</guid>
             <description></description>
         </item></channel>
 </rss>

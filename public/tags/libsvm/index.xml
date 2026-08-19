@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Libsvm on Antarx Blog</title>
-        <link>http://antarxly.com/tags/libsvm/</link>
+        <link>http://localhost:1313/tags/libsvm/</link>
         <description>Recent content in Libsvm on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Wed, 22 Nov 2017 15:18:29 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/libsvm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 22 Nov 2017 15:18:29 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/libsvm/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>macOS 配置 libsvm for Python</title>
-            <link>http://antarxly.com/posts/macsvm/</link>
+            <link>http://localhost:1313/posts/macsvm/</link>
             <pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate>
-            <guid>http://antarxly.com/posts/macsvm/</guid>
+            <guid>http://localhost:1313/posts/macsvm/</guid>
             <description>&lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;&#xA;</description>
         </item></channel>
 </rss>

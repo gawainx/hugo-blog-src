@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>KG, Transformer on Antarx Blog</title>
-        <link>http://antarxly.com/tags/kg-transformer/</link>
+        <link>http://localhost:1313/tags/kg-transformer/</link>
         <description>Recent content in KG, Transformer on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sat, 16 Jan 2021 11:07:39 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/kg-transformer/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 16 Jan 2021 11:07:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/kg-transformer/index.xml" rel="self" type="application/rss+xml" /><item>
             <title>week02_2021</title>
-            <link>http://antarxly.com/posts/week02-2021/</link>
+            <link>http://localhost:1313/posts/week02-2021/</link>
             <pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate>
-            <guid>http://antarxly.com/posts/week02-2021/</guid>
+            <guid>http://localhost:1313/posts/week02-2021/</guid>
             <description>&lt;p&gt;本周恢复读论文。带来两篇关于知识图谱嵌入和多跳推理的论文。&lt;/p&gt;&#xA;&lt;h2 id=&#34;coke-contextualized-knowledge-graph-embedding&#34;&gt;CoKE: Contextualized Knowledge Graph Embedding&#xA;&lt;/h2&gt;&lt;p&gt;这篇是关于知识图谱动态嵌入的研究。作者认为之前的知识图谱嵌入方法都是学习静态的知识，就算是图卷积方法也是在做静态嵌入的事情，没有真正学习到上下文知识。所以作者提出了使用Transformer来编码知识图谱的动态嵌入。&lt;/p&gt;&#xA;&lt;p&gt;Transformer是对序列进行表示学习，所以很自然就引申出一个问题：序列从哪里来？&lt;/p&gt;&#xA;&lt;p&gt;文章提出了两种序列&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;三元组 $(h, r, t)$ 作为长度为3的输入序列。&lt;/li&gt;&#xA;&lt;li&gt;图路径 $(e_1, r_1, \cdots, e_t)$ 作为长度为K的输入序列。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;如何训练？&lt;/p&gt;&#xA;&lt;p&gt;为了模拟链接预测任务和Query任务，在输入的时候将序列最后一个元素设定为&lt;code&gt;MASK&lt;/code&gt;，迫使Transformer学会对该元素进行预测。&lt;/p&gt;&#xA;&lt;h2 id=&#34;gmh-a-general-multi-hop-reasoning-model-for-kg-completion&#34;&gt;GMH: A General Multi-hop Reasoning Model for KG Completion&#xA;&lt;/h2&gt;</description>
         </item></channel>
 </rss>
