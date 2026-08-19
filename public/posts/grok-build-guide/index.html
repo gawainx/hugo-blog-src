@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。\n">
 <title>Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/grok-build-guide/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成">
+<link rel="canonical" href="http://localhost:1313/posts/grok-build-guide/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成">
 <meta property='og:description' content="Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。\n">
-<meta property='og:url' content='http://antarxly.com/posts/grok-build-guide/'>
+<meta property='og:url' content='http://localhost:1313/posts/grok-build-guide/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='AI工具' /><meta property='article:tag' content='Grok' /><meta property='article:tag' content='xAI' /><meta property='article:tag' content='CLI' /><meta property='article:tag' content='生产力' /><meta property='article:tag' content='MCP' /><meta property='article:published_time' content='2025-10-12T10:30:00&#43;08:00'/><meta property='article:modified_time' content='2025-10-12T10:30:00&#43;08:00'/>
 <meta name="twitter:title" content="Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -165,52 +163,54 @@
         <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
     <li><a href="#1-安装命令">1. 安装命令</a>
-      <ul>
+      <ol>
         <li><a href="#macos--linux">macOS / Linux</a></li>
         <li><a href="#windows">Windows</a></li>
         <li><a href="#首次启动与认证">首次启动与认证</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#付费与使用限额重要现实考量">付费与使用限额（重要现实考量）</a>
-      <ul>
+      <ol>
         <li><a href="#当前实际情况基于官方用户指南">当前实际情况（基于官方用户指南）</a></li>
         <li><a href="#真正的限额在哪里">真正的限额在哪里？</a></li>
         <li><a href="#建议">建议</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#2-在项目中开始工作--迁移-claudemd-等-instructions">2. 在项目中开始工作 + 迁移 CLAUDE.md 等 Instructions</a>
-      <ul>
+      <ol>
         <li><a href="#自动加载项目规则最重要">自动加载项目规则（最重要）</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#3-如何配置-grok-自己的类似-claudemd-内容">3. 如何配置 Grok 自己的类似 CLAUDE.md 内容</a></li>
     <li><a href="#4-技能skills使用创建管理修改">4. 技能（Skills）使用：创建、管理、修改</a>
-      <ul>
+      <ol>
         <li><a href="#skill-存放位置优先级从高到低">Skill 存放位置（优先级从高到低）</a></li>
         <li><a href="#创建-skill-的两种方式">创建 Skill 的两种方式</a></li>
         <li><a href="#管理与使用">管理与使用</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#5-如何接入-notion读取修改创建文档">5. 如何接入 Notion（读取、修改、创建文档）</a>
-      <ul>
+      <ol>
         <li><a href="#基本接入流程">基本接入流程</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#6-如何使用自定义命令">6. 如何使用自定义命令</a>
-      <ul>
+      <ol>
         <li><a href="#1-内置-slash-commands开箱即用">1. 内置 Slash Commands（开箱即用）</a></li>
         <li><a href="#2-用户创建的-skills最推荐的自定义命令">2. 用户创建的 Skills（最推荐的自定义命令）</a></li>
         <li><a href="#3-hooks事件驱动自动化">3. Hooks（事件驱动自动化）</a></li>
         <li><a href="#4-plugins打包分发">4. Plugins（打包分发）</a></li>
         <li><a href="#5-其他扩展方式">5. 其他扩展方式</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#总结">总结</a></li>
-  </ul>
-</nav>
+  </ol>
+
+            </nav>
         </div>
     </section>
 
@@ -227,7 +227,10 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" >
+            
+            
+            
+            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background-color: hsl(59, 60%, 84%); color: hsl(59, 60%, 15%);">
                 工具
             </a>
         
@@ -246,10 +249,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -258,13 +265,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 12, 2025</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2025-10-12T10:30:00&#43;08:00'>2025年10月12日星期日</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -272,18 +277,82 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 7 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 7 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#1-安装命令">1. 安装命令</a>
+      <ol>
+        <li><a href="#macos--linux">macOS / Linux</a></li>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#首次启动与认证">首次启动与认证</a></li>
+      </ol>
+    </li>
+    <li><a href="#付费与使用限额重要现实考量">付费与使用限额（重要现实考量）</a>
+      <ol>
+        <li><a href="#当前实际情况基于官方用户指南">当前实际情况（基于官方用户指南）</a></li>
+        <li><a href="#真正的限额在哪里">真正的限额在哪里？</a></li>
+        <li><a href="#建议">建议</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-在项目中开始工作--迁移-claudemd-等-instructions">2. 在项目中开始工作 + 迁移 CLAUDE.md 等 Instructions</a>
+      <ol>
+        <li><a href="#自动加载项目规则最重要">自动加载项目规则（最重要）</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-如何配置-grok-自己的类似-claudemd-内容">3. 如何配置 Grok 自己的类似 CLAUDE.md 内容</a></li>
+    <li><a href="#4-技能skills使用创建管理修改">4. 技能（Skills）使用：创建、管理、修改</a>
+      <ol>
+        <li><a href="#skill-存放位置优先级从高到低">Skill 存放位置（优先级从高到低）</a></li>
+        <li><a href="#创建-skill-的两种方式">创建 Skill 的两种方式</a></li>
+        <li><a href="#管理与使用">管理与使用</a></li>
+      </ol>
+    </li>
+    <li><a href="#5-如何接入-notion读取修改创建文档">5. 如何接入 Notion（读取、修改、创建文档）</a>
+      <ol>
+        <li><a href="#基本接入流程">基本接入流程</a></li>
+      </ol>
+    </li>
+    <li><a href="#6-如何使用自定义命令">6. 如何使用自定义命令</a>
+      <ol>
+        <li><a href="#1-内置-slash-commands开箱即用">1. 内置 Slash Commands（开箱即用）</a></li>
+        <li><a href="#2-用户创建的-skills最推荐的自定义命令">2. 用户创建的 Skills（最推荐的自定义命令）</a></li>
+        <li><a href="#3-hooks事件驱动自动化">3. Hooks（事件驱动自动化）</a></li>
+        <li><a href="#4-plugins打包分发">4. Plugins（打包分发）</a></li>
+        <li><a href="#5-其他扩展方式">5. 其他扩展方式</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -293,25 +362,76 @@
 <h2 id="1-安装命令">1. 安装命令
 </h2><h3 id="macos--linux">macOS / Linux
 </h3><p>推荐使用官方安装脚本：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://x.ai/cli/install.sh | bash
-</span></span></code></pre></div><p>安装特定版本：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://x.ai/cli/install.sh | bash -s 0.1.42
-</span></span></code></pre></div><h3 id="windows">Windows
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -fsSL https://x.ai/cli/install.sh <span class="p">|</span> bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装特定版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -fsSL https://x.ai/cli/install.sh <span class="p">|</span> bash -s 0.1.42
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="windows">Windows
 </h3><p>使用 PowerShell：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>irm https<span style="color:#960050;background-color:#1e0010">:</span>//x.ai/cli/install.ps1 | iex
-</span></span></code></pre></div><p>指定版本：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:GROK_VERSION=<span style="color:#e6db74">&#34;0.1.42&#34;</span>; irm https<span style="color:#960050;background-color:#1e0010">:</span>//x.ai/cli/install.ps1 | iex
-</span></span></code></pre></div><p>安装后验证：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok --version
-</span></span><span style="display:flex;"><span>grok update   <span style="color:#75715e"># 随时更新</span>
-</span></span></code></pre></div><h3 id="首次启动与认证">首次启动与认证
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">irm </span><span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">x</span><span class="p">.</span><span class="n">ai</span><span class="p">/</span><span class="n">cli</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="py">ps1</span> <span class="p">|</span> <span class="nb">iex
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>指定版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$env:GROK_VERSION</span><span class="p">=</span><span class="s2">&#34;0.1.42&#34;</span><span class="p">;</span> <span class="nb">irm </span><span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">x</span><span class="p">.</span><span class="n">ai</span><span class="p">/</span><span class="n">cli</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="py">ps1</span> <span class="p">|</span> <span class="nb">iex
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装后验证：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grok --version
+</span></span><span class="line"><span class="cl">grok update   <span class="c1"># 随时更新</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="首次启动与认证">首次启动与认证
 </h3><p>直接运行：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok
-</span></span></code></pre></div><p>首次会打开浏览器登录 grok.com，凭证存储在 <code>~/.grok/auth.json</code>，token 有效期 7 天。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grok
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首次会打开浏览器登录 grok.com，凭证存储在 <code>~/.grok/auth.json</code>，token 有效期 7 天。</p>
 <p><strong>CI/CD 或无浏览器环境</strong> 推荐使用 API Key：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export XAI_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xai-你的密钥&#34;</span>
-</span></span><span style="display:flex;"><span>grok
-</span></span></code></pre></div><p>更多认证方式（OIDC、Device Code）详见官方 <code>02-authentication.md</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">XAI_API_KEY</span><span class="o">=</span><span class="s2">&#34;xai-你的密钥&#34;</span>
+</span></span><span class="line"><span class="cl">grok
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多认证方式（OIDC、Device Code）详见官方 <code>02-authentication.md</code>。</p>
 <p>常用启动参数：</p>
 <ul>
 <li><code>grok --cwd ~/projects/my-app</code> 指定目录</li>
@@ -371,26 +491,50 @@
 <p>Grok 还支持 <code>--rules &quot;额外指令&quot;</code> 在单次会话中追加规则（不修改文件）。</p>
 <h2 id="3-如何配置-grok-自己的类似-claudemd-内容">3. 如何配置 Grok 自己的类似 CLAUDE.md 内容
 </h2><p>除了 <code>AGENTS.md</code> 系列，Grok 还提供了更结构化的项目级配置目录：</p>
-<pre tabindex="0"><code>项目根目录/
-├── AGENTS.md                 # 主要规则（推荐）
-└── .grok/
-    ├── config.toml           # 项目级 MCP 服务器配置（仅此 section 有效）
-    ├── skills/               # 项目专用技能
-    ├── hooks/                # 项目生命周期钩子
-    └── plugins/              # 项目插件
-</code></pre><p><strong>关键规则</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">项目根目录/
+</span></span><span class="line"><span class="cl">├── AGENTS.md                 # 主要规则（推荐）
+</span></span><span class="line"><span class="cl">└── .grok/
+</span></span><span class="line"><span class="cl">    ├── config.toml           # 项目级 MCP 服务器配置（仅此 section 有效）
+</span></span><span class="line"><span class="cl">    ├── skills/               # 项目专用技能
+</span></span><span class="line"><span class="cl">    ├── hooks/                # 项目生命周期钩子
+</span></span><span class="line"><span class="cl">    └── plugins/              # 项目插件
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>关键规则</strong>：</p>
 <ul>
 <li><code>.grok/config.toml</code> 中<strong>只支持 <code>[mcp_servers]</code></strong> 部分，其他配置以用户全局 <code>~/.grok/config.toml</code> 为准。</li>
 <li>项目级文件优先级高于全局。</li>
 <li>每个 <code>AGENTS.md</code> 文件有 10,000 字符上限，建议保持简洁。</li>
 </ul>
 <p>示例 <code>AGENTS.md</code> 内容：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># 开发规范
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 所有函数必须有文档字符串
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 提交信息必须遵循 Conventional Commits
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 复杂任务（3 步以上）必须先写设计文档 + 开发计划
-</span></span></code></pre></div><p>这样配置后，每次在该项目启动 Grok 时，这些规则都会自动生效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gh"># 开发规范
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 所有函数必须有文档字符串
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 提交信息必须遵循 Conventional Commits
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 复杂任务（3 步以上）必须先写设计文档 + 开发计划
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样配置后，每次在该项目启动 Grok 时，这些规则都会自动生效。</p>
 <h2 id="4-技能skills使用创建管理修改">4. 技能（Skills）使用：创建、管理、修改
 </h2><p><strong>Skill 是 Grok 最强大的自定义机制</strong>。一个 Skill 就是一个可复用的工作流程包，创建后会自动变成可通过 <code>/技能名</code> 调用的命令。</p>
 <h3 id="skill-存放位置优先级从高到低">Skill 存放位置（优先级从高到低）
@@ -401,10 +545,24 @@
 </ul>
 <h3 id="创建-skill-的两种方式">创建 Skill 的两种方式
 </h3><p><strong>推荐方式（最简单）</strong>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/skillify
-</span></span></code></pre></div><p>或</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/create-skill
-</span></span></code></pre></div><p>Grok 会：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/skillify
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/create-skill
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Grok 会：</p>
 <ul>
 <li>分析你当前会话中刚完成的工作流（From-session 模式），或</li>
 <li>引导你从零描述流程（From-scratch 模式）</li>
@@ -412,21 +570,46 @@
 <p>完成后会生成完整的 <code>SKILL.md</code>（含 YAML frontmatter），你可以预览并确认后再写入磁盘。</p>
 <p><strong>手动创建</strong>：</p>
 <p>在对应目录下创建文件夹和 <code>SKILL.md</code>，例如：</p>
-<pre tabindex="0"><code>.grok/skills/new-post/
-└── SKILL.md
-</code></pre><p><code>SKILL.md</code> 示例结构：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">new-post</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">为 Hugo 博客快速创建符合规范的新文章。Use when user wants to add a new blog post.</span>
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># 创建新文章步骤
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">1.</span> 询问文章标题、标签、分类
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">2.</span> 生成标准 frontmatter（含 date、draft=false 等）
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">3.</span> 在 content/posts/ 下创建文件
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">4.</span> 打开文件供用户编辑
-</span></span></code></pre></div><h3 id="管理与使用">管理与使用
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.grok/skills/new-post/
+</span></span><span class="line"><span class="cl">└── SKILL.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>SKILL.md</code> 示例结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">new-post</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">为 Hugo 博客快速创建符合规范的新文章。Use when user wants to add a new blog post.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gh"># 创建新文章步骤
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">1.</span> 询问文章标题、标签、分类
+</span></span><span class="line"><span class="cl"><span class="k">2.</span> 生成标准 frontmatter（含 date、draft=false 等）
+</span></span><span class="line"><span class="cl"><span class="k">3.</span> 在 content/posts/ 下创建文件
+</span></span><span class="line"><span class="cl"><span class="k">4.</span> 打开文件供用户编辑
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="管理与使用">管理与使用
 </h3><ul>
 <li><code>/skills</code> 查看所有可用技能</li>
 <li><code>/skills new-post</code> 将该技能注入当前上下文</li>
@@ -445,16 +628,36 @@
 </h3><ol>
 <li>在 <code>~/.grok/config.toml</code>（或项目 <code>.grok/config.toml</code>）中配置 MCP 服务器：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">mcp_servers</span>.<span style="color:#a6e22e">notion</span>]
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">command</span> = <span style="color:#e6db74">&#34;npx&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">args</span> = [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@some/notion-mcp-server&#34;</span>]
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env</span> = { <span style="color:#a6e22e">NOTION_TOKEN</span> = <span style="color:#e6db74">&#34;secret_xxx&#34;</span> }
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span> = <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>或使用 HTTP/SSE 方式（推荐托管服务）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">mcp_servers</span>.<span style="color:#a6e22e">notion</span>]
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://mcp.notion.example.com/mcp&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span> = <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">mcp_servers</span><span class="p">.</span><span class="nx">notion</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">command</span> <span class="p">=</span> <span class="s2">&#34;npx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">args</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;-y&#34;</span><span class="p">,</span> <span class="s2">&#34;@some/notion-mcp-server&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">env</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">NOTION_TOKEN</span> <span class="p">=</span> <span class="s2">&#34;secret_xxx&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或使用 HTTP/SSE 方式（推荐托管服务）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">mcp_servers</span><span class="p">.</span><span class="nx">notion</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mcp.notion.example.com/mcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>
 <p>重启 Grok 或在 TUI 中使用 <code>/mcps</code> 管理面板启用服务器。</p>
 </li>
@@ -520,7 +723,7 @@
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -552,118 +755,63 @@
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

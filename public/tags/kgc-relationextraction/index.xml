@@ -1,76 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>KGC, RelationExtraction on Antarx Blog</title>
-        <link>http://antarxly.com/tags/kgc-relationextraction/</link>
+        <link>http://localhost:1313/tags/kgc-relationextraction/</link>
         <description>Recent content in KGC, RelationExtraction on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sat, 19 Dec 2020 14:51:30 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/kgc-relationextraction/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Week 51, 2020 论文阅读总结</title>
-        <link>http://antarxly.com/posts/paper-wk52-2020/</link>
-        <pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate>
-        
-        <guid>http://antarxly.com/posts/paper-wk52-2020/</guid>
-        <description>&lt;p&gt;总结一周阅读的论文。&lt;/p&gt;
-&lt;h2 id=&#34;complex-relation-extraction-challenges-and-opportunities&#34;&gt;Complex Relation Extraction: Challenges and Opportunities
-&lt;/h2&gt;&lt;p&gt;关系抽取领域的一篇短综述，只有六页，讲述目前关系抽取的进展和挑战。
-文中首先定义了什么是简单关系和复杂关系。简单关系抽取，Binary Relation Extraction，最简单的关系抽取的范式，一句话中包含两个实体以及两个实体之间的关系。
-复杂关系抽取，就是超出了这个定义的一些情况，包括：文档关系抽取，小样本关系抽取，跨语言关系抽取，跨模态关系抽取，N-ary（N元/N实体）关系抽取，多粒度关系抽取，条件关系抽取和嵌入关系抽取。
-针对每个scenario，分析了问题定义和挑战。&lt;/p&gt;
-&lt;h2 id=&#34;relational-graph-neural-network-with-hierarchical-attention-for-knowledge-graph-completion&#34;&gt;Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion
-&lt;/h2&gt;&lt;p&gt;发表于AAAI 2020的一篇文章。关注知识图谱补全与链接预测领域。
-提出了结构化注意力机制来增强链接预测的性能。
-所谓结构化，针对$(h, r, ?)$尾实体包含多个实体的时候，可以把原始的图转化为树状结构，把关系作为中间节点。
-在转化之后的图结构，首先学习关系权重，头实体和关系连接，学习注意力权重。
-之后学习同一个关系的所有尾部实体的权重表示。
-&lt;img src=&#34;https://antarx.cn/2020/12/19/cleanshot-20201219-at-1543042x.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;模型结构&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;信息融合&lt;/strong&gt;：学习的邻居节点信息和节点自身的表示进行融合，文中提出了三种融合的手段，包括Multiplicative Combination, Bi-interaction combination and simple additive combination. 同时为了更好的融合，使用多头注意力机制。
-&lt;strong&gt;Predict&lt;/strong&gt;：打分预测阶段，使用ConvE的打分函数。
-$$f(h,r,t)=\text{ReLU}(\text{vec}(\text{ReLU}([h;t]*\omega))Q)t$$&lt;/p&gt;
-&lt;h2 id=&#34;one-shot-learning-for-temporal-knowledge-graphs&#34;&gt;One-Shot Learning for Temporal Knowledge Graphs
-&lt;/h2&gt;&lt;p&gt;时序知识图谱链接预测的一篇文章，被AAAI 2021收录。
-时序图预测最近有点火，但之前还没有接触过这个领域，看得比较粗。
-印象最深刻的就是根据时间跨度去构建support和query。选取过去某个时刻的三元组作为one-shot支持集，然后从那个时刻开始未来的$limit$时间跨度内的数据作为查询集。
-第一次接触这个类型的数据范式，想找代码看一看，无奈代码没开放，给的链接点进去并没有内容。
-标注为Follow。&lt;/p&gt;
-&lt;h2 id=&#34;context-enhanced-entity-and-relation-embedding-for-knowledge-graph-completion-student-abstract&#34;&gt;Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)
-&lt;/h2&gt;&lt;p&gt;AAAI 2021 收录的一篇poster，关注知识图谱补全问题。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://antarx.cn/2020/12/19/cleanshot-20201219-at-1544252x.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;模型结构&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;动机：以往的知识图谱补全模型虽然有考虑实体或者关系的上下文信息，但没有同时考虑，因此在本文中进行了尝试。&lt;/p&gt;
-&lt;p&gt;实体上下文就是以该实体为头节点或者尾节点的三元组&lt;/p&gt;
-&lt;p&gt;关系上下文就是该关系的头实体和尾部实体。&lt;/p&gt;
-&lt;p&gt;打分函数使用DistMult同款$$s_{i,j}=e_i^T diag{r} e_j$$&lt;/p&gt;
-&lt;h2 id=&#34;reference&#34;&gt;Reference
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2012.04821&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Complex Relation Extraction: Challenges and Opportunities&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ojs.aaai.org/index.php/AAAI/article/download/6508/6364&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2010.12144.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;One-Shot Learning for Temporal Knowledge Graphs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2012.04821&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
-        </item>
-        
-    </channel>
+        <lastBuildDate>Sat, 19 Dec 2020 14:51:30 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/kgc-relationextraction/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Week 51, 2020 论文阅读总结</title>
+            <link>http://localhost:1313/posts/paper-wk52-2020/</link>
+            <pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate>
+            <guid>http://localhost:1313/posts/paper-wk52-2020/</guid>
+            <description>&lt;p&gt;总结一周阅读的论文。&lt;/p&gt;&#xA;&lt;h2 id=&#34;complex-relation-extraction-challenges-and-opportunities&#34;&gt;Complex Relation Extraction: Challenges and Opportunities&#xA;&lt;/h2&gt;&lt;p&gt;关系抽取领域的一篇短综述，只有六页，讲述目前关系抽取的进展和挑战。&#xA;文中首先定义了什么是简单关系和复杂关系。简单关系抽取，Binary Relation Extraction，最简单的关系抽取的范式，一句话中包含两个实体以及两个实体之间的关系。&#xA;复杂关系抽取，就是超出了这个定义的一些情况，包括：文档关系抽取，小样本关系抽取，跨语言关系抽取，跨模态关系抽取，N-ary（N元/N实体）关系抽取，多粒度关系抽取，条件关系抽取和嵌入关系抽取。&#xA;针对每个scenario，分析了问题定义和挑战。&lt;/p&gt;&#xA;&lt;h2 id=&#34;relational-graph-neural-network-with-hierarchical-attention-for-knowledge-graph-completion&#34;&gt;Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion&#xA;&lt;/h2&gt;&lt;p&gt;发表于AAAI 2020的一篇文章。关注知识图谱补全与链接预测领域。&#xA;提出了结构化注意力机制来增强链接预测的性能。&#xA;所谓结构化，针对$(h, r, ?)$尾实体包含多个实体的时候，可以把原始的图转化为树状结构，把关系作为中间节点。&#xA;在转化之后的图结构，首先学习关系权重，头实体和关系连接，学习注意力权重。&#xA;之后学习同一个关系的所有尾部实体的权重表示。&#xA;&lt;img alt=&#34;模型结构&#34; loading=&#34;lazy&#34; sizes=&#34;(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px&#34; src=&#34;https://antarx.cn/2020/12/19/cleanshot-20201219-at-1543042x.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;信息融合&lt;/strong&gt;：学习的邻居节点信息和节点自身的表示进行融合，文中提出了三种融合的手段，包括Multiplicative Combination, Bi-interaction combination and simple additive combination. 同时为了更好的融合，使用多头注意力机制。&#xA;&lt;strong&gt;Predict&lt;/strong&gt;：打分预测阶段，使用ConvE的打分函数。&#xA;&lt;/p&gt;&#xA;$$f(h,r,t)=\text{ReLU}(\text{vec}(\text{ReLU}([h;t]*\omega))Q)t$$&lt;h2 id=&#34;one-shot-learning-for-temporal-knowledge-graphs&#34;&gt;One-Shot Learning for Temporal Knowledge Graphs&#xA;&lt;/h2&gt;&lt;p&gt;时序知识图谱链接预测的一篇文章，被AAAI 2021收录。&#xA;时序图预测最近有点火，但之前还没有接触过这个领域，看得比较粗。&#xA;印象最深刻的就是根据时间跨度去构建support和query。选取过去某个时刻的三元组作为one-shot支持集，然后从那个时刻开始未来的$limit$时间跨度内的数据作为查询集。&#xA;第一次接触这个类型的数据范式，想找代码看一看，无奈代码没开放，给的链接点进去并没有内容。&#xA;标注为Follow。&lt;/p&gt;&#xA;&lt;h2 id=&#34;context-enhanced-entity-and-relation-embedding-for-knowledge-graph-completion-student-abstract&#34;&gt;Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)&#xA;&lt;/h2&gt;&lt;p&gt;AAAI 2021 收录的一篇poster，关注知识图谱补全问题。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img alt=&#34;模型结构&#34; loading=&#34;lazy&#34; sizes=&#34;(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px&#34; src=&#34;https://antarx.cn/2020/12/19/cleanshot-20201219-at-1544252x.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;动机：以往的知识图谱补全模型虽然有考虑实体或者关系的上下文信息，但没有同时考虑，因此在本文中进行了尝试。&lt;/p&gt;&#xA;&lt;p&gt;实体上下文就是以该实体为头节点或者尾节点的三元组&lt;/p&gt;&#xA;&lt;p&gt;关系上下文就是该关系的头实体和尾部实体。&lt;/p&gt;&#xA;&lt;p&gt;打分函数使用DistMult同款&lt;/p&gt;&#xA;$$s_{i,j}=e_i^T diag\{r\} e_j$$&lt;h2 id=&#34;reference&#34;&gt;Reference&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2012.04821&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Complex Relation Extraction: Challenges and Opportunities&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ojs.aaai.org/index.php/AAAI/article/download/6508/6364&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Relational Graph Neural Network with Hierarchical Attention for Knowledge Graph Completion&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2010.12144.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;One-Shot Learning for Temporal Knowledge Graphs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2012.04821&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;Context-Enhanced Entity and Relation Embedding for Knowledge Graph Completion (Student Abstract)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+        </item></channel>
 </rss>

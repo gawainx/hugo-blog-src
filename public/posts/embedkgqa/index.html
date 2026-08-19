@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="来源：ACL 2020 领域：KGQA 模型：EmbedKGQA 核心模型：ComplEx；BERT/RoBERTa 代码：GitHub\n关注问题 多跳KGQA中，KG的不完整性带来独特的挑战。现有解决方案中包括使用文本，但文本不一定存在；KGE可以解决补全问题，但还没有研究将两者结合在一起，本文是这方面的一次尝试。\n">
 <title>论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/embedkgqa/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings">
+<link rel="canonical" href="http://localhost:1313/posts/embedkgqa/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings">
 <meta property='og:description' content="来源：ACL 2020 领域：KGQA 模型：EmbedKGQA 核心模型：ComplEx；BERT/RoBERTa 代码：GitHub\n关注问题 多跳KGQA中，KG的不完整性带来独特的挑战。现有解决方案中包括使用文本，但文本不一定存在；KGE可以解决补全问题，但还没有研究将两者结合在一起，本文是这方面的一次尝试。\n">
-<meta property='og:url' content='http://antarxly.com/posts/embedkgqa/'>
+<meta property='og:url' content='http://localhost:1313/posts/embedkgqa/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='KGQA' /><meta property='article:tag' content='KGE' /><meta property='article:published_time' content='2021-08-09T16:29:12&#43;00:00'/><meta property='article:modified_time' content='2021-08-09T16:29:12&#43;00:00'/>
 <meta name="twitter:title" content="论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -165,17 +163,19 @@
         <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
     <li><a href="#关注问题">关注问题</a></li>
     <li><a href="#model">Model</a>
-      <ul>
+      <ol>
         <li><a href="#answer-selection-module">Answer Selection Module</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#延伸">延伸</a></li>
-  </ul>
-</nav>
+  </ol>
+
+            </nav>
         </div>
     </section>
 
@@ -203,10 +203,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -215,13 +219,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 09, 2021</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2021-08-09T16:29:12Z'>2021年8月9日星期一</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -229,18 +231,47 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 2 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 2 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#关注问题">关注问题</a></li>
+    <li><a href="#model">Model</a>
+      <ol>
+        <li><a href="#answer-selection-module">Answer Selection Module</a></li>
+      </ol>
+    </li>
+    <li><a href="#延伸">延伸</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -254,16 +285,7 @@
 <h2 id="关注问题">关注问题
 </h2><p>多跳KGQA中，KG的不完整性带来独特的挑战。现有解决方案中包括使用文本，但文本不一定存在；KGE可以解决补全问题，但还没有研究将两者结合在一起，本文是这方面的一次尝试。</p>
 <h2 id="model">Model
-</h2><p><img src="https://antarx.cn/images/CleanShot%202021-08-09%20at%2016.25.47@2x.jpg"
-	
-	
-	
-	loading="lazy"
-	
-		alt="EmbedKGQA 模型架构"
-	
-	
-></p>
+</h2><p><img alt="EmbedKGQA 模型架构" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/CleanShot%202021-08-09%20at%2016.25.47@2x.jpg"></p>
 <p>模型分为三个核心模块：KG Embedding Module，Question Embedding Module，Answer Selection Module。</p>
 <ul>
 <li>KG Embedding Module：和现有KGE模型的目的一致，生成实体的表示向量。本文使用ComplEx作为KGE模型。</li>
@@ -271,13 +293,11 @@
 </ul>
 <h3 id="answer-selection-module">Answer Selection Module
 </h3><p>答案选择器用于生成最后的实体选择。首先，使用ComplEx的打分函数生成分数$\phi (e_h, e_q, e_{a&rsquo;})$，这种方式在候选实体很少的时候是适用的，但有些KG候选实体非常多。因此，引入pruning机制进行实体筛选打分。</p>
-<p>$$
-h_q = \text{RoBERTa}(q&rsquo;) \
+$$
+h_q = \text{RoBERTa}(q') \\
 S(r, q) = \text{sigmoid}(h_q^Th_r)
-$$</p>
-<p>筛选$S(r, q)$ 大于0.5的关系集合$\mathcal{R}_a$, 以及最短路径关系集合$\mathcal{R}_{a&rsquo;}$, 得到一个关系分数</p>
-<p>$$\text{RelScore}_{a&rsquo;}=\vert \mathcal{R}<em>a \cap  \mathcal{R}</em>{a&rsquo;} \vert$$</p>
-<p>最终分数$e_{ans} = \text{argmax}(\phi (e_h, e_q, e_{a&rsquo;})) + \gamma * \text{RelScore}_{a&rsquo;}$</p>
+$$<p>筛选$S(r, q)$ 大于0.5的关系集合$\mathcal{R}_a$, 以及最短路径关系集合$\mathcal{R}_{a&rsquo;}$, 得到一个关系分数</p>
+$$\text{RelScore}_{a'}=\vert \mathcal{R}_a \cap  \mathcal{R}_{a'} \vert$$<p>最终分数$e_{ans} = \text{argmax}(\phi (e_h, e_q, e_{a&rsquo;})) + \gamma * \text{RelScore}_{a&rsquo;}$</p>
 <h2 id="延伸">延伸
 </h2><p>写作的时候遇到行内数学公式渲染错误的问题，Follow了<a class="link" href="https://m3df.xyz/2021/06/25/b63b2b2d/"  target="_blank" rel="noopener"
     >这个Post</a>的解决方案。</p>
@@ -285,7 +305,7 @@ $$</p>
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -309,118 +329,63 @@ $$</p>
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

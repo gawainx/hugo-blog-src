@@ -3,6 +3,9 @@
     --accent-color: #6cabdd;
     --accent-color-darker: #3d8fbd;
     --accent-color-text: #001a2b;
+    --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+    --base-font-family: "Lato", var(--sys-font-family), var(--zh-font-family), sans-serif;
+    --code-font-family: Menlo, Monaco, Consolas, "Courier New", var(--zh-font-family), monospace;
 }
 
 :root[data-scheme="dark"] {

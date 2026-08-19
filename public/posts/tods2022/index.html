@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文总结2022年任务驱动对话的研究进展。\n[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue 来源：ACL 2022 Long Paper\n使用强化学习策略解决任务驱动对话中的问题：任务驱动对话中的策略学习。文章认为，任务驱动对话是从离线数据中学习，另一方面强化学习在离线数据训练的时候会导致误差和泛化问题，人类反应的随机性又加剧了这种误差的产生和传播过程。这篇文章提出了CASPI这个模型，使用批量化强化学习的方法，从人类反应的意图中学习细粒度的奖励信息。\n">
 <title>2022年任务驱动对话（Task-Oriented Dialogue System）研究进展</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/tods2022/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="2022年任务驱动对话（Task-Oriented Dialogue System）研究进展">
+<link rel="canonical" href="http://localhost:1313/posts/tods2022/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="2022年任务驱动对话（Task-Oriented Dialogue System）研究进展">
 <meta property='og:description' content="本文总结2022年任务驱动对话的研究进展。\n[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue 来源：ACL 2022 Long Paper\n使用强化学习策略解决任务驱动对话中的问题：任务驱动对话中的策略学习。文章认为，任务驱动对话是从离线数据中学习，另一方面强化学习在离线数据训练的时候会导致误差和泛化问题，人类反应的随机性又加剧了这种误差的产生和传播过程。这篇文章提出了CASPI这个模型，使用批量化强化学习的方法，从人类反应的意图中学习细粒度的奖励信息。\n">
-<meta property='og:url' content='http://antarxly.com/posts/tods2022/'>
+<meta property='og:url' content='http://localhost:1313/posts/tods2022/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='对话系统, Task-Oriented Dialogue System' /><meta property='article:published_time' content='2022-12-06T09:41:05&#43;00:00'/><meta property='article:modified_time' content='2022-12-06T09:41:05&#43;00:00'/>
 <meta name="twitter:title" content="2022年任务驱动对话（Task-Oriented Dialogue System）研究进展">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -165,14 +163,16 @@
         <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
     <li><a href="#caspi-causal-aware-safe-policy-improvement-for-task-oriented-dialogue">[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue</a></li>
     <li><a href="#cins-comprehensive-instruction-for-few-shot-learning-in-task-oriented-dialog-systems">CINS: Comprehensive Instruction for Few-Shot Learning in Task-Oriented Dialog Systems</a></li>
     <li><a href="#fusing-task-oriented-and-open-domain-dialogues-in-conversational-agents">Fusing Task-Oriented and Open-Domain Dialogues in Conversational Agents</a></li>
     <li><a href="#globalwoz-globalizing-multiwoz-to-develop-multilingual-task-oriented-dialogue-systems">GlobalWoZ: Globalizing MultiWoZ to Develop Multilingual Task-Oriented Dialogue Systems</a></li>
-  </ul>
-</nav>
+  </ol>
+
+            </nav>
         </div>
     </section>
 
@@ -200,10 +200,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -212,13 +216,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 06, 2022</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2022-12-06T09:41:05Z'>2022年12月6日星期二</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -226,18 +228,44 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 2 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 2 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#caspi-causal-aware-safe-policy-improvement-for-task-oriented-dialogue">[CASPI] Causal-aware Safe Policy Improvement for Task-oriented Dialogue</a></li>
+    <li><a href="#cins-comprehensive-instruction-for-few-shot-learning-in-task-oriented-dialog-systems">CINS: Comprehensive Instruction for Few-Shot Learning in Task-Oriented Dialog Systems</a></li>
+    <li><a href="#fusing-task-oriented-and-open-domain-dialogues-in-conversational-agents">Fusing Task-Oriented and Open-Domain Dialogues in Conversational Agents</a></li>
+    <li><a href="#globalwoz-globalizing-multiwoz-to-develop-multilingual-task-oriented-dialogue-systems">GlobalWoZ: Globalizing MultiWoZ to Develop Multilingual Task-Oriented Dialogue Systems</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -258,16 +286,7 @@
 definition为：“Predict the intent of the input query. Intent is the main topic or purpose of a query.”
 对应的constraint 为 “Model needs to select the most suitable intent from: { candidate labels + label descriptions }”
 Prompt为“What is the intent of the given query?”
-<img src="https://antarx.cn/images/CINS_Model.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Pipeline of CINS"
-	
-	
-></p>
+<img alt="Pipeline of CINS" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/CINS_Model.png"></p>
 <h2 id="fusing-task-oriented-and-open-domain-dialogues-in-conversational-agents">Fusing Task-Oriented and Open-Domain Dialogues in Conversational Agents
 </h2><p>来源：AAAI 2022</p>
 <p>这篇文章在多轮对话中试图将任务驱动对话任务和开放domain的对话任务融合在一起，并提出了一个新的数据集 FusedChat
@@ -276,21 +295,12 @@ Prompt为“What is the intent of the given query?”
 </h2><p>来源：ACL 2022</p>
 <p>这篇文章关注多语言的任务驱动对话数据集问题。文章认为已有的多语言任务驱动对话数据集语言的覆盖范围非常有限，同时对话实体往往是只存在于哪些说这个语言的国家的
 因此文章提出了一个大规模、多语言的数据集；基于翻译对话模版和填入实体的方式构建</p>
-<p><img src="https://antarx.cn/images/global_woz.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="多语言对话系统示例"
-	
-	
-></p>
+<p><img alt="多语言对话系统示例" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://antarx.cn/images/global_woz.png"></p>
 
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -312,118 +322,63 @@ Prompt为“What is the intent of the given query?”
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

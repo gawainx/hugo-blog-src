@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="【Code】初探Python类型标注 干点轻松的事情，看了一下Python官方文档里面关于类型标注的知识，怎么说，Python官方对于类型检查这个问题的认识，远远比那些Python吹成熟多了（好像说了一句废话，其实想表达的是按照现在Python的发展程度，过于灵活的类型系统早就成了发展的桎梏，官方的态度也表明了这一点，只是还有很多人没有意识到，还沉浸在不用写类型的快感中而已）。作为一个Python黑，对于Python建立健全的类型检查机制这件事上，我是举双手双脚赞成的。\n">
 <title>探索Python的类型标注支持</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/28507f36/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="探索Python的类型标注支持">
+<link rel="canonical" href="http://localhost:1313/posts/28507f36/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="探索Python的类型标注支持">
 <meta property='og:description' content="【Code】初探Python类型标注 干点轻松的事情，看了一下Python官方文档里面关于类型标注的知识，怎么说，Python官方对于类型检查这个问题的认识，远远比那些Python吹成熟多了（好像说了一句废话，其实想表达的是按照现在Python的发展程度，过于灵活的类型系统早就成了发展的桎梏，官方的态度也表明了这一点，只是还有很多人没有意识到，还沉浸在不用写类型的快感中而已）。作为一个Python黑，对于Python建立健全的类型检查机制这件事上，我是举双手双脚赞成的。\n">
-<meta property='og:url' content='http://antarxly.com/posts/28507f36/'>
+<meta property='og:url' content='http://localhost:1313/posts/28507f36/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2020-07-03T10:08:27&#43;00:00'/><meta property='article:modified_time' content='2020-07-03T10:08:27&#43;00:00'/>
 <meta name="twitter:title" content="探索Python的类型标注支持">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -165,8 +163,9 @@
         <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
     <li><a href="#从最基本出发">从最基本出发</a></li>
     <li><a href="#tuple">Tuple</a></li>
     <li><a href="#union">Union</a></li>
@@ -174,8 +173,9 @@
     <li><a href="#literal不能枚举之痛">Literal：不能枚举之痛</a></li>
     <li><a href="#more-fun">More Fun</a></li>
     <li><a href="#beyond">Beyond</a></li>
-  </ul>
-</nav>
+  </ol>
+
+            </nav>
         </div>
     </section>
 
@@ -203,10 +203,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -215,13 +219,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jul 03, 2020</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2020-07-03T10:08:27Z'>2020年7月3日星期五</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -229,18 +231,47 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 4 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 4 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#从最基本出发">从最基本出发</a></li>
+    <li><a href="#tuple">Tuple</a></li>
+    <li><a href="#union">Union</a></li>
+    <li><a href="#optional">Optional</a></li>
+    <li><a href="#literal不能枚举之痛">Literal：不能枚举之痛</a></li>
+    <li><a href="#more-fun">More Fun</a></li>
+    <li><a href="#beyond">Beyond</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -257,65 +288,136 @@ return f&quot;{(x+y)=}&quot;
 <h2 id="tuple">Tuple
 </h2><p>这时候很容易会想到，如果我函数返回多个值，能不能用类型检查呢？</p>
 <p>当然可以，只需要引入<code>Tuple</code>类型</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Tuple
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(x: int, y: int) <span style="color:#f92672">-&gt;</span> Tuple[int, int]:
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>x, <span style="color:#ae81ff">2</span>y
-</span></span></code></pre></div><p><code>Tuple[int, int]</code>表示返回值是长度为<code>2</code>的元组类型，第一个元素和第二个元素都是<code>int</code>类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="n">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Tuple[int, int]</code>表示返回值是长度为<code>2</code>的元组类型，第一个元素和第二个元素都是<code>int</code>类型。</p>
 <p><strong>返回同类型多值</strong>的时候，比如<code>Tuple[int, int, int]</code>可以简写成<code>Tuple[int, ...]</code></p>
 <p><strong>如果返回值类型不同</strong>，只需要写成<code>Tuple[str, int, dict, float]</code>这样，表示返回四个参数，类型分别是字符串，整数，字典和浮点数。</p>
 <h2 id="union">Union
 </h2><p>这时候问题又来了，“有些时候我真的不确定能返回啥的嘛”</p>
 <p>可能返回两种类型的时候（比如做JSON解析，最外层可以是<code>dict</code>或者<code>Array</code>），需要引入<code>Union</code>关键字</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Union
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(filename: str) <span style="color:#f92672">-&gt;</span> Union[dict, list]:
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>load(open(filename))
-</span></span></code></pre></div><p><code>Union[dict, list]</code>即表示返回类型是字典或者列表类型（只能二选一）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Union[dict, list]</code>即表示返回类型是字典或者列表类型（只能二选一）。</p>
 <h2 id="optional">Optional
 </h2><p>这时候又有钢筋拍案而起了，“我特么就喜欢给你返回None，空数据我就给你None，传入可以None，返回可以None，就看你咋整”</p>
 <p>当然可以整，只需要引入<code>Optional</code>关键字</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Optional
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(x: Optional[int]) <span style="color:#f92672">-&gt;</span> Optional[str]:
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> x <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">=}</span><span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><p><code>Optional[str]</code>等价于<code>Union[str, None]</code>，表示返回值为<code>str</code>类型<strong>或者</strong><code>None</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Optional[str]</code>等价于<code>Union[str, None]</code>，表示返回值为<code>str</code>类型<strong>或者</strong><code>None</code></p>
 <h2 id="literal不能枚举之痛">Literal：不能枚举之痛
 </h2><p>Python的枚举类型，用起来是很麻烦的，每次写Python的时候我都很怀念<code>Swift</code>的<code>view.setColor(.red)</code>之类的写法，省去了很多麻烦。</p>
 <p>在Python里面很多喜欢用字符串来表示特定一些范围的东西，比如训练时候选用优化器，有把<code>&quot;Adam&quot;</code>或者<code>&quot;SGD&quot;</code>直接传入函数的操作。</p>
 <p>问题就来了，字符串灵活性太高了，不开着官方文档根本不知道有哪些可以传入，有时候一个<code>typo</code>就会导致debug半天。</p>
 <p><code>Literal</code>就是为解决这个问题而来的</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">validate_simple</span>(data: Any) <span style="color:#f92672">-&gt;</span> Literal[<span style="color:#66d9ef">True</span>]:  <span style="color:#75715e"># always returns True</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>MODE <span style="color:#f92672">=</span> Literal[<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;rb&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">open_helper</span>(file: str, mode: MODE) <span style="color:#f92672">-&gt;</span> str:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>open_helper(<span style="color:#e6db74">&#39;/some/path&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>)  <span style="color:#75715e"># Passes type check</span>
-</span></span><span style="display:flex;"><span>open_helper(<span style="color:#e6db74">&#39;/other/path&#39;</span>, <span style="color:#e6db74">&#39;typo&#39;</span>)  <span style="color:#75715e"># Error in type checker</span>
-</span></span></code></pre></div><p>它限定了参数只能是特定的范围中选择。完美解决上面的痛苦</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">validate_simple</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]:</span>  <span class="c1"># always returns True</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">MODE</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">open_helper</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">MODE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">open_helper</span><span class="p">(</span><span class="s1">&#39;/some/path&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>  <span class="c1"># Passes type check</span>
+</span></span><span class="line"><span class="cl"><span class="n">open_helper</span><span class="p">(</span><span class="s1">&#39;/other/path&#39;</span><span class="p">,</span> <span class="s1">&#39;typo&#39;</span><span class="p">)</span>  <span class="c1"># Error in type checker</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>它限定了参数只能是特定的范围中选择。完美解决上面的痛苦</p>
 <p>啊不它根本不完美，我还是更喜欢<code>Swift</code>的枚举推断。</p>
 <h2 id="more-fun">More Fun
 </h2><p>仔细挖掘还可以看到有趣的东西。</p>
 <p><strong>函数名类型</strong>：<code>Callable[[int], str]</code>表示<code>(int)-&gt;str</code>的函数。第一个位置为传入参数的类型和数值，第二个位置表示返回值类型。</p>
 <p><strong>不可变常量</strong>：Python也可以有<code>Final</code>。（Python3.8+）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>MAX_SIZE: Final <span style="color:#f92672">=</span> <span style="color:#ae81ff">9000</span>
-</span></span><span style="display:flex;"><span>MAX_SIZE <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># Error reported by type checker</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Connection</span>:
-</span></span><span style="display:flex;"><span>    TIMEOUT: Final[int] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FastConnector</span>(Connection):
-</span></span><span style="display:flex;"><span>    TIMEOUT <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># Error reported by type checker</span>
-</span></span></code></pre></div><p><strong>类变量</strong>：静态语言中<code>static</code>干的事情，也被搬到了<code>Python</code>上面</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Starship</span>:
-</span></span><span style="display:flex;"><span>    stats: ClassVar[Dict[str, int]] <span style="color:#f92672">=</span> {} <span style="color:#75715e"># class variable</span>
-</span></span><span style="display:flex;"><span>    damage: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>                     <span style="color:#75715e"># instance variable</span>
-</span></span></code></pre></div><p>调用的时候只能使用<code>Starship.stats</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">MAX_SIZE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">9000</span>
+</span></span><span class="line"><span class="cl"><span class="n">MAX_SIZE</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Error reported by type checker</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Connection</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIMEOUT</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">FastConnector</span><span class="p">(</span><span class="n">Connection</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Error reported by type checker</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>类变量</strong>：静态语言中<code>static</code>干的事情，也被搬到了<code>Python</code>上面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Starship</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stats</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># class variable</span>
+</span></span><span class="line"><span class="cl">    <span class="n">damage</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>                     <span class="c1"># instance variable</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用的时候只能使用<code>Starship.stats</code></p>
 <h2 id="beyond">Beyond
 </h2><p>官方文档还有很多很有意思的，比如范型和函数重载等等，改天看完敲完代码再更新。从现在开始我写的每一行<code>Python</code>代码都会全力使用上面说到的所有新特性。</p>
 <p>Python曾经困扰过我很长很长一段时间，从大三（2015）就开始学的语言，其实直到去年年初我还觉得我没有入门（可以翻历史记录，去年七月的时候还有对Python的吐槽），当中各种痛苦与挣扎，甚至有那么一瞬间会觉得如果博士不能毕业的话，Python肯定是最大的元凶，因为用它真的太痛苦了。直到后面追上新文档的改变之后才感觉打开新世界的大门，现在越用越顺手，甚至开始把平常常用的代码段整理成库发布到PyPI上面。</p>
@@ -324,7 +426,7 @@ return f&quot;{(x+y)=}&quot;
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -346,118 +448,63 @@ return f&quot;{(x+y)=}&quot;
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

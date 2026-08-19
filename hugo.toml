@@ -1,14 +1,19 @@
 # hugo.toml
 
 baseURL = 'http://antarxly.com/'
-defaultContentLanguage = 'zh-cn'
-locale = 'zh-CN'
-hasCJKLanguage = true
 title = 'Antarx Blog'
 theme = 'Stack'
 
+# Stack v4 i18n files are zh.toml (not zh-cn).
+defaultContentLanguage = 'zh'
+locale = 'zh-CN'
+hasCJKLanguage = true
+
 [permalinks]
 page = '/:slug/'
+
+[pagination]
+pagerSize = 10
 
 [params]
 mainSections = ["posts"]
@@ -17,21 +22,35 @@ rssFullContent = true
 [params.author]
 name = "gawainx"
 
+[params.footer]
+since = 2015
+
+[params.dateFormat]
+published = ':date_full'
+lastUpdated = ':date_full'
+
 [params.sidebar]
 emoji = "💻"
 subtitle = "AI Infra | Vibe Coding | SwiftUI"
-
-[params.sidebar.avatar]
-enabled = false
+compact = false
+avatar = ""
 
 [params.article]
+headingAnchor = false
+math = false
 toc = true
 readingTime = true
+
+[params.article.list]
+showTags = false
 
 [params.article.license]
 enabled = false
 
 [params.comments]
+enabled = false
+
+[params.cookies]
 enabled = false
 
 [params.colorScheme]
@@ -46,3 +65,39 @@ homepage = [
   { type = "tag-cloud", params = { limit = 10 } },
 ]
 page = [{ type = "toc" }]
+
+[related]
+includeNewer = true
+threshold = 60
+toLower = false
+
+[[related.indices]]
+name = "tags"
+weight = 100
+
+[[related.indices]]
+name = "categories"
+weight = 200
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 4
+ordered = true
+
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNos = true
+lineNumbersInTable = true
+tabWidth = 4

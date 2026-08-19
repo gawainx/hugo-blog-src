@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Gorequest指南 gorequest为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。\n">
 <title>gorequest中文文档(非官方)</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/gorequest-doc/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="gorequest中文文档(非官方)">
+<link rel="canonical" href="http://localhost:1313/posts/gorequest-doc/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="gorequest中文文档(非官方)">
 <meta property='og:description' content="Gorequest指南 gorequest为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。\n">
-<meta property='og:url' content='http://antarxly.com/posts/gorequest-doc/'>
+<meta property='og:url' content='http://localhost:1313/posts/gorequest-doc/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2018-05-05T19:19:43&#43;00:00'/><meta property='article:modified_time' content='2018-05-05T19:19:43&#43;00:00'/>
 <meta name="twitter:title" content="gorequest中文文档(非官方)">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -165,15 +163,16 @@
         <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
     <li><a href="#特性">特性</a></li>
     <li><a href="#安装">安装</a></li>
     <li><a href="#文档">文档</a></li>
     <li><a href="#使用-gorequest-的一万个理由">使用 GoRequest 的一万个理由？</a>
-      <ul>
+      <ol>
         <li><a href="#处理-json">处理 JSON</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#回调callback">回调（Callback）</a></li>
     <li><a href="#multipartform-data">Multipart/Form-Data</a></li>
@@ -188,8 +187,9 @@
     <li><a href="#注意">注意</a></li>
     <li><a href="#credits">Credits</a></li>
     <li><a href="#license">License</a></li>
-  </ul>
-</nav>
+  </ol>
+
+            </nav>
         </div>
     </section>
 
@@ -217,10 +217,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -229,13 +233,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 05, 2018</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2018-05-05T19:19:43Z'>2018年5月5日星期六</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -243,18 +245,61 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 4 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 4 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#特性">特性</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#文档">文档</a></li>
+    <li><a href="#使用-gorequest-的一万个理由">使用 GoRequest 的一万个理由？</a>
+      <ol>
+        <li><a href="#处理-json">处理 JSON</a></li>
+      </ol>
+    </li>
+    <li><a href="#回调callback">回调（Callback）</a></li>
+    <li><a href="#multipartform-data">Multipart/Form-Data</a></li>
+    <li><a href="#代理proxy">代理（Proxy）</a></li>
+    <li><a href="#基本认证">基本认证</a></li>
+    <li><a href="#超时处理timeout">超时处理（Timeout）</a></li>
+    <li><a href="#以字节方式处理返回体endbytes">以字节方式处理返回体（EndBytes）</a></li>
+    <li><a href="#以结构体的方式处理返回体">以结构体的方式处理返回体</a></li>
+    <li><a href="#连续重复请求retry">连续重复请求（Retry）</a></li>
+    <li><a href="#重定向">重定向</a></li>
+    <li><a href="#debug-模式">Debug 模式</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -262,16 +307,7 @@
     <h1 id="gorequest指南">Gorequest指南
 </h1><p><a class="link" href="https://github.com/parnurzeal/gorequest"  target="_blank" rel="noopener"
     >gorequest</a>为 golang 程序提供了极为简便的方式发起 HTTP 请求。网上关于这个库的中文教程不多，因此把官方的 README 文件翻译过来，结合自己的一些使用经验，希望能为各位 Gopher 提供一些帮助。</p>
-<p><img src="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg"
-	
-	
-	
-	loading="lazy"
-	
-		alt="GopherGoRequest"
-	
-	
-></p>
+<p><img alt="GopherGoRequest" class="gallery-image" data-flex-basis="310px" data-flex-grow="129" height="309" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://raw.githubusercontent.com/parnurzeal/gorequest/gh-pages/images/Gopher_GoRequest_400x300.jpg" width="400"></p>
 <h2 id="特性">特性
 </h2><ul>
 <li>支持发送Get/Post/Put/Head/Delete/Patch/Options 请求</li>
@@ -281,9 +317,11 @@
 <li>代理：支援通过代理的方式发送请求。</li>
 <li>Timeout：为请求设置时间限制</li>
 <li>TLS(传输层安全协议)相关设定。
-<blockquote>
-<p>TLSClientConfig - taking control over tls where at least you can disable security check for https</p>
-</blockquote>
+
+    <blockquote>
+        <p>TLSClientConfig - taking control over tls where at least you can disable security check for https</p>
+
+    </blockquote>
 </li>
 <li>重定向策略</li>
 <li>Cookie：为请求添加 cookie</li>
@@ -291,138 +329,342 @@
 <li>基本的权限认证。</li>
 </ul>
 <h2 id="安装">安装
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go get github.com/parnurzeal/gorequest
-</span></span></code></pre></div><h2 id="文档">文档
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go get github.com/parnurzeal/gorequest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="文档">文档
 </h2><p>参阅<a class="link" href="http://godoc.org/github.com/parnurzeal/gorequest"  target="_blank" rel="noopener"
     >Go Doc</a>
 后续我会根据自己在开发中使用经验将文档翻译过来。</p>
 <h2 id="使用-gorequest-的一万个理由">使用 GoRequest 的一万个理由？
 </h2><p>通过 GoRequest 可以使工作变得更简单，使可以发起 HTTP 请求这件事更加优雅而充满乐趣。</p>
 <p>不使用本库发起简单 GET 请求：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>)
-</span></span></code></pre></div><p>使用 GoRequest</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>如果你不想重用<code>request</code>，也可以写成下面这样</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>如果你需要设定 HTTP 头，设定重定向策略等，使用标准库会瞬间使事情变得异常复杂，在发起仅仅一个 <strong>GET</strong> 请求的过程，你就需要一个 <code>Client</code>，通过一系列不同的命令来设定 HTTP 头（<code>HTTP Headers</code>）。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Client</span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">CheckRedirect</span>: <span style="color:#a6e22e">redirectPolicyFunc</span>,
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequest</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#e6db74">&#34;http://example.com&#34;</span>, <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#e6db74">&#34;If-None-Match&#34;</span>, <span style="color:#e6db74">`W/&#34;wyzzy&#34;`</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
-</span></span></code></pre></div><p>现在，你有更加美妙的方式来完成这件事</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">RedirectPolicy</span>(<span style="color:#a6e22e">redirectPolicyFunc</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;If-None-Match&#34;</span>, <span style="color:#e6db74">`W/&#34;wyzzy&#34;`</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>发起 <strong>DELETE</strong>, <strong>HEAD</strong>, <strong>POST</strong>, <strong>PUT</strong>, <strong>PATCH</strong> 请求的过程和发起 <strong>GET</strong> 请求类似。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;http://example.com&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// PUT -&gt; request.Put(&#34;http://example.com&#34;).End()</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// DELETE -&gt; request.Delete(&#34;http://example.com&#34;).End()</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// HEAD -&gt; request.Head(&#34;http://example.com&#34;).End()</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ANYTHING -&gt; request.CustomMethod(&#34;TRACE&#34;, &#34;http://example.com&#34;).End()</span>
-</span></span></code></pre></div><h3 id="处理-json">处理 JSON
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 GoRequest</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果你不想重用<code>request</code>，也可以写成下面这样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果你需要设定 HTTP 头，设定重定向策略等，使用标准库会瞬间使事情变得异常复杂，在发起仅仅一个 <strong>GET</strong> 请求的过程，你就需要一个 <code>Client</code>，通过一系列不同的命令来设定 HTTP 头（<code>HTTP Headers</code>）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">CheckRedirect</span><span class="p">:</span><span class="w"> </span><span class="nx">redirectPolicyFunc</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="s">&#34;GET&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://example.com&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;If-None-Match&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">`W/&#34;wyzzy&#34;`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在，你有更加美妙的方式来完成这件事</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">RedirectPolicy</span><span class="p">(</span><span class="nx">redirectPolicyFunc</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;If-None-Match&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">`W/&#34;wyzzy&#34;`</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>发起 <strong>DELETE</strong>, <strong>HEAD</strong>, <strong>POST</strong>, <strong>PUT</strong>, <strong>PATCH</strong> 请求的过程和发起 <strong>GET</strong> 请求类似。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;http://example.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// PUT -&gt; request.Put(&#34;http://example.com&#34;).End()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// DELETE -&gt; request.Delete(&#34;http://example.com&#34;).End()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// HEAD -&gt; request.Head(&#34;http://example.com&#34;).End()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ANYTHING -&gt; request.CustomMethod(&#34;TRACE&#34;, &#34;http://example.com&#34;).End()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="处理-json">处理 JSON
 </h3><p>用标准库发起 <strong>JSON POST</strong> ，你需要先将 <code>map</code> 或者 <code>struct</code>格式的数据包装（<strong>Marshal</strong>）成 JSON 格式的数据，将头参数设定为&rsquo;application/json&rsquo;（必要时还要设定其他头），然后要新建一个<code>http.CLient</code>变量。经过这一系列的步骤，你的代码变得冗长而难以维护</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;backy&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;species&#34;</span>: <span style="color:#e6db74">&#34;dog&#34;</span>,
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mJson</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">m</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contentReader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">mJson</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewRequest</span>(<span style="color:#e6db74">&#34;POST&#34;</span>, <span style="color:#e6db74">&#34;http://example.com&#34;</span>, <span style="color:#a6e22e">contentReader</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Header</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Notes&#34;</span>,<span style="color:#e6db74">&#34;GoRequest is coming!&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Client</span>{}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">req</span>)
-</span></span></code></pre></div><p>至于 GoRequest， JSON 支持是必须的，所以，用这个库你只需要一行代码完成所有工作</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;http://example.com&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;Notes&#34;</span>,<span style="color:#e6db74">&#34;gorequst is coming!&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Send</span>(<span style="color:#e6db74">`{&#34;name&#34;:&#34;backy&#34;, &#34;species&#34;:&#34;dog&#34;}`</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>另外，它同样支持结构体类型。所以，你可以在你的请求中发送不同的数据类型（So, you can have a fun <strong>Mix &amp; Match</strong> sending the different data types for your request）。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">BrowserVersionSupport</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Chrome</span> <span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Firefox</span> <span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ver</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">BrowserVersionSupport</span>{ <span style="color:#a6e22e">Chrome</span>: <span style="color:#e6db74">&#34;37.0.2041.6&#34;</span>, <span style="color:#a6e22e">Firefox</span>: <span style="color:#e6db74">&#34;30.0&#34;</span> }
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;http://version.com/update&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Send</span>(<span style="color:#a6e22e">ver</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Send</span>(<span style="color:#e6db74">`{&#34;Safari&#34;:&#34;5.1.10&#34;}`</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>Not only for <code>Send()</code> but <code>Query()</code> is also supported. Just give it a try! :)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;name&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;backy&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;species&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;dog&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">mJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">contentReader</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">mJson</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="s">&#34;POST&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://example.com&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">contentReader</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;application/json&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Notes&#34;</span><span class="p">,</span><span class="s">&#34;GoRequest is coming!&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>至于 GoRequest， JSON 支持是必须的，所以，用这个库你只需要一行代码完成所有工作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;http://example.com&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Notes&#34;</span><span class="p">,</span><span class="s">&#34;gorequst is coming!&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Send</span><span class="p">(</span><span class="s">`{&#34;name&#34;:&#34;backy&#34;, &#34;species&#34;:&#34;dog&#34;}`</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外，它同样支持结构体类型。所以，你可以在你的请求中发送不同的数据类型（So, you can have a fun <strong>Mix &amp; Match</strong> sending the different data types for your request）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">BrowserVersionSupport</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">Chrome</span><span class="w"> </span><span class="kt">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">Firefox</span><span class="w"> </span><span class="kt">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">ver</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">BrowserVersionSupport</span><span class="p">{</span><span class="w"> </span><span class="nx">Chrome</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;37.0.2041.6&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">Firefox</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;30.0&#34;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;http://version.com/update&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Send</span><span class="p">(</span><span class="nx">ver</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Send</span><span class="p">(</span><span class="s">`{&#34;Safari&#34;:&#34;5.1.10&#34;}`</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Not only for <code>Send()</code> but <code>Query()</code> is also supported. Just give it a try! :)</p>
 <h2 id="回调callback">回调（Callback）
 </h2><p>此外，GoRequest 支持回调函数，这让你可以更加灵活的使用这个库。
 下面是回调函数的一个例子</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printStatus</span>(<span style="color:#a6e22e">resp</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#a6e22e">body</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">errs</span> []<span style="color:#66d9ef">error</span>){
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Status</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com&#34;</span>).<span style="color:#a6e22e">End</span>(<span style="color:#a6e22e">printStatus</span>)
-</span></span></code></pre></div><h2 id="multipartform-data">Multipart/Form-Data
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">printStatus</span><span class="p">(</span><span class="nx">resp</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="p">[]</span><span class="kt">error</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">(</span><span class="nx">printStatus</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="multipartform-data">Multipart/Form-Data
 </h2><p>你可以将请求的内容类型设定为<code>multipart</code>来以<code>multipart/form-data</code>的方式发送所有数据。这个特性可以帮助你发送多个文件。
 下面是一个例子</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Type</span>(<span style="color:#e6db74">&#34;multipart&#34;</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Send</span>(<span style="color:#e6db74">`{&#34;query1&#34;:&#34;test&#34;}`</span>).
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p>如果感兴趣可以在文档中查看<code>SendFile</code>函数部分获取更多。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Type</span><span class="p">(</span><span class="s">&#34;multipart&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">Send</span><span class="p">(</span><span class="s">`{&#34;query1&#34;:&#34;test&#34;}`</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果感兴趣可以在文档中查看<code>SendFile</code>函数部分获取更多。</p>
 <h2 id="代理proxy">代理（Proxy）
 </h2><p>需要使用代理的时候，可以用 GoRequest Proxy Func 很好的处理。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Proxy</span>(<span style="color:#e6db74">&#34;http://proxy:999&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example-proxy.com&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// To reuse same client with no_proxy, use empty string:</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> = <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Proxy</span>(<span style="color:#e6db74">&#34;&#34;</span>).<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example-no-proxy.com&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><h2 id="基本认证">基本认证
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Proxy</span><span class="p">(</span><span class="s">&#34;http://proxy:999&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example-proxy.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// To reuse same client with no_proxy, use empty string:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Proxy</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">).</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example-no-proxy.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="基本认证">基本认证
 </h2><p>添加基本的认证头信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">SetBasicAuth</span>(<span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example-proxy.com&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><h2 id="超时处理timeout">超时处理（Timeout）
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">SetBasicAuth</span><span class="p">(</span><span class="s">&#34;username&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;password&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example-proxy.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="超时处理timeout">超时处理（Timeout）
 </h2><p>与 <code>time</code> 库结合可以设置成任何的时间限制。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Timeout</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span><span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com&#34;</span>).<span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><p><code>Timeout</code> 函数同时设定了连接和 IO 的时间限制。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Timeout</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com&#34;</span><span class="p">).</span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Timeout</code> 函数同时设定了连接和 IO 的时间限制。</p>
 <h2 id="以字节方式处理返回体endbytes">以字节方式处理返回体（EndBytes）
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">bodyBytes</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).<span style="color:#a6e22e">EndBytes</span>()
-</span></span></code></pre></div><h2 id="以结构体的方式处理返回体">以结构体的方式处理返回体
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">bodyBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="nf">EndBytes</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="以结构体的方式处理返回体">以结构体的方式处理返回体
 </h2><p>假设 URL <strong><a class="link" href="http://example.com/"  target="_blank" rel="noopener"
     >http://example.com/</a></strong> 的返回体<code>{&quot;hey&quot;:&quot;you&quot;}</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">heyYou</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Hey</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;hey&#34;`</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">heyYou</span> <span style="color:#a6e22e">heyYou</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>().<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).<span style="color:#a6e22e">EndStruct</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">heyYou</span>)
-</span></span></code></pre></div><h2 id="连续重复请求retry">连续重复请求（Retry）
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">heyYou</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">Hey</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;hey&#34;`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="nx">heyYou</span><span class="w"> </span><span class="nx">heyYou</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="nf">EndStruct</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">heyYou</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="连续重复请求retry">连续重复请求（Retry）
 </h2><p>假设你在得到 BadRequest 或服务器内部错误（InternalServerError）时进行连续三次，间隔五秒的连接尝试</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">Retry</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusBadRequest</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>).
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><h2 id="重定向">重定向
-</h2><blockquote>
-<p>Redirects can be handled with RedirectPolicy which behaves similarly to net/http Client&rsquo;s <a class="link" href="https://golang.org/pkg/net/http#Client"  target="_blank" rel="noopener"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">Retry</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="重定向">重定向
+</h2>
+    <blockquote>
+        <p>Redirects can be handled with RedirectPolicy which behaves similarly to net/http Client&rsquo;s <a class="link" href="https://golang.org/pkg/net/http#Client"  target="_blank" rel="noopener"
     >CheckRedirect function</a>. Simply specify a function which takes the Request about to be made and a slice of previous Requests in order of oldest first. When this function returns an error, the Request is not made.</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">request</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorequest</span>.<span style="color:#a6e22e">New</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">errs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;http://example.com/&#34;</span>).
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">RedirectPolicy</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">req</span> <span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">via</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">Request</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>                      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Scheme</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;https&#34;</span> {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ErrUseLastResponse</span>
-</span></span><span style="display:flex;"><span>                      }
-</span></span><span style="display:flex;"><span>                    }).
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">End</span>()
-</span></span></code></pre></div><h2 id="debug-模式">Debug 模式
-</h2><blockquote>
-<p>For debugging, GoRequest leverages <code>httputil</code> to dump details of every request/response. (Thanks to @dafang).You can just use <code>SetDebug</code> or environment variable <code>GOREQUEST_DEBUG=0|1</code> to enable/disable debug mode and <code>SetLogger</code> to set your own choice of logger.Thanks to @QuentinPerez, we can see even how gorequest is compared to CURL by using <code>SetCurlCommand</code>.</p>
-</blockquote>
+
+    </blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">request</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorequest</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">errs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;http://example.com/&#34;</span><span class="p">).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">RedirectPolicy</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">req</span><span class="w"> </span><span class="nx">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">via</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="k">if</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Scheme</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&#34;https&#34;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ErrUseLastResponse</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">End</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="debug-模式">Debug 模式
+</h2>
+    <blockquote>
+        <p>For debugging, GoRequest leverages <code>httputil</code> to dump details of every request/response. (Thanks to @dafang).You can just use <code>SetDebug</code> or environment variable <code>GOREQUEST_DEBUG=0|1</code> to enable/disable debug mode and <code>SetLogger</code> to set your own choice of logger.Thanks to @QuentinPerez, we can see even how gorequest is compared to CURL by using <code>SetCurlCommand</code>.</p>
+
+    </blockquote>
 <h2 id="注意">注意
 </h2><p><code>gorequest.New()</code>函数应该一次调用，对返回的实例尽可能多次使用。</p>
 <h2 id="credits">Credits
@@ -436,7 +678,7 @@
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -455,143 +697,66 @@
 
     
 
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/posts/gojson/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">go 语言中 JSON 数据的处理</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
-
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

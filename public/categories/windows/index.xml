@@ -1,46 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Windows on Antarx Blog</title>
-        <link>http://antarxly.com/categories/windows/</link>
+        <link>http://localhost:1313/categories/windows/</link>
         <description>Recent content in Windows on Antarx Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Fri, 27 Nov 2015 17:54:26 +0000</lastBuildDate><atom:link href="http://antarxly.com/categories/windows/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>用diskpart打造Win 10安装U盘</title>
-        <link>http://antarxly.com/posts/win-10/</link>
-        <pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate>
-        
-        <guid>http://antarxly.com/posts/win-10/</guid>
-        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
-&lt;/h1&gt;&lt;p&gt;本文主要介绍通过diskpart命令行的方式制作Windows10引导U盘，制作完毕后，该U盘可以用于安装（包括全新安装和升级安装）Windows10操作系统，也可以在系统无法启动的时候使用该U盘进行修复操作。&lt;/p&gt;
-&lt;h1 id=&#34;正文&#34;&gt;正文
-&lt;/h1&gt;&lt;h2 id=&#34;需要的材料&#34;&gt;需要的材料
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Windows 10 Build 10586 安装镜像。（推荐从&lt;a class=&#34;link&#34; href=&#34;http://bt.byr.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;北邮人BT&lt;/a&gt;或者&lt;a class=&#34;link&#34; href=&#34;http://www.ithome.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;IT之家&lt;/a&gt;搜索相关的镜像。另外32位或者64位的系统镜像均适用本教程。）&lt;/li&gt;
-&lt;li&gt;容量大于4GB的U盘一个。建议适用USB3.0的U盘以获得较快的安装速度。请提前备份好用户数据。&lt;/li&gt;
-&lt;li&gt;以管理员账号登录当前系统。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;制作步骤&#34;&gt;制作步骤
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;启动当前系统进入桌面环境之后，将U盘插入电脑。在开始菜单中搜索&lt;code&gt;cmd&lt;/code&gt;或&lt;code&gt;命令提示符&lt;/code&gt;，并右键，选择&lt;code&gt;以管理员身份运行&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;在命令提示符窗口中输入&lt;code&gt;diskpart&lt;/code&gt;，按回车。&lt;/li&gt;
-&lt;li&gt;弹出的UAC窗口中选择&lt;code&gt;允许&lt;/code&gt;，进入diskpart程序。&lt;/li&gt;
-&lt;li&gt;在Diskpart程序中，输入&lt;code&gt;list disk&lt;/code&gt;查看当前的磁盘列表。&lt;/li&gt;
-&lt;li&gt;根据容量查看自己的U盘对应的磁盘号。这里假定第一个磁盘为你的U盘。输入&lt;code&gt;select disk 1&lt;/code&gt;选中你的U盘。&lt;/li&gt;
-&lt;li&gt;输入&lt;code&gt;clean&lt;/code&gt;，清除U盘内容。&lt;/li&gt;
-&lt;li&gt;输入&lt;code&gt;create part primary&lt;/code&gt;，用于在U盘中创建主分区。大小为U盘的容量大小。&lt;/li&gt;
-&lt;li&gt;输入&lt;code&gt;format&lt;/code&gt;，格式化刚刚创建好的磁盘分区。磁盘格式默认是FAT32。&lt;/li&gt;
-&lt;li&gt;输入&lt;code&gt;active&lt;/code&gt;，激活主分区。&lt;strong&gt;这步非常重要，如果忘记输入这条命令，制作的U盘将无法激活&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;输入&lt;code&gt;exit&lt;/code&gt;，退出程序。&lt;/li&gt;
-&lt;li&gt;用文件管理器打开下载好的Win10安装ISO镜像文件，将里面的内容&lt;strong&gt;全部&lt;/strong&gt;复制到U盘中。&lt;/li&gt;
-&lt;li&gt;至此，一个可以在目前绝大部分新的笔记本电脑上启动的Windows10启动U盘已经制作完毕。在BIOS中选择用U盘启动即可进入亲切的Windows10安装界面了。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;后记&#34;&gt;后记
-&lt;/h1&gt;&lt;p&gt;虽然目前有很多工具可以制作启动U盘，但本文介绍的方式具有独特的优势，在你想更换别的版本的系统比如制作ubuntu启动盘（逃 的时候，只需要把U盘里面的内容全选删除，并且把ubuntu安装镜像的内容完整复制过去就可以了，不用借助任何其他工具再次制作。&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+        <lastBuildDate>Fri, 27 Nov 2015 17:54:26 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/windows/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>用diskpart打造Win 10安装U盘</title>
+            <link>http://localhost:1313/posts/win-10/</link>
+            <pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate>
+            <guid>http://localhost:1313/posts/win-10/</guid>
+            <description>&lt;h1 id=&#34;前言&#34;&gt;前言&#xA;&lt;/h1&gt;&lt;p&gt;本文主要介绍通过diskpart命令行的方式制作Windows10引导U盘，制作完毕后，该U盘可以用于安装（包括全新安装和升级安装）Windows10操作系统，也可以在系统无法启动的时候使用该U盘进行修复操作。&lt;/p&gt;&#xA;&lt;h1 id=&#34;正文&#34;&gt;正文&#xA;&lt;/h1&gt;&lt;h2 id=&#34;需要的材料&#34;&gt;需要的材料&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;Windows 10 Build 10586 安装镜像。（推荐从&lt;a class=&#34;link&#34; href=&#34;http://bt.byr.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;北邮人BT&lt;/a&gt;或者&lt;a class=&#34;link&#34; href=&#34;http://www.ithome.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;IT之家&lt;/a&gt;搜索相关的镜像。另外32位或者64位的系统镜像均适用本教程。）&lt;/li&gt;&#xA;&lt;li&gt;容量大于4GB的U盘一个。建议适用USB3.0的U盘以获得较快的安装速度。请提前备份好用户数据。&lt;/li&gt;&#xA;&lt;li&gt;以管理员账号登录当前系统。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;制作步骤&#34;&gt;制作步骤&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;启动当前系统进入桌面环境之后，将U盘插入电脑。在开始菜单中搜索&lt;code&gt;cmd&lt;/code&gt;或&lt;code&gt;命令提示符&lt;/code&gt;，并右键，选择&lt;code&gt;以管理员身份运行&lt;/code&gt;。&lt;/li&gt;&#xA;&lt;li&gt;在命令提示符窗口中输入&lt;code&gt;diskpart&lt;/code&gt;，按回车。&lt;/li&gt;&#xA;&lt;li&gt;弹出的UAC窗口中选择&lt;code&gt;允许&lt;/code&gt;，进入diskpart程序。&lt;/li&gt;&#xA;&lt;li&gt;在Diskpart程序中，输入&lt;code&gt;list disk&lt;/code&gt;查看当前的磁盘列表。&lt;/li&gt;&#xA;&lt;li&gt;根据容量查看自己的U盘对应的磁盘号。这里假定第一个磁盘为你的U盘。输入&lt;code&gt;select disk 1&lt;/code&gt;选中你的U盘。&lt;/li&gt;&#xA;&lt;li&gt;输入&lt;code&gt;clean&lt;/code&gt;，清除U盘内容。&lt;/li&gt;&#xA;&lt;li&gt;输入&lt;code&gt;create part primary&lt;/code&gt;，用于在U盘中创建主分区。大小为U盘的容量大小。&lt;/li&gt;&#xA;&lt;li&gt;输入&lt;code&gt;format&lt;/code&gt;，格式化刚刚创建好的磁盘分区。磁盘格式默认是FAT32。&lt;/li&gt;&#xA;&lt;li&gt;输入&lt;code&gt;active&lt;/code&gt;，激活主分区。&lt;strong&gt;这步非常重要，如果忘记输入这条命令，制作的U盘将无法激活&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;li&gt;输入&lt;code&gt;exit&lt;/code&gt;，退出程序。&lt;/li&gt;&#xA;&lt;li&gt;用文件管理器打开下载好的Win10安装ISO镜像文件，将里面的内容&lt;strong&gt;全部&lt;/strong&gt;复制到U盘中。&lt;/li&gt;&#xA;&lt;li&gt;至此，一个可以在目前绝大部分新的笔记本电脑上启动的Windows10启动U盘已经制作完毕。在BIOS中选择用U盘启动即可进入亲切的Windows10安装界面了。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;后记&#34;&gt;后记&#xA;&lt;/h1&gt;&lt;p&gt;虽然目前有很多工具可以制作启动U盘，但本文介绍的方式具有独特的优势，在你想更换别的版本的系统比如制作ubuntu启动盘（逃 的时候，只需要把U盘里面的内容全选删除，并且把ubuntu安装镜像的内容完整复制过去就可以了，不用借助任何其他工具再次制作。&lt;/p&gt;</description>
+        </item></channel>
 </rss>

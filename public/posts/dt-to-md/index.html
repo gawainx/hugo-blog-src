@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="DEVONthink 是苹果系统下一款很好用的知识管理工具，然而，由于DEVONthink本身更侧重于档案管理，所以通常会和其他markdown类笔记软件打组合拳。\n">
 <title>【DEVONthink】复制item的Markdown样式脚本</title>
 
-<link rel='canonical' href='http://antarxly.com/posts/dt-to-md/'>
 
-<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="【DEVONthink】复制item的Markdown样式脚本">
+<link rel="canonical" href="http://localhost:1313/posts/dt-to-md/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="【DEVONthink】复制item的Markdown样式脚本">
 <meta property='og:description' content="DEVONthink 是苹果系统下一款很好用的知识管理工具，然而，由于DEVONthink本身更侧重于档案管理，所以通常会和其他markdown类笔记软件打组合拳。\n">
-<meta property='og:url' content='http://antarxly.com/posts/dt-to-md/'>
+<meta property='og:url' content='http://localhost:1313/posts/dt-to-md/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='DEVONthink' /><meta property='article:tag' content='Markdown' /><meta property='article:published_time' content='2022-05-14T17:04:29&#43;00:00'/><meta property='article:modified_time' content='2022-05-14T17:04:29&#43;00:00'/>
 <meta name="twitter:title" content="【DEVONthink】复制item的Markdown样式脚本">
@@ -48,8 +54,6 @@
 
     <header>
         
-            
-        
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
@@ -61,8 +65,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -82,8 +84,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -100,8 +100,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -166,10 +164,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -178,13 +180,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 14, 2022</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2022-05-14T17:04:29Z'>2022年5月14日星期六</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -192,39 +192,60 @@
 
 
 
-                <time class="article-time--reading">
-                    阅读时长: 1 分钟
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 1 分钟
+                    </time>
+                
             </div>
         
-    </footer>
-    
 
+        
+
+        
+    </footer>
     
 </div>
 
 </header>
+
+    
 
     <section class="article-content">
     
     
     <p>DEVONthink 是苹果系统下一款很好用的知识管理工具，然而，由于DEVONthink本身更侧重于档案管理，所以通常会和其他markdown类笔记软件打组合拳。</p>
 <p>今天分享一款直接复制DEVONthink的item link为markdown链接样式的脚本：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-AppleScript" data-lang="AppleScript"><span style="display:flex;"><span><span style="color:#66d9ef">tell</span> application <span style="color:#a6e22e">id</span> <span style="color:#e6db74">&#34;DNtp&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">set</span> theMarkdownLinks <span style="color:#66d9ef">to</span> {}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">repeat</span> <span style="color:#66d9ef">with</span> thisRecord <span style="color:#66d9ef">in</span> (selected records)
-</span></span><span style="display:flex;"><span>		copy (<span style="color:#e6db74">&#34;[&#34;</span> <span style="color:#f92672">&amp;</span> (<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">of</span> thisRecord) <span style="color:#f92672">&amp;</span> <span style="color:#e6db74">&#34;](&#34;</span> <span style="color:#f92672">&amp;</span> (reference URL <span style="color:#66d9ef">of</span> thisRecord) <span style="color:#f92672">&amp;</span> <span style="color:#e6db74">&#34;)  &#34;</span>) <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">end</span> <span style="color:#66d9ef">of</span> theMarkdownLinks
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">repeat</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> theMarkdownLinks <span style="color:#f92672">≠</span> {} <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>		display notification ((count items <span style="color:#66d9ef">of</span> theMarkdownLinks) <span style="color:#f92672">&amp;</span> <span style="color:#e6db74">&#34; Markdown links copied&#34;</span> <span style="color:#66d9ef">as </span><span style="color:#a6e22e">string</span>) <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">title</span> <span style="color:#e6db74">&#34;Markdown-Link(s) kopiert&#34;</span>
-</span></span><span style="display:flex;"><span>		set the clipboard to (theMarkdownLinks <span style="color:#66d9ef">as </span><span style="color:#a6e22e">string</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span> <span style="color:#66d9ef">if</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span> <span style="color:#66d9ef">tell</span>
-</span></span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-AppleScript" data-lang="AppleScript"><span class="line"><span class="cl"><span class="k">tell</span> <span class="nb">application</span> <span class="na">id</span> <span class="s2">&#34;DNtp&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">set</span> <span class="nv">theMarkdownLinks</span> <span class="k">to</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">repeat</span> <span class="k">with</span> <span class="nv">thisRecord</span> <span class="k">in</span> <span class="p">(</span><span class="nv">selected</span> <span class="nv">records</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">copy</span> <span class="p">(</span><span class="s2">&#34;[&#34;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="na">name</span> <span class="k">of</span> <span class="nv">thisRecord</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&#34;](&#34;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nv">reference</span> <span class="nv">URL</span> <span class="k">of</span> <span class="nv">thisRecord</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&#34;)  &#34;</span><span class="p">)</span> <span class="k">to</span> <span class="k">end</span> <span class="k">of</span> <span class="nv">theMarkdownLinks</span>
+</span></span><span class="line"><span class="cl">	<span class="k">end</span> <span class="k">repeat</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nv">theMarkdownLinks</span> <span class="o">≠</span> <span class="p">{}</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">display</span> <span class="nv">notification</span> <span class="p">((</span><span class="nb">count</span> <span class="nb">items</span> <span class="k">of</span> <span class="nv">theMarkdownLinks</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&#34; Markdown links copied&#34;</span> <span class="k">as </span><span class="nc">string</span><span class="p">)</span> <span class="k">with</span> <span class="na">title</span> <span class="s2">&#34;Markdown-Link(s) kopiert&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">set the clipboard to</span> <span class="p">(</span><span class="nv">theMarkdownLinks</span> <span class="k">as </span><span class="nc">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">end</span> <span class="k">if</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span> <span class="k">tell</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
@@ -245,156 +266,66 @@
 
     
 
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/posts/click01/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">click——Python 命令行开发工具包</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/kgc-loss/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">知识图谱补全任务中的Loss函数</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
-
      
     
         
+
+
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
+            2015 - 
+        
         2026 Antarx Blog
     </section>
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.81faed273db19216971d0a7bd1dd5aa2fc055f6b292b3c0f9f8f6fc727cae30a.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>
