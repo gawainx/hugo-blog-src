@@ -18,9 +18,10 @@ pagerSize = 10
 [params]
 mainSections = ["posts"]
 rssFullContent = true
+favicon = "https://img.antarxly.com/landscape/webp/20260819-03a58e5d.webp"
 
 [params.author]
-name = "gawainx"
+name = "antarx"
 
 [params.footer]
 since = 2015
@@ -30,14 +31,14 @@ published = ':date_full'
 lastUpdated = ':date_full'
 
 [params.sidebar]
-emoji = "💻"
+emoji = "🤪"
 subtitle = "AI Infra | Vibe Coding | SwiftUI"
 compact = false
-avatar = ""
+avatar = "https://img.antarxly.com/landscape/webp/20260819-03a58e5d.webp"
 
 [params.article]
-headingAnchor = false
-math = false
+headingAnchor = true
+math = true
 toc = true
 readingTime = true
 
