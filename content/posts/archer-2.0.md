@@ -10,6 +10,7 @@ title = '【arXivArcher】v2.0 版本更新 ｜ 大模型阅读 ｜ 多数据源
 顺带一提，短短四个月时间，GPT 从5.2一口气到了5.6，我的主力开发工具也从claude code转换到了codex，消费方式也从最开始的PoE API Key到中转站，再到 gpt plus ，再到现在的 Pro Lite。
 
 arXivArcher 的上一个发布版本我并不满意，因为它就是一个未完成作品，在消失的四个月里，还是陆陆续续在为它添加新的功能，让它能够更好的满足我的需求。
+![archer主界面](https://img.antarxly.com/landscape/webp/20260819-837dcbdd.webp)
 
 ## 安装方法
 
