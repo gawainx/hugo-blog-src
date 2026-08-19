@@ -1,38 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ML on Antarx Blog</title><link>http://antarxly.com/tags/ml/</link><description>Recent content in ML on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 06 Dec 2017 21:30:22 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>TensorFlow For Docker 初体验</title><link>http://antarxly.com/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/posts/dockertf/</guid><description>&lt;hr&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ML on Antarx Blog</title>
+        <link>http://antarxly.com/tags/ml/</link>
+        <description>Recent content in ML on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 06 Dec 2017 21:30:22 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/ml/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>TensorFlow For Docker 初体验</title>
+        <link>http://antarxly.com/posts/dockertf/</link>
+        <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dockertf/</guid>
+        <description>&lt;hr&gt;
 &lt;p&gt;TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。&lt;/p&gt;
 &lt;p&gt;下面分享配置过程。&lt;/p&gt;
 &lt;p&gt;测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00&lt;/p&gt;
 &lt;p&gt;驱动及 CUDA 安装过程参考即将到来的另一篇文章。&lt;/p&gt;
-&lt;h1 id="安装-docker"&gt;安装 Docker
+&lt;h1 id=&#34;安装-docker&#34;&gt;安装 Docker
 &lt;/h1&gt;&lt;p&gt;可以用&lt;code&gt;curl -sSL https://get.daocloud.io/docker | sh&lt;/code&gt;这条命令快速安装 Docker，不过，这个安装脚本默认会安装最新版本的 Docker（当前是17.11.0 docker-ce），而 NVIDIA Docker 并不支持这个新版本（跪&lt;/p&gt;
 &lt;p&gt;所以要进行一下卸载再降级操作&amp;hellip;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# uninstall docker&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get purge docker-ce
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看软件库中可用的历史版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-cache policy docker-ce
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# install docker-ce 17.09&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y docker-ce&lt;span style="color:#f92672"&gt;=&lt;/span&gt;17.09.0~ce-0~ubuntu
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# uninstall docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get purge docker-ce
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 查看软件库中可用的历史版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-cache policy docker-ce
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# install docker-ce 17.09&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install -y docker-ce&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;17.09.0~ce-0~ubuntu
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;值得一提的是17年的某个版本开始，docker 的软件包统一到 docker-ce（社区）和 docker-ee（付费企业版）上面来了，开发使用的主要以 docker-ce 为主，网上很多教程（尤其是2016年、2016年的）说到安装 docker 的软件包名叫例如 lxc-docker docker.io 等的都是老旧版本的。&lt;/p&gt;
-&lt;h1 id="安装-nvidia-docker"&gt;安装 NVIDIA-docker
-&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener"
-&gt;Nvidia-Docker&lt;/a&gt;是老黄提供的一套在 Docker 上制造跑核弹的工具（。&lt;/p&gt;
+&lt;h1 id=&#34;安装-nvidia-docker&#34;&gt;安装 NVIDIA-docker
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/NVIDIA/nvidia-docker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nvidia-Docker&lt;/a&gt;是老黄提供的一套在 Docker 上制造跑核弹的工具（。&lt;/p&gt;
 &lt;p&gt;简单来说，这套工具提供了一个运行时，用来连接 Docker 容器和物理设备的 GPU 资源，使得 Docker 容器可以直接访问、调用物理机的 GPU 资源进行密集型计算操作。&lt;/p&gt;
 &lt;p&gt;安装步骤如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Add the package repositories 添加软件仓库&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; sudo apt-key add -
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install nvidia-docker2 and reload the Docker daemon configuration&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y nvidia-docker2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pkill -SIGHUP dockerd
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Test nvidia-smi with the latest official CUDA image&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --runtime&lt;span style="color:#f92672"&gt;=&lt;/span&gt;nvidia --rm nvidia/cuda nvidia-smi
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add the package repositories 添加软件仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install nvidia-docker2 and reload the Docker daemon configuration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install -y nvidia-docker2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo pkill -SIGHUP dockerd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test nvidia-smi with the latest official CUDA image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run --runtime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;nvidia --rm nvidia/cuda nvidia-smi
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Ubuntu16.04测试通过。&lt;/p&gt;
-&lt;h1 id="安装-tensorflow-的-docker-镜像"&gt;安装 TensorFlow 的 Docker 镜像
+&lt;h1 id=&#34;安装-tensorflow-的-docker-镜像&#34;&gt;安装 TensorFlow 的 Docker 镜像
 &lt;/h1&gt;&lt;p&gt;TensorFlow 官方提供了 for Docker 的镜像，里面集成了完整的依赖关系，免去了用&lt;code&gt;pip&lt;/code&gt;安装各种包的烦恼。&lt;/p&gt;
 &lt;p&gt;镜像包含很多 tag，常用的有下面几个：&lt;/p&gt;
 &lt;ul&gt;
@@ -43,14 +57,33 @@
 &lt;/ul&gt;
 &lt;p&gt;我自己用的是最后一个。&lt;/p&gt;
 &lt;p&gt;首先下载镜像下来。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull tensorflow/tensorflow:latest-gpu-py3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull tensorflow/tensorflow:latest-gpu-py3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后跑个 python3交互环境试试水&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --runtime&lt;span style="color:#f92672"&gt;=&lt;/span&gt;nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run --runtime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在交互环境下输入&lt;code&gt;import tensorflow as tf&lt;/code&gt;，如果没提示依赖库错误则说明安装成功。&lt;/p&gt;
 &lt;p&gt;上面的&lt;code&gt;—runtime=nvidia&lt;/code&gt;为调用 nvidia-docker 工具包（运行时）而不是标准运行时来运行镜像，只有加了这个选项才能调用 GPU。&lt;/p&gt;
 &lt;p&gt;最后跑一下多重感知机训练手写数字识别，效果图&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg"
-loading="lazy"
-alt="多重感知机训练手写数字识别模型"
+&lt;p&gt;&lt;img src=&#34;http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;多重感知机训练手写数字识别模型&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>macOS 配置 libsvm for Python</title><link>http://antarxly.com/posts/macsvm/</link><pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate><guid>http://antarxly.com/posts/macsvm/</guid><description>&lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>macOS 配置 libsvm for Python</title>
+        <link>http://antarxly.com/posts/macsvm/</link>
+        <pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/macsvm/</guid>
+        <description>&lt;p&gt;libsvm是一个高性能的 svm（支持向量机）实现，与 TensorFlow 这些非常热门的机器学习框架不同的地方在于它提供的是可执行文件、类库和针对不同编程语言的接口， 在 macOS 上配置这套接口的时候经常会出现一些奇奇怪怪的问题。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

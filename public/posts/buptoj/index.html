@@ -1,15 +1,518 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n"><title>网研机试101</title><link rel=canonical href=http://antarxly.com/posts/buptoj/><link rel=stylesheet href=/scss/style.min.14d9b41da7cf9f4898744e7211dec57af99e151bac3bc2b70d598a7a43d66952.css><meta property='og:title' content="网研机试101"><meta property='og:description' content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n"><meta property='og:url' content='http://antarxly.com/posts/buptoj/'><meta property='og:site_name' content='Antarx Blog'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='BOJ'><meta property='article:published_time' content='2018-01-08T18:13:08+00:00'><meta property='article:modified_time' content='2018-01-08T18:13:08+00:00'><meta name=twitter:title content="网研机试101"><meta name=twitter:description content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><div class=site-meta><h1 class=site-name><a href=/>Antarx Blog</a></h1><h2 class=site-description>AI Infra | Vibe Coding | SwiftUI</h2></div></header><ol class=menu id=main-menu><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>搜索</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
-<span>友情链接</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#该用什么语言>该用什么语言</a></li><li><a href=#ide不存在的>IDE？不存在的</a></li><li><a href=#调试>调试</a></li><li><a href=#参考教材>参考教材</a></li></ul><ul><li><a href=#基本输入输出>基本输入输出</a></li><li><a href=#数字和数组处理>数字和数组处理</a></li><li><a href=#日期问题>日期问题</a></li><li><a href=#字符串处理>字符串处理</a></li><li><a href=#模板题>模板题</a></li><li><a href=#特别提名模拟题>特别提名：模拟题</a></li></ul><ul><li><ul><li><a href=#边界值控制和处理>边界值控制和处理</a></li><li><a href=#时间性能>时间性能</a></li></ul></li><li><a href=#基本的算法设计思想>基本的算法设计思想</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/posts/buptoj/>网研机试101</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Jan 08, 2018</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><section class=article-content><p>2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。</p><p>实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。</p><h1 id=简单介绍>简单介绍</h1><p>首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。</p><h1 id=编程语言>编程语言</h1><h2 id=该用什么语言>该用什么语言</h2><p>北邮 OJ 平台可以用的编程语言有三种，C（gcc4.8），C++（g++ 4.8）和 Java（注意：没有 Python，没有 JavaScript）。另外，C++是<strong>不支持 c++11的</strong>，Java 只支持到 Java6。</p><p>在这个天煞的背景下，考虑到程序时间限制（1ms）和开发速度（避免无谓的造轮子），用 C + STL 是最理想的选择。</p><p>展开来说，就是用 C 的那一套输入输出（scanf 和 printf），C 与 C++通用的循环控制、选择结构、数组等，在加上 C++独特的“宝具”——STL 标准库，来进行解题。提交的时候编译器选 g++即可。</p><p>STL 标准库内容非常多，只需要了解 Map，stack，list，queue就够了。</p><h2 id=ide不存在的>IDE？不存在的</h2><p>两个小时做四道题对大脑转数的要求还是挺高的，更何况在那种紧张的气氛和不熟悉的开发环境之下。要保证解题能够快狠准，就需要从现在开始培养一定的针对考试的编程习惯，包括 编辑器和编译器、调试器的使用等等。</p><p>首先，抛弃手上所有的 IDE，包括但不限于 Visual Studio和 Clion，DevC++，或者只在疑难杂症的时候拿它们当单步调试的工具（但也不能依赖）。考试环境只提供了（没有智能提示的）devcpp，（长得贼丑的）CFree两种最“原始”的开发工具，也就拿来当代码高亮，保证括号补全没有基本的语法问题差不多了，很多现代 IDE、开发工具可以做的事它们一概做不了。</p><p>要适应这种艰苦恶劣的考试环境，就得从准备机试的时候开始，把开发工具换成 VScode and g++。VScode 是微软提供的跨平台编辑器，有着漂亮的界面和基本的语法高亮功能，在配置各种插件之前基本可以拿来模拟考场的开发环境，用来编辑代码，而且还能保证练习的时候是比较舒服的。</p><p>编译过程全部转到命令行用 g++完成。</p><h2 id=调试>调试</h2><p>两个最基本额调试手段：打印大法和单步调试大法。个人推荐第一种。单步调试大法需要掌握 gdb这个 g++配套的调试工具，相对来说比较费时间（无论上手还是在考场上使用），而且比较容易出一些奇奇怪怪的问题。想成为 AK 达人的话，倒是必须掌握的。</p><p>打印大法就是在关键步骤将关键变量输出的方法，简单易行，只要注意提交之前注释掉代码就OK。</p><h2 id=参考教材>参考教材</h2><p>注意到，机试是可以带任何纸质打印资料的，一本简介明了的语言参考指南显得非常重要。</p><p>抛弃所有国内教科书，包括但不限于谭浩强，除非你想拿成绩开玩笑在考试的时候验证一下<code>int a++++</code>会不会报错。</p><p>在这里，只推荐<a class=link href=https://item.jd.com/10057446.html target=_blank rel=noopener>K&amp;R The C Programming Language</a>小薄本。将 ANSI C 的所有内容都讲得很透彻而简洁，里面的习题也可以作为入门练手。</p><h1 id=能力层级>能力层级</h1><p>这一部分提供平时训练刷题的参考方向。列举我在去年准备的时候看过的一些题型，具体知识和代码在<a class=link href=https://item.jd.com/11399054.html target=_blank rel=noopener>王道机试指南</a>和<a class=link href=https://item.jd.com/11469701.html target=_blank rel=noopener>算法竞赛入门经典</a>介绍的比较详尽。</p><h2 id=基本输入输出>基本输入输出</h2><p>OJ 的输入输出风格可是能玩死不少人的，怎么保证循环接收输入，接收特定符号能退出，每一轮输入怎么界定，怎么输出小数点后三位浮点数，输出的时候删掉无谓信息（比如句子最后的致命空格），等等等等，都是值得关注的内容，也是首先要练习的。所幸 scanf 和 printf 函数在 KR 里面已经介绍得非常详尽，对照着看和练习就行。</p><h2 id=数字和数组处理>数字和数组处理</h2><p>数字部分有点像小学数学的找规律填数，也会夹带私货弄些奇形怪状的浮点数处理，数组处理方面典型例子就是找最大最小数，找次小数，奇偶数分离这些。一般都在签到题出现。</p><h2 id=日期问题>日期问题</h2><p>闰年问题，星期几问题等等。</p><h2 id=字符串处理>字符串处理</h2><p>翻转字符串，回文字符串判断，甚至字符串匹配、简易正则表达式识别、字符串搜索都是有可能出现的，活用 std::string 和 char 数组的下标嗯。</p><h2 id=模板题>模板题</h2><p>图论的 D 算法 F 算法，深度优先搜索，矩阵乘法等等。这种基本都是最终 boss 级别，因为很多 ACM 资料都会有典型的算法题目，代码可以直接套用，改改关键变量就可以，所以称为模板题。</p><h2 id=特别提名模拟题>特别提名：模拟题</h2><p>模拟题，可不是模拟卷子，而是一类型模拟计算机内部操作比如进程调度，死锁识别等的题目，印象最深刻就是去年最后一题算进程完成时间的。</p><h1 id=思维方法>思维方法</h1><p>这里介绍一些玄学的东西，也是机试对以后的开发生涯最有帮助的东西</p><h3 id=边界值控制和处理>边界值控制和处理</h3><p>刚开始接触 OJ 的时候很容易会遇到本地编译没问题，提供的测试数据也能获得预期结果可是提交之后就是 WA 这种百思不得其解的问题，根源便在于边界值考虑不周全，比如整数0，范围的边界，字符串中的空串等等，解决之道便是通过大量的练习，对每个算法题首先花上几秒考虑可能的边界情况和特殊情况，久而久之形成严密的思维。</p><h3 id=时间性能>时间性能</h3><p>1ms 的时间限制，看起来非常的充分，那只是还没遇到大规模输入。在那种几万甚至十万级别的数据（OJ 上真的会有），就算是$O(n^3)$的算法，翻车也是随时随地的。</p><p>应对这个问题，得对计算机内部执行过程有最基本的认识，更好一点的得对算法的时间复杂度有认识，优化起来才不会像无头苍蝇一样。</p><p>还是祭出<a class=link href=https://item.jd.com/12006637.html target=_blank rel=noopener>CSAPP</a>，里面对程序优化的介绍比较详细，充分利用 Cache 可以编写更高效程序。</p><h4 id=奇技淫巧>奇技淫巧</h4><p>这里特别提名位运算，关键时刻可以省下大量的时间。</p><p>安利<a class=link href=https://item.jd.com/1092950325.html target=_blank rel=noopener>Hackers&rsquo; Delight</a></p><h2 id=基本的算法设计思想>基本的算法设计思想</h2><p>递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/boj/>BOJ</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/posts/2017c/><div class=article-details><h2 class=article-title>2017考研-北邮网研院机试试题 ProblemC</h2></div></a></article><article><a href=/posts/268/><div class=article-details><h2 class=article-title>BOJ 解题报告-268进程管理</h2></div></a></article><article><a href=/posts/89/><div class=article-details><h2 class=article-title>BOJ解题报告(2)-89-统计时间间隔</h2></div></a></article><article><a href=/posts/87-cpp/><div class=article-details><h2 class=article-title>BOJ 解题报告(1)-87-日期</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
-2026 Antarx Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n">
+<title>网研机试101</title>
+
+<link rel='canonical' href='http://antarxly.com/posts/buptoj/'>
+
+<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="网研机试101">
+<meta property='og:description' content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n">
+<meta property='og:url' content='http://antarxly.com/posts/buptoj/'>
+<meta property='og:site_name' content='Antarx Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='BOJ' /><meta property='article:published_time' content='2018-01-08T18:13:08&#43;00:00'/><meta property='article:modified_time' content='2018-01-08T18:13:08&#43;00:00'/>
+<meta name="twitter:title" content="网研机试101">
+<meta name="twitter:description" content="2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。\n实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
+            <h2 class="site-description">AI Infra | Vibe Coding | SwiftUI</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#该用什么语言">该用什么语言</a></li>
+    <li><a href="#ide不存在的">IDE？不存在的</a></li>
+    <li><a href="#调试">调试</a></li>
+    <li><a href="#参考教材">参考教材</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本输入输出">基本输入输出</a></li>
+    <li><a href="#数字和数组处理">数字和数组处理</a></li>
+    <li><a href="#日期问题">日期问题</a></li>
+    <li><a href="#字符串处理">字符串处理</a></li>
+    <li><a href="#模板题">模板题</a></li>
+    <li><a href="#特别提名模拟题">特别提名：模拟题</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#边界值控制和处理">边界值控制和处理</a></li>
+        <li><a href="#时间性能">时间性能</a></li>
+      </ul>
+    </li>
+    <li><a href="#基本的算法设计思想">基本的算法设计思想</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/buptoj/">网研机试101</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 08, 2018</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。</p>
+<p>实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。</p>
+<h1 id="简单介绍">简单介绍
+</h1><p>首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。</p>
+<h1 id="编程语言">编程语言
+</h1><h2 id="该用什么语言">该用什么语言
+</h2><p>北邮 OJ 平台可以用的编程语言有三种，C（gcc4.8），C++（g++ 4.8）和 Java（注意：没有 Python，没有 JavaScript）。另外，C++是<strong>不支持 c++11的</strong>，Java 只支持到 Java6。</p>
+<p>在这个天煞的背景下，考虑到程序时间限制（1ms）和开发速度（避免无谓的造轮子），用 C + STL 是最理想的选择。</p>
+<p>展开来说，就是用 C 的那一套输入输出（scanf 和 printf），C 与 C++通用的循环控制、选择结构、数组等，在加上 C++独特的“宝具”——STL 标准库，来进行解题。提交的时候编译器选 g++即可。</p>
+<p>STL 标准库内容非常多，只需要了解 Map，stack，list，queue就够了。</p>
+<h2 id="ide不存在的">IDE？不存在的
+</h2><p>两个小时做四道题对大脑转数的要求还是挺高的，更何况在那种紧张的气氛和不熟悉的开发环境之下。要保证解题能够快狠准，就需要从现在开始培养一定的针对考试的编程习惯，包括 编辑器和编译器、调试器的使用等等。</p>
+<p>首先，抛弃手上所有的 IDE，包括但不限于 Visual Studio和 Clion，DevC++，或者只在疑难杂症的时候拿它们当单步调试的工具（但也不能依赖）。考试环境只提供了（没有智能提示的）devcpp，（长得贼丑的）CFree两种最“原始”的开发工具，也就拿来当代码高亮，保证括号补全没有基本的语法问题差不多了，很多现代 IDE、开发工具可以做的事它们一概做不了。</p>
+<p>要适应这种艰苦恶劣的考试环境，就得从准备机试的时候开始，把开发工具换成 VScode and g++。VScode 是微软提供的跨平台编辑器，有着漂亮的界面和基本的语法高亮功能，在配置各种插件之前基本可以拿来模拟考场的开发环境，用来编辑代码，而且还能保证练习的时候是比较舒服的。</p>
+<p>编译过程全部转到命令行用 g++完成。</p>
+<h2 id="调试">调试
+</h2><p>两个最基本额调试手段：打印大法和单步调试大法。个人推荐第一种。单步调试大法需要掌握 gdb这个 g++配套的调试工具，相对来说比较费时间（无论上手还是在考场上使用），而且比较容易出一些奇奇怪怪的问题。想成为 AK 达人的话，倒是必须掌握的。</p>
+<p>打印大法就是在关键步骤将关键变量输出的方法，简单易行，只要注意提交之前注释掉代码就OK。</p>
+<h2 id="参考教材">参考教材
+</h2><p>注意到，机试是可以带任何纸质打印资料的，一本简介明了的语言参考指南显得非常重要。</p>
+<p>抛弃所有国内教科书，包括但不限于谭浩强，除非你想拿成绩开玩笑在考试的时候验证一下<code>int a++++</code>会不会报错。</p>
+<p>在这里，只推荐<a class="link" href="https://item.jd.com/10057446.html"  target="_blank" rel="noopener"
+    >K&amp;R The C Programming Language</a>小薄本。将 ANSI C 的所有内容都讲得很透彻而简洁，里面的习题也可以作为入门练手。</p>
+<h1 id="能力层级">能力层级
+</h1><p>这一部分提供平时训练刷题的参考方向。列举我在去年准备的时候看过的一些题型，具体知识和代码在<a class="link" href="https://item.jd.com/11399054.html"  target="_blank" rel="noopener"
+    >王道机试指南</a>和<a class="link" href="https://item.jd.com/11469701.html"  target="_blank" rel="noopener"
+    >算法竞赛入门经典</a>介绍的比较详尽。</p>
+<h2 id="基本输入输出">基本输入输出
+</h2><p>OJ 的输入输出风格可是能玩死不少人的，怎么保证循环接收输入，接收特定符号能退出，每一轮输入怎么界定，怎么输出小数点后三位浮点数，输出的时候删掉无谓信息（比如句子最后的致命空格），等等等等，都是值得关注的内容，也是首先要练习的。所幸 scanf 和 printf 函数在 KR 里面已经介绍得非常详尽，对照着看和练习就行。</p>
+<h2 id="数字和数组处理">数字和数组处理
+</h2><p>数字部分有点像小学数学的找规律填数，也会夹带私货弄些奇形怪状的浮点数处理，数组处理方面典型例子就是找最大最小数，找次小数，奇偶数分离这些。一般都在签到题出现。</p>
+<h2 id="日期问题">日期问题
+</h2><p>闰年问题，星期几问题等等。</p>
+<h2 id="字符串处理">字符串处理
+</h2><p>翻转字符串，回文字符串判断，甚至字符串匹配、简易正则表达式识别、字符串搜索都是有可能出现的，活用 std::string 和 char 数组的下标嗯。</p>
+<h2 id="模板题">模板题
+</h2><p>图论的 D 算法 F 算法，深度优先搜索，矩阵乘法等等。这种基本都是最终 boss 级别，因为很多 ACM 资料都会有典型的算法题目，代码可以直接套用，改改关键变量就可以，所以称为模板题。</p>
+<h2 id="特别提名模拟题">特别提名：模拟题
+</h2><p>模拟题，可不是模拟卷子，而是一类型模拟计算机内部操作比如进程调度，死锁识别等的题目，印象最深刻就是去年最后一题算进程完成时间的。</p>
+<h1 id="思维方法">思维方法
+</h1><p>这里介绍一些玄学的东西，也是机试对以后的开发生涯最有帮助的东西</p>
+<h3 id="边界值控制和处理">边界值控制和处理
+</h3><p>刚开始接触 OJ 的时候很容易会遇到本地编译没问题，提供的测试数据也能获得预期结果可是提交之后就是 WA 这种百思不得其解的问题，根源便在于边界值考虑不周全，比如整数0，范围的边界，字符串中的空串等等，解决之道便是通过大量的练习，对每个算法题首先花上几秒考虑可能的边界情况和特殊情况，久而久之形成严密的思维。</p>
+<h3 id="时间性能">时间性能
+</h3><p>1ms 的时间限制，看起来非常的充分，那只是还没遇到大规模输入。在那种几万甚至十万级别的数据（OJ 上真的会有），就算是$O(n^3)$的算法，翻车也是随时随地的。</p>
+<p>应对这个问题，得对计算机内部执行过程有最基本的认识，更好一点的得对算法的时间复杂度有认识，优化起来才不会像无头苍蝇一样。</p>
+<p>还是祭出<a class="link" href="https://item.jd.com/12006637.html"  target="_blank" rel="noopener"
+    >CSAPP</a>，里面对程序优化的介绍比较详细，充分利用 Cache 可以编写更高效程序。</p>
+<h4 id="奇技淫巧">奇技淫巧
+</h4><p>这里特别提名位运算，关键时刻可以省下大量的时间。</p>
+<p>安利<a class="link" href="https://item.jd.com/1092950325.html"  target="_blank" rel="noopener"
+    >Hackers&rsquo; Delight</a></p>
+<h2 id="基本的算法设计思想">基本的算法设计思想
+</h2><p>递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/boj/">BOJ</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2017c/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2017考研-北邮网研院机试试题 ProblemC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/268/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">BOJ 解题报告-268进程管理</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/89/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">BOJ解题报告(2)-89-统计时间间隔</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/87-cpp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">BOJ 解题报告(1)-87-日期</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Antarx Blog
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

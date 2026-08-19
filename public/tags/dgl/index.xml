@@ -1,13 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DGL on Antarx Blog</title><link>http://antarxly.com/tags/dgl/</link><description>Recent content in DGL on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 17 Jun 2022 20:49:39 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/dgl/index.xml" rel="self" type="application/rss+xml"/><item><title>解决DGL库AttributeError deferred_dtype 错误</title><link>http://antarxly.com/posts/dgl-error-4107/</link><pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate><guid>http://antarxly.com/posts/dgl-error-4107/</guid><description>&lt;p&gt;DGL 库升级到最新版本&lt;code&gt;0.9.0+&lt;/code&gt;的测试版之后，运行老版本的代码会遇到错误&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;AttributeError: 'Column' object has no attribute deferred_dtype&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;在官方GitHub页面可以看到相关的讨论：&lt;a class="link" href="https://github.com/dmlc/dgl/issues/4107" target="_blank" rel="noopener"
-&gt;GitHub issue 4107&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>DGL on Antarx Blog</title>
+        <link>http://antarxly.com/tags/dgl/</link>
+        <description>Recent content in DGL on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 17 Jun 2022 20:49:39 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/dgl/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>解决DGL库AttributeError deferred_dtype 错误</title>
+        <link>http://antarxly.com/posts/dgl-error-4107/</link>
+        <pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dgl-error-4107/</guid>
+        <description>&lt;p&gt;DGL 库升级到最新版本&lt;code&gt;0.9.0+&lt;/code&gt;的测试版之后，运行老版本的代码会遇到错误&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AttributeError: &#39;Column&#39; object has no attribute deferred_dtype&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在官方GitHub页面可以看到相关的讨论：&lt;a class=&#34;link&#34; href=&#34;https://github.com/dmlc/dgl/issues/4107&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub issue 4107&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;个人推测是因为DGL版本升级对底层代码进行了重构，我的代码中，使用老版本的DGL构建了图实例，并且使用&lt;code&gt;dill&lt;/code&gt;持久化为二进制文件，在新环境加载这个代码的时候，就会遇到一些新添加进去的属性没有的情况，也就是&lt;code&gt;AttributeError&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;解决方法：回滚到老版本&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if you use cuda 11.03 &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip uninstall dgl-cu113
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install dgl-cu113&lt;span style="color:#f92672"&gt;==&lt;/span&gt;0.8.1 dglgo -f https://data.dgl.ai/wheels/repo.html
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if you use cuda 10.2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip uninstall dgl-cu102
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install dgl-cu102&lt;span style="color:#f92672"&gt;==&lt;/span&gt;0.8.1 dglgo -f https://data.dgl.ai/wheels/repo.html
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# if you use cuda 11.03 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall dgl-cu113
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install dgl-cu113&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;0.8.1 dglgo -f https://data.dgl.ai/wheels/repo.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# if you use cuda 10.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall dgl-cu102
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install dgl-cu102&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;0.8.1 dglgo -f https://data.dgl.ai/wheels/repo.html
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

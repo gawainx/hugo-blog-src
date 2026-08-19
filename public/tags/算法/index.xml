@@ -1,13 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>算法 on Antarx Blog</title><link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link><description>Recent content in 算法 on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 25 Nov 2017 16:51:09 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title><link>http://antarxly.com/posts/mpseg3/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://antarxly.com/posts/mpseg3/</guid><description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
-&lt;h1 id="dag"&gt;DAG
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>算法 on Antarx Blog</title>
+        <link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link>
+        <description>Recent content in 算法 on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 25 Nov 2017 16:51:09 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>最大概率汉语切分算法研究（三）有向无环图（DAG）与最优左近邻词</title>
+        <link>http://antarxly.com/posts/mpseg3/</link>
+        <pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/mpseg3/</guid>
+        <description>&lt;p&gt;本篇讨论的是对特定输入句子进行的处理过程。基本思想是对特定输入句子从前往后遍历找出所有词构成有向无环图，然后从最后一个词开始往前找每个词的“最优左近邻词”构成一个完整的词语序列。&lt;/p&gt;
+&lt;h1 id=&#34;dag&#34;&gt;DAG
 &lt;/h1&gt;&lt;p&gt;DAG，也就是有向无环图，可以用来记录一个句子的不同的切分状态集合，所谓的“向”就是句子从开始到结束的方向。假定句子的开始符为&lt;code&gt;S&lt;/code&gt;，以“他们有意见分歧”这个句子为例，可以得到如下的有向无环图：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg"
-loading="lazy"
-alt="有向无环图例子"
+&lt;p&gt;&lt;img src=&#34;http://7xpabg.com1.z0.glb.clouddn.com/20171126213424_4TTd1D_Screenshot.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;有向无环图例子&#34;
+	
+	
 &gt;&lt;/p&gt;
 &lt;p&gt;在生成一个句子的有向无环图的过程中，利用 BiGram 模型计算所有的转移概率并进行储存。&lt;/p&gt;
 &lt;p&gt;之后，从后往前回溯，寻找每个词的最优左近邻词，直到‘S’字符。结束。&lt;/p&gt;
-&lt;h2 id="从句子生成-dag"&gt;从句子生成 DAG
+&lt;h2 id=&#34;从句子生成-dag&#34;&gt;从句子生成 DAG
 &lt;/h2&gt;&lt;p&gt;假设开始标识符为‘S’。&lt;/p&gt;
 &lt;p&gt;对于特定的一条输入句子&lt;strong&gt;sentence&lt;/strong&gt;，原始问题可以理解成：由&lt;code&gt;sentence&lt;/code&gt;和其前一个词‘S’构建有向无环图。&lt;/p&gt;
 &lt;p&gt;对 &lt;strong&gt;sentence&lt;/strong&gt;进行分词操作，假设找到的第一个词为&lt;strong&gt;firstWord&lt;/strong&gt;，输入句子 &lt;strong&gt;sentence&lt;/strong&gt;便可切分为 &lt;strong&gt;firstWord&lt;/strong&gt; + &lt;strong&gt;subsentence&lt;/strong&gt;两部分，其中&lt;strong&gt;firstWord&lt;/strong&gt;作为 &lt;strong&gt;subsentence&lt;/strong&gt;的“前一个词”。原始问题便可归约为由&lt;strong&gt;firstWord&lt;/strong&gt; 和 &lt;strong&gt;subsentence&lt;/strong&gt;构建有向无环图（构建结果作为最终 DAG 的子图）。&lt;/p&gt;
@@ -21,155 +41,186 @@ alt="有向无环图例子"
 &lt;li&gt;结束时，将所有最后一个词放入 endSet（结束词集合）里。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;在 &lt;strong&gt;Alg-1&lt;/strong&gt;的步骤3中要寻找“第一个词”，要注意的是，这个寻找过程不是一次性的，因为“第一个词”可能有多种情况，譬如，“有意见分歧”这句话中，对于第一个词，存在着 有/意见分歧 和 有意/见分歧 这两种潜在可能的划分，需要一并进行考虑。因此，寻找词的过程是一个循环的过程，设定上限值为15（汉语中基本不存在长度超过15的词），从第一个字开始向前寻找（切片）：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;15&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; word &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sentence[:k]
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    word &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sentence[:k]
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果“切”出来的 &lt;strong&gt;word&lt;/strong&gt;在词典中，则作为一个子问题，这样才能保证最后生成的 DAG 是考虑了所有可能情况的（考虑了所有的歧义）。&lt;/p&gt;
 &lt;p&gt;不过，这个“粗暴”的切分方式也存在着可见的缺陷。它会大幅度增大了有向无环图的规模（最坏情况下，所有的单字都作为图的一个结点）。对于长句子来说会极大的增大了生成时间，而且，这里用递归来生成子图，因此甚至存在递归过深导致堆栈溢出等问题，即使不是这样，也会显著的增加了程序运行时间。&lt;/p&gt;
-&lt;h2 id="减少无用递归"&gt;减少无用递归
+&lt;h2 id=&#34;减少无用递归&#34;&gt;减少无用递归
 &lt;/h2&gt;&lt;p&gt;经过多次痛苦的测试过程，摸索出减少无用递归的方法可以短暂缓解上面提到的缺陷。&lt;/p&gt;
 &lt;p&gt;考虑如下句子：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;因为他们有意见分歧，会议的时间未能确定下来。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;因为他们有意见分歧，会议的时间未能确定下来。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;虽然在中文语义上，可以以逗号为分隔直接划分成两个子问题再进行切分生成 DAG，但在计算机中还是视为一个句子进行处理。&lt;/p&gt;
 &lt;p&gt;在“有意见分歧，”这里，存在至少两种切分：&lt;/p&gt;
 &lt;p&gt;有/意见分歧 和 有意/见分歧&lt;/p&gt;
 &lt;p&gt;无论这个子句如何切分，切分之后的两个子句&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;意见分歧，···&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;意见分歧，···&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;见分歧，···&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;见分歧，···&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;除了第一个词之外都是重叠的，生成的子图也是一样的，无需重复的递归进行处理。&lt;/p&gt;
 &lt;p&gt;基于这种分析，在考虑生成 DAG 函数的关键参数：&lt;code&gt;firstWord&lt;/code&gt;和 &lt;code&gt;subsentence&lt;/code&gt;，将这两个参数构成一个元组（tuple），用一个集合记录下已经进行了“子图生成”的元组，每次要执行递归前，首先判断关键参数组合是否在集合中，如果在集合中则直接跳过，否则再执行递归过程，执行完毕后将关键参数组合添加到集合中。&lt;/p&gt;
-&lt;h1 id="最优左近邻词blaw"&gt;最优左近邻词（bLAW）
+&lt;h1 id=&#34;最优左近邻词blaw&#34;&gt;最优左近邻词（bLAW）
 &lt;/h1&gt;&lt;p&gt;考虑词序列&lt;/p&gt;
 &lt;p&gt;$$w_1,w_2,w_3,…,w_{i-1},w_i,…,w_n$$&lt;/p&gt;
 &lt;p&gt;$w_{i-1}$即为$w_i$的左近邻词。&lt;/p&gt;
 &lt;p&gt;用输入句子生成 DAG 之后，对结束词集合中的每一个词，从后往前回溯，寻找每一个词的最优左近邻词，直到“S”结束，得到潜在的切分序列。如果切分序列不止一个的时候，则计算每个切分句子的概率，取概率较大者作为切分结果序列。&lt;/p&gt;
-&lt;h3 id="如何寻找最优左近邻词"&gt;如何寻找最优左近邻词？
+&lt;h3 id=&#34;如何寻找最优左近邻词&#34;&gt;如何寻找最优左近邻词？
 &lt;/h3&gt;&lt;p&gt;考虑累计概率计算公式：&lt;/p&gt;
 &lt;p&gt;$$P_a(w_i)=P_a (w_{i-1})*P(w_i/w_{i-1})$$&lt;/p&gt;
 &lt;p&gt;对每一个左近邻词（在 DAG 中表示为一个结点的所有前向相邻结点），计算累积概率，取概率较大者作为最优左近邻词。&lt;/p&gt;
-&lt;h1 id="潜在问题"&gt;潜在问题
+&lt;h1 id=&#34;潜在问题&#34;&gt;潜在问题
 &lt;/h1&gt;&lt;p&gt;以下潜在问题的讨论仅限于本文讨论的 DAG 和寻找左近邻词的算法，并不一定 LAW 这个概念本身可能存在的问题。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;“最优”只考虑了局部的情况，在语料库生成的搭配词典规模受到限制的场合，基于语料库训练出来的 BiGram 模型计算出来的累积概率与实际应用场景中“本该有”的概率存在较大差异，这种差异将直接反映在切分结果上。&lt;/li&gt;
 &lt;li&gt;生成 DAG 的过程以词本身而不是词在句子中的下标序号作为图的结点，对于一个存在重复词的句子，从后往前找左近邻词时可能进入死循环中。解决办法是每次寻找词的时候将这个词与它“本该”出现在句子中的位置进行比较再决定是不是 LAW&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id="参考资料"&gt;参考资料
+&lt;h1 id=&#34;参考资料&#34;&gt;参考资料
 &lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a class="link" href="http://www.voidcn.com/article/p-gnpklsla-sp.html" target="_blank" rel="noopener"
-&gt;jieba中文分词源码分析（三）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.voidcn.com/article/p-gnpklsla-sp.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jieba中文分词源码分析（三）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;王小捷老师计算语言学课程相关课件资料&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>使用动态规划求解字符串编辑距离问题(C#实现）</title><link>http://antarxly.com/posts/dp/</link><pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate><guid>http://antarxly.com/posts/dp/</guid><description>&lt;h1 id="前言"&gt;前言
-&lt;/h1&gt;&lt;p&gt;上次提到会在后续通过实际例子更加深入的谈谈对解释四种&lt;a class="link" href="http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank" rel="noopener"
-&gt;四种基本算法设计模式&lt;/a&gt;的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。&lt;/p&gt;
-&lt;h1 id="正文"&gt;正文
-&lt;/h1&gt;&lt;h2 id="问题背景"&gt;问题背景
+&lt;/ol&gt;</description>
+        </item>
+        <item>
+        <title>使用动态规划求解字符串编辑距离问题(C#实现）</title>
+        <link>http://antarxly.com/posts/dp/</link>
+        <pubDate>Mon, 07 Dec 2015 22:41:52 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dp/</guid>
+        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
+&lt;/h1&gt;&lt;p&gt;上次提到会在后续通过实际例子更加深入的谈谈对解释四种&lt;a class=&#34;link&#34; href=&#34;http://antarx.com/2015/11/16/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;四种基本算法设计模式&lt;/a&gt;的理解。今天说到的,是利用动态规划思想求解两个字符串的编辑距离。&lt;/p&gt;
+&lt;h1 id=&#34;正文&#34;&gt;正文
+&lt;/h1&gt;&lt;h2 id=&#34;问题背景&#34;&gt;问题背景
 &lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;我们将两个字符串的相似度定义为：将一个字符串转换为另一个字符串时需要付出的代价。转换方法包括插入，删除和替换三种编辑方式。使用对字符串的编辑次数定义为转换的代价。最小的字符串编辑次数就是字符串的编辑距离。 &amp;ndash;《算法的乐趣》&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id="问题分析"&gt;问题分析
+&lt;p&gt;我们将两个字符串的相似度定义为：将一个字符串转换为另一个字符串时需要付出的代价。转换方法包括插入，删除和替换三种编辑方式。使用对字符串的编辑次数定义为转换的代价。最小的字符串编辑次数就是字符串的编辑距离。                             &amp;ndash;《算法的乐趣》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;问题分析&#34;&gt;问题分析
 &lt;/h2&gt;&lt;p&gt;要使用动态规划思想解决这个问题，首先我们需要对问题进行阶段划分，确定边界条件，定义无后效性的几个子状态并且确定状态之间的转移关系，才能在每个子状态中寻找最优解最后得到原问题的解。&lt;/p&gt;
 &lt;p&gt;寻找子问题：在本问题中，假设原字符串为&lt;code&gt;source&lt;/code&gt;，长度为m，目的字符串为&lt;code&gt;target&lt;/code&gt;，长度为n。则问题可以描述为求解&lt;code&gt;source[1..m]&lt;/code&gt;转换为&lt;code&gt;target[1..n]&lt;/code&gt;所需要的最小编辑次数。注意到，当&lt;code&gt;source&lt;/code&gt;的前i个字符和&lt;code&gt;target&lt;/code&gt;的前j个字符之间的编辑距离确定之后，不会在后续求解中发生改变，因此此问题的子问题即可定义为求解&lt;code&gt;source&lt;/code&gt;的前i个字符和&lt;code&gt;target&lt;/code&gt;的前j个字符之间的编辑距离。&lt;/p&gt;
 &lt;p&gt;边界条件的确定：当source字符串长度为0时，编辑长度为target的字符串长度n（插入n个字符串）。当target的字符串长度为0时，编辑长度为source的字符串长度（删去m个字符串）。&lt;/p&gt;
 &lt;p&gt;关于“备忘录”：动态规划问题的一个特点是使用类似”备忘录“的”表“记录每个状态的相关信息。本问题中用&lt;code&gt;d[i,j]&lt;/code&gt;定义为&lt;code&gt;source&lt;/code&gt;的前i个字符和&lt;code&gt;target&lt;/code&gt;的前j个字符之间的编辑距离，作为每个状态的标志。&lt;/p&gt;
 &lt;p&gt;状态之间的转换：以&lt;code&gt;d[i-1,j]+1&lt;/code&gt;为删除字符时转移的状态,&lt;code&gt;d[i,j-1]+1&lt;/code&gt;为插入字符时转移额状态，&lt;code&gt;d[i-1,j-1]+1&lt;/code&gt;为替换字符串时转移的状态。&lt;/p&gt;
 &lt;p&gt;子问题的最优解：字符串之间的转换方式并不是唯一的，通过操作若干次添加字符，删除字符，替换字符操作都可以实现字符串转换，每次转换状态时，将三种操作方式中的距离的最小值作为&lt;code&gt;d[i,j]&lt;/code&gt;，可以保证每个子问题的解都是最优的，从而保证整个问题的解是最优解。&lt;/p&gt;
-&lt;h2 id="具体代码"&gt;具体代码
+&lt;h2 id=&#34;具体代码&#34;&gt;具体代码
 &lt;/h2&gt;&lt;p&gt;使用C#语言实现。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;using System;
+
 namespace EditDistance
 {
-class Program
-{
-public static int MAX_STR_LEN = 100;//initialize the max length of string
-static void Main(string[] args)
-{
-//test code
-Console.WriteLine(&amp;quot;Please input Source string:&amp;quot;);
-String src = Console.ReadLine();
-Console.WriteLine(&amp;quot;Please input Target string:&amp;quot;);
-String dist = Console.ReadLine();
-Console.WriteLine(EditDistance(src, dist));
-}
-private static int EditDistance(string src, string dist)
-{
-int i, j;
-int[,] d = new int[MAX_STR_LEN,MAX_STR_LEN];
-//initialize the margin condition
-for (i = 0; i &amp;lt;= src.Length; i++)
-d[i, 0] = i;
-for (j = 0; j &amp;lt;= dist.Length; j++)
-d[0, j] = j;
-for(i = 1;i&amp;lt;=src.Length;i++)
-{
-for(j=1;j&amp;lt;=dist.Length;j++)
-{
-if(src[i-1]==dist[j-1])
-{
-d[i, j] = d[i - 1, j - 1];
-}
-else
-{
-int edIns = d[i, j - 1] + 1;
-int edDel = d[i - 1, j] + 1;
-int edRep = d[i - 1, j - 1] + 1;
-d[i,j]=Math.Min(Math.Min(edIns,edDel),edRep);
-}
-}
-}
-return d[src.Length, dist.Length];
-}
-}
+	class Program
+	{
+    	public static int MAX_STR_LEN = 100;//initialize the max length of string
+    	static void Main(string[] args)
+    	{
+			//test code
+        	Console.WriteLine(&amp;quot;Please input Source string:&amp;quot;);
+        	String src = Console.ReadLine();
+        	Console.WriteLine(&amp;quot;Please input Target string:&amp;quot;);
+        	String dist = Console.ReadLine();
+        	Console.WriteLine(EditDistance(src, dist));
+    	}
+    	private static int EditDistance(string src, string dist)
+    	{
+        	int i, j;
+        	int[,] d = new int[MAX_STR_LEN,MAX_STR_LEN];
+			//initialize the margin condition
+        	for (i = 0; i &amp;lt;= src.Length; i++)
+        	    d[i, 0] = i;
+        	for (j = 0; j &amp;lt;= dist.Length; j++)
+            	d[0, j] = j;
+        	for(i = 1;i&amp;lt;=src.Length;i++)
+        	{
+            	for(j=1;j&amp;lt;=dist.Length;j++)
+            	{
+                	if(src[i-1]==dist[j-1])
+                	{
+                    	d[i, j] = d[i - 1, j - 1];
+                	}
+                	else
+                	{
+                    	int edIns = d[i, j - 1] + 1;
+                    	int edDel = d[i - 1, j] + 1;
+                    	int edRep = d[i - 1, j - 1] + 1;
+                    
+                    	d[i,j]=Math.Min(Math.Min(edIns,edDel),edRep);
+                	}
+            	}
+        	}
+        	return d[src.Length, dist.Length];
+    	}
+	}
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;运行结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg"
-loading="lazy"
+&lt;p&gt;&lt;img src=&#34;http://ww4.sinaimg.cn/large/74acb475jw1eys82u4970j20ed05iq3k.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;h1 id="后记"&gt;后记
+&lt;h1 id=&#34;后记&#34;&gt;后记
 &lt;/h1&gt;&lt;p&gt;求解字符串的编辑距离问题应该是动态规划的最典型案例，体现了动态规划问题的基本特点。适合用动态规划解决的问题，一般都是可以划分多多个子状态的，每个子状态之间存在状态转移关系，每个状态的解一旦确定，就会用类似“备忘录”的表储存起来。在后续求解时，将会直接使用该状态的解，而且，&lt;strong&gt;不会再回溯子状态的时候改变该状态的解&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description></item><item><title>四种基本的算法设计模式</title><link>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;另外，边界条件的确定是问题求解时的一个重要步骤。如果忽略了边界条件，或者在求解时没有正确初始化边界条件（比如在本题中对&lt;code&gt;d[i,0]&lt;/code&gt;和&lt;code&gt;d[0,j]&lt;/code&gt;需要初始化为i和j），将得不到正确的解。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>四种基本的算法设计模式</title>
+        <link>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+        <pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/%E5%9B%9B%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
 &lt;/h1&gt;&lt;p&gt;最近在阅读一本有趣的算法书，书中作者列举了四种基本的算法设计模式，我总结摘录得到本文。今天先给出文字总结。随着阅读的深入，以后会给出四种设计模式的典型案例。&lt;/p&gt;
-&lt;h1 id="正文"&gt;正文
-&lt;/h1&gt;&lt;h2 id="贪婪法"&gt;贪婪法
+&lt;h1 id=&#34;正文&#34;&gt;正文
+&lt;/h1&gt;&lt;h2 id=&#34;贪婪法&#34;&gt;贪婪法
 &lt;/h2&gt;&lt;pre&gt;&lt;code&gt;- 核心思想：
-将原问题划分为多个子情况考虑，在每一个子情况中寻求其局部最优解，然后将局部最优解按照一定的方式（这种方式通常与子问题的划分方式有关）堆叠得到原问题的解。
+	将原问题划分为多个子情况考虑，在每一个子情况中寻求其局部最优解，然后将局部最优解按照一定的方式（这种方式通常与子问题的划分方式有关）堆叠得到原问题的解。
 - 特点：
-1. 这种方法不用考虑子问题之间的相互影响（这一点区别于动态规划方法），通俗的说，就是不用“瞻前顾后”。
-2. 在每个子问题中都应用了局部最优原则，寻求该子问题的最优解。
+    1. 这种方法不用考虑子问题之间的相互影响（这一点区别于动态规划方法），通俗的说，就是不用“瞻前顾后”。
+    2. 在每个子问题中都应用了局部最优原则，寻求该子问题的最优解。
 - 一般思路：
-定义最优解模型-&amp;gt;划分子问题-&amp;gt;定义子问题的最优解结构-&amp;gt;确定局部最优解，并堆叠出全局最优解。
+    定义最优解模型-&amp;gt;划分子问题-&amp;gt;定义子问题的最优解结构-&amp;gt;确定局部最优解，并堆叠出全局最优解。
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="分治法"&gt;分治法
+&lt;h2 id=&#34;分治法&#34;&gt;分治法
 &lt;/h2&gt;&lt;pre&gt;&lt;code&gt;- 核心思想：
-将大问题划分为一系列子规模较小的相同问题（解结构相同，子问题之间相互独立），寻找子问题的解之后将结果合并得到原问题的解。
+    将大问题划分为一系列子规模较小的相同问题（解结构相同，子问题之间相互独立），寻找子问题的解之后将结果合并得到原问题的解。
 - 特点：
-子问题的划分不一定只有一次，而且往往不止一次，划分的目的是使每一个子问题相互独立而且是容易求解和能够最后组合得到原问题的解。正因为这个特点，分治法与递归思想总是密不可分的。
+    子问题的划分不一定只有一次，而且往往不止一次，划分的目的是使每一个子问题相互独立而且是容易求解和能够最后组合得到原问题的解。正因为这个特点，分治法与递归思想总是密不可分的。
 - 难点：
-子问题的划分方式和最后结果的合并。如果用递归去解决分治法问题时，难点就是寻找递归关系式和确定递归终止条件。
+    子问题的划分方式和最后结果的合并。如果用递归去解决分治法问题时，难点就是寻找递归关系式和确定递归终止条件。
 - 举例：N点离散傅里叶变换的快速计算
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="动态规划"&gt;动态规划
+&lt;h2 id=&#34;动态规划&#34;&gt;动态规划
 &lt;/h2&gt;&lt;pre&gt;&lt;code&gt;- 核心思想：
-要解一个给定问题，我们需要解其不同部分，再合并子问题的解以得到原问题的解。
+    要解一个给定问题，我们需要解其不同部分，再合并子问题的解以得到原问题的解。
 - 特点：
-1. 动态规划在查找有很多重叠子问题的情况的最优解时有效。它将问题重新组合成子问题。为了避免多次解决这些子问题，它们的结果都逐渐被计算并被保存，从简单的问题直到整个问题都被解决。因此，动态规划保存递归时的结果，因而不会在解决同样的问题时花费时间。
-2. 适用于无后效性的问题。子问题的解一旦确定之后就不会改变，不受之后包含它的更大的问题的求解。
-3. 适用于子问题相互重叠的情况。动态规划会创建一张“表”记录每个子问题的计算结果，当再次需要计算此问题时就可以通过查表快速得到结果，简化计算。
+    1. 动态规划在查找有很多重叠子问题的情况的最优解时有效。它将问题重新组合成子问题。为了避免多次解决这些子问题，它们的结果都逐渐被计算并被保存，从简单的问题直到整个问题都被解决。因此，动态规划保存递归时的结果，因而不会在解决同样的问题时花费时间。                                              
+    2. 适用于无后效性的问题。子问题的解一旦确定之后就不会改变，不受之后包含它的更大的问题的求解。
+    3. 适用于子问题相互重叠的情况。动态规划会创建一张“表”记录每个子问题的计算结果，当再次需要计算此问题时就可以通过查表快速得到结果，简化计算。
 - 一般思路：
-定义最有子问题-&amp;gt;定义状态-&amp;gt;定义决策和状态转换方程式-&amp;gt;确定边界条件。
+	定义最有子问题-&amp;gt;定义状态-&amp;gt;定义决策和状态转换方程式-&amp;gt;确定边界条件。
 - 举例：
-斐波那契数列的计算（在计算过程中保存每一步的f(n)）、0-1背包问题
+	斐波那契数列的计算（在计算过程中保存每一步的f(n)）、0-1背包问题
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="穷举法"&gt;穷举法
+&lt;h2 id=&#34;穷举法&#34;&gt;穷举法
 &lt;/h2&gt;&lt;pre&gt;&lt;code&gt;- 核心思想：
-在解空间之内穷举并测试每个可能的结果。
+	在解空间之内穷举并测试每个可能的结果。
 - 穷举策略：
-1. 盲目搜索算法。
-2. 启发式搜索（开始搜索时加入了一定的附加条件）
-3. 剪枝策略：跳过一些明显不会是最优解的分支的搜索。
+	1. 盲目搜索算法。
+	2. 启发式搜索（开始搜索时加入了一定的附加条件）
+	3. 剪枝策略：跳过一些明显不会是最优解的分支的搜索。
 - 应用举例：很多NP问题的求解最后都是用了枚举法。
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="后记"&gt;后记
+&lt;h1 id=&#34;后记&#34;&gt;后记
 &lt;/h1&gt;&lt;p&gt;四种基本的设计模式并不是相互对立的。有时一个问题可以用一种或多种的设计模式去解决，而且，附加的条件不同时，应用的设计方法也不同。一个典型例子就是背包问题（&lt;strong&gt;多件体积不同，价值不同的物品放入体积一定的背包，求解价值最大的方案&lt;/strong&gt;），既可以通过穷举所有情况解决，也可以引入价值密度的概念，用贪婪法设计解决(每次都放入价值密度最高的物品），还可以用动态规划解决（还没透彻理解QAQ）。
-上面的内容很多都是自己整理书中内容加上自己的一点想法写成的，感觉还是太抽象了，也难免有各种疏漏和错误，欢迎大家留意指正，多多交流。以后补充实际问题结合代码更加深入的分析每一个方法的奥妙。&lt;/p&gt;</description></item></channel></rss>
+上面的内容很多都是自己整理书中内容加上自己的一点想法写成的，感觉还是太抽象了，也难免有各种疏漏和错误，欢迎大家留意指正，多多交流。以后补充实际问题结合代码更加深入的分析每一个方法的奥妙。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

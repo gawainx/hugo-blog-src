@@ -1,30 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KGE on Antarx Blog</title><link>http://antarxly.com/tags/kge/</link><description>Recent content in KGE on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Aug 2021 16:29:12 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/kge/index.xml" rel="self" type="application/rss+xml"/><item><title>论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings</title><link>http://antarxly.com/posts/embedkgqa/</link><pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate><guid>http://antarxly.com/posts/embedkgqa/</guid><description>&lt;p&gt;来源：ACL 2020
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>KGE on Antarx Blog</title>
+        <link>http://antarxly.com/tags/kge/</link>
+        <description>Recent content in KGE on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 09 Aug 2021 16:29:12 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/kge/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>论文阅读：Improving Multi-hop Question Answering over Knowledge Graphs using Knowledge Base Embeddings</title>
+        <link>http://antarxly.com/posts/embedkgqa/</link>
+        <pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/embedkgqa/</guid>
+        <description>&lt;p&gt;来源：ACL 2020
 领域：KGQA
 模型：EmbedKGQA
 核心模型：ComplEx；BERT/RoBERTa
-代码：&lt;a class="link" href="https://github.com/malllabiisc/EmbedKGQA" target="_blank" rel="noopener"
-&gt;GitHub&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="关注问题"&gt;关注问题
+代码：&lt;a class=&#34;link&#34; href=&#34;https://github.com/malllabiisc/EmbedKGQA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关注问题&#34;&gt;关注问题
 &lt;/h2&gt;&lt;p&gt;多跳KGQA中，KG的不完整性带来独特的挑战。现有解决方案中包括使用文本，但文本不一定存在；KGE可以解决补全问题，但还没有研究将两者结合在一起，本文是这方面的一次尝试。&lt;/p&gt;
-&lt;h2 id="model"&gt;Model
-&lt;/h2&gt;&lt;p&gt;&lt;img src="https://antarx.cn/images/CleanShot%202021-08-09%20at%2016.25.47@2x.jpg"
-loading="lazy"
-alt="EmbedKGQA 模型架构"
+&lt;h2 id=&#34;model&#34;&gt;Model
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://antarx.cn/images/CleanShot%202021-08-09%20at%2016.25.47@2x.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EmbedKGQA 模型架构&#34;
+	
+	
 &gt;&lt;/p&gt;
 &lt;p&gt;模型分为三个核心模块：KG Embedding Module，Question Embedding Module，Answer Selection Module。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;KG Embedding Module：和现有KGE模型的目的一致，生成实体的表示向量。本文使用ComplEx作为KGE模型。&lt;/li&gt;
 &lt;li&gt;Question Embedding Module：生成问题的表示。使用预训练模型RoBERTa生成question的表示向量，然后经过4层全连接网络生成实数部分和虚数部分的表示向量$e_q$（用于后续使用ComplEx进行评分）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="answer-selection-module"&gt;Answer Selection Module
+&lt;h3 id=&#34;answer-selection-module&#34;&gt;Answer Selection Module
 &lt;/h3&gt;&lt;p&gt;答案选择器用于生成最后的实体选择。首先，使用ComplEx的打分函数生成分数$\phi (e_h, e_q, e_{a&amp;rsquo;})$，这种方式在候选实体很少的时候是适用的，但有些KG候选实体非常多。因此，引入pruning机制进行实体筛选打分。&lt;/p&gt;
 &lt;p&gt;$$
 h_q = \text{RoBERTa}(q&amp;rsquo;) \
 S(r, q) = \text{sigmoid}(h_q^Th_r)
 $$&lt;/p&gt;
 &lt;p&gt;筛选$S(r, q)$ 大于0.5的关系集合$\mathcal{R}_a$, 以及最短路径关系集合$\mathcal{R}_{a&amp;rsquo;}$, 得到一个关系分数&lt;/p&gt;
-&lt;p&gt;$$\text{RelScore}_{a&amp;rsquo;}=\vert \mathcal{R}&lt;em&gt;a \cap \mathcal{R}&lt;/em&gt;{a&amp;rsquo;} \vert$$&lt;/p&gt;
+&lt;p&gt;$$\text{RelScore}_{a&amp;rsquo;}=\vert \mathcal{R}&lt;em&gt;a \cap  \mathcal{R}&lt;/em&gt;{a&amp;rsquo;} \vert$$&lt;/p&gt;
 &lt;p&gt;最终分数$e_{ans} = \text{argmax}(\phi (e_h, e_q, e_{a&amp;rsquo;})) + \gamma * \text{RelScore}_{a&amp;rsquo;}$&lt;/p&gt;
-&lt;h2 id="延伸"&gt;延伸
-&lt;/h2&gt;&lt;p&gt;写作的时候遇到行内数学公式渲染错误的问题，Follow了&lt;a class="link" href="https://m3df.xyz/2021/06/25/b63b2b2d/" target="_blank" rel="noopener"
-&gt;这个Post&lt;/a&gt;的解决方案。&lt;/p&gt;</description></item></channel></rss>
+&lt;h2 id=&#34;延伸&#34;&gt;延伸
+&lt;/h2&gt;&lt;p&gt;写作的时候遇到行内数学公式渲染错误的问题，Follow了&lt;a class=&#34;link&#34; href=&#34;https://m3df.xyz/2021/06/25/b63b2b2d/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个Post&lt;/a&gt;的解决方案。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

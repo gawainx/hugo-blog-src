@@ -1,21 +1,424 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n"><title>Java Mongodb 使用指南（一）增删查改</title><link rel=canonical href=http://antarxly.com/posts/mongodbj/><link rel=stylesheet href=/scss/style.min.14d9b41da7cf9f4898744e7211dec57af99e151bac3bc2b70d598a7a43d66952.css><meta property='og:title' content="Java Mongodb 使用指南（一）增删查改"><meta property='og:description' content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n"><meta property='og:url' content='http://antarxly.com/posts/mongodbj/'><meta property='og:site_name' content='Antarx Blog'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='java'><meta property='article:published_time' content='2017-07-20T16:22:24+00:00'><meta property='article:modified_time' content='2017-07-20T16:22:24+00:00'><meta name=twitter:title content="Java Mongodb 使用指南（一）增删查改"><meta name=twitter:description content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><div class=site-meta><h1 class=site-name><a href=/>Antarx Blog</a></h1><h2 class=site-description>AI Infra | Vibe Coding | SwiftUI</h2></div></header><ol class=menu id=main-menu><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>搜索</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
-<span>友情链接</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#bson>BSON</a></li><li><a href=#document>Document</a></li></ul><ul><li><a href=#增insert>增（Insert）</a></li><li><a href=#删delete>删（delete）</a></li><li><a href=#查find>查（find）</a></li><li><a href=#改update-或-replace>改（update 或 replace）</a></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/posts/mongodbj/>Java Mongodb 使用指南（一）增删查改</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Jul 20, 2017</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><h1 id=前言>前言</h1><p>最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。</p><h1 id=基本概念>基本概念</h1><p>先讲清楚两个后面用到的最重要的两个类：<code>BSON</code>和<code>Document</code>。</p><h2 id=bson>BSON</h2><p><code>BSON</code>是 JSON 文件的二进制储存格式。在 mongodb 的 Java 驱动中，这种数据类型主要用于建立查询条件。比如说在 mongodb shell 里面<code>.find({"id":"0001"})</code>这句话里面的<code>{"id":"0001"}</code>部分对应在 Java 代码里面就是一个 BSON。</p><p>查询条件里面有个很有意思的概念是操作算子/条件算子，具体留到另一篇文章再说。</p><h2 id=document>Document</h2><p>官方翻译是文档，就是对应于一条 JSON 格式数据。在使用中要注意的是这玩意不能用String 类型的 JSON 格式字符串来初始化，只能用 Map 类型或者单一键值对来初始化。</p><h1 id=操作>操作</h1><h2 id=增insert>增（Insert）</h2><p><code>mongoCollection.insertOne(Document)</code></p><p>直接插入 Document 类型的数据。要注意的是这个插入默认是无条件的，是可以连续两次插入完全一样的文档（因为在 mongodb 内部是用<code>_id</code>来判断两个文档）</p><h2 id=删delete>删（delete）</h2><p><code>mongoCollection.deleteOne(BSON)</code></p><p>这个方法可以用来删除满足条件的一条数据，BSON 用于定义条件，比方说，要删除 id 字段为0001的数据，构造的 BSON 对象就是<code>new BasicDBObject("id","0001")</code>，完整的调用语句就是<code>mongoCollection(new BasicDBObject("id","0001"))</code>。</p><h2 id=查find>查（find）</h2><p><code>mongoCollection.find()</code></p><p>默认不加参数时，会返回这个集合中的所有文档，返回类型是一个类似迭代器的东西，要遍历查询结果时可以这样写：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>FindIterable<span style=color:#f92672>&lt;</span>Document<span style=color:#f92672>&gt;</span> res <span style=color:#f92672>=</span> mongoCollection.<span style=color:#a6e22e>find</span>();
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span>(Document item : res){
-</span></span><span style=display:flex><span>  <span style=color:#75715e>//do something</span>
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>在这段代码中的 res，有个<code>.first()</code>方法，返回所有结果的第一个元素，如果结果是空集的时候，方法返回<code>null</code>。有意思的是，就算结果集是空集（找不到任何东西），res 也不会是 null。所以判断查找是否成功对 first()方法判空。</p><p><code>mongoCollection.find(BSON)</code></p><p>传入参数是客制化的查找条件（BSON 格式）</p><h2 id=改update-或-replace>改（update 或 replace）</h2><p><code>mongoCollection.replace(BSON,Document)</code></p><p>第一个参数是查询条件，第二个参数是完整的文档，这个方法的作用是将满足条件的文档用传入参数中的文档来进行替换。</p><p><code>.updateOne(BSON bson1,BSON bson2)</code></p><p>调用这个方法时，第一个 bson 是查询条件，第二个 bson （bson1）是替换目标，这个方法执行结果是查询满足条件bson1的结果，然后将这些文档的 bson1字段用 bson2代替。</p><p>这个方法执行起来可能会让人很无语，因为按照直觉，我们调用的时候可能更想做的是查找满足条件的文档，然后将里面的其他一些字段用 bson2替换掉。要实现这个功能也不是不可能的，不过要搞个嵌套 BasicDBObject，要用到<code>$set</code>操作算子。示例代码段如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>BasicDBObject opr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BasicDBObject(<span style=color:#e6db74>&#34;$set&#34;</span>,<span style=color:#66d9ef>new</span> BasicDBObject(<span style=color:#e6db74>&#34;status&#34;</span>,<span style=color:#e6db74>&#34;on&#34;</span>));
-</span></span><span style=display:flex><span>mongoCollection.<span style=color:#a6e22e>updateOne</span>(<span style=color:#66d9ef>new</span> BasicDBObject(<span style=color:#e6db74>&#34;id&#34;</span>,<span style=color:#e6db74>&#34;0005&#34;</span>),opr);
-</span></span></code></pre></div><p>这段代码执行的结果是查找 id 是0005的文档，然后把这个文档中的 status 字段设为 on。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/java/>Java</a></section></footer></article><footer class=site-footer><section class=copyright>&copy;
-2026 Antarx Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n">
+<title>Java Mongodb 使用指南（一）增删查改</title>
+
+<link rel='canonical' href='http://antarxly.com/posts/mongodbj/'>
+
+<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="Java Mongodb 使用指南（一）增删查改">
+<meta property='og:description' content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n">
+<meta property='og:url' content='http://antarxly.com/posts/mongodbj/'>
+<meta property='og:site_name' content='Antarx Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='java' /><meta property='article:published_time' content='2017-07-20T16:22:24&#43;00:00'/><meta property='article:modified_time' content='2017-07-20T16:22:24&#43;00:00'/>
+<meta name="twitter:title" content="Java Mongodb 使用指南（一）增删查改">
+<meta name="twitter:description" content="前言 最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
+            <h2 class="site-description">AI Infra | Vibe Coding | SwiftUI</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bson">BSON</a></li>
+    <li><a href="#document">Document</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#增insert">增（Insert）</a></li>
+    <li><a href="#删delete">删（delete）</a></li>
+    <li><a href="#查find">查（find）</a></li>
+    <li><a href="#改update-或-replace">改（update 或 replace）</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/mongodbj/">Java Mongodb 使用指南（一）增删查改</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 20, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="前言">前言
+</h1><p>最近在重构之前宇宙 mei毕设项目的注册中心，为了跟 Docker 容器技术无缝衔接将原先的 SQLServer 换成了与前端统一的 mongodb。让人不愉快的是，java 调用 mongodb 时遇到了好些问题，首先是 mongo版本更新3.0.0之后DB 相关的 API 已经废弃不用了，直接导致很多不够新的书籍都不具有参考价值；此外无论官网提供的 API 参考还是网络上很多教程，要么就是甩了一堆天花龙凤的代码，要么就是摸不着头脑的类列表。所以才有了这篇方便理顺思路的文章。</p>
+<h1 id="基本概念">基本概念
+</h1><p>先讲清楚两个后面用到的最重要的两个类：<code>BSON</code>和<code>Document</code>。</p>
+<h2 id="bson">BSON
+</h2><p><code>BSON</code>是 JSON 文件的二进制储存格式。在 mongodb 的 Java 驱动中，这种数据类型主要用于建立查询条件。比如说在 mongodb shell 里面<code>.find({&quot;id&quot;:&quot;0001&quot;})</code>这句话里面的<code>{&quot;id&quot;:&quot;0001&quot;}</code>部分对应在 Java 代码里面就是一个 BSON。</p>
+<p>查询条件里面有个很有意思的概念是操作算子/条件算子，具体留到另一篇文章再说。</p>
+<h2 id="document">Document
+</h2><p>官方翻译是文档，就是对应于一条 JSON 格式数据。在使用中要注意的是这玩意不能用String 类型的 JSON 格式字符串来初始化，只能用 Map 类型或者单一键值对来初始化。</p>
+<h1 id="操作">操作
+</h1><h2 id="增insert">增（Insert）
+</h2><p><code>mongoCollection.insertOne(Document)</code></p>
+<p>直接插入 Document 类型的数据。要注意的是这个插入默认是无条件的，是可以连续两次插入完全一样的文档（因为在 mongodb 内部是用<code>_id</code>来判断两个文档）</p>
+<h2 id="删delete">删（delete）
+</h2><p><code>mongoCollection.deleteOne(BSON)</code></p>
+<p>这个方法可以用来删除满足条件的一条数据，BSON 用于定义条件，比方说，要删除 id 字段为0001的数据，构造的 BSON 对象就是<code>new BasicDBObject(&quot;id&quot;,&quot;0001&quot;)</code>，完整的调用语句就是<code>mongoCollection(new BasicDBObject(&quot;id&quot;,&quot;0001&quot;))</code>。</p>
+<h2 id="查find">查（find）
+</h2><p><code>mongoCollection.find()</code></p>
+<p>默认不加参数时，会返回这个集合中的所有文档，返回类型是一个类似迭代器的东西，要遍历查询结果时可以这样写：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>FindIterable<span style="color:#f92672">&lt;</span>Document<span style="color:#f92672">&gt;</span> res <span style="color:#f92672">=</span> mongoCollection.<span style="color:#a6e22e">find</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(Document item : res){
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//do something</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在这段代码中的 res，有个<code>.first()</code>方法，返回所有结果的第一个元素，如果结果是空集的时候，方法返回<code>null</code>。有意思的是，就算结果集是空集（找不到任何东西），res 也不会是 null。所以判断查找是否成功对 first()方法判空。</p>
+<p><code>mongoCollection.find(BSON)</code></p>
+<p>传入参数是客制化的查找条件（BSON 格式）</p>
+<h2 id="改update-或-replace">改（update 或 replace）
+</h2><p><code>mongoCollection.replace(BSON,Document)</code></p>
+<p>第一个参数是查询条件，第二个参数是完整的文档，这个方法的作用是将满足条件的文档用传入参数中的文档来进行替换。</p>
+<p><code>.updateOne(BSON bson1,BSON bson2)</code></p>
+<p>调用这个方法时，第一个 bson 是查询条件，第二个 bson （bson1）是替换目标，这个方法执行结果是查询满足条件bson1的结果，然后将这些文档的 bson1字段用 bson2代替。</p>
+<p>这个方法执行起来可能会让人很无语，因为按照直觉，我们调用的时候可能更想做的是查找满足条件的文档，然后将里面的其他一些字段用 bson2替换掉。要实现这个功能也不是不可能的，不过要搞个嵌套 BasicDBObject，要用到<code>$set</code>操作算子。示例代码段如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BasicDBObject opr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDBObject(<span style="color:#e6db74">&#34;$set&#34;</span>,<span style="color:#66d9ef">new</span> BasicDBObject(<span style="color:#e6db74">&#34;status&#34;</span>,<span style="color:#e6db74">&#34;on&#34;</span>));
+</span></span><span style="display:flex;"><span>mongoCollection.<span style="color:#a6e22e">updateOne</span>(<span style="color:#66d9ef">new</span> BasicDBObject(<span style="color:#e6db74">&#34;id&#34;</span>,<span style="color:#e6db74">&#34;0005&#34;</span>),opr);
+</span></span></code></pre></div><p>这段代码执行的结果是查找 id 是0005的文档，然后把这个文档中的 status 字段设为 on。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/java/">Java</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Antarx Blog
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

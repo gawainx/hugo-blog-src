@@ -1,6 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Antarx Blog</title><link>http://antarxly.com/tags/docker/</link><description>Recent content in Docker on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 27 Jun 2018 16:42:27 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>gxd-cli is gawainx' docker client</title><link>http://antarxly.com/posts/gxd-cli/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://antarxly.com/posts/gxd-cli/</guid><description>&lt;h1 id="gxd-cli--一种快速创建多容器工具"&gt;gxd-cli : 一种快速创建多容器工具
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Docker on Antarx Blog</title>
+        <link>http://antarxly.com/tags/docker/</link>
+        <description>Recent content in Docker on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 27 Jun 2018 16:42:27 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/docker/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>gxd-cli is gawainx&#39; docker client</title>
+        <link>http://antarxly.com/posts/gxd-cli/</link>
+        <pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/gxd-cli/</guid>
+        <description>&lt;h1 id=&#34;gxd-cli--一种快速创建多容器工具&#34;&gt;gxd-cli : 一种快速创建多容器工具
 &lt;/h1&gt;&lt;p&gt;通过 &lt;code&gt;docker run&lt;/code&gt; 命令行启动容器的时候，配置网络、挂载卷是一件非常麻烦的事，&lt;code&gt;gxd-cli&lt;/code&gt;将这些麻烦的工作简化成修改配置文件&lt;code&gt;TOML&lt;/code&gt;达成在不需要记忆繁琐的 docker 命令行参数就能快速启动多容器。&lt;/p&gt;
-&lt;h2 id="功能列表"&gt;功能列表
+&lt;h2 id=&#34;功能列表&#34;&gt;功能列表
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;创建多容器，创建每个容器过程可以配置一下选项
 &lt;ul&gt;
@@ -13,151 +27,183 @@
 &lt;li&gt;创建网络&lt;/li&gt;
 &lt;li&gt;快速生成模板文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="安装"&gt;安装
+&lt;h2 id=&#34;安装&#34;&gt;安装
 &lt;/h2&gt;&lt;p&gt;支持从源码构建，构建之前首先保证系统已经安装&lt;code&gt;golang&lt;/code&gt;和&lt;code&gt;dep&lt;/code&gt;
 步骤如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@github.com:gawainx/gxd-cli.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dep ensure -update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go install
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone git@github.com:gawainx/gxd-cli.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dep ensure -update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完毕后在命令行通过&lt;code&gt;gxd-cli&lt;/code&gt;调用。&lt;/p&gt;
-&lt;h2 id="项目地址"&gt;项目地址
-&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
-&gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://antarxly.com/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
-&lt;/h1&gt;&lt;h2 id="端口绑定"&gt;端口绑定
+&lt;h2 id=&#34;项目地址&#34;&gt;项目地址
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/gawainx/gxd-cli&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gawainx/gxd-cli&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>go docker client 使用教程（二）</title>
+        <link>http://antarxly.com/posts/go-docker-02/</link>
+        <pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/go-docker-02/</guid>
+        <description>&lt;h1 id=&#34;docker-client-for-golang-使用教程二网络&#34;&gt;Docker client for golang 使用教程（二）：网络
+&lt;/h1&gt;&lt;h2 id=&#34;端口绑定&#34;&gt;端口绑定
 &lt;/h2&gt;&lt;p&gt;将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的&lt;code&gt;-p 8080:80&lt;/code&gt;解决问题。但在 golang client 中，问题却变得复杂起来。&lt;/p&gt;
 &lt;p&gt;首先来看创建容器的函数签名&lt;code&gt;func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)&lt;/code&gt;,client 把运行配置拆分成了&lt;code&gt;container.Config&lt;/code&gt; 和 &lt;code&gt;container.HostConfig&lt;/code&gt; ，也就是容器内部设置和宿主机设置两项。&lt;/p&gt;
 &lt;p&gt;要实现端口绑定，首先要在容器设置中设定暴露的端口（exposed ports）。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make(&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortSet&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;_&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NewPort&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;80&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;] = &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt;{}{}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// in config:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerCreate&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Config&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;ExposedPorts&lt;/span&gt;:&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortSet&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewPort&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;] = &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// in config:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerCreate&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Config&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;ExposedPorts&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，在 host.config 中，设置Host 端口与容器暴露出来的端口的绑定。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make(&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortMap&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make([]&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortBinding&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt; = append(&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortBinding&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;HostPort&lt;/span&gt;:&lt;span style="color:#e6db74"&gt;&amp;#34;8080&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;})
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;] = &lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//in Host.config&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;HostConfig&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;PortBindings&lt;/span&gt;:&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的&lt;img src="https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg"
-loading="lazy"
-alt="类型不匹配错误"
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortMap&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortBinding&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt; = append(&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortBinding&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;HostPort&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8080&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;] = &lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//in Host.config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HostConfig&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PortBindings&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的&lt;img src=&#34;https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;类型不匹配错误&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;参考&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
-&gt;go操作docker - 简书&lt;/a&gt;的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行&lt;code&gt;go get github.com/docker/go-connections/nat&lt;/code&gt; ，问题解决。&lt;/p&gt;
-&lt;h2 id="相关链接"&gt;相关链接
+&lt;p&gt;参考&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/283f32fc045a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;go操作docker - 简书&lt;/a&gt;的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行&lt;code&gt;go get github.com/docker/go-connections/nat&lt;/code&gt; ，问题解决。&lt;/p&gt;
+&lt;h2 id=&#34;相关链接&#34;&gt;相关链接
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="link" href="https://godoc.org/github.com/docker/docker/client#Client.ContainerCreate" target="_blank" rel="noopener"
-&gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
-&gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>go docker client 使用教程（一）</title><link>http://antarxly.com/posts/go-docker-01/</link><pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-01/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程一"&gt;Docker client for golang 使用教程（一）
-&lt;/h1&gt;&lt;p&gt;Docker 官方提供了适用于 golang 的 &lt;a class="link" href="https://github.com/moby/moby/tree/master/client" target="_blank" rel="noopener"
-&gt;client&lt;/a&gt;，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发&lt;a class="link" href="https://github.com/gawainx/gxd-cli" target="_blank" rel="noopener"
-&gt;gxd-cli&lt;/a&gt;的过程中，需要大量使用到这个 SDK，所以便有了这个系列。&lt;/p&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://godoc.org/github.com/docker/docker/client#Client.ContainerCreate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/283f32fc045a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>go docker client 使用教程（一）</title>
+        <link>http://antarxly.com/posts/go-docker-01/</link>
+        <pubDate>Tue, 29 May 2018 11:05:41 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/go-docker-01/</guid>
+        <description>&lt;h1 id=&#34;docker-client-for-golang-使用教程一&#34;&gt;Docker client for golang 使用教程（一）
+&lt;/h1&gt;&lt;p&gt;Docker 官方提供了适用于 golang 的 &lt;a class=&#34;link&#34; href=&#34;https://github.com/moby/moby/tree/master/client&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;client&lt;/a&gt;，可惜的是网上几乎没有完整可用的使用教程或者例子。在开发&lt;a class=&#34;link&#34; href=&#34;https://github.com/gawainx/gxd-cli&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gxd-cli&lt;/a&gt;的过程中，需要大量使用到这个 SDK，所以便有了这个系列。&lt;/p&gt;
 &lt;p&gt;本篇涉及通过代码运行第一个容器，以及如何挂载卷。&lt;/p&gt;
-&lt;h2 id="运行第一个容器"&gt;运行第一个容器
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/*
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; *Gawain Open Source Project
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; *Author: Gawain Antarx
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; *Create Date: 2018-May-29
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt; *
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;github.com/docker/docker/client&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;github.com/docker/docker/api/types&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;github.com/docker/docker/api/types/container&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;io&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;os&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;context&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;context&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Background&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;client&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NewClientWithOpts&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;client&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;WithVersion&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;1.37&amp;#34;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; panic(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerCreate&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Config&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;Image&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;alpine:latest&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;Cmd&lt;/span&gt;: []&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt;{&lt;span style="color:#e6db74"&gt;&amp;#34;echo&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }, &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; panic(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerStart&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ID&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;types&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerStartOptions&lt;/span&gt;{}); &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; panic(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;statusCh&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;errCh&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerWait&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ID&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;WaitConditionNotRunning&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;select&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;errCh&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; panic(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;statusCh&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;out&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerLogs&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ID&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;types&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerLogsOptions&lt;/span&gt;{&lt;span style="color:#a6e22e"&gt;ShowStdout&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;true&lt;/span&gt;})
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; panic(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;io&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Copy&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;os&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Stdout&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;out&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;h2 id=&#34;运行第一个容器&#34;&gt;运行第一个容器
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *Gawain Open Source Project
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *Author: Gawain Antarx
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *Create Date: 2018-May-29
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/docker/docker/client&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/docker/docker/api/types&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/docker/docker/api/types/container&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;io&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;os&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;context&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Background&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewClientWithOpts&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithVersion&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1.37&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerCreate&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Config&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;Image&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;alpine:latest&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;Cmd&lt;/span&gt;:   []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;echo&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}, &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerStart&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ID&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;types&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerStartOptions&lt;/span&gt;{}); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;statusCh&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;errCh&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerWait&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ID&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WaitConditionNotRunning&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;errCh&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;statusCh&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerLogs&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ID&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;types&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerLogsOptions&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;ShowStdout&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Copy&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stdout&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;官方使用&lt;code&gt;client.NewEnvClient()&lt;/code&gt;来初始化&lt;code&gt;client&lt;/code&gt;，在 IDE 中提示这个接口已经过时，推荐使用&lt;code&gt;client.NewClientWithOpts()&lt;/code&gt;。要注意的是，直接调用的时候一般会提示 API 版本不匹配，需要加&lt;code&gt;client.WithVersion(&amp;quot;1.37&amp;quot;)&lt;/code&gt;作为参数传入。&lt;code&gt;1.37&lt;/code&gt;部分可以根据它的错误提示自行修改。&lt;/p&gt;
-&lt;h2 id="绑定卷"&gt;绑定卷
-&lt;/h2&gt;&lt;p&gt;将自己代码放入容器中运行时最基本的操作，在命令行中通过&lt;code&gt;-v {host vol}:{container vol}&lt;/code&gt;实现，在 golang sdk 中，开发者却没有提供这部分的重要说明。通过查阅&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/155" target="_blank" rel="noopener"
-&gt;issue155&lt;/a&gt;以及&lt;a class="link" href="https://github.com/fsouza/go-dockerclient/issues/132" target="_blank" rel="noopener"
-&gt;issue1&lt;/a&gt;，得到的解决方案如下。&lt;/p&gt;
-&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description></item><item><title>TensorFlow For Docker 初体验</title><link>http://antarxly.com/posts/dockertf/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/posts/dockertf/</guid><description>&lt;hr&gt;
+&lt;h2 id=&#34;绑定卷&#34;&gt;绑定卷
+&lt;/h2&gt;&lt;p&gt;将自己代码放入容器中运行时最基本的操作，在命令行中通过&lt;code&gt;-v {host vol}:{container vol}&lt;/code&gt;实现，在 golang sdk 中，开发者却没有提供这部分的重要说明。通过查阅&lt;a class=&#34;link&#34; href=&#34;https://github.com/fsouza/go-dockerclient/issues/155&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;issue155&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://github.com/fsouza/go-dockerclient/issues/132&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;issue1&lt;/a&gt;，得到的解决方案如下。&lt;/p&gt;
+&lt;p&gt;卷绑定通过&lt;code&gt;client.ContainerStart()&lt;/code&gt;里面的参数&lt;code&gt;client.HostConfig&lt;/code&gt;结构的&lt;code&gt;Binds&lt;/code&gt;传入，传入的类型是&lt;code&gt;[]string&lt;/code&gt;，这个字符串序列的中每个字符串的格式&lt;code&gt;{host_vol}:{com_col}&lt;/code&gt;，也就是和命令行的一致。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>TensorFlow For Docker 初体验</title>
+        <link>http://antarxly.com/posts/dockertf/</link>
+        <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dockertf/</guid>
+        <description>&lt;hr&gt;
 &lt;p&gt;TensorFlow 是一套开源的机器学习工具。一般来说只用 TensorFlow 的话配置运行环境什么的并没有特别坑的地方，但如果想用到 GPU 加速计算的话配置起来就要费好大一番力气了，还经常遇到各种版本不兼容、找不到依赖关系等问题，让人头疼。而 Docker 刚好是解决开源软件各种依赖关系的神物，NVIDIA 刚好又有工具能让容器用上 GPU 进行计算。&lt;/p&gt;
 &lt;p&gt;下面分享配置过程。&lt;/p&gt;
 &lt;p&gt;测试环境是 GTX850M+Ubuntu16.04.3+CUDA9.0+GeForce 384.00&lt;/p&gt;
 &lt;p&gt;驱动及 CUDA 安装过程参考即将到来的另一篇文章。&lt;/p&gt;
-&lt;h1 id="安装-docker"&gt;安装 Docker
+&lt;h1 id=&#34;安装-docker&#34;&gt;安装 Docker
 &lt;/h1&gt;&lt;p&gt;可以用&lt;code&gt;curl -sSL https://get.daocloud.io/docker | sh&lt;/code&gt;这条命令快速安装 Docker，不过，这个安装脚本默认会安装最新版本的 Docker（当前是17.11.0 docker-ce），而 NVIDIA Docker 并不支持这个新版本（跪&lt;/p&gt;
 &lt;p&gt;所以要进行一下卸载再降级操作&amp;hellip;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# uninstall docker&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get purge docker-ce
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看软件库中可用的历史版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-cache policy docker-ce
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# install docker-ce 17.09&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y docker-ce&lt;span style="color:#f92672"&gt;=&lt;/span&gt;17.09.0~ce-0~ubuntu
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# uninstall docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get purge docker-ce
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 查看软件库中可用的历史版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-cache policy docker-ce
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# install docker-ce 17.09&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install -y docker-ce&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;17.09.0~ce-0~ubuntu
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;值得一提的是17年的某个版本开始，docker 的软件包统一到 docker-ce（社区）和 docker-ee（付费企业版）上面来了，开发使用的主要以 docker-ce 为主，网上很多教程（尤其是2016年、2016年的）说到安装 docker 的软件包名叫例如 lxc-docker docker.io 等的都是老旧版本的。&lt;/p&gt;
-&lt;h1 id="安装-nvidia-docker"&gt;安装 NVIDIA-docker
-&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener"
-&gt;Nvidia-Docker&lt;/a&gt;是老黄提供的一套在 Docker 上制造跑核弹的工具（。&lt;/p&gt;
+&lt;h1 id=&#34;安装-nvidia-docker&#34;&gt;安装 NVIDIA-docker
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/NVIDIA/nvidia-docker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nvidia-Docker&lt;/a&gt;是老黄提供的一套在 Docker 上制造跑核弹的工具（。&lt;/p&gt;
 &lt;p&gt;简单来说，这套工具提供了一个运行时，用来连接 Docker 容器和物理设备的 GPU 资源，使得 Docker 容器可以直接访问、调用物理机的 GPU 资源进行密集型计算操作。&lt;/p&gt;
 &lt;p&gt;安装步骤如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Add the package repositories 添加软件仓库&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; sudo apt-key add -
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install nvidia-docker2 and reload the Docker daemon configuration&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y nvidia-docker2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pkill -SIGHUP dockerd
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Test nvidia-smi with the latest official CUDA image&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --runtime&lt;span style="color:#f92672"&gt;=&lt;/span&gt;nvidia --rm nvidia/cuda nvidia-smi
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add the package repositories 添加软件仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install nvidia-docker2 and reload the Docker daemon configuration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install -y nvidia-docker2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo pkill -SIGHUP dockerd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test nvidia-smi with the latest official CUDA image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run --runtime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;nvidia --rm nvidia/cuda nvidia-smi
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Ubuntu16.04测试通过。&lt;/p&gt;
-&lt;h1 id="安装-tensorflow-的-docker-镜像"&gt;安装 TensorFlow 的 Docker 镜像
+&lt;h1 id=&#34;安装-tensorflow-的-docker-镜像&#34;&gt;安装 TensorFlow 的 Docker 镜像
 &lt;/h1&gt;&lt;p&gt;TensorFlow 官方提供了 for Docker 的镜像，里面集成了完整的依赖关系，免去了用&lt;code&gt;pip&lt;/code&gt;安装各种包的烦恼。&lt;/p&gt;
 &lt;p&gt;镜像包含很多 tag，常用的有下面几个：&lt;/p&gt;
 &lt;ul&gt;
@@ -168,45 +214,69 @@ alt="类型不匹配错误"
 &lt;/ul&gt;
 &lt;p&gt;我自己用的是最后一个。&lt;/p&gt;
 &lt;p&gt;首先下载镜像下来。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull tensorflow/tensorflow:latest-gpu-py3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull tensorflow/tensorflow:latest-gpu-py3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后跑个 python3交互环境试试水&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --runtime&lt;span style="color:#f92672"&gt;=&lt;/span&gt;nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run --runtime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;nvidia --rm -it tensorflow/tensorflow:latest-gpu-py3 python3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在交互环境下输入&lt;code&gt;import tensorflow as tf&lt;/code&gt;，如果没提示依赖库错误则说明安装成功。&lt;/p&gt;
 &lt;p&gt;上面的&lt;code&gt;—runtime=nvidia&lt;/code&gt;为调用 nvidia-docker 工具包（运行时）而不是标准运行时来运行镜像，只有加了这个选项才能调用 GPU。&lt;/p&gt;
 &lt;p&gt;最后跑一下多重感知机训练手写数字识别，效果图&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg"
-loading="lazy"
-alt="多重感知机训练手写数字识别模型"
+&lt;p&gt;&lt;img src=&#34;http://7xpabg.com1.z0.glb.clouddn.com/20171206222913_Q4dNYH_Snip20171206_3.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;多重感知机训练手写数字识别模型&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description></item><item><title>macOS下使用 docker 进行 CSharp 开发（一）</title><link>http://antarxly.com/posts/dotnetdocker/</link><pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate><guid>http://antarxly.com/posts/dotnetdocker/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;p&gt;输出显示调用 GPU:0进行计算，说明配置一路顺风了。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>macOS下使用 docker 进行 CSharp 开发（一）</title>
+        <link>http://antarxly.com/posts/dotnetdocker/</link>
+        <pubDate>Sun, 27 Aug 2017 18:46:52 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dotnetdocker/</guid>
+        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
 &lt;/h1&gt;&lt;p&gt;过去一年多时间里一直忙着准备考研、OJ、毕设这些东西，都没时间在微软的技术方面进行更深入的学习。现在很多事情都尘埃落定之后，终于可以重操旧业继续传教之路。因为研究生研究的方向跟 docker 有些关系，自己也觉得这玩意挺有意思的。所以，以后的一大段时间里都会探索.net 跟 docker 的结合的相关应用。这一系列文章如果没有特别说明，都是以 macOS 为主要的开发环境，也算是为微软的跨平台大业添砖加瓦了。&lt;/p&gt;
 &lt;p&gt;这篇算是一个起点，探讨在 macOS 环境下进行开发的相关配置。&lt;/p&gt;
-&lt;h1 id="安装-docker-环境"&gt;安装 Docker 环境
+&lt;h1 id=&#34;安装-docker-环境&#34;&gt;安装 Docker 环境
 &lt;/h1&gt;&lt;p&gt;现在在 macOS 上安装 docker 已经没有以前那么复杂了。基本上就是下载 dmg 文件回来拖拖鼠标的事儿。在毕设那段时间的体验中，甚至觉得在 macOS 上安装 Docker 是最为简便快捷，很难出什么幺蛾子的。：）&lt;/p&gt;
-&lt;p&gt;下载地址：&lt;a class="link" href="https://www.docker.com/get-docker" target="_blank" rel="noopener"
-&gt;Docker 官网&lt;/a&gt;
+&lt;p&gt;下载地址：&lt;a class=&#34;link&#34; href=&#34;https://www.docker.com/get-docker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Docker 官网&lt;/a&gt;
 经测试现在不用翻墙就可以访问啦。
 要下载镜像的话还是配置加速器会比较快一些，我自己是配了阿里云提供的一个加速器地址。注册阿里云账号之后会免费提供。&lt;/p&gt;
-&lt;h1 id="下载-dotnet-镜像"&gt;下载 dotnet 镜像
+&lt;h1 id=&#34;下载-dotnet-镜像&#34;&gt;下载 dotnet 镜像
 &lt;/h1&gt;&lt;p&gt;运行命令&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker pull microsoft/dotnet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    docker pull microsoft/dotnet
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认下载的是 latest 版本。&lt;/p&gt;
-&lt;h1 id="基于镜像运行容器"&gt;基于镜像运行容器
+&lt;h1 id=&#34;基于镜像运行容器&#34;&gt;基于镜像运行容器
 &lt;/h1&gt;&lt;p&gt;在开发中我的习惯是将源代码放到本地的文件夹中，然后将这个文件夹挂载到 Docker 容器里面，这样在本地就可以用自己熟悉的环境对源代码各种修改，容器那边只需要重启一下就会自动运行新版本的代码，十分方便。&lt;/p&gt;
 &lt;p&gt;运行以下命令：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker run -it -v &lt;span style="color:#e6db74"&gt;`&lt;/span&gt;pwd&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;:/csharp -w /csharp microsoft/dotnet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    docker run -it -v &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;pwd&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;:/csharp -w /csharp microsoft/dotnet
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;命令中通过&lt;code&gt;-it&lt;/code&gt;开启了实时交互模式，只是因为在家里没梯子，下载 dotnet core 的 SDK 贼慢，只好采取此方法。
 实际应用的时候可以在本地 shell 先建立好项目编辑完源代码直接甩容器里跑最方便的。&lt;/p&gt;
-&lt;h1 id="新建项目编辑代码运行"&gt;新建项目、编辑代码、运行
+&lt;h1 id=&#34;新建项目编辑代码运行&#34;&gt;新建项目、编辑代码、运行
 &lt;/h1&gt;&lt;p&gt;运行容器之后，在容器弹出的交互界面中，输入&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; dotnet new console -o hwapp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dotnet new console -o hwapp
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;命令的基本含义是以控制台为模板新建一个名为&lt;code&gt;hwapp&lt;/code&gt;的项目。
 在本机，用 vscode 打开工作目录下的 Program.cs 源文件，编辑代码，本次以输出“hello docker‘为例。
 编辑完代码，保存之后，在容器的终端中运行&lt;code&gt;dotnet run&lt;/code&gt;运行项目。
-&lt;img src="http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg"
-loading="lazy"
-alt="运行结果"
+&lt;img src=&#34;http://7xpabg.com1.z0.glb.clouddn.com/20170827192813_U1a7uG_Snip20170827_3.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;运行结果&#34;
+	
+	
 &gt;&lt;/p&gt;
 &lt;p&gt;//忽略第一次那个白痴错误（汗&lt;/p&gt;
-&lt;h1 id="后记"&gt;后记
-&lt;/h1&gt;&lt;p&gt;到此为止，在 macOS 下用 Docker 运行.net 程序的第一次尝试就完成了。要补充的内容还有很多，比如配置 vscode 开发环境等等工作，也只能等到回校有畅快的开发环境再慢慢补完了。&lt;/p&gt;</description></item></channel></rss>
+&lt;h1 id=&#34;后记&#34;&gt;后记
+&lt;/h1&gt;&lt;p&gt;到此为止，在 macOS 下用 Docker 运行.net 程序的第一次尝试就完成了。要补充的内容还有很多，比如配置 vscode 开发环境等等工作，也只能等到回校有畅快的开发环境再慢慢补完了。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

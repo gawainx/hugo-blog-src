@@ -1,62 +1,352 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n"><title>LeetCode股神大激斗</title><link rel=canonical href=http://antarxly.com/posts/leetcode-stock/><link rel=stylesheet href=/scss/style.min.14d9b41da7cf9f4898744e7211dec57af99e151bac3bc2b70d598a7a43d66952.css><meta property='og:title' content="LeetCode股神大激斗"><meta property='og:description' content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n"><meta property='og:url' content='http://antarxly.com/posts/leetcode-stock/'><meta property='og:site_name' content='Antarx Blog'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='leetcode'><meta property='article:tag' content='OJ'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2022-08-02T17:22:35+00:00'><meta property='article:modified_time' content='2022-08-02T17:22:35+00:00'><meta name=twitter:title content="LeetCode股神大激斗"><meta name=twitter:description content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><div class=site-meta><h1 class=site-name><a href=/>Antarx Blog</a></h1><h2 class=site-description>AI Infra | Vibe Coding | SwiftUI</h2></div></header><ol class=menu id=main-menu><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>搜索</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
-<span>友情链接</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ul><li><a href=#no121-买卖股票的最佳时机>No.121 买卖股票的最佳时机</a><ul><li><a href=#题目描述>题目描述</a></li><li><a href=#踩坑思路>踩坑思路</a></li></ul></li><li><a href=#no122-买卖股票的最佳时机-ii>No.122 买卖股票的最佳时机 II</a><ul><li><a href=#题目描述-1>题目描述</a></li><li><a href=#解题思路>解题思路</a></li><li><a href=#实现代码>实现代码</a></li></ul></li><li><a href=#901-股票价格跨度>901 股票价格跨度</a><ul><li><a href=#思路分析>思路分析</a></li><li><a href=#代码实现>代码实现</a></li></ul></li></ul></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/posts/leetcode-stock/>LeetCode股神大激斗</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Aug 02, 2022</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><section class=article-content><p>这次来分析一下LeetCode中几道炒股题目</p><h2 id=no121-买卖股票的最佳时机>No.121 买卖股票的最佳时机</h2><h3 id=题目描述>题目描述</h3><p>给定一个数组 <code>prices</code> ，它的第 <code>i</code> 个元素 <code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p><p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p><p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p><p>示例 1：</p><pre tabindex=0><code>输入：[7,1,5,3,6,4]
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n">
+<title>LeetCode股神大激斗</title>
+
+<link rel='canonical' href='http://antarxly.com/posts/leetcode-stock/'>
+
+<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="LeetCode股神大激斗">
+<meta property='og:description' content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n">
+<meta property='og:url' content='http://antarxly.com/posts/leetcode-stock/'>
+<meta property='og:site_name' content='Antarx Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='leetcode' /><meta property='article:tag' content='OJ' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-08-02T17:22:35&#43;00:00'/><meta property='article:modified_time' content='2022-08-02T17:22:35&#43;00:00'/>
+<meta name="twitter:title" content="LeetCode股神大激斗">
+<meta name="twitter:description" content="这次来分析一下LeetCode中几道炒股题目\nNo.121 买卖股票的最佳时机 题目描述 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。\n你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
+            <h2 class="site-description">AI Infra | Vibe Coding | SwiftUI</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#no121-买卖股票的最佳时机">No.121 买卖股票的最佳时机</a>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#踩坑思路">踩坑思路</a></li>
+      </ul>
+    </li>
+    <li><a href="#no122-买卖股票的最佳时机-ii">No.122 买卖股票的最佳时机 II</a>
+      <ul>
+        <li><a href="#题目描述-1">题目描述</a></li>
+        <li><a href="#解题思路">解题思路</a></li>
+        <li><a href="#实现代码">实现代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#901-股票价格跨度">901 股票价格跨度</a>
+      <ul>
+        <li><a href="#思路分析">思路分析</a></li>
+        <li><a href="#代码实现">代码实现</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/leetcode-stock/">LeetCode股神大激斗</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 02, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>这次来分析一下LeetCode中几道炒股题目</p>
+<h2 id="no121-买卖股票的最佳时机">No.121 买卖股票的最佳时机
+</h2><h3 id="题目描述">题目描述
+</h3><p>给定一个数组 <code>prices</code> ，它的第 <code>i</code> 个元素 <code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p>
+<p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
+<p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p>
+<p>示例 1：</p>
+<pre tabindex="0"><code>输入：[7,1,5,3,6,4]
 输出：5
 解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
-</code></pre><p>示例 2：</p><pre tabindex=0><code>输入：prices = [7,6,4,3,1]
+</code></pre><p>示例 2：</p>
+<pre tabindex="0"><code>输入：prices = [7,6,4,3,1]
 输出：0
 解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
-</code></pre><h3 id=踩坑思路>踩坑思路</h3><p>一开始想对每个元素，往前找最大值，可是这个题目的数据范围非常大，超时了。</p><p>基于这个想法，马上想到，超时是因为重复计算，比如找到一个最大值之后，我就不用每次都找最大值了，想到第二种思路，就是找到最大值之后，在子区间找最小值，然后从最大值的下一个位置开始继续找。这时候又面临另外的情况：</p><ol><li>数组是单调递减的时候，反复找依然很浪费时间</li><li>摆动数组：还是浪费时间。</li></ol><p>于是这个版本的代码也超时了。</p><p>最后看答案找到第三种解法——滚动法。因为题目限制了只买卖一次，那我就假设，一开始是第一天买入的，从前往后遍历：</p><ol><li>遍历到位置i的时候就假设是那天卖出去，看能捞多少钱，如果比已知最大利润更大那就更新最大利润。</li><li>如果遍历找到一个更小的价格，那就按照那个价格买入。这时候注意，因为是从前往后遍历，所以不会存在找到最小值之后倒车卖出（最大值出现在最小值之前）的可能性，只是滚动更新买入价格而已。</li></ol><p>这次终于不超时了。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>maxProfit</span>(self, prices: List[int]) <span style=color:#f92672>-&gt;</span> int:
-</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>        buyin <span style=color:#f92672>=</span> prices[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> price <span style=color:#f92672>in</span> prices:
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> price <span style=color:#f92672>-</span> buyin <span style=color:#f92672>&gt;</span> res:
-</span></span><span style=display:flex><span>                res <span style=color:#f92672>=</span> price <span style=color:#f92672>-</span> buyin
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> price <span style=color:#f92672>&lt;</span> buyin:
-</span></span><span style=display:flex><span>                buyin <span style=color:#f92672>=</span> price
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res
-</span></span></code></pre></div><p>运行结果：</p><pre tabindex=0><code>Accepted
+</code></pre><h3 id="踩坑思路">踩坑思路
+</h3><p>一开始想对每个元素，往前找最大值，可是这个题目的数据范围非常大，超时了。</p>
+<p>基于这个想法，马上想到，超时是因为重复计算，比如找到一个最大值之后，我就不用每次都找最大值了，想到第二种思路，就是找到最大值之后，在子区间找最小值，然后从最大值的下一个位置开始继续找。这时候又面临另外的情况：</p>
+<ol>
+<li>数组是单调递减的时候，反复找依然很浪费时间</li>
+<li>摆动数组：还是浪费时间。</li>
+</ol>
+<p>于是这个版本的代码也超时了。</p>
+<p>最后看答案找到第三种解法——滚动法。因为题目限制了只买卖一次，那我就假设，一开始是第一天买入的，从前往后遍历：</p>
+<ol>
+<li>遍历到位置i的时候就假设是那天卖出去，看能捞多少钱，如果比已知最大利润更大那就更新最大利润。</li>
+<li>如果遍历找到一个更小的价格，那就按照那个价格买入。这时候注意，因为是从前往后遍历，所以不会存在找到最小值之后倒车卖出（最大值出现在最小值之前）的可能性，只是滚动更新买入价格而已。</li>
+</ol>
+<p>这次终于不超时了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices: List[int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        buyin <span style="color:#f92672">=</span> prices[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> price <span style="color:#f92672">in</span> prices:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> price <span style="color:#f92672">-</span> buyin <span style="color:#f92672">&gt;</span> res:
+</span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> price <span style="color:#f92672">-</span> buyin
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> price <span style="color:#f92672">&lt;</span> buyin:
+</span></span><span style="display:flex;"><span>                buyin <span style="color:#f92672">=</span> price
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
+</span></span></code></pre></div><p>运行结果：</p>
+<pre tabindex="0"><code>Accepted
 211/211 cases passed (96 ms)
 Your runtime beats 98.87 % of python3 submissions
 Your memory usage beats 85.42 % of python3 submissions (23.3 MB)
-</code></pre><h2 id=no122-买卖股票的最佳时机-ii>No.122 买卖股票的最佳时机 II</h2><h3 id=题目描述-1>题目描述</h3><p>给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。</p><p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候 <strong>最多</strong> 只能持有 一股 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。</p><p>返回 你能获得的 <strong>最大</strong> 利润 。</p><p>示例 1：</p><pre tabindex=0><code>输入：prices = [7,1,5,3,6,4]
+</code></pre><h2 id="no122-买卖股票的最佳时机-ii">No.122 买卖股票的最佳时机 II
+</h2><h3 id="题目描述-1">题目描述
+</h3><p>给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。</p>
+<p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候 <strong>最多</strong> 只能持有 一股 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。</p>
+<p>返回 你能获得的 <strong>最大</strong> 利润 。</p>
+<p>示例 1：</p>
+<pre tabindex="0"><code>输入：prices = [7,1,5,3,6,4]
 输出：7
 解释：在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
      随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
      总利润为 4 + 3 = 7 。
-</code></pre><p>示例 2：</p><pre tabindex=0><code>输入：prices = [1,2,3,4,5]
+</code></pre><p>示例 2：</p>
+<pre tabindex="0"><code>输入：prices = [1,2,3,4,5]
 输出：4
 解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
      总利润为 4 。
-</code></pre><p>示例 3：</p><pre tabindex=0><code>输入：prices = [7,6,4,3,1]
+</code></pre><p>示例 3：</p>
+<pre tabindex="0"><code>输入：prices = [7,6,4,3,1]
 输出：0
 解释：在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0 。
-</code></pre><h3 id=解题思路>解题思路</h3><p>这个反而感觉比121还要简单一些，比121多了多次交易这个条件。我的实现思路是不断找单调递增子序列。子序列的起点为买入时间，子序列的终点是卖出时间。这里有个边界条件是，在序列遍历结束之后，如果买入日期不是-1，那就意味从买入日期开始到最后构成一个单调递增子序列，需要在最后一天卖出，赚最后一手钱。</p><h3 id=实现代码>实现代码</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>maxProfit</span>(self, prices: List[int]) <span style=color:#f92672>-&gt;</span> int:
-</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>        prev <span style=color:#f92672>=</span> prices[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>        start <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> idx, price <span style=color:#f92672>in</span> enumerate(prices):
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> price <span style=color:#f92672>&gt;</span> prev <span style=color:#f92672>and</span> start <span style=color:#f92672>==</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>:
-</span></span><span style=display:flex><span>                    start <span style=color:#f92672>=</span> idx <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> price <span style=color:#f92672>&lt;</span> prev <span style=color:#f92672>and</span> start <span style=color:#f92672>!=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>:
-</span></span><span style=display:flex><span>                end <span style=color:#f92672>=</span> idx <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>                res <span style=color:#f92672>+=</span> (prices[end] <span style=color:#f92672>-</span> prices[start])
-</span></span><span style=display:flex><span>                start <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>            prev <span style=color:#f92672>=</span> price
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> start <span style=color:#f92672>!=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>:
-</span></span><span style=display:flex><span>            <span style=color:#75715e># 说明到最后一天还没卖出，那就在最后一天卖出</span>
-</span></span><span style=display:flex><span>            res <span style=color:#f92672>+=</span> (prices[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> prices[start])
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res
-</span></span></code></pre></div><h2 id=901-股票价格跨度>901 股票价格跨度</h2><p>编写一个 <code>StockSpanner</code> 类，它收集某些股票的每日报价，并返回该股票当日价格的跨度。</p><p>今天股票价格的跨度被定义为股票价格小于或等于今天价格的最大连续日数（从今天开始往回数，包括今天）。</p><p>例如，如果未来7天股票的价格是 <code>[100, 80, 60, 70, 60, 75, 85]</code>，那么股票跨度将是 <code>[1, 1, 1, 2, 1, 4, 6]</code>。</p><p>示例：</p><pre tabindex=0><code>输入：[&#34;StockSpanner&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;], [[],[100],[80],[60],[70],[60],[75],[85]]
+</code></pre><h3 id="解题思路">解题思路
+</h3><p>这个反而感觉比121还要简单一些，比121多了多次交易这个条件。我的实现思路是不断找单调递增子序列。子序列的起点为买入时间，子序列的终点是卖出时间。这里有个边界条件是，在序列遍历结束之后，如果买入日期不是-1，那就意味从买入日期开始到最后构成一个单调递增子序列，需要在最后一天卖出，赚最后一手钱。</p>
+<h3 id="实现代码">实现代码
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices: List[int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        prev <span style="color:#f92672">=</span> prices[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> idx, price <span style="color:#f92672">in</span> enumerate(prices):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> price <span style="color:#f92672">&gt;</span> prev <span style="color:#f92672">and</span> start <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                    start <span style="color:#f92672">=</span> idx <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> price <span style="color:#f92672">&lt;</span> prev <span style="color:#f92672">and</span> start <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                end <span style="color:#f92672">=</span> idx <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                res <span style="color:#f92672">+=</span> (prices[end] <span style="color:#f92672">-</span> prices[start])
+</span></span><span style="display:flex;"><span>                start <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            prev <span style="color:#f92672">=</span> price
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> start <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 说明到最后一天还没卖出，那就在最后一天卖出</span>
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">+=</span> (prices[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> prices[start])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
+</span></span></code></pre></div><h2 id="901-股票价格跨度">901 股票价格跨度
+</h2><p>编写一个 <code>StockSpanner</code> 类，它收集某些股票的每日报价，并返回该股票当日价格的跨度。</p>
+<p>今天股票价格的跨度被定义为股票价格小于或等于今天价格的最大连续日数（从今天开始往回数，包括今天）。</p>
+<p>例如，如果未来7天股票的价格是 <code>[100, 80, 60, 70, 60, 75, 85]</code>，那么股票跨度将是 <code>[1, 1, 1, 2, 1, 4, 6]</code>。</p>
+<p>示例：</p>
+<pre tabindex="0"><code>输入：[&#34;StockSpanner&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;,&#34;next&#34;], [[],[100],[80],[60],[70],[60],[75],[85]]
 输出：[null,1,1,1,2,1,4,6]
 解释：
 首先，初始化 S = StockSpanner()，然后：
@@ -68,28 +358,252 @@ S.next(60) 被调用并返回 1，
 S.next(75) 被调用并返回 4，
 S.next(85) 被调用并返回 6。
 </code></pre><p>注意 (例如) S.next(75) 返回 4，因为截至今天的最后 4 个价格
-(包括今天的价格 75) 小于或等于今天的价格。</p><p>这道题又一次死在了单调栈。</p><h3 id=思路分析>思路分析</h3><p>一开始看错题目，以为要找数组中比这个价格小的，gg</p><p>看清楚题目之后，用暴力解法，超时。超时原因在于对每个入栈元素都往前判断，题目对时间限制很严格。</p><p>最后看答案才解决问题。有一个很关键的突破口被我忽视了：对进来的每天股票的价格，如果这个价格比以前的价格低，那么以前的这些价格都不会参与到后续的计算了（因为不可能再构成单调减序列）。</p><p>因此，维护一个单调栈，栈顶元素就是到前一天的价格，不过进栈有讲究：</p><ol><li>如果比前一天的小，那就进栈，天数<code>+1</code></li><li>如果比前一天的大，那就将栈里元素出栈，直到栈里元素都比当前元素大，把当前元素进栈。</li></ol><p>还有个讲究就是，进栈的不仅仅是元素，还有当天的答案。每次出栈的时候，把天数给加起来。为当前元素获得的答案。</p><h3 id=代码实现>代码实现</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>StockSpanner</span>:
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>__init__</span>(self):
-</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>stack <span style=color:#f92672>=</span> []
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>next</span>(self, price: int) <span style=color:#f92672>-&gt;</span> int:
-</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> self<span style=color:#f92672>.</span>stack <span style=color:#f92672>and</span> self<span style=color:#f92672>.</span>stack[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;=</span> price:
-</span></span><span style=display:flex><span>            res <span style=color:#f92672>+=</span> self<span style=color:#f92672>.</span>stack<span style=color:#f92672>.</span>pop()[<span style=color:#ae81ff>1</span>]
-</span></span><span style=display:flex><span>        
-</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>stack<span style=color:#f92672>.</span>append((price, res))
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res
-</span></span></code></pre></div><p>运行结果</p><pre tabindex=0><code>Accepted
+(包括今天的价格 75) 小于或等于今天的价格。</p>
+<p>这道题又一次死在了单调栈。</p>
+<h3 id="思路分析">思路分析
+</h3><p>一开始看错题目，以为要找数组中比这个价格小的，gg</p>
+<p>看清楚题目之后，用暴力解法，超时。超时原因在于对每个入栈元素都往前判断，题目对时间限制很严格。</p>
+<p>最后看答案才解决问题。有一个很关键的突破口被我忽视了：对进来的每天股票的价格，如果这个价格比以前的价格低，那么以前的这些价格都不会参与到后续的计算了（因为不可能再构成单调减序列）。</p>
+<p>因此，维护一个单调栈，栈顶元素就是到前一天的价格，不过进栈有讲究：</p>
+<ol>
+<li>如果比前一天的小，那就进栈，天数<code>+1</code></li>
+<li>如果比前一天的大，那就将栈里元素出栈，直到栈里元素都比当前元素大，把当前元素进栈。</li>
+</ol>
+<p>还有个讲究就是，进栈的不仅仅是元素，还有当天的答案。每次出栈的时候，把天数给加起来。为当前元素获得的答案。</p>
+<h3 id="代码实现">代码实现
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StockSpanner</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>stack <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">next</span>(self, price: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>stack <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;=</span> price:
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>stack<span style="color:#f92672">.</span>pop()[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>stack<span style="color:#f92672">.</span>append((price, res))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
+</span></span></code></pre></div><p>运行结果</p>
+<pre tabindex="0"><code>Accepted
 99/99 cases passed (340 ms)
 Your runtime beats 40.35 % of python3 submissions
 Your memory usage beats 90.02 % of python3 submissions (19.6 MB)
-</code></pre></section><footer class=article-footer><section class=article-tags><a href=/tags/leetcode/>LeetCode</a>
-<a href=/tags/oj/>OJ</a>
-<a href=/tags/python/>Python</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/posts/leetcode-45-55/><div class=article-details><h2 class=article-title>leetcode 45 and 55 两个跳跃游戏</h2></div></a></article><article><a href=/posts/leetcode-1047/><div class=article-details><h2 class=article-title>LeetCode 1047：删除字符串中的所有相邻重复项</h2></div></a></article><article><a href=/posts/stredit-python/><div class=article-details><h2 class=article-title>计算字符串的最短编辑距离（Python版本）</h2></div></a></article><article><a href=/posts/mpseg1/><div class=article-details><h2 class=article-title>最大概率汉语切分算法研究（一）词典构建</h2></div></a></article><article><a href=/posts/cygpy/><div class=article-details><h2 class=article-title>Cygwin安装独立的pip环境</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
-2026 Antarx Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+</code></pre>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/leetcode/">Leetcode</a>
+        
+            <a href="/tags/oj/">OJ</a>
+        
+            <a href="/tags/python/">Python</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/leetcode-45-55/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">leetcode 45 and 55 两个跳跃游戏</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/leetcode-1047/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">LeetCode 1047：删除字符串中的所有相邻重复项</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/stredit-python/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算字符串的最短编辑距离（Python版本）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/mpseg1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最大概率汉语切分算法研究（一）词典构建</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/cygpy/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cygwin安装独立的pip环境</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Antarx Blog
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,1 +1,619 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Antarx Blog</title><link>http://antarxly.com/tags/</link><description>Recent content in Tags on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 28 Jun 2023 11:15:17 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM</title><link>http://antarxly.com/tags/llm/</link><pubDate>Wed, 28 Jun 2023 11:15:17 +0000</pubDate><guid>http://antarxly.com/tags/llm/</guid><description/></item><item><title>对话系统, Task-Oriented Dialogue System</title><link>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</link><pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate><guid>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</guid><description/></item><item><title>Dialogue Emotion Detection</title><link>http://antarxly.com/tags/dialogue-emotion-detection/</link><pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate><guid>http://antarxly.com/tags/dialogue-emotion-detection/</guid><description/></item><item><title>Git</title><link>http://antarxly.com/tags/git/</link><pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate><guid>http://antarxly.com/tags/git/</guid><description/></item><item><title>BERT, Intent CLassification</title><link>http://antarxly.com/tags/bert-intent-classification/</link><pubDate>Thu, 27 Oct 2022 10:31:31 +0000</pubDate><guid>http://antarxly.com/tags/bert-intent-classification/</guid><description/></item><item><title>LeetCode</title><link>http://antarxly.com/tags/leetcode/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/tags/leetcode/</guid><description/></item><item><title>OJ</title><link>http://antarxly.com/tags/oj/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/tags/oj/</guid><description/></item><item><title>Python</title><link>http://antarxly.com/tags/python/</link><pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate><guid>http://antarxly.com/tags/python/</guid><description/></item><item><title>动态规划</title><link>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link><pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate><guid>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid><description/></item><item><title>贪心</title><link>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</link><pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate><guid>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</guid><description/></item><item><title>DGL</title><link>http://antarxly.com/tags/dgl/</link><pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate><guid>http://antarxly.com/tags/dgl/</guid><description/></item><item><title>GNN</title><link>http://antarxly.com/tags/gnn/</link><pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate><guid>http://antarxly.com/tags/gnn/</guid><description/></item><item><title>DEVONthink</title><link>http://antarxly.com/tags/devonthink/</link><pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate><guid>http://antarxly.com/tags/devonthink/</guid><description/></item><item><title>Markdown</title><link>http://antarxly.com/tags/markdown/</link><pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate><guid>http://antarxly.com/tags/markdown/</guid><description/></item><item><title>MATH</title><link>http://antarxly.com/tags/math/</link><pubDate>Mon, 18 Apr 2022 15:17:29 +0000</pubDate><guid>http://antarxly.com/tags/math/</guid><description/></item><item><title>NLP</title><link>http://antarxly.com/tags/nlp/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://antarxly.com/tags/nlp/</guid><description/></item><item><title>Transformer</title><link>http://antarxly.com/tags/transformer/</link><pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate><guid>http://antarxly.com/tags/transformer/</guid><description/></item><item><title>Embedding</title><link>http://antarxly.com/tags/embedding/</link><pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate><guid>http://antarxly.com/tags/embedding/</guid><description/></item><item><title>Knowledge Graph</title><link>http://antarxly.com/tags/knowledge-graph/</link><pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate><guid>http://antarxly.com/tags/knowledge-graph/</guid><description/></item><item><title>KGC</title><link>http://antarxly.com/tags/kgc/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://antarxly.com/tags/kgc/</guid><description/></item><item><title>Temporal Knowledge Graph</title><link>http://antarxly.com/tags/temporal-knowledge-graph/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://antarxly.com/tags/temporal-knowledge-graph/</guid><description/></item><item><title>TKG</title><link>http://antarxly.com/tags/tkg/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://antarxly.com/tags/tkg/</guid><description/></item><item><title>TKGC</title><link>http://antarxly.com/tags/tkgc/</link><pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate><guid>http://antarxly.com/tags/tkgc/</guid><description/></item><item><title>Typora</title><link>http://antarxly.com/tags/typora/</link><pubDate>Sun, 15 Aug 2021 17:18:45 +0000</pubDate><guid>http://antarxly.com/tags/typora/</guid><description/></item><item><title>KGQA</title><link>http://antarxly.com/tags/kgqa/</link><pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate><guid>http://antarxly.com/tags/kgqa/</guid><description/></item><item><title>Temporal Knowledge</title><link>http://antarxly.com/tags/temporal-knowledge/</link><pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate><guid>http://antarxly.com/tags/temporal-knowledge/</guid><description/></item><item><title>KGE</title><link>http://antarxly.com/tags/kge/</link><pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate><guid>http://antarxly.com/tags/kge/</guid><description/></item><item><title>Few-Shot Learning</title><link>http://antarxly.com/tags/few-shot-learning/</link><pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate><guid>http://antarxly.com/tags/few-shot-learning/</guid><description/></item><item><title>Graph Network</title><link>http://antarxly.com/tags/graph-network/</link><pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate><guid>http://antarxly.com/tags/graph-network/</guid><description/></item><item><title>Knowledge Graph Completion</title><link>http://antarxly.com/tags/knowledge-graph-completion/</link><pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate><guid>http://antarxly.com/tags/knowledge-graph-completion/</guid><description/></item><item><title>KG, Transformer</title><link>http://antarxly.com/tags/kg-transformer/</link><pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate><guid>http://antarxly.com/tags/kg-transformer/</guid><description/></item><item><title>KGC, BERT</title><link>http://antarxly.com/tags/kgc-bert/</link><pubDate>Sat, 26 Dec 2020 16:50:04 +0000</pubDate><guid>http://antarxly.com/tags/kgc-bert/</guid><description/></item><item><title>KGC, RelationExtraction</title><link>http://antarxly.com/tags/kgc-relationextraction/</link><pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate><guid>http://antarxly.com/tags/kgc-relationextraction/</guid><description/></item><item><title>IOS</title><link>http://antarxly.com/tags/ios/</link><pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate><guid>http://antarxly.com/tags/ios/</guid><description/></item><item><title>Swift</title><link>http://antarxly.com/tags/swift/</link><pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate><guid>http://antarxly.com/tags/swift/</guid><description/></item><item><title>科研</title><link>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</link><pubDate>Thu, 29 Nov 2018 16:48:39 +0000</pubDate><guid>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</guid><description/></item><item><title>MacOS</title><link>http://antarxly.com/tags/macos/</link><pubDate>Fri, 02 Nov 2018 11:20:29 +0000</pubDate><guid>http://antarxly.com/tags/macos/</guid><description/></item><item><title>Go</title><link>http://antarxly.com/tags/go/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://antarxly.com/tags/go/</guid><description/></item><item><title>文章翻译</title><link>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</link><pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate><guid>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</guid><description/></item><item><title>Alfred</title><link>http://antarxly.com/tags/alfred/</link><pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate><guid>http://antarxly.com/tags/alfred/</guid><description/></item><item><title>Mac</title><link>http://antarxly.com/tags/mac/</link><pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate><guid>http://antarxly.com/tags/mac/</guid><description/></item><item><title>Docker</title><link>http://antarxly.com/tags/docker/</link><pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate><guid>http://antarxly.com/tags/docker/</guid><description/></item><item><title>Golang</title><link>http://antarxly.com/tags/golang/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://antarxly.com/tags/golang/</guid><description/></item><item><title>LaTeX</title><link>http://antarxly.com/tags/latex/</link><pubDate>Mon, 21 May 2018 10:48:35 +0000</pubDate><guid>http://antarxly.com/tags/latex/</guid><description/></item><item><title>Hexo</title><link>http://antarxly.com/tags/hexo/</link><pubDate>Fri, 11 May 2018 17:30:58 +0000</pubDate><guid>http://antarxly.com/tags/hexo/</guid><description/></item><item><title>Java</title><link>http://antarxly.com/tags/java/</link><pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate><guid>http://antarxly.com/tags/java/</guid><description/></item><item><title>Redis</title><link>http://antarxly.com/tags/redis/</link><pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate><guid>http://antarxly.com/tags/redis/</guid><description/></item><item><title>机器学习</title><link>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link><pubDate>Tue, 23 Jan 2018 18:42:42 +0000</pubDate><guid>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid><description/></item><item><title>BOJ</title><link>http://antarxly.com/tags/boj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://antarxly.com/tags/boj/</guid><description/></item><item><title>ML</title><link>http://antarxly.com/tags/ml/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/tags/ml/</guid><description/></item><item><title>TensorFlow</title><link>http://antarxly.com/tags/tensorflow/</link><pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate><guid>http://antarxly.com/tags/tensorflow/</guid><description/></item><item><title>算法</title><link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link><pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate><guid>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</guid><description/></item><item><title>Libsvm</title><link>http://antarxly.com/tags/libsvm/</link><pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate><guid>http://antarxly.com/tags/libsvm/</guid><description/></item><item><title>Javalin</title><link>http://antarxly.com/tags/javalin/</link><pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate><guid>http://antarxly.com/tags/javalin/</guid><description/></item><item><title>WebSocket</title><link>http://antarxly.com/tags/websocket/</link><pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate><guid>http://antarxly.com/tags/websocket/</guid><description/></item><item><title>REST</title><link>http://antarxly.com/tags/rest/</link><pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate><guid>http://antarxly.com/tags/rest/</guid><description/></item><item><title>微服务</title><link>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link><pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate><guid>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid><description/></item><item><title>C++</title><link>http://antarxly.com/tags/c++/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://antarxly.com/tags/c++/</guid><description/></item><item><title>IDE</title><link>http://antarxly.com/tags/ide/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://antarxly.com/tags/ide/</guid><description/></item><item><title>Microsoft</title><link>http://antarxly.com/tags/microsoft/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://antarxly.com/tags/microsoft/</guid><description/></item><item><title>Vscode</title><link>http://antarxly.com/tags/vscode/</link><pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate><guid>http://antarxly.com/tags/vscode/</guid><description/></item><item><title>随笔</title><link>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</link><pubDate>Mon, 27 Mar 2017 21:08:12 +0000</pubDate><guid>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</guid><description/></item><item><title>M$</title><link>http://antarxly.com/tags/m/</link><pubDate>Sat, 18 Feb 2017 18:48:20 +0000</pubDate><guid>http://antarxly.com/tags/m/</guid><description/></item><item><title>Communication</title><link>http://antarxly.com/tags/communication/</link><pubDate>Tue, 08 Mar 2016 22:33:57 +0000</pubDate><guid>http://antarxly.com/tags/communication/</guid><description/></item><item><title>Life</title><link>http://antarxly.com/tags/life/</link><pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate><guid>http://antarxly.com/tags/life/</guid><description/></item><item><title>编程</title><link>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</link><pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate><guid>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</guid><description/></item><item><title>Win10</title><link>http://antarxly.com/tags/win10/</link><pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate><guid>http://antarxly.com/tags/win10/</guid><description/></item><item><title>读书笔记</title><link>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link><pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate><guid>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid><description/></item><item><title>.NET</title><link>http://antarxly.com/tags/.net/</link><pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate><guid>http://antarxly.com/tags/.net/</guid><description/></item><item><title>C#</title><link>http://antarxly.com/tags/c%23/</link><pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate><guid>http://antarxly.com/tags/c%23/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on Antarx Blog</title>
+        <link>http://antarxly.com/tags/</link>
+        <description>Recent content in Tags on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sun, 12 Oct 2025 10:30:00 +0800</lastBuildDate><atom:link href="http://antarxly.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI工具</title>
+        <link>http://antarxly.com/tags/ai%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/ai%E5%B7%A5%E5%85%B7/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CLI</title>
+        <link>http://antarxly.com/tags/cli/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/cli/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Grok</title>
+        <link>http://antarxly.com/tags/grok/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/grok/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>MCP</title>
+        <link>http://antarxly.com/tags/mcp/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/mcp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>XAI</title>
+        <link>http://antarxly.com/tags/xai/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/xai/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>生产力</title>
+        <link>http://antarxly.com/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</link>
+        <pubDate>Sun, 12 Oct 2025 10:30:00 +0800</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LLM</title>
+        <link>http://antarxly.com/tags/llm/</link>
+        <pubDate>Wed, 28 Jun 2023 11:15:17 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/llm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>对话系统, Task-Oriented Dialogue System</title>
+        <link>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</link>
+        <pubDate>Tue, 06 Dec 2022 09:41:05 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F-task-oriented-dialogue-system/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Dialogue Emotion Detection</title>
+        <link>http://antarxly.com/tags/dialogue-emotion-detection/</link>
+        <pubDate>Mon, 05 Dec 2022 21:56:12 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/dialogue-emotion-detection/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Git</title>
+        <link>http://antarxly.com/tags/git/</link>
+        <pubDate>Thu, 17 Nov 2022 20:44:01 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/git/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>BERT, Intent CLassification</title>
+        <link>http://antarxly.com/tags/bert-intent-classification/</link>
+        <pubDate>Thu, 27 Oct 2022 10:31:31 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/bert-intent-classification/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Leetcode</title>
+        <link>http://antarxly.com/tags/leetcode/</link>
+        <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/leetcode/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>OJ</title>
+        <link>http://antarxly.com/tags/oj/</link>
+        <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/oj/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Python</title>
+        <link>http://antarxly.com/tags/python/</link>
+        <pubDate>Tue, 02 Aug 2022 17:22:35 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/python/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>动态规划</title>
+        <link>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+        <pubDate>Wed, 27 Jul 2022 20:18:52 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>贪心</title>
+        <link>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</link>
+        <pubDate>Wed, 27 Jul 2022 16:10:35 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E8%B4%AA%E5%BF%83/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>DGL</title>
+        <link>http://antarxly.com/tags/dgl/</link>
+        <pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/dgl/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>GNN</title>
+        <link>http://antarxly.com/tags/gnn/</link>
+        <pubDate>Fri, 17 Jun 2022 20:49:39 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/gnn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>DEVONthink</title>
+        <link>http://antarxly.com/tags/devonthink/</link>
+        <pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/devonthink/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Markdown</title>
+        <link>http://antarxly.com/tags/markdown/</link>
+        <pubDate>Sat, 14 May 2022 17:04:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/markdown/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>MATH</title>
+        <link>http://antarxly.com/tags/math/</link>
+        <pubDate>Mon, 18 Apr 2022 15:17:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/math/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>NLP</title>
+        <link>http://antarxly.com/tags/nlp/</link>
+        <pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/nlp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Transformer</title>
+        <link>http://antarxly.com/tags/transformer/</link>
+        <pubDate>Fri, 27 Aug 2021 19:07:49 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/transformer/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Embedding</title>
+        <link>http://antarxly.com/tags/embedding/</link>
+        <pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/embedding/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Knowledge Graph</title>
+        <link>http://antarxly.com/tags/knowledge-graph/</link>
+        <pubDate>Tue, 24 Aug 2021 21:24:16 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/knowledge-graph/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KGC</title>
+        <link>http://antarxly.com/tags/kgc/</link>
+        <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kgc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Temporal Knowledge Graph</title>
+        <link>http://antarxly.com/tags/temporal-knowledge-graph/</link>
+        <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/temporal-knowledge-graph/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TKG</title>
+        <link>http://antarxly.com/tags/tkg/</link>
+        <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/tkg/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TKGC</title>
+        <link>http://antarxly.com/tags/tkgc/</link>
+        <pubDate>Sun, 22 Aug 2021 11:31:32 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/tkgc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Typora</title>
+        <link>http://antarxly.com/tags/typora/</link>
+        <pubDate>Sun, 15 Aug 2021 17:18:45 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/typora/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KGQA</title>
+        <link>http://antarxly.com/tags/kgqa/</link>
+        <pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kgqa/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Temporal Knowledge</title>
+        <link>http://antarxly.com/tags/temporal-knowledge/</link>
+        <pubDate>Tue, 10 Aug 2021 12:04:07 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/temporal-knowledge/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KGE</title>
+        <link>http://antarxly.com/tags/kge/</link>
+        <pubDate>Mon, 09 Aug 2021 16:29:12 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kge/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Few-Shot Learning</title>
+        <link>http://antarxly.com/tags/few-shot-learning/</link>
+        <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/few-shot-learning/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Graph Network</title>
+        <link>http://antarxly.com/tags/graph-network/</link>
+        <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/graph-network/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Knowledge Graph Completion</title>
+        <link>http://antarxly.com/tags/knowledge-graph-completion/</link>
+        <pubDate>Sat, 07 Aug 2021 11:25:50 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/knowledge-graph-completion/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KG, Transformer</title>
+        <link>http://antarxly.com/tags/kg-transformer/</link>
+        <pubDate>Sat, 16 Jan 2021 11:07:39 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kg-transformer/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KGC, BERT</title>
+        <link>http://antarxly.com/tags/kgc-bert/</link>
+        <pubDate>Sat, 26 Dec 2020 16:50:04 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kgc-bert/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>KGC, RelationExtraction</title>
+        <link>http://antarxly.com/tags/kgc-relationextraction/</link>
+        <pubDate>Sat, 19 Dec 2020 14:51:30 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/kgc-relationextraction/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>IOS</title>
+        <link>http://antarxly.com/tags/ios/</link>
+        <pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/ios/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Swift</title>
+        <link>http://antarxly.com/tags/swift/</link>
+        <pubDate>Mon, 18 Feb 2019 19:29:49 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/swift/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>科研</title>
+        <link>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</link>
+        <pubDate>Thu, 29 Nov 2018 16:48:39 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E7%A7%91%E7%A0%94/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>MacOS</title>
+        <link>http://antarxly.com/tags/macos/</link>
+        <pubDate>Fri, 02 Nov 2018 11:20:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/macos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Go</title>
+        <link>http://antarxly.com/tags/go/</link>
+        <pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/go/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>文章翻译</title>
+        <link>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</link>
+        <pubDate>Mon, 03 Sep 2018 15:25:44 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Alfred</title>
+        <link>http://antarxly.com/tags/alfred/</link>
+        <pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/alfred/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Mac</title>
+        <link>http://antarxly.com/tags/mac/</link>
+        <pubDate>Tue, 17 Jul 2018 21:03:53 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/mac/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Docker</title>
+        <link>http://antarxly.com/tags/docker/</link>
+        <pubDate>Wed, 27 Jun 2018 16:42:27 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Golang</title>
+        <link>http://antarxly.com/tags/golang/</link>
+        <pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/golang/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LaTeX</title>
+        <link>http://antarxly.com/tags/latex/</link>
+        <pubDate>Mon, 21 May 2018 10:48:35 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/latex/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Hexo</title>
+        <link>http://antarxly.com/tags/hexo/</link>
+        <pubDate>Fri, 11 May 2018 17:30:58 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/hexo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Java</title>
+        <link>http://antarxly.com/tags/java/</link>
+        <pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/java/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Redis</title>
+        <link>http://antarxly.com/tags/redis/</link>
+        <pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/redis/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>机器学习</title>
+        <link>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+        <pubDate>Tue, 23 Jan 2018 18:42:42 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>BOJ</title>
+        <link>http://antarxly.com/tags/boj/</link>
+        <pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/boj/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ML</title>
+        <link>http://antarxly.com/tags/ml/</link>
+        <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/ml/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TensorFlow</title>
+        <link>http://antarxly.com/tags/tensorflow/</link>
+        <pubDate>Wed, 06 Dec 2017 21:30:22 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/tensorflow/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>算法</title>
+        <link>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</link>
+        <pubDate>Sat, 25 Nov 2017 16:51:09 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E7%AE%97%E6%B3%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Libsvm</title>
+        <link>http://antarxly.com/tags/libsvm/</link>
+        <pubDate>Wed, 22 Nov 2017 15:18:29 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/libsvm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Javalin</title>
+        <link>http://antarxly.com/tags/javalin/</link>
+        <pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/javalin/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>WebSocket</title>
+        <link>http://antarxly.com/tags/websocket/</link>
+        <pubDate>Sat, 28 Oct 2017 20:15:17 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/websocket/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>REST</title>
+        <link>http://antarxly.com/tags/rest/</link>
+        <pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/rest/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>微服务</title>
+        <link>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+        <pubDate>Tue, 24 Oct 2017 14:28:20 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>C&#43;&#43;</title>
+        <link>http://antarxly.com/tags/c&#43;&#43;/</link>
+        <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/c&#43;&#43;/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>IDE</title>
+        <link>http://antarxly.com/tags/ide/</link>
+        <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/ide/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Microsoft</title>
+        <link>http://antarxly.com/tags/microsoft/</link>
+        <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/microsoft/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Vscode</title>
+        <link>http://antarxly.com/tags/vscode/</link>
+        <pubDate>Wed, 18 Oct 2017 14:28:45 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/vscode/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>随笔</title>
+        <link>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</link>
+        <pubDate>Mon, 27 Mar 2017 21:08:12 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E9%9A%8F%E7%AC%94/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>M$</title>
+        <link>http://antarxly.com/tags/m/</link>
+        <pubDate>Sat, 18 Feb 2017 18:48:20 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/m/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Communication</title>
+        <link>http://antarxly.com/tags/communication/</link>
+        <pubDate>Tue, 08 Mar 2016 22:33:57 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/communication/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Life</title>
+        <link>http://antarxly.com/tags/life/</link>
+        <pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/life/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>编程</title>
+        <link>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</link>
+        <pubDate>Sat, 26 Dec 2015 14:09:48 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E7%BC%96%E7%A8%8B/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Win10</title>
+        <link>http://antarxly.com/tags/win10/</link>
+        <pubDate>Fri, 27 Nov 2015 17:54:26 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/win10/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>读书笔记</title>
+        <link>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Mon, 16 Nov 2015 23:15:01 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>.NET</title>
+        <link>http://antarxly.com/tags/.net/</link>
+        <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/.net/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>C#</title>
+        <link>http://antarxly.com/tags/c%23/</link>
+        <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
+        
+        <guid>http://antarxly.com/tags/c%23/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

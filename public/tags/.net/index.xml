@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>.NET on Antarx Blog</title><link>http://antarxly.com/tags/.net/</link><description>Recent content in .NET on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Oct 2015 16:28:40 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/.net/index.xml" rel="self" type="application/rss+xml"/><item><title>.NET学习笔记（一）</title><link>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link><pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate><guid>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid><description>&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>.NET on Antarx Blog</title>
+        <link>http://antarxly.com/tags/.net/</link>
+        <description>Recent content in .NET on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 21 Oct 2015 16:28:40 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/.net/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>.NET学习笔记（一）</title>
+        <link>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link>
+        <pubDate>Wed, 21 Oct 2015 16:28:40 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/net%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid>
+        <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基础类型相关
 .NET中所有内建类型都继承自System.Object,若同时继承自System.ValueType类则为值类型，否则为引用类型。&lt;/p&gt;
@@ -20,5 +34,10 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;原文链接&lt;a class="link" href="http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;amp;mid=222183396&amp;amp;idx=1&amp;amp;sn=c57968ca0f153ddf7940c841f46b9ab5&amp;amp;scene=23&amp;amp;srcid=1021B6INnSSOjObgVfcahXwA#rd" target="_blank" rel="noopener"
-&gt;.NET基础拾遗(1)类型语法基础和内存管理基础&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;原文链接&lt;a class=&#34;link&#34; href=&#34;http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;amp;mid=222183396&amp;amp;idx=1&amp;amp;sn=c57968ca0f153ddf7940c841f46b9ab5&amp;amp;scene=23&amp;amp;srcid=1021B6INnSSOjObgVfcahXwA#rd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;.NET基础拾遗(1)类型语法基础和内存管理基础&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,273 +1,323 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BOJ on Antarx Blog</title><link>http://antarxly.com/tags/boj/</link><description>Recent content in BOJ on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Jan 2018 18:13:08 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/boj/index.xml" rel="self" type="application/rss+xml"/><item><title>网研机试101</title><link>http://antarxly.com/posts/buptoj/</link><pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate><guid>http://antarxly.com/posts/buptoj/</guid><description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>BOJ on Antarx Blog</title>
+        <link>http://antarxly.com/tags/boj/</link>
+        <description>Recent content in BOJ on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 08 Jan 2018 18:13:08 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/boj/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>网研机试101</title>
+        <link>http://antarxly.com/posts/buptoj/</link>
+        <pubDate>Mon, 08 Jan 2018 18:13:08 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/buptoj/</guid>
+        <description>&lt;p&gt;2018考研的初试已经结束了，平时看考研群里已经有很多人在讨论在焦虑机试应该怎么复习，作为过来人在这里就随便说说自己的一些经验吧。&lt;/p&gt;
 &lt;p&gt;实现说明一下，这篇文章基本就是个扫盲，不能保证你看完文章就能从 A0变 AK，但帮助你脱离新手区，扫除对机试的恐惧，保个底让机试不会成为复试阶段的软肋还是可以的。&lt;/p&gt;
-&lt;h1 id="简单介绍"&gt;简单介绍
+&lt;h1 id=&#34;简单介绍&#34;&gt;简单介绍
 &lt;/h1&gt;&lt;p&gt;首先得先了解机试的基本情况。按照去年的考试风格，是两个小时四道题的 OJ（Online Judge）形式，也就是在线提交，在线判题返回程序在测试结果集的运行结果。AC（accept）代表正确解题，WA（Wrong Answer）表示错误答案，另外还有超时、超出内存空间等等结果。所有考试前准备的目的，就是为了更多的 AC，或者保底情况，避免 A0。&lt;/p&gt;
-&lt;h1 id="编程语言"&gt;编程语言
-&lt;/h1&gt;&lt;h2 id="该用什么语言"&gt;该用什么语言
+&lt;h1 id=&#34;编程语言&#34;&gt;编程语言
+&lt;/h1&gt;&lt;h2 id=&#34;该用什么语言&#34;&gt;该用什么语言
 &lt;/h2&gt;&lt;p&gt;北邮 OJ 平台可以用的编程语言有三种，C（gcc4.8），C++（g++ 4.8）和 Java（注意：没有 Python，没有 JavaScript）。另外，C++是&lt;strong&gt;不支持 c++11的&lt;/strong&gt;，Java 只支持到 Java6。&lt;/p&gt;
 &lt;p&gt;在这个天煞的背景下，考虑到程序时间限制（1ms）和开发速度（避免无谓的造轮子），用 C + STL 是最理想的选择。&lt;/p&gt;
 &lt;p&gt;展开来说，就是用 C 的那一套输入输出（scanf 和 printf），C 与 C++通用的循环控制、选择结构、数组等，在加上 C++独特的“宝具”——STL 标准库，来进行解题。提交的时候编译器选 g++即可。&lt;/p&gt;
 &lt;p&gt;STL 标准库内容非常多，只需要了解 Map，stack，list，queue就够了。&lt;/p&gt;
-&lt;h2 id="ide不存在的"&gt;IDE？不存在的
+&lt;h2 id=&#34;ide不存在的&#34;&gt;IDE？不存在的
 &lt;/h2&gt;&lt;p&gt;两个小时做四道题对大脑转数的要求还是挺高的，更何况在那种紧张的气氛和不熟悉的开发环境之下。要保证解题能够快狠准，就需要从现在开始培养一定的针对考试的编程习惯，包括 编辑器和编译器、调试器的使用等等。&lt;/p&gt;
 &lt;p&gt;首先，抛弃手上所有的 IDE，包括但不限于 Visual Studio和 Clion，DevC++，或者只在疑难杂症的时候拿它们当单步调试的工具（但也不能依赖）。考试环境只提供了（没有智能提示的）devcpp，（长得贼丑的）CFree两种最“原始”的开发工具，也就拿来当代码高亮，保证括号补全没有基本的语法问题差不多了，很多现代 IDE、开发工具可以做的事它们一概做不了。&lt;/p&gt;
 &lt;p&gt;要适应这种艰苦恶劣的考试环境，就得从准备机试的时候开始，把开发工具换成 VScode and g++。VScode 是微软提供的跨平台编辑器，有着漂亮的界面和基本的语法高亮功能，在配置各种插件之前基本可以拿来模拟考场的开发环境，用来编辑代码，而且还能保证练习的时候是比较舒服的。&lt;/p&gt;
 &lt;p&gt;编译过程全部转到命令行用 g++完成。&lt;/p&gt;
-&lt;h2 id="调试"&gt;调试
+&lt;h2 id=&#34;调试&#34;&gt;调试
 &lt;/h2&gt;&lt;p&gt;两个最基本额调试手段：打印大法和单步调试大法。个人推荐第一种。单步调试大法需要掌握 gdb这个 g++配套的调试工具，相对来说比较费时间（无论上手还是在考场上使用），而且比较容易出一些奇奇怪怪的问题。想成为 AK 达人的话，倒是必须掌握的。&lt;/p&gt;
 &lt;p&gt;打印大法就是在关键步骤将关键变量输出的方法，简单易行，只要注意提交之前注释掉代码就OK。&lt;/p&gt;
-&lt;h2 id="参考教材"&gt;参考教材
+&lt;h2 id=&#34;参考教材&#34;&gt;参考教材
 &lt;/h2&gt;&lt;p&gt;注意到，机试是可以带任何纸质打印资料的，一本简介明了的语言参考指南显得非常重要。&lt;/p&gt;
 &lt;p&gt;抛弃所有国内教科书，包括但不限于谭浩强，除非你想拿成绩开玩笑在考试的时候验证一下&lt;code&gt;int a++++&lt;/code&gt;会不会报错。&lt;/p&gt;
-&lt;p&gt;在这里，只推荐&lt;a class="link" href="https://item.jd.com/10057446.html" target="_blank" rel="noopener"
-&gt;K&amp;amp;R The C Programming Language&lt;/a&gt;小薄本。将 ANSI C 的所有内容都讲得很透彻而简洁，里面的习题也可以作为入门练手。&lt;/p&gt;
-&lt;h1 id="能力层级"&gt;能力层级
-&lt;/h1&gt;&lt;p&gt;这一部分提供平时训练刷题的参考方向。列举我在去年准备的时候看过的一些题型，具体知识和代码在&lt;a class="link" href="https://item.jd.com/11399054.html" target="_blank" rel="noopener"
-&gt;王道机试指南&lt;/a&gt;和&lt;a class="link" href="https://item.jd.com/11469701.html" target="_blank" rel="noopener"
-&gt;算法竞赛入门经典&lt;/a&gt;介绍的比较详尽。&lt;/p&gt;
-&lt;h2 id="基本输入输出"&gt;基本输入输出
+&lt;p&gt;在这里，只推荐&lt;a class=&#34;link&#34; href=&#34;https://item.jd.com/10057446.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;K&amp;amp;R The C Programming Language&lt;/a&gt;小薄本。将 ANSI C 的所有内容都讲得很透彻而简洁，里面的习题也可以作为入门练手。&lt;/p&gt;
+&lt;h1 id=&#34;能力层级&#34;&gt;能力层级
+&lt;/h1&gt;&lt;p&gt;这一部分提供平时训练刷题的参考方向。列举我在去年准备的时候看过的一些题型，具体知识和代码在&lt;a class=&#34;link&#34; href=&#34;https://item.jd.com/11399054.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;王道机试指南&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://item.jd.com/11469701.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;算法竞赛入门经典&lt;/a&gt;介绍的比较详尽。&lt;/p&gt;
+&lt;h2 id=&#34;基本输入输出&#34;&gt;基本输入输出
 &lt;/h2&gt;&lt;p&gt;OJ 的输入输出风格可是能玩死不少人的，怎么保证循环接收输入，接收特定符号能退出，每一轮输入怎么界定，怎么输出小数点后三位浮点数，输出的时候删掉无谓信息（比如句子最后的致命空格），等等等等，都是值得关注的内容，也是首先要练习的。所幸 scanf 和 printf 函数在 KR 里面已经介绍得非常详尽，对照着看和练习就行。&lt;/p&gt;
-&lt;h2 id="数字和数组处理"&gt;数字和数组处理
+&lt;h2 id=&#34;数字和数组处理&#34;&gt;数字和数组处理
 &lt;/h2&gt;&lt;p&gt;数字部分有点像小学数学的找规律填数，也会夹带私货弄些奇形怪状的浮点数处理，数组处理方面典型例子就是找最大最小数，找次小数，奇偶数分离这些。一般都在签到题出现。&lt;/p&gt;
-&lt;h2 id="日期问题"&gt;日期问题
+&lt;h2 id=&#34;日期问题&#34;&gt;日期问题
 &lt;/h2&gt;&lt;p&gt;闰年问题，星期几问题等等。&lt;/p&gt;
-&lt;h2 id="字符串处理"&gt;字符串处理
+&lt;h2 id=&#34;字符串处理&#34;&gt;字符串处理
 &lt;/h2&gt;&lt;p&gt;翻转字符串，回文字符串判断，甚至字符串匹配、简易正则表达式识别、字符串搜索都是有可能出现的，活用 std::string 和 char 数组的下标嗯。&lt;/p&gt;
-&lt;h2 id="模板题"&gt;模板题
+&lt;h2 id=&#34;模板题&#34;&gt;模板题
 &lt;/h2&gt;&lt;p&gt;图论的 D 算法 F 算法，深度优先搜索，矩阵乘法等等。这种基本都是最终 boss 级别，因为很多 ACM 资料都会有典型的算法题目，代码可以直接套用，改改关键变量就可以，所以称为模板题。&lt;/p&gt;
-&lt;h2 id="特别提名模拟题"&gt;特别提名：模拟题
+&lt;h2 id=&#34;特别提名模拟题&#34;&gt;特别提名：模拟题
 &lt;/h2&gt;&lt;p&gt;模拟题，可不是模拟卷子，而是一类型模拟计算机内部操作比如进程调度，死锁识别等的题目，印象最深刻就是去年最后一题算进程完成时间的。&lt;/p&gt;
-&lt;h1 id="思维方法"&gt;思维方法
+&lt;h1 id=&#34;思维方法&#34;&gt;思维方法
 &lt;/h1&gt;&lt;p&gt;这里介绍一些玄学的东西，也是机试对以后的开发生涯最有帮助的东西&lt;/p&gt;
-&lt;h3 id="边界值控制和处理"&gt;边界值控制和处理
+&lt;h3 id=&#34;边界值控制和处理&#34;&gt;边界值控制和处理
 &lt;/h3&gt;&lt;p&gt;刚开始接触 OJ 的时候很容易会遇到本地编译没问题，提供的测试数据也能获得预期结果可是提交之后就是 WA 这种百思不得其解的问题，根源便在于边界值考虑不周全，比如整数0，范围的边界，字符串中的空串等等，解决之道便是通过大量的练习，对每个算法题首先花上几秒考虑可能的边界情况和特殊情况，久而久之形成严密的思维。&lt;/p&gt;
-&lt;h3 id="时间性能"&gt;时间性能
+&lt;h3 id=&#34;时间性能&#34;&gt;时间性能
 &lt;/h3&gt;&lt;p&gt;1ms 的时间限制，看起来非常的充分，那只是还没遇到大规模输入。在那种几万甚至十万级别的数据（OJ 上真的会有），就算是$O(n^3)$的算法，翻车也是随时随地的。&lt;/p&gt;
 &lt;p&gt;应对这个问题，得对计算机内部执行过程有最基本的认识，更好一点的得对算法的时间复杂度有认识，优化起来才不会像无头苍蝇一样。&lt;/p&gt;
-&lt;p&gt;还是祭出&lt;a class="link" href="https://item.jd.com/12006637.html" target="_blank" rel="noopener"
-&gt;CSAPP&lt;/a&gt;，里面对程序优化的介绍比较详细，充分利用 Cache 可以编写更高效程序。&lt;/p&gt;
-&lt;h4 id="奇技淫巧"&gt;奇技淫巧
+&lt;p&gt;还是祭出&lt;a class=&#34;link&#34; href=&#34;https://item.jd.com/12006637.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CSAPP&lt;/a&gt;，里面对程序优化的介绍比较详细，充分利用 Cache 可以编写更高效程序。&lt;/p&gt;
+&lt;h4 id=&#34;奇技淫巧&#34;&gt;奇技淫巧
 &lt;/h4&gt;&lt;p&gt;这里特别提名位运算，关键时刻可以省下大量的时间。&lt;/p&gt;
-&lt;p&gt;安利&lt;a class="link" href="https://item.jd.com/1092950325.html" target="_blank" rel="noopener"
-&gt;Hackers&amp;rsquo; Delight&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="基本的算法设计思想"&gt;基本的算法设计思想
-&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description></item><item><title>2017考研-北邮网研院机试试题 ProblemC</title><link>http://antarxly.com/posts/2017c/</link><pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate><guid>http://antarxly.com/posts/2017c/</guid><description>&lt;h1 id="题目大意"&gt;题目大意
+&lt;p&gt;安利&lt;a class=&#34;link&#34; href=&#34;https://item.jd.com/1092950325.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hackers&amp;rsquo; Delight&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;基本的算法设计思想&#34;&gt;基本的算法设计思想
+&lt;/h2&gt;&lt;p&gt;递归，动态规划，不一而足，还是那句话，需要不断的刷题积累经验。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>2017考研-北邮网研院机试试题 ProblemC</title>
+        <link>http://antarxly.com/posts/2017c/</link>
+        <pubDate>Mon, 27 Mar 2017 10:13:00 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/2017c/</guid>
+        <description>&lt;h1 id=&#34;题目大意&#34;&gt;题目大意
 &lt;/h1&gt;&lt;p&gt;求给定高度为 n 的 AVL 树最少的结点数模$1e9+7$的值.&lt;/p&gt;
 &lt;p&gt;Hint: $(a+b)%p = (a%p) + (b%p)$&lt;/p&gt;
-&lt;h1 id="难点和解题思路"&gt;难点和解题思路
+&lt;h1 id=&#34;难点和解题思路&#34;&gt;难点和解题思路
 &lt;/h1&gt;&lt;p&gt;原题目给出了关于 AVL 树的相关定义,帮助我们理解题目的相关概念. AVL树就是平衡的二叉排序树, 能够保证这棵树在满足二叉排序树基本特性的同时, 每一个非叶子节点的左右子树节点数之差不大于1.&lt;/p&gt;
 &lt;p&gt;关于高度为$h$的 AVL 树的最少节点数,其实是有递推公式的, 就是$h[n] = h[n-1]+h[n-2]+1, n&amp;gt;2$&lt;/p&gt;
 &lt;p&gt;根据这个递推公式, 就可以将问题从看似复杂的树问题转化为类似求解斐波那契数列的简单问题了.&lt;/p&gt;
 &lt;p&gt;还有一个坑点, 就是题目给出的AVL树的高度可能会很高, 从数据规模上看, 斐波那契型的数列通项都是指数型增长的, &amp;ldquo;正常&amp;quot;的数据类型分分钟存不下这么大的数据.&lt;/p&gt;
 &lt;p&gt;再仔细看题目, 要求的只是结果模$1e9+7$然后输出, 还给出了余数相关的定理来&amp;quot;暗示&amp;rdquo;, 不由得想到这样的思路, 首先建一个&lt;code&gt; long long&lt;/code&gt; 类型的大数组&lt;code&gt;h[MAX_N]&lt;/code&gt;, 高度为&lt;code&gt;i&lt;/code&gt; 的 AVL 树的节点数对&lt;code&gt;1e9+7&lt;/code&gt;取模的结果储存在&lt;code&gt; h[i]&lt;/code&gt;中, 然后用相同的递推关系计算数组的每一个元素. &lt;strong&gt;而且&lt;/strong&gt;, 还可以将取余操作简化为减法操作, 大大的降低算法的运行时间.&lt;/p&gt;
-&lt;h1 id="代码"&gt;代码
+&lt;h1 id=&#34;代码&#34;&gt;代码
 &lt;/h1&gt;&lt;p&gt;因为题目的原题和测试数据在考试结束之后就及时关闭了, 所以只能凭借记忆写下来.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;cstring&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;using&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;namespace&lt;/span&gt; std;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;long&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;long&lt;/span&gt; w &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1000000007&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;long&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;long&lt;/span&gt; res[&lt;span style="color:#ae81ff"&gt;100050&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; T;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cin&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt;T;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memset(res,&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#66d9ef"&gt;sizeof&lt;/span&gt;(res));
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res[&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; i&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;;i&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;100050&lt;/span&gt;;i&lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; res[i] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; res[i&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]&lt;span style="color:#f92672"&gt;+&lt;/span&gt;res[i&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(res[i]&lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt;w) res[i]&lt;span style="color:#f92672"&gt;-=&lt;/span&gt;w;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(T&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; h;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cin&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt;h;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cout&lt;span style="color:#f92672"&gt;&amp;lt;&amp;lt;&lt;/span&gt;res[h]&lt;span style="color:#f92672"&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="注意事项"&gt;注意事项
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;cstring&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; w &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1000000007&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; res[&lt;span style=&#34;color:#ae81ff&#34;&gt;100050&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; T;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  cin&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;T;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  memset(res,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(res));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  res[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  res[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;100050&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res[i] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; res[i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;res[i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(res[i]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;w) res[i]&lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt;w;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; h;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cin&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;h;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;res[h]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;注意事项&#34;&gt;注意事项
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;code&gt;long long&lt;/code&gt; 类型最好还是使用&lt;code&gt; cout&lt;/code&gt; 来处理读写, 在本机调试时发现,用 &lt;code&gt;printf(&amp;quot;%lld&amp;quot;)&lt;/code&gt;处理出现了奇奇怪怪的 bug, 用&lt;code&gt; cout&lt;/code&gt; 就没事了.&lt;/li&gt;
 &lt;li&gt;数组预处理放在循环以外进行, 否则很有可能超时.&lt;/li&gt;
 &lt;li&gt;上面的示例代码, 在 BOJ 测试时时间性能是59ms( 上限是1000ms)&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>BOJ 解题报告-268进程管理</title><link>http://antarxly.com/posts/268/</link><pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate><guid>http://antarxly.com/posts/268/</guid><description>&lt;h1 id="前言"&gt;前言
+&lt;/ol&gt;</description>
+        </item>
+        <item>
+        <title>BOJ 解题报告-268进程管理</title>
+        <link>http://antarxly.com/posts/268/</link>
+        <pubDate>Sat, 11 Mar 2017 20:36:09 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/268/</guid>
+        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
 &lt;/h1&gt;&lt;p&gt;进行 OJ 练习以来做的最复杂的一个题目,A 完之后趁热打铁写个解题报告.&lt;/p&gt;
-&lt;h1 id="题目描述"&gt;题目描述
-&lt;/h1&gt;&lt;p&gt;详情访问&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/268/" target="_blank" rel="noopener"
-&gt;268.进程管理&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;题目描述&#34;&gt;题目描述
+&lt;/h1&gt;&lt;p&gt;详情访问&lt;a class=&#34;link&#34; href=&#34;http://code.bupt.edu.cn/problem/p/268/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;268.进程管理&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;大体的意思就是实现操作系统中进程管理基本的 fork, kill 和查询功能&lt;/p&gt;
-&lt;h1 id="输入输出处理"&gt;输入输出处理
-&lt;/h1&gt;&lt;h2 id="输入"&gt;输入
+&lt;h1 id=&#34;输入输出处理&#34;&gt;输入输出处理
+&lt;/h1&gt;&lt;h2 id=&#34;输入&#34;&gt;输入
 &lt;/h2&gt;&lt;p&gt;第一行是整数 T, 表示有多少组输入数据.&lt;/p&gt;
 &lt;p&gt;第二行是整数 N, 表示本组数据中有多少行命令.&lt;/p&gt;
 &lt;p&gt;接下来每一行是一条命令.形式如下&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;FORK PID_1 PID_2&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;KILL PID&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;QUERY PID&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id="难点一-同时出现输入组数和操作的数量"&gt;难点一: 同时出现输入组数和操作的数量
+&lt;h3 id=&#34;难点一-同时出现输入组数和操作的数量&#34;&gt;难点一: 同时出现输入组数和操作的数量
 &lt;/h3&gt;&lt;p&gt;这是在之前做的题目中没出现过的.解决办法如下面代码&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(T&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; n;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;n);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(n&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//do something
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="难点二-如何应对输入命令的不同格式"&gt;难点二: 如何应对输入命令的不同格式
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(n&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//do something
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;难点二-如何应对输入命令的不同格式&#34;&gt;难点二: 如何应对输入命令的不同格式
 &lt;/h3&gt;&lt;p&gt;从给出的示例可见, FORK 后面有两个整形参数,其他两个命令后面都只有一个参数,这个时候如果只使用&lt;code&gt;scanf()&lt;/code&gt;函数处理输入,会因为输入的变量个数不一致而出现奇奇怪怪的问题,所以转而先使用&lt;code&gt; gets( char*)&lt;/code&gt; 获取一整行命令读进 buff 数组,然后用&lt;code&gt; sscanf(char* source, char* fomat, …)&lt;/code&gt;进行处理.&lt;/p&gt;
 &lt;p&gt;要注意的是,因为 &lt;code&gt;scanf(&amp;quot;%d&amp;quot;,&amp;amp;n)&lt;/code&gt;之后会有个&lt;code&gt;\n&lt;/code&gt; 会塞在缓冲区, 影响 &lt;code&gt;gets()&lt;/code&gt; 函数的正常读入,所以要先&lt;code&gt; getchar()&lt;/code&gt; 一下.&lt;/p&gt;
 &lt;p&gt;另外, &lt;code&gt;gets()&lt;/code&gt; 函数在 c11标准中不再被支持,使用之前要注意运行环境限制.&lt;/p&gt;
-&lt;h2 id="输出"&gt;输出
+&lt;h2 id=&#34;输出&#34;&gt;输出
 &lt;/h2&gt;&lt;p&gt;当输入命令为&lt;code&gt; QUERY PID&lt;/code&gt; 的形式时会产生输出,如果查询的进程存在则输出 Yes, 否则输出 No.( 注意大小写)&lt;/p&gt;
-&lt;h1 id="解题思路和坑点"&gt;解题思路和坑点
-&lt;/h1&gt;&lt;h2 id="数据储存"&gt;数据储存
+&lt;h1 id=&#34;解题思路和坑点&#34;&gt;解题思路和坑点
+&lt;/h1&gt;&lt;h2 id=&#34;数据储存&#34;&gt;数据储存
 &lt;/h2&gt;&lt;p&gt;首先要解决数据储存的问题.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;采用 &lt;code&gt;bool&lt;/code&gt; 类型数组记录每个进程的存在情况, 并且使用下标记录进程号.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;map&amp;lt;int,vector&amp;lt;int&amp;gt; &amp;gt;&lt;/code&gt;来记录每个进程及其子进程的映射.按照操作系统课本的思想采用链表记录最为恰当,但在 OJ 这种特殊情况下, 自然可以选择更加&amp;quot;偷懒&amp;quot;的方法.更何况 STL 的性能还是相当可靠的.&lt;/li&gt;
 &lt;li&gt;对于每一条命令,用&lt;code&gt; sscanf&lt;/code&gt; 处理后将指令部分赋值到&lt;code&gt; string&lt;/code&gt; 变量, 方便判断.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="坑点一-0进程不能被删除"&gt;坑点一: 0进程不能被删除
+&lt;h2 id=&#34;坑点一-0进程不能被删除&#34;&gt;坑点一: 0进程不能被删除
 &lt;/h2&gt;&lt;p&gt;题目条件中说到0进程在任何&lt;em&gt;情况&lt;/em&gt;下都是存在的,因此输入&lt;code&gt; KILL 0&lt;/code&gt;不会有任何响应.&lt;/p&gt;
-&lt;h2 id="坑点二-子进程的子进程要被删除"&gt;坑点二: 子进程的子进程要被删除
+&lt;h2 id=&#34;坑点二-子进程的子进程要被删除&#34;&gt;坑点二: 子进程的子进程要被删除
 &lt;/h2&gt;&lt;p&gt;比如说如下以来关系&lt;code&gt;0-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4&lt;/code&gt;,杀死1进程之后,后继的2,3,4进程都必须被杀死,否则会导致 WA.&lt;/p&gt;
 &lt;p&gt;使用递归删除的办法可以确保&lt;em&gt;子进程的子进程&lt;/em&gt;会被安全删除.&lt;/p&gt;
-&lt;h3 id="不算坑的坑点三"&gt;不算坑的坑点三
+&lt;h3 id=&#34;不算坑的坑点三&#34;&gt;不算坑的坑点三
 &lt;/h3&gt;&lt;p&gt;题目中还说到&lt;code&gt; KILL&lt;/code&gt; 指令中如果是不存在或者已经结束的进程,则不采取任何操作.这一点在本题中靠输入来保证了,所以不用在代码中额外处理.否则,需要额外的数组来记录每个进程的出现情况.&lt;/p&gt;
-&lt;h1 id="程序代码"&gt;程序代码
-&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;cstdio&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;string&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;vector&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;cstring&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;map&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;using&lt;/span&gt; std&lt;span style="color:#f92672"&gt;::&lt;/span&gt;vector;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;using&lt;/span&gt; std&lt;span style="color:#f92672"&gt;::&lt;/span&gt;map;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;using&lt;/span&gt; std&lt;span style="color:#f92672"&gt;::&lt;/span&gt;string;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;char&lt;/span&gt; buff[&lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;char&lt;/span&gt; cmd[&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;];;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;map&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;,vector&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;&lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; relation;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;bool&lt;/span&gt; pid[&lt;span style="color:#ae81ff"&gt;105&lt;/span&gt;];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;void&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;killKids&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; x){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(&lt;span style="color:#f92672"&gt;!&lt;/span&gt;relation[x].empty()){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//no empty
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; vector&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;&lt;span style="color:#f92672"&gt;&amp;gt;::&lt;/span&gt;iterator j;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(j&lt;span style="color:#f92672"&gt;=&lt;/span&gt;relation[x].begin();j&lt;span style="color:#f92672"&gt;!=&lt;/span&gt;relation[x].end();j&lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pid[&lt;span style="color:#f92672"&gt;*&lt;/span&gt;j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; false;&lt;span style="color:#75715e"&gt;//kill it
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; killKids(&lt;span style="color:#f92672"&gt;*&lt;/span&gt;j);&lt;span style="color:#75715e"&gt;//kill them all
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; relation[x].clear();
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;span style="color:#75715e"&gt;// kill kids method
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; T;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;T);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(T&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; relation.clear();&lt;span style="color:#75715e"&gt;//init
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; memset(pid,&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#66d9ef"&gt;sizeof&lt;/span&gt;(pid));
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pid[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; true;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; n;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;n);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; getchar();
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; z &lt;span style="color:#f92672"&gt;=&lt;/span&gt; n;z&lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;z&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; x,y;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gets(buff);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(sscanf(buff,&lt;span style="color:#e6db74"&gt;&amp;#34;%s%d%d&amp;#34;&lt;/span&gt;,cmd,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;x,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;y)&lt;span style="color:#f92672"&gt;==&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//FORK command
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(pid[x]){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//x exist
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; relation[x].push_back(y);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pid[y] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; true;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; string act &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cmd;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(act &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;QUERY&amp;#34;&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(pid[x]&lt;span style="color:#f92672"&gt;==&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; puts(&lt;span style="color:#e6db74"&gt;&amp;#34;Yes&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; puts(&lt;span style="color:#e6db74"&gt;&amp;#34;No&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(act &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;KILL&amp;#34;&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//end all kids
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(pid[x]&lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt;(x&lt;span style="color:#f92672"&gt;!=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; killKids(x);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pid[x] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; false;&lt;span style="color:#75715e"&gt;//kill x
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ解题报告(2)-89-统计时间间隔</title><link>http://antarxly.com/posts/89/</link><pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate><guid>http://antarxly.com/posts/89/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;h1 id=&#34;程序代码&#34;&gt;程序代码
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;cstdio&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;string&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;vector&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;cstring&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;map&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;vector;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;map;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;string;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; buff[&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; cmd[&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;];;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;map&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;,vector&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; relation;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; pid[&lt;span style=&#34;color:#ae81ff&#34;&gt;105&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;killKids&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; x){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;relation[x].empty()){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//no empty
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        vector&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;::&lt;/span&gt;iterator j;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(j&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;relation[x].begin();j&lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt;relation[x].end();j&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                pid[&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; false;&lt;span style=&#34;color:#75715e&#34;&gt;//kill it
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                killKids(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;j);&lt;span style=&#34;color:#75715e&#34;&gt;//kill them all
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        relation[x].clear();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;span style=&#34;color:#75715e&#34;&gt;// kill kids method
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; T;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;T);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        relation.clear();&lt;span style=&#34;color:#75715e&#34;&gt;//init
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        memset(pid,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(pid));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        pid[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        getchar();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; z &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n;z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;z&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; x,y;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            gets(buff);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(sscanf(buff,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s%d%d&amp;#34;&lt;/span&gt;,cmd,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;x,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;y)&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;//FORK command
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pid[x]){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#75715e&#34;&gt;//x exist
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    relation[x].push_back(y);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    pid[y] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }               
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                string act &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cmd;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(act &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;QUERY&amp;#34;&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pid[x]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        puts(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Yes&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        puts(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;No&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(act &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;KILL&amp;#34;&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#75715e&#34;&gt;//end all kids
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pid[x]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;(x&lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        killKids(x);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        pid[x] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; false;&lt;span style=&#34;color:#75715e&#34;&gt;//kill x
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }         
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>BOJ解题报告(2)-89-统计时间间隔</title>
+        <link>http://antarxly.com/posts/89/</link>
+        <pubDate>Tue, 07 Mar 2017 20:23:30 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/89/</guid>
+        <description>&lt;h1 id=&#34;题目描述&#34;&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;给出两个时间(24小时制)，求第一个时间至少要经过多久才能到达第二个时间。给出的时间一定满足的形式，其中x和y分别代表小时和分钟。0≤x&amp;lt;24,0≤y&amp;lt;60。&lt;/p&gt;
-&lt;h1 id="输入输出处理"&gt;输入输出处理
+&lt;h1 id=&#34;输入输出处理&#34;&gt;输入输出处理
 &lt;/h1&gt;&lt;p&gt;输入格式&lt;code&gt;hh:mm&lt;/code&gt;,也就是在数字时钟中最常见的24小时表示法, 对于这种输入形式, 可以仿照87题中的技巧通过 &lt;code&gt;scanf(&amp;quot;%d:%d&amp;quot;,&amp;amp;hh,&amp;amp;mm)&lt;/code&gt;的形式将时间和分钟分别复制到两个整形变量当中.&lt;/p&gt;
 &lt;p&gt;输出是最少经过的分钟数, 是一个整形变量,没有太多的技巧.&lt;/p&gt;
-&lt;h1 id="思路"&gt;思路
+&lt;h1 id=&#34;思路&#34;&gt;思路
 &lt;/h1&gt;&lt;p&gt;因为题目中要求输出的是分钟数,所以可以先将输入的两个时间换算成当天的分钟数,然后计算时间差就是所求.&lt;/p&gt;
 &lt;p&gt;要注意的是起始时间大于结束时间的时候, 求出&lt;code&gt;t1-t2&lt;/code&gt;要加上&lt;code&gt;24*60&lt;/code&gt;(一天的分钟数).&lt;/p&gt;
-&lt;h1 id="源代码"&gt;源代码
-&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&amp;lt;cstdio&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; T,x1,y1,x2,y2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;T);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(T&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d:%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;x1,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;y1);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d:%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;x2,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;y2);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; t1 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; x1&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;60&lt;/span&gt;&lt;span style="color:#f92672"&gt;+&lt;/span&gt;y1;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; t2 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; x2&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;60&lt;/span&gt;&lt;span style="color:#f92672"&gt;+&lt;/span&gt;y2;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; res &lt;span style="color:#f92672"&gt;=&lt;/span&gt; ((t2&lt;span style="color:#f92672"&gt;&amp;gt;=&lt;/span&gt;t1)&lt;span style="color:#f92672"&gt;?&lt;/span&gt;(t2&lt;span style="color:#f92672"&gt;-&lt;/span&gt;t1)&lt;span style="color:#f92672"&gt;:&lt;/span&gt;(t2&lt;span style="color:#f92672"&gt;-&lt;/span&gt;t1&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;24&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;60&lt;/span&gt;));
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; printf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;,res);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>BOJ 解题报告(1)-87-日期</title><link>http://antarxly.com/posts/87-cpp/</link><pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate><guid>http://antarxly.com/posts/87-cpp/</guid><description>&lt;h1 id="题目描述"&gt;题目描述
+&lt;h1 id=&#34;源代码&#34;&gt;源代码
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&amp;lt;cstdio&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; T,x1,y1,x2,y2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;T);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d:%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;x1,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;y1);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d:%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;x2,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;y2);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; t1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; x1&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;y1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; t2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; x2&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;y2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ((t2&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;t1)&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;(t2&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;t1)&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;(t2&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;t1&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,res);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>BOJ 解题报告(1)-87-日期</title>
+        <link>http://antarxly.com/posts/87-cpp/</link>
+        <pubDate>Tue, 07 Mar 2017 19:58:57 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/87-cpp/</guid>
+        <description>&lt;h1 id=&#34;题目描述&#34;&gt;题目描述
 &lt;/h1&gt;&lt;p&gt;请你计算出第X年Y月Z日是第X年的第几天。其中，1月1日是第一天，1月2日是第二天，以此类推。&lt;/p&gt;
 &lt;p&gt;计算时请注意闰年的影响。对于非整百年，年数能整除4是闰年，否则不是闰年；对于整百年，年数能整除400是闰年，否则不是闰年。如1900年和1901年不是闰年，而2000年和2004年是闰年。&lt;/p&gt;
-&lt;p&gt;&lt;a class="link" href="http://code.bupt.edu.cn/problem/p/87/" target="_blank" rel="noopener"
-&gt;题目链接&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id="思路"&gt;思路
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://code.bupt.edu.cn/problem/p/87/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;思路&#34;&gt;思路
 &lt;/h1&gt;&lt;p&gt;这是个典型的涉及闰年的日期问题, 要求解某一年是第几天.思路很直接,从月份入手,先计算前$ Y-1$个月一共有多少天,然后在加上这个月中这一天之前有多少天,就可以得到结果.&lt;/p&gt;
-&lt;h1 id="输入输出处理"&gt;输入输出处理
+&lt;h1 id=&#34;输入输出处理&#34;&gt;输入输出处理
 &lt;/h1&gt;&lt;p&gt;在所有 OJ 中,输入输出都是绕不过的坎,很多时候会因为输出处理不好而导致莫名其妙的 WA, 又有很多时候可以从输入格式中获得解题的灵感.&lt;/p&gt;
 &lt;p&gt;回到本题,输入格式为&lt;code&gt; X:Y:Z&lt;/code&gt;的形式, X,Y,Z 都是整数, 以冒号隔开.这不由得让我们想到了可以利用 scanf 的格式字段做&amp;quot;手脚&amp;quot;, 直接将 X, Y, Z 读入到整形变量当中进行后续的处理.所以有了以下代码来处理日期的输入.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; X,Y,Z;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d:%d:%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;X,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;Y,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;Z);
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; X,Y,Z;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d:%d:%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;X,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;Y,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;Z);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出方面,只需要输出天数,是一个整形变量,没有什么特别的技巧.&lt;/p&gt;
-&lt;h1 id="注意事项"&gt;注意事项
+&lt;h1 id=&#34;注意事项&#34;&gt;注意事项
 &lt;/h1&gt;&lt;p&gt;这部分描述题目中的&amp;quot;边沿&amp;quot;情况, 如果忽略这些情况,就会导致 WA&lt;/p&gt;
-&lt;h3 id="闰年的处理"&gt;闰年的处理
+&lt;h3 id=&#34;闰年的处理&#34;&gt;闰年的处理
 &lt;/h3&gt;&lt;p&gt;题目中也给出了提示.在代码中可以利用宏来判断闰年.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define ISYEAP(x) ((x%100!=0)&amp;amp;&amp;amp;(x%4==0))||(x%400==0)?1:0
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define ISYEAP(x) ((x%100!=0)&amp;amp;&amp;amp;(x%4==0))||(x%400==0)?1:0
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用宏的时候一定要注意, 编译器在编译的时候会将宏展开之后插到每一个调用宏的地方,为了避免由于运算符优先级问题带来奇奇怪怪的 bug, 建议前后用括号括起来,像这样&lt;code&gt;( ISYEA(X))&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id="一月份"&gt;一月份
+&lt;h3 id=&#34;一月份&#34;&gt;一月份
 &lt;/h3&gt;&lt;p&gt;1月份的时候,天数即为当日的日期,直接输出 Z 字段即可.&lt;/p&gt;
-&lt;h3 id="二月份"&gt;二月份
+&lt;h3 id=&#34;二月份&#34;&gt;二月份
 &lt;/h3&gt;&lt;p&gt;这也是个容易踩坑的地方,大家都知道闰年要算2月29天,但有时太匆忙的时候,会糊里糊涂把闰年1月2月的日期也会莫名其妙的加上了&amp;quot;1天&amp;quot;,导致 WA. 因此要单独处理.也可以通过构造合理的&lt;code&gt; if&lt;/code&gt; 语句和一月份的情况一起处理.&lt;/p&gt;
-&lt;h3 id="对每个月的日子进行预处理"&gt;对每个月的日子进行预处理
+&lt;h3 id=&#34;对每个月的日子进行预处理&#34;&gt;对每个月的日子进行预处理
 &lt;/h3&gt;&lt;p&gt;在程序开始之前可以定义一个数组储存每个月的天数, 计算日子时直接根据下标找到天数相加即可,可以减少代码量和运行时间.&lt;/p&gt;
 &lt;p&gt;预处理的时候要注意, c 语言的数组下标从0开始, 而月份是从1月开始,所以可以构造一个13个元素的数组并且让第一个元素值为0避免不必要的麻烦.&lt;/p&gt;
-&lt;h1 id="代码"&gt;代码
-&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c++" data-lang="c++"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#define ISYEAP(x) ((x%100!=0)&amp;amp;&amp;amp;(x%4==0))||(x%400==0)?1:0
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; daysOfMonth[&lt;span style="color:#ae81ff"&gt;13&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;28&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;31&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; T;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;T);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(T&lt;span style="color:#f92672"&gt;--&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; yy,mm,dd;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; days&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scanf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d:%d:%d&amp;#34;&lt;/span&gt;,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;yy,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;mm,&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;dd);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(mm&lt;span style="color:#f92672"&gt;==&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; days &lt;span style="color:#f92672"&gt;=&lt;/span&gt; dd;&lt;span style="color:#75715e"&gt;//special situation
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; }&lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;i&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;mm;i&lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; days&lt;span style="color:#f92672"&gt;+=&lt;/span&gt;daysOfMonth[i];
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; days&lt;span style="color:#f92672"&gt;+=&lt;/span&gt;dd;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(ISYEAP(yy)){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(mm&lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; days&lt;span style="color:#f92672"&gt;++&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; printf(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;,days);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>
+&lt;h1 id=&#34;代码&#34;&gt;代码
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define ISYEAP(x) ((x%100!=0)&amp;amp;&amp;amp;(x%4==0))||(x%400==0)?1:0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; daysOfMonth[&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; T;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;T);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; yy,mm,dd;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d:%d:%d&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;yy,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;mm,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;dd);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(mm&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            days &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dd;&lt;span style=&#34;color:#75715e&#34;&gt;//special situation
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;mm;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                days&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;daysOfMonth[i];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            days&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;dd;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(ISYEAP(yy)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(mm&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    days&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }                  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,days);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

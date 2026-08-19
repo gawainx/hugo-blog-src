@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。\n">
+<title>Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成</title>
+
+<link rel='canonical' href='http://antarxly.com/posts/grok-build-guide/'>
+
+<link rel="stylesheet" href="/scss/style.min.17c7f5c661ac90d076b92152a4ddcbb78c7b74003c0cdda3c44292c04225cc69.css"><meta property='og:title' content="Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成">
+<meta property='og:description' content="Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。\n">
+<meta property='og:url' content='http://antarxly.com/posts/grok-build-guide/'>
+<meta property='og:site_name' content='Antarx Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='AI工具' /><meta property='article:tag' content='Grok' /><meta property='article:tag' content='xAI' /><meta property='article:tag' content='CLI' /><meta property='article:tag' content='生产力' /><meta property='article:tag' content='MCP' /><meta property='article:published_time' content='2025-10-12T10:30:00&#43;08:00'/><meta property='article:modified_time' content='2025-10-12T10:30:00&#43;08:00'/>
+<meta name="twitter:title" content="Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成">
+<meta name="twitter:description" content="Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Antarx Blog</a></h1>
+            <h2 class="site-description">AI Infra | Vibe Coding | SwiftUI</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装命令">1. 安装命令</a>
+      <ul>
+        <li><a href="#macos--linux">macOS / Linux</a></li>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#首次启动与认证">首次启动与认证</a></li>
+      </ul>
+    </li>
+    <li><a href="#付费与使用限额重要现实考量">付费与使用限额（重要现实考量）</a>
+      <ul>
+        <li><a href="#当前实际情况基于官方用户指南">当前实际情况（基于官方用户指南）</a></li>
+        <li><a href="#真正的限额在哪里">真正的限额在哪里？</a></li>
+        <li><a href="#建议">建议</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-在项目中开始工作--迁移-claudemd-等-instructions">2. 在项目中开始工作 + 迁移 CLAUDE.md 等 Instructions</a>
+      <ul>
+        <li><a href="#自动加载项目规则最重要">自动加载项目规则（最重要）</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-如何配置-grok-自己的类似-claudemd-内容">3. 如何配置 Grok 自己的类似 CLAUDE.md 内容</a></li>
+    <li><a href="#4-技能skills使用创建管理修改">4. 技能（Skills）使用：创建、管理、修改</a>
+      <ul>
+        <li><a href="#skill-存放位置优先级从高到低">Skill 存放位置（优先级从高到低）</a></li>
+        <li><a href="#创建-skill-的两种方式">创建 Skill 的两种方式</a></li>
+        <li><a href="#管理与使用">管理与使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-如何接入-notion读取修改创建文档">5. 如何接入 Notion（读取、修改、创建文档）</a>
+      <ul>
+        <li><a href="#基本接入流程">基本接入流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-如何使用自定义命令">6. 如何使用自定义命令</a>
+      <ul>
+        <li><a href="#1-内置-slash-commands开箱即用">1. 内置 Slash Commands（开箱即用）</a></li>
+        <li><a href="#2-用户创建的-skills最推荐的自定义命令">2. 用户创建的 Skills（最推荐的自定义命令）</a></li>
+        <li><a href="#3-hooks事件驱动自动化">3. Hooks（事件驱动自动化）</a></li>
+        <li><a href="#4-plugins打包分发">4. Plugins（打包分发）</a></li>
+        <li><a href="#5-其他扩展方式">5. 其他扩展方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B7%A5%E5%85%B7/" >
+                工具
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/grok-build-guide/">Grok Build 完整使用指南：安装、项目规则、Skills 与 MCP 集成</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 12, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Grok Build 是 xAI 推出的终端 AI 编程助手（TUI），专注于软件工程任务。它可以读取代码、执行命令、编辑文件、搜索网络，并通过扩展机制（Skills、MCP、Hooks）高度定制。</p>
+<p>本文严格基于官方用户指南（<code>~/.grok/docs/user-guide/</code>）整理，覆盖安装、项目规则迁移、配置、Skills 自定义、Notion/MCP 集成以及自定义命令等核心使用方式。</p>
+<h2 id="1-安装命令">1. 安装命令
+</h2><h3 id="macos--linux">macOS / Linux
+</h3><p>推荐使用官方安装脚本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://x.ai/cli/install.sh | bash
+</span></span></code></pre></div><p>安装特定版本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://x.ai/cli/install.sh | bash -s 0.1.42
+</span></span></code></pre></div><h3 id="windows">Windows
+</h3><p>使用 PowerShell：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>irm https<span style="color:#960050;background-color:#1e0010">:</span>//x.ai/cli/install.ps1 | iex
+</span></span></code></pre></div><p>指定版本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:GROK_VERSION=<span style="color:#e6db74">&#34;0.1.42&#34;</span>; irm https<span style="color:#960050;background-color:#1e0010">:</span>//x.ai/cli/install.ps1 | iex
+</span></span></code></pre></div><p>安装后验证：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok --version
+</span></span><span style="display:flex;"><span>grok update   <span style="color:#75715e"># 随时更新</span>
+</span></span></code></pre></div><h3 id="首次启动与认证">首次启动与认证
+</h3><p>直接运行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok
+</span></span></code></pre></div><p>首次会打开浏览器登录 grok.com，凭证存储在 <code>~/.grok/auth.json</code>，token 有效期 7 天。</p>
+<p><strong>CI/CD 或无浏览器环境</strong> 推荐使用 API Key：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export XAI_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xai-你的密钥&#34;</span>
+</span></span><span style="display:flex;"><span>grok
+</span></span></code></pre></div><p>更多认证方式（OIDC、Device Code）详见官方 <code>02-authentication.md</code>。</p>
+<p>常用启动参数：</p>
+<ul>
+<li><code>grok --cwd ~/projects/my-app</code> 指定目录</li>
+<li><code>grok --yolo</code> 自动批准所有工具执行（谨慎使用）</li>
+<li><code>grok -p &quot;你的提示&quot;</code> <strong>无头模式</strong>（适合脚本/CI）</li>
+<li><code>grok -c</code> 继续上一次会话</li>
+</ul>
+<h2 id="付费与使用限额重要现实考量">付费与使用限额（重要现实考量）
+</h2><p>很多用户最关心的问题是：<strong>Grok Build 的使用限额如何查看？</strong> 是否像 Claude Code 或 Codex 那样，有清晰的“每 5 小时 / 每周”剩余额度面板？</p>
+<h3 id="当前实际情况基于官方用户指南">当前实际情况（基于官方用户指南）
+</h3><p>截至目前，<strong>Grok Build CLI/TUI 没有提供类似 Claude Code 或 Codex 的账户级使用量查询命令</strong>。</p>
+<ul>
+<li>没有 <code>grok usage</code>、<code>grok quota</code> 或 <code>/usage</code> 这类命令</li>
+<li><code>grok inspect</code>、<code>grok models</code> 等管理命令中也不包含账户额度信息</li>
+<li><code>/context</code> 和 <code>/session-info</code> 只能查看<strong>当前会话的技术指标</strong>（上下文窗口占用、已用 token 数、对话轮次），<strong>不代表你的账户整体剩余配额</strong></li>
+</ul>
+<h3 id="真正的限额在哪里">真正的限额在哪里？
+</h3><p>Grok Build 的使用额度与你的 <strong>grok.com 账户订阅等级</strong>（Free / SuperGrok / xAI Premium+ 等）或 <strong>console.x.ai API Key</strong> 的额度绑定。</p>
+<p>目前查看真实剩余额度的方式主要是：</p>
+<ol>
+<li>浏览器登录 <a class="link" href="https://grok.com"  target="_blank" rel="noopener"
+    >grok.com</a> 或 <a class="link" href="https://x.ai"  target="_blank" rel="noopener"
+    >x.ai</a> 账户后台查看</li>
+<li>使用 API Key 时，到 <a class="link" href="https://console.x.ai"  target="_blank" rel="noopener"
+    >console.x.ai</a> 查看对应 Key 的使用情况</li>
+<li>在高强度使用过程中，模型可能会主动提示你已接近限额</li>
+</ol>
+<h3 id="建议">建议
+</h3><ul>
+<li>如果你主要用于重度开发工作，建议提前了解自己账户的订阅等级对应的速率限制和重置周期。</li>
+<li>目前这部分信息在 Grok Build 终端内尚不透明，这是与 Claude Code、Codex 等工具在使用体验上的明显差异。</li>
+<li>未来版本是否会增加 <code>/usage</code> 或类似命令，建议关注官方更新或 release notes（可用 <code>/release-notes</code> 查看）。</li>
+</ul>
+<p>这个现实情况值得在开始大量使用前就了解清楚。</p>
+<h2 id="2-在项目中开始工作--迁移-claudemd-等-instructions">2. 在项目中开始工作 + 迁移 CLAUDE.md 等 Instructions
+</h2><p>进入项目目录后直接运行 <code>grok</code>，Grok 会自动理解当前代码库。</p>
+<h3 id="自动加载项目规则最重要">自动加载项目规则（最重要）
+</h3><p>Grok 会扫描以下文件并将其内容作为系统提示的一部分注入：</p>
+<ul>
+<li><code>Agents.md</code></li>
+<li><code>Claude.md</code></li>
+<li><code>AGENT.md</code></li>
+<li><code>AGENTS.md</code></li>
+</ul>
+<p><strong>发现顺序与优先级</strong>（越深优先级越高）：</p>
+<ol>
+<li>全局 <code>~/.grok/AGENTS.md</code></li>
+<li>Git 仓库根目录到当前目录之间的所有层级</li>
+<li>当前工作目录（CWD）</li>
+</ol>
+<p><strong>Claude.md 兼容</strong>：如果你之前使用 Claude Code 或类似工具写了很多 <code>CLAUDE.md</code>，可以<strong>直接重命名为 <code>Claude.md</code> 或 <code>AGENTS.md</code></strong>，Grok 会自动识别并加载，无需额外配置。</p>
+<p>推荐做法：</p>
+<ul>
+<li>把现有的 <code>CLAUDE.md</code> 内容迁移到项目根目录的 <code>AGENTS.md</code>（语义更清晰）</li>
+<li>或者保留 <code>Claude.md</code> 实现兼容</li>
+</ul>
+<p>Grok 还支持 <code>--rules &quot;额外指令&quot;</code> 在单次会话中追加规则（不修改文件）。</p>
+<h2 id="3-如何配置-grok-自己的类似-claudemd-内容">3. 如何配置 Grok 自己的类似 CLAUDE.md 内容
+</h2><p>除了 <code>AGENTS.md</code> 系列，Grok 还提供了更结构化的项目级配置目录：</p>
+<pre tabindex="0"><code>项目根目录/
+├── AGENTS.md                 # 主要规则（推荐）
+└── .grok/
+    ├── config.toml           # 项目级 MCP 服务器配置（仅此 section 有效）
+    ├── skills/               # 项目专用技能
+    ├── hooks/                # 项目生命周期钩子
+    └── plugins/              # 项目插件
+</code></pre><p><strong>关键规则</strong>：</p>
+<ul>
+<li><code>.grok/config.toml</code> 中<strong>只支持 <code>[mcp_servers]</code></strong> 部分，其他配置以用户全局 <code>~/.grok/config.toml</code> 为准。</li>
+<li>项目级文件优先级高于全局。</li>
+<li>每个 <code>AGENTS.md</code> 文件有 10,000 字符上限，建议保持简洁。</li>
+</ul>
+<p>示例 <code>AGENTS.md</code> 内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># 开发规范
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 所有函数必须有文档字符串
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 提交信息必须遵循 Conventional Commits
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 复杂任务（3 步以上）必须先写设计文档 + 开发计划
+</span></span></code></pre></div><p>这样配置后，每次在该项目启动 Grok 时，这些规则都会自动生效。</p>
+<h2 id="4-技能skills使用创建管理修改">4. 技能（Skills）使用：创建、管理、修改
+</h2><p><strong>Skill 是 Grok 最强大的自定义机制</strong>。一个 Skill 就是一个可复用的工作流程包，创建后会自动变成可通过 <code>/技能名</code> 调用的命令。</p>
+<h3 id="skill-存放位置优先级从高到低">Skill 存放位置（优先级从高到低）
+</h3><ul>
+<li><code>./.grok/skills/</code>（当前目录）</li>
+<li><code>&lt;repo_root&gt;/.grok/skills/</code>（仓库级，推荐团队共享）</li>
+<li><code>~/.grok/skills/</code>（用户全局）</li>
+</ul>
+<h3 id="创建-skill-的两种方式">创建 Skill 的两种方式
+</h3><p><strong>推荐方式（最简单）</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/skillify
+</span></span></code></pre></div><p>或</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/create-skill
+</span></span></code></pre></div><p>Grok 会：</p>
+<ul>
+<li>分析你当前会话中刚完成的工作流（From-session 模式），或</li>
+<li>引导你从零描述流程（From-scratch 模式）</li>
+</ul>
+<p>完成后会生成完整的 <code>SKILL.md</code>（含 YAML frontmatter），你可以预览并确认后再写入磁盘。</p>
+<p><strong>手动创建</strong>：</p>
+<p>在对应目录下创建文件夹和 <code>SKILL.md</code>，例如：</p>
+<pre tabindex="0"><code>.grok/skills/new-post/
+└── SKILL.md
+</code></pre><p><code>SKILL.md</code> 示例结构：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">new-post</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">为 Hugo 博客快速创建符合规范的新文章。Use when user wants to add a new blog post.</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 创建新文章步骤
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">1.</span> 询问文章标题、标签、分类
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">2.</span> 生成标准 frontmatter（含 date、draft=false 等）
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">3.</span> 在 content/posts/ 下创建文件
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">4.</span> 打开文件供用户编辑
+</span></span></code></pre></div><h3 id="管理与使用">管理与使用
+</h3><ul>
+<li><code>/skills</code> 查看所有可用技能</li>
+<li><code>/skills new-post</code> 将该技能注入当前上下文</li>
+<li>直接输入 <code>/new-post</code> 即可触发（如果名称唯一）</li>
+<li><code>grok inspect</code> 可查看所有技能来源和路径</li>
+</ul>
+<p><strong>最佳实践</strong>：</p>
+<ul>
+<li>描述要具体（这决定了是否自动触发）</li>
+<li>每个技能只做一类事</li>
+<li>项目技能提交到仓库</li>
+</ul>
+<h2 id="5-如何接入-notion读取修改创建文档">5. 如何接入 Notion（读取、修改、创建文档）
+</h2><p>Grok <strong>本身不内置 Notion 功能</strong>，而是通过 <strong>MCP (Model Context Protocol)</strong> 进行扩展。</p>
+<h3 id="基本接入流程">基本接入流程
+</h3><ol>
+<li>在 <code>~/.grok/config.toml</code>（或项目 <code>.grok/config.toml</code>）中配置 MCP 服务器：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">mcp_servers</span>.<span style="color:#a6e22e">notion</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">command</span> = <span style="color:#e6db74">&#34;npx&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">args</span> = [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@some/notion-mcp-server&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env</span> = { <span style="color:#a6e22e">NOTION_TOKEN</span> = <span style="color:#e6db74">&#34;secret_xxx&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>或使用 HTTP/SSE 方式（推荐托管服务）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">mcp_servers</span>.<span style="color:#a6e22e">notion</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://mcp.notion.example.com/mcp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>重启 Grok 或在 TUI 中使用 <code>/mcps</code> 管理面板启用服务器。</p>
+</li>
+<li>
+<p>在会话中使用两个内置工具发现和调用：</p>
+</li>
+</ol>
+<ul>
+<li><code>search_tool</code>：搜索可用的 MCP 工具</li>
+<li><code>use_tool</code>：调用具体工具（如 <code>notion__create_page</code>）</li>
+</ul>
+<p><strong>注意</strong>：官方用户指南中目前没有提供现成的 Notion MCP 配置示例。你需要自行寻找或搭建符合 MCP 标准的 Notion 服务器（社区已有多个实现）。</p>
+<h2 id="6-如何使用自定义命令">6. 如何使用自定义命令
+</h2><p>Grok 的“自定义命令”主要通过以下机制实现：</p>
+<h3 id="1-内置-slash-commands开箱即用">1. 内置 Slash Commands（开箱即用）
+</h3><p>常用示例：</p>
+<ul>
+<li><code>/new</code>（或 <code>/clear</code>）新建会话</li>
+<li><code>/compact</code> 压缩上下文</li>
+<li><code>/plan</code> 进入 Plan Mode（只读规划）</li>
+<li><code>/model grok-build</code> 切换模型</li>
+<li><code>/imagine 提示词</code> 生成图片</li>
+<li><code>/loop 5m 检查构建状态</code> 定时循环任务</li>
+<li><code>/skills</code>、<code>/plugins</code>、<code>/mcps</code>、<code>/hooks</code> 各类管理面板</li>
+</ul>
+<h3 id="2-用户创建的-skills最推荐的自定义命令">2. 用户创建的 Skills（最推荐的自定义命令）
+</h3><p>如第 4 节所述，创建的 Skill 会自动成为 <code>/命令名</code>。</p>
+<h3 id="3-hooks事件驱动自动化">3. Hooks（事件驱动自动化）
+</h3><p>在 <code>.grok/hooks/</code> 下放置 JSON 文件，可在 <code>SessionStart</code>、<code>PreToolUse</code>、<code>PostToolUse</code> 等生命周期事件执行自定义脚本或 HTTP 请求。</p>
+<p>典型用途：自动格式化代码、发送通知、危险命令拦截等。</p>
+<h3 id="4-plugins打包分发">4. Plugins（打包分发）
+</h3><p>把 Skills、Hooks、MCP 配置、LSP 配置打包成一个插件目录，通过 <code>grok mcp</code> 或配置文件安装，实现团队级自定义命令分发。</p>
+<h3 id="5-其他扩展方式">5. 其他扩展方式
+</h3><ul>
+<li>MCP 工具（外部服务能力）</li>
+<li>自定义模型（<code>[model.xxx]</code> 配置）</li>
+<li><code>/loop</code> 定时执行任意提示词</li>
+</ul>
+<hr>
+<h2 id="总结">总结
+</h2><p>Grok Build 的强大之处在于<strong>极强的可扩展性</strong>：</p>
+<ul>
+<li>用 <code>AGENTS.md</code> / <code>Claude.md</code> 注入项目规范</li>
+<li>用 <strong>Skills</strong> 把重复工作流变成一键命令</li>
+<li>用 <strong>MCP</strong> 把 Notion、GitHub、数据库等外部系统接入</li>
+<li>用 <strong>Hooks + Plugins</strong> 实现团队级自动化</li>
+</ul>
+<p>对于 Hugo 博客作者来说，可以快速打造专属工作流，例如：</p>
+<ul>
+<li><code>/new-post</code> 一键生成规范文章</li>
+<li><code>/hugo-check</code> 构建前 lint + 链接检查</li>
+<li>Notion MCP 实现“写作灵感 → 草稿 → 发布”全流程打通</li>
+</ul>
+<p><strong>建议下一步</strong>：</p>
+<ol>
+<li>在你的 Hugo 项目根目录创建 <code>AGENTS.md</code>，写入你的写作/构建规范</li>
+<li>尝试运行 <code>/skillify</code>，把你最常做的“写新文章”流程固化成技能</li>
+<li>根据需要配置感兴趣的 MCP 服务器</li>
+</ol>
+<p>所有信息均来源于 <code>~/.grok/docs/user-guide/</code> 下的官方文档，实际使用以你安装版本的最新文档为准。</p>
+<p>欢迎在评论区分享你用 Grok Build 打造的自定义工作流！</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ai%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+            <a href="/tags/grok/">Grok</a>
+        
+            <a href="/tags/xai/">XAI</a>
+        
+            <a href="/tags/cli/">CLI</a>
+        
+            <a href="/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/">生产力</a>
+        
+            <a href="/tags/mcp/">MCP</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Antarx Blog
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

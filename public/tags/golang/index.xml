@@ -1,94 +1,145 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Antarx Blog</title><link>http://antarxly.com/tags/golang/</link><description>Recent content in Golang on Antarx Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Jun 2018 21:17:51 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>golang/dep 包管理（一）原理</title><link>http://antarxly.com/posts/dep/</link><pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate><guid>http://antarxly.com/posts/dep/</guid><description>&lt;h1 id="golang-包依赖管理工具"&gt;Golang 包依赖管理工具
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Golang on Antarx Blog</title>
+        <link>http://antarxly.com/tags/golang/</link>
+        <description>Recent content in Golang on Antarx Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 12 Jun 2018 21:17:51 +0000</lastBuildDate><atom:link href="http://antarxly.com/tags/golang/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>golang/dep 包管理（一）原理</title>
+        <link>http://antarxly.com/posts/dep/</link>
+        <pubDate>Tue, 12 Jun 2018 21:17:51 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/dep/</guid>
+        <description>&lt;h1 id=&#34;golang-包依赖管理工具&#34;&gt;Golang 包依赖管理工具
 &lt;/h1&gt;&lt;p&gt;golang 一直以来一个为人诟病的问题就是没有完善可用的包管理工具（类比 java 的 gradle 和 maven，Python 的 pip，nodejs 的 npm），这与 golang 的追求简约高效的原则有关。golang 1.5版本之后引入了&lt;code&gt;vendor&lt;/code&gt;机制，1.8之后终于有了官方的包管理工具，&lt;code&gt;golang/dep&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://golang.github.io/dep/docs/assets/four-states.png"
-loading="lazy"
-alt="四元组架构"
+&lt;p&gt;&lt;img src=&#34;https://golang.github.io/dep/docs/assets/four-states.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;四元组架构&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;h2 id="相关链接"&gt;相关链接
-&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://supereagle.github.io/2017/10/05/golang-dep/" target="_blank" rel="noopener"
-&gt;Golang依赖管理工具：Dep - 乐金明的博客 | Robin Blog&lt;/a&gt;
-&lt;a class="link" href="https://golang.github.io/dep/docs/ensure-mechanics.html" target="_blank" rel="noopener"
-&gt;Models and Mechanisms · dep&lt;/a&gt;
-&lt;a class="link" href="https://github.com/golang/dep" target="_blank" rel="noopener"
-&gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description></item><item><title>go docker client 使用教程（二）</title><link>http://antarxly.com/posts/go-docker-02/</link><pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate><guid>http://antarxly.com/posts/go-docker-02/</guid><description>&lt;h1 id="docker-client-for-golang-使用教程二网络"&gt;Docker client for golang 使用教程（二）：网络
-&lt;/h1&gt;&lt;h2 id="端口绑定"&gt;端口绑定
+&lt;h2 id=&#34;相关链接&#34;&gt;相关链接
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://supereagle.github.io/2017/10/05/golang-dep/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Golang依赖管理工具：Dep - 乐金明的博客 | Robin Blog&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://golang.github.io/dep/docs/ensure-mechanics.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Models and Mechanisms · dep&lt;/a&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/golang/dep&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;golang/dep: Go dependency management tool&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>go docker client 使用教程（二）</title>
+        <link>http://antarxly.com/posts/go-docker-02/</link>
+        <pubDate>Fri, 01 Jun 2018 11:05:44 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/go-docker-02/</guid>
+        <description>&lt;h1 id=&#34;docker-client-for-golang-使用教程二网络&#34;&gt;Docker client for golang 使用教程（二）：网络
+&lt;/h1&gt;&lt;h2 id=&#34;端口绑定&#34;&gt;端口绑定
 &lt;/h2&gt;&lt;p&gt;将微服务放到 docker 容器中运行的时候，端口绑定是一个无可避免的问题。在 docker 命令行中，可以通过简单的&lt;code&gt;-p 8080:80&lt;/code&gt;解决问题。但在 golang client 中，问题却变得复杂起来。&lt;/p&gt;
 &lt;p&gt;首先来看创建容器的函数签名&lt;code&gt;func (cli *Client) ContainerCreate(ctx context.Context, config *container.Config, hostConfig *container.HostConfig, networkingConfig *network.NetworkingConfig, containerName string) (container.ContainerCreateCreatedBody, error)&lt;/code&gt;,client 把运行配置拆分成了&lt;code&gt;container.Config&lt;/code&gt; 和 &lt;code&gt;container.HostConfig&lt;/code&gt; ，也就是容器内部设置和宿主机设置两项。&lt;/p&gt;
 &lt;p&gt;要实现端口绑定，首先要在容器设置中设定暴露的端口（exposed ports）。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make(&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortSet&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;_&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NewPort&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;80&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;] = &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt;{}{}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// in config:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;cli&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ContainerCreate&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;ctx&lt;/span&gt;, &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Config&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;ExposedPorts&lt;/span&gt;:&lt;span style="color:#a6e22e"&gt;exports&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortSet&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewPort&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;] = &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;{}{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// in config:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cli&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ContainerCreate&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Config&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;ExposedPorts&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，在 host.config 中，设置Host 端口与容器暴露出来的端口的绑定。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make(&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortMap&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; make([]&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortBinding&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt; = append(&lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;nat&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;PortBinding&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;HostPort&lt;/span&gt;:&lt;span style="color:#e6db74"&gt;&amp;#34;8080&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;})
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;port&lt;/span&gt;] = &lt;span style="color:#a6e22e"&gt;pb&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//in Host.config&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;container&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;HostConfig&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;PortBindings&lt;/span&gt;:&lt;span style="color:#a6e22e"&gt;ports&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的&lt;img src="https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg"
-loading="lazy"
-alt="类型不匹配错误"
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortMap&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortBinding&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt; = append(&lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;nat&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;PortBinding&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;HostPort&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8080&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;] = &lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//in Host.config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HostConfig&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;PortBindings&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，在代码中就实现了端口绑定的操作。然而，如果只执行到这一步，编译器一般会报非常诡异的&lt;img src=&#34;https://antarx.cn/20180601160556_bNP72x_8DD0D6668316EECC0F8DCE8B1E8EEA76.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;类型不匹配错误&#34;
+	
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;参考&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
-&gt;go操作docker - 简书&lt;/a&gt;的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行&lt;code&gt;go get github.com/docker/go-connections/nat&lt;/code&gt; ，问题解决。&lt;/p&gt;
-&lt;h2 id="相关链接"&gt;相关链接
+&lt;p&gt;参考&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/283f32fc045a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;go操作docker - 简书&lt;/a&gt;的解决方法，删除gopath里面pkg下面docker的vendor里面相应的connections包，然后运行&lt;code&gt;go get github.com/docker/go-connections/nat&lt;/code&gt; ，问题解决。&lt;/p&gt;
+&lt;h2 id=&#34;相关链接&#34;&gt;相关链接
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="link" href="https://godoc.org/github.com/docker/docker/client#Client.ContainerCreate" target="_blank" rel="noopener"
-&gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="link" href="https://www.jianshu.com/p/283f32fc045a" target="_blank" rel="noopener"
-&gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>使用mage实现交叉编译</title><link>http://antarxly.com/posts/mage2/</link><pubDate>Mon, 23 Apr 2018 11:17:36 +0000</pubDate><guid>http://antarxly.com/posts/mage2/</guid><description>&lt;p&gt;golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 &lt;a class="link" href="https://github.com/mitchellh/gox" target="_blank" rel="noopener"
-&gt;gox&lt;/a&gt; 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是&lt;a class="link" href="https://magefile.org" target="_blank" rel="noopener"
-&gt;mage&lt;/a&gt;
-关于 mage 的基本安装和使用详见&lt;a class="link" href="" &gt;mage 使用教程(一)&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="golang-交叉编译的基本原理"&gt;golang 交叉编译的基本原理
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://godoc.org/github.com/docker/docker/client#Client.ContainerCreate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;client - GoDoc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/283f32fc045a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;go操作docker - 简书&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>使用mage实现交叉编译</title>
+        <link>http://antarxly.com/posts/mage2/</link>
+        <pubDate>Mon, 23 Apr 2018 11:17:36 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/mage2/</guid>
+        <description>&lt;p&gt;golang 为微服务的开发带来了无可比拟的便利。使用的时候也自然而言发现一些问题，因为 golang 不像 Java 有 Maven 这样的打包工具，而是直接编译成二进制可执行文件，所以在开发机（macOS）上编译出来的可执行文件是无法在服务器或者 docker 容器里运行的，如果把源代码提交上去服务器编译，又会带来重新下载依赖包的麻烦（golang 的包依赖关系管理方面的缺失是我认为 golang 为数不多的缺点之一）。最近一直在思考有没有类似 Makefile 的方式来解决这件事（如果只想交叉编译的话直接用 go build或者借助 &lt;a class=&#34;link&#34; href=&#34;https://github.com/mitchellh/gox&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gox&lt;/a&gt; 等工具也不是不可以，可还是，不够方便）。直到之前 ing 大神给我推荐了 Hugo 这个静态博客框架，虽然目前因为找不到合适的博客主题没有从 hexo 迁移过去，但看源代码的时候有了一个重要的收获，就是&lt;a class=&#34;link&#34; href=&#34;https://magefile.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mage&lt;/a&gt;
+关于 mage 的基本安装和使用详见&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;mage 使用教程(一)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;golang-交叉编译的基本原理&#34;&gt;golang 交叉编译的基本原理
 &lt;/h2&gt;&lt;p&gt;交叉编译的实现主要是依靠三个参数，&lt;code&gt;CGO_ENABLE&lt;/code&gt;,&lt;code&gt;GOOS&lt;/code&gt;,&lt;code&gt;GOARCH&lt;/code&gt;
 &lt;code&gt;CGO_ENABLE&lt;/code&gt;在源代码中使用 C/C++时必须开启，这样就无法实现交叉编译了，这部分代码还是得具体平台生成特定的代码。因此，交叉编译是在没有混编代码的前提下的。将&lt;code&gt;CGO_ENABLE&lt;/code&gt;设为0，表示关闭。
 &lt;code&gt;GOOS&lt;/code&gt;是目标操作系统，macOS 对应的是&lt;code&gt;darwin&lt;/code&gt;，Linux 平台对应的是&lt;code&gt;linux&lt;/code&gt;。
 &lt;code&gt;GOARCH&lt;/code&gt;是目标架构，一般设为&lt;code&gt;amd64&lt;/code&gt;
 按照如上所述设定要编译参数之后再执行&lt;code&gt;go build&lt;/code&gt;即可生成目标平台的代码。&lt;/p&gt;
-&lt;h2 id="实现"&gt;实现
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// +build mega&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// magefile.go&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Linux&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//设置环境变量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;= make(&lt;span style="color:#66d9ef"&gt;map&lt;/span&gt;[&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt;]&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;[&lt;span style="color:#e6db74"&gt;&amp;#34;CGO_ENABLE&amp;#34;&lt;/span&gt;] = &lt;span style="color:#e6db74"&gt;&amp;#34;0&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;[&lt;span style="color:#e6db74"&gt;&amp;#34;GOOS&amp;#34;&lt;/span&gt;] = &lt;span style="color:#e6db74"&gt;&amp;#34;linux&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;[&lt;span style="color:#e6db74"&gt;&amp;#34;GOARCH&amp;#34;&lt;/span&gt;] = &lt;span style="color:#e6db74"&gt;&amp;#34;amd64&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;name&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Sprintf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;%s-linux-%s&amp;#34;&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;prefix&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;VERSION&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//创建 bin 文件夹&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;os&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Mkdir&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0700&lt;/span&gt;); &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; !&lt;span style="color:#a6e22e"&gt;os&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;IsExist&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Errorf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;failed to create %s: %v&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;os&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Exit&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;path&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;filepath&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Join&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;name&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Building app for linux...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//运行构建命令&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;sh&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;RunWith&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;go&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;build&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;-o&amp;#34;&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;path&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;main.go&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;utils.go&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;RESTHandler.go&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;module.go&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Sucessfully Built.Output File: %s\n&amp;#34;&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;path&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在magefile所在文件夹输入 &lt;code&gt;mage linux&lt;/code&gt; 即可编译生成适用于 Linux 的运行文件。&lt;/p&gt;</description></item><item><title>mage 使用教程(一)</title><link>http://antarxly.com/posts/mage1/</link><pubDate>Mon, 23 Apr 2018 10:24:36 +0000</pubDate><guid>http://antarxly.com/posts/mage1/</guid><description>&lt;p&gt;Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。&lt;/p&gt;
-&lt;h2 id="安装"&gt;安装
+&lt;h2 id=&#34;实现&#34;&gt;实现
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// +build mega&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// magefile.go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Linux&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//设置环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;= make(&lt;span style=&#34;color:#66d9ef&#34;&gt;map&lt;/span&gt;[&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CGO_ENABLE&amp;#34;&lt;/span&gt;] = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GOOS&amp;#34;&lt;/span&gt;] = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;linux&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GOARCH&amp;#34;&lt;/span&gt;] = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;amd64&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Sprintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s-linux-%s&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;prefix&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;VERSION&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//创建 bin 文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Mkdir&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0700&lt;/span&gt;); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; !&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;IsExist&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Errorf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;failed to create %s: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Exit&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;filepath&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Join&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bin&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Building app for linux...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//运行构建命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sh&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;RunWith&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;go&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;build&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-o&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;main.go&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utils.go&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RESTHandler.go&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;module.go&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sucessfully Built.Output File: %s\n&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在magefile所在文件夹输入 &lt;code&gt;mage linux&lt;/code&gt; 即可编译生成适用于 Linux 的运行文件。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>mage 使用教程(一)</title>
+        <link>http://antarxly.com/posts/mage1/</link>
+        <pubDate>Mon, 23 Apr 2018 10:24:36 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/mage1/</guid>
+        <description>&lt;p&gt;Mage 是使用 golang 开发的类 Make的软件构建工具。借助这个工具只需要编写符合 golang 语言规范的代码就可以实现比较复杂的源代码编译。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装
 &lt;/h2&gt;&lt;p&gt;安装 mage 之前首先要安装 golang1.7或以上版本。安装好之后，执行以下代码&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go get -u -d github.com/magefile/mage
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd $GOPATH/src/github.com/magefile/mage
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go run bootstrap.go
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u -d github.com/magefile/mage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd $GOPATH/src/github.com/magefile/mage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go run bootstrap.go
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;编译完成之后，名为 mage 的可执行文件放在&lt;code&gt;$GOPATH/bin&lt;/code&gt;目录下，将&lt;code&gt;$GOPATH/bin&lt;/code&gt;加入到系统路径即可在终端中直接输入&lt;code&gt;mage&lt;/code&gt;运行软件。&lt;/p&gt;
-&lt;h2 id="第一个-magefile"&gt;第一个 Magefile
+&lt;h2 id=&#34;第一个-magefile&#34;&gt;第一个 Magefile
 &lt;/h2&gt;&lt;p&gt;Magefile 实质是符合 golang 语法的源代码，并且加入了特定的注记，规则如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在包名之前加入一行，&lt;code&gt;// +build mage&lt;/code&gt;&lt;/li&gt;
@@ -99,25 +150,41 @@ alt="类型不匹配错误"
 &lt;/ol&gt;
 &lt;p&gt;在任意目录输入&lt;code&gt;mage -init&lt;/code&gt;可以生成Magefile.go 模板代码。
 可以输入以下代码实验以上规则&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// +build mage&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//Build&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Build&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Building...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//Install&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Install&lt;/span&gt;(){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Installing...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="预备构建"&gt;预备，构建
-&lt;/h2&gt;&lt;p&gt;构建只需要一行代码&lt;code&gt;mage build&lt;/code&gt;，程序就会自动执行 &lt;code&gt;Build&lt;/code&gt; 函数，完成整个构建过程。&lt;/p&gt;</description></item><item><title>golang 处理 yaml 格式数据</title><link>http://antarxly.com/posts/goyaml/</link><pubDate>Wed, 11 Apr 2018 17:18:58 +0000</pubDate><guid>http://antarxly.com/posts/goyaml/</guid><description>&lt;p&gt;YAML 格式的数据常用来作为配置文件使用, 因此相对来说字段比较固定, 在 golang 中进行解析时跟上一篇提到的解析 json 数据有所区别&lt;/p&gt;
-&lt;h2 id=""&gt;
-&lt;/h2&gt;</description></item><item><title>redis的杂七杂八</title><link>http://antarxly.com/posts/redis/</link><pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate><guid>http://antarxly.com/posts/redis/</guid><description>&lt;p&gt;Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧&lt;/p&gt;
-&lt;h2 id="基本概念"&gt;基本概念
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// +build mage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//Build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Build&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Building...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//Install&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Install&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Installing...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;预备构建&#34;&gt;预备，构建
+&lt;/h2&gt;&lt;p&gt;构建只需要一行代码&lt;code&gt;mage build&lt;/code&gt;，程序就会自动执行 &lt;code&gt;Build&lt;/code&gt; 函数，完成整个构建过程。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>golang 处理 yaml 格式数据</title>
+        <link>http://antarxly.com/posts/goyaml/</link>
+        <pubDate>Wed, 11 Apr 2018 17:18:58 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/goyaml/</guid>
+        <description>&lt;p&gt;YAML 格式的数据常用来作为配置文件使用, 因此相对来说字段比较固定, 在 golang 中进行解析时跟上一篇提到的解析 json 数据有所区别&lt;/p&gt;
+&lt;h2 id=&#34;&#34;&gt;
+&lt;/h2&gt;</description>
+        </item>
+        <item>
+        <title>redis的杂七杂八</title>
+        <link>http://antarxly.com/posts/redis/</link>
+        <pubDate>Sun, 25 Feb 2018 23:09:10 +0000</pubDate>
+        
+        <guid>http://antarxly.com/posts/redis/</guid>
+        <description>&lt;p&gt;Redis 是目前应用比较广泛的数据库。最近的实验室项目中用到它作为实时数据库。把这个过程中学到的一些东西记录下来，权且作为小白的入门参考吧&lt;/p&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
 &lt;/h2&gt;&lt;p&gt;Redis 是一种基于内存的数据库，这意味着在使用过程中的所有数据都是存放在内存当中的，省去硬盘读写的过程使得对数据库的操作会非常的快，很适合并发。&lt;/p&gt;
 &lt;p&gt;Redis 的基本储存单位是&lt;code&gt;key-value&lt;/code&gt;，比 mongodb 中的“文档”的概念有着更细的粒度。&lt;code&gt;key&lt;/code&gt;部分一般是字符串类型，&lt;code&gt;value&lt;/code&gt;部分可以有以下五种类型：&lt;/p&gt;
 &lt;ol&gt;
@@ -127,76 +194,80 @@ alt="类型不匹配错误"
 &lt;li&gt;set。String 类型的无序集合。满足唯一性。&lt;/li&gt;
 &lt;li&gt;有序集合。set 的有序版本&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="命令行操作"&gt;命令行操作
-&lt;/h2&gt;&lt;h3 id="服务器server-端"&gt;服务器（server 端）
+&lt;h2 id=&#34;命令行操作&#34;&gt;命令行操作
+&lt;/h2&gt;&lt;h3 id=&#34;服务器server-端&#34;&gt;服务器（server 端）
 &lt;/h3&gt;&lt;p&gt;安装 Redis 之后，在命令行窗口输入&lt;code&gt;redis-server&lt;/code&gt;即可在本机运行一个radis 的 server 端，默认的端口是6379.&lt;/p&gt;
-&lt;h3 id="docker"&gt;Docker
+&lt;h3 id=&#34;docker&#34;&gt;Docker
 &lt;/h3&gt;&lt;p&gt;Redis 服务器端和其他主流数据库一样可以很方便的放到 Docker 容器里运行。&lt;/p&gt;
 &lt;p&gt;下载 Redis 镜像&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo docker pull redis
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo docker pull redis
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;基于 redis 镜像运行容器&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo docker run --name redis-server -p 6379:6379 -d redis
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo docker run --name redis-server -p 6379:6379 -d redis
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;镜像内部已经设置了运行&lt;code&gt;redis-server&lt;/code&gt;和监听6379端口，所以不需要额外的设置项，只需要在运行容器时将端口暴露出来（与宿主机的6379端口或者自己指定的端口绑定）就可以了&lt;/p&gt;
-&lt;h3 id="client-端"&gt;client 端
+&lt;h3 id=&#34;client-端&#34;&gt;client 端
 &lt;/h3&gt;&lt;p&gt;shell 界面下输入&lt;code&gt;redis-cli -h 127.0.0.1 -p 6379&lt;/code&gt;启动 redis-client。其中，&lt;code&gt;-h&lt;/code&gt;指定服务器的地址，&lt;code&gt;-p&lt;/code&gt;指定服务器的端口。&lt;/p&gt;
-&lt;h4 id="基本操作命令"&gt;基本操作命令
+&lt;h4 id=&#34;基本操作命令&#34;&gt;基本操作命令
 &lt;/h4&gt;&lt;p&gt;注意到，命令的操作字段是不区分大小写的。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;value 为 String 类型时。&lt;code&gt;set key value&lt;/code&gt;用于为 key 设置值为 value。 &lt;code&gt;get key&lt;/code&gt;用于获取键为 key 的值。&lt;/li&gt;
 &lt;li&gt;value 为 list类型时。&lt;code&gt;lpush key value1 [value2]…&lt;/code&gt;用于将一个或者多个值。 &lt;code&gt;LPOP key&lt;/code&gt;可以移出并获取列表的第一个元素。这两个操作换成&lt;code&gt;rpush&lt;/code&gt;和&lt;code&gt;rpop&lt;/code&gt;可以向列表尾部插入元素。&lt;code&gt;LLEN key&lt;/code&gt;可以获取 key 对应的列表的长度。&lt;code&gt;LRANGE key start stop&lt;/code&gt;用于获取特定key 的指定范围的元素，特别地，&lt;code&gt;LRANGE key 0 -1&lt;/code&gt;可以用来遍历列表。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;更加详细的命令教程可以参考&lt;a class="link" href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="noopener"
-&gt;Redis教程-菜鸟教程&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="编程语言支持"&gt;编程语言支持
-&lt;/h2&gt;&lt;h3 id="java"&gt;Java
+&lt;p&gt;更加详细的命令教程可以参考&lt;a class=&#34;link&#34; href=&#34;http://www.runoob.com/redis/redis-tutorial.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Redis教程-菜鸟教程&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;编程语言支持&#34;&gt;编程语言支持
+&lt;/h2&gt;&lt;h3 id=&#34;java&#34;&gt;Java
 &lt;/h3&gt;&lt;p&gt;在 Java 中主要通过 jedis 数据库驱动实现对 Redis 数据库的操作。&lt;/p&gt;
 &lt;p&gt;安装依赖&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;redis.clients&lt;span style="color:#f92672"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;jedis&lt;span style="color:#f92672"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.9.0&lt;span style="color:#f92672"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="jedispool和-jedisclient"&gt;JedisPool和 JedisClient
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;redis.clients&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;jedis&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.9.0&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;jedispool和-jedisclient&#34;&gt;JedisPool和 JedisClient
 &lt;/h4&gt;&lt;p&gt;jedis 使用 JedisPool 作为一个Redis连接池，用于解决对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题。&lt;/p&gt;
 &lt;p&gt;连接池初始化代码如下&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;public&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; JedisPool &lt;span style="color:#a6e22e"&gt;getPool&lt;/span&gt;(String host, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; port){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(pool &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; JedisPoolConfig config &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; JedisPoolConfig();
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;//设置最大连接数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; config.&lt;span style="color:#a6e22e"&gt;setMaxTotal&lt;/span&gt;(100);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; config.&lt;span style="color:#a6e22e"&gt;setMaxIdle&lt;/span&gt;(5);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(host &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; JedisPool(config, &lt;span style="color:#e6db74"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;, port);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; JedisPool(config, host, port);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; pool;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JedisPool &lt;span style=&#34;color:#a6e22e&#34;&gt;getPool&lt;/span&gt;(String host, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; port){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(pool &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            JedisPoolConfig config &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JedisPoolConfig();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;//设置最大连接数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            config.&lt;span style=&#34;color:#a6e22e&#34;&gt;setMaxTotal&lt;/span&gt;(100);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            config.&lt;span style=&#34;color:#a6e22e&#34;&gt;setMaxIdle&lt;/span&gt;(5);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(host &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JedisPool(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;, port);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JedisPool(config, host, port);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; pool;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要使用Client 时，使用&lt;code&gt;pool.getResource()&lt;/code&gt;方法获取单个JedisClient实例，在此基础上对 Redis 数据库进行操作。&lt;/p&gt;
-&lt;h3 id="golang"&gt;Golang
+&lt;h3 id=&#34;golang&#34;&gt;Golang
 &lt;/h3&gt;&lt;p&gt;Go 语言中用来连接 Redis 数据库的库五花八门，主要分两个派系，将对 Redis 的操作封装成方法的，开发者通过调用库的方法实现对 Redis 数据库的操作；另一派是直接将 Redis 命令作为字符串提供给库来实现各种操作的。&lt;/p&gt;
 &lt;p&gt;这里以&lt;code&gt;&amp;quot;github.com/garyburd/redigo/redis&amp;quot;&lt;/code&gt;为例。&lt;/p&gt;
 &lt;p&gt;安装依赖&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go get github.com/garyburd/redigo/redis
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/garyburd/redigo/redis
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;获取 redis pool实例&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;redis&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Pool&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;MaxIdle&lt;/span&gt;:&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;MaxActive&lt;/span&gt;:&lt;span style="color:#ae81ff"&gt;15&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;IdleTimeout&lt;/span&gt;:&lt;span style="color:#ae81ff"&gt;240&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;time&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Second&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;Dial&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;func&lt;/span&gt;() (&lt;span style="color:#a6e22e"&gt;redis&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Conn&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;c&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;redis&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Dial&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;redisURL&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;c&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; },
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;redis&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Pool&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;MaxIdle&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;MaxActive&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;IdleTimeout&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;240&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Second&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;Dial&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;() (&lt;span style=&#34;color:#a6e22e&#34;&gt;redis&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Conn&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;redis&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Dial&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;redisURL&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从 pool 中获取 Client 实例&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;rClient&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;redisPool&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;rClient&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;redisPool&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Get&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行操作&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;rClient&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Do&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;LPUSH&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;key&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;value&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。&lt;/p&gt;</description></item></channel></rss>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;rClient&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Do&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LPUSH&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Do 方法用于执行对 Redis 数据库的操作命令。方法的第一个参数字符串命令（就是在 shell 交互时的各种命令。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
