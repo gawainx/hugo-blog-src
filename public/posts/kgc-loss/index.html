@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。 Margin-based Loss 最早由TransE模型提出，之后绝大部分链接预测模型都采用这种损失函数。 基本形式 $$ \\mathcal{L} = \\sum_{(h,r,t) …">
 <title>知识图谱补全任务中的Loss函数</title>
 
 
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.5a1f34e432bf40b15dc4b05d5fb8057abc234d3d798c03051aef2027e09a0007.css"><meta property='og:title' content="知识图谱补全任务中的Loss函数">
-<meta property='og:description' content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。\n">
+<meta property='og:description' content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。 Margin-based Loss 最早由TransE模型提出，之后绝大部分链接预测模型都采用这种损失函数。 基本形式 $$ \\mathcal{L} = \\sum_{(h,r,t) …">
 <meta property='og:url' content='http://antarxly.com/posts/kgc-loss/'>
 <meta property='og:site_name' content='Antarx Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Typora' /><meta property='article:tag' content='Markdown' /><meta property='article:published_time' content='2021-08-11T16:39:43&#43;00:00'/><meta property='article:modified_time' content='2021-08-11T16:39:43&#43;00:00'/>
 <meta name="twitter:title" content="知识图谱补全任务中的Loss函数">
-<meta name="twitter:description" content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。\n">
+<meta name="twitter:description" content="本篇汇总知识图谱补全任务（知识图谱链接预测任务）中的损失函数。因为链接预测任务是一个排序任务，因此loss的选择会影响最后排序的规则。 Margin-based Loss 最早由TransE模型提出，之后绝大部分链接预测模型都采用这种损失函数。 基本形式 $$ \\mathcal{L} = \\sum_{(h,r,t) …">
     </head>
     <body class="
     article-page
