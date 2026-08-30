@@ -60,7 +60,16 @@ showTags = false
 enabled = false
 
 [params.comments]
-enabled = false
+enabled = true
+provider = "waline"
+
+[params.comments.waline]
+serverURL = "https://my-waline-repo-seven.vercel.app/"
+lang = "zh-CN"
+pageview = true
+requiredMeta = ["nick"]
+login = "disable"
+wordLimit = 1000
 
 [params.cookies]
 enabled = false

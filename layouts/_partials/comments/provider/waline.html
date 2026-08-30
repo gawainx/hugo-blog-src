@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+
+<div id="waline" class="waline-container"></div>
+
+<style>
+    .waline-container {
+        padding: 0;
+        --waline-font-size: var(--article-font-size);
+        --waline-theme-color: var(--accent-color);
+        --waline-active-color: var(--accent-color-darker);
+        --waline-badge-color: var(--accent-color);
+    }
+
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+
+    .waline-container .wl-btn.primary {
+        color: var(--accent-color-text);
+    }
+</style>
+
+{{- with .Site.Params.comments.waline -}}
+{{- $config := dict "el" "#waline" "dark" `html[data-scheme="dark"]` -}}
+{{- $replaceKeys := dict "serverurl" "serverURL" "requiredmeta" "requiredMeta" "wordlimit" "wordLimit" "pagesize" "pageSize" "imageuploader" "imageUploader" "texrenderer" "texRenderer" "turnstilekey" "turnstileKey" "recaptchav3key" "recaptchaV3Key" -}}
+
+{{- range $key, $val := . -}}
+    {{- if ne $val nil -}}
+        {{- $config = merge $config (dict (default $key (index $replaceKeys $key)) $val) -}}
+    {{- end -}}
+{{- end -}}
+
+<script type="module">
+    import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+
+    init({{ $config | jsonify | safeJS }});
+</script>
+{{- end -}}
