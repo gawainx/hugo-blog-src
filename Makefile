@@ -1,14 +1,22 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help post
+.PHONY: help new
+
+post_name := $(filter-out new,$(MAKECMDGOALS))
 
 help:
-	@printf '%s\n' 'Create a post with: make post name=your-post-slug'
+	@printf '%s\n' 'Create a post with: make new your-post-slug'
 
-post:
-	@post_name="$(name)"; \
-	case "$$post_name" in \
-		""|/*|*..*) printf '%s\n' 'Usage: make post name=your-post-slug' >&2; exit 2 ;; \
+new:
+	@set -- $(post_name); \
+	if [ "$$#" -ne 1 ]; then \
+		printf '%s\n' 'Usage: make new your-post-slug' >&2; exit 2; \
+	fi; \
+	case "$$1" in \
+		/*|*..*) printf '%s\n' 'Usage: make new your-post-slug' >&2; exit 2 ;; \
 	esac; \
-	printf '%s\n' "Creating content/posts/$$post_name.md"; \
-	hugo new "posts/$$post_name.md"
+	hugo new content "posts/$$1.md" && \
+	printf '%s\n' "Created: content/posts/$$1.md"
+
+%:
+	@:
