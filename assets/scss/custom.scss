@@ -13,3 +13,44 @@
     --accent-color-darker: #9adaf6;
     --accent-color-text: #001a2b;
 }
+
+.friend-links {
+    margin-top: var(--section-separation);
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid var(--card-separator-color);
+    }
+
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--spacing-md);
+        padding: 18px 0;
+        border-bottom: 1px solid var(--card-separator-color);
+    }
+
+    a {
+        color: var(--accent-color);
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-decoration: none;
+
+        &::after {
+            content: " ↗";
+            font-size: 1.4rem;
+        }
+
+        &:hover {
+            color: var(--accent-color-darker);
+        }
+    }
+
+    span {
+        color: var(--card-text-color-secondary);
+        line-height: 1.6;
+    }
+}

@@ -1,0 +1,14 @@
+<section class="friend-links" aria-label="友情链接">
+    <ul>
+        {{ range $link := .Params.links }}
+        <li>
+            <a href="{{ $link.website }}" target="_blank" rel="noopener noreferrer">
+                {{- $link.title -}}
+            </a>
+            {{ with $link.description }}
+            <span>{{ . }}</span>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+</section>
